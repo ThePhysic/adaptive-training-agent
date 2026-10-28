@@ -120,7 +120,10 @@ operated; hosted observability is disabled and optional.
 | [Engineering history](docs/engineering-history.md) | Historical acceptance and milestone records |
 | [Publication review](docs/implementation/f5-d2-publication-safety.md) | Privacy, scope, licensing and history decisions still required |
 
-The source is prepared for review, **not authorized for publication**. No repository
-license has been selected; dependency and distribution obligations need owner
-review. Keep credentials, caches, state, private evaluation material and AGENTS.md
-out of public artifacts. The review ZIP is not publication permission.
+Project-owned source is licensed under the [MIT License](LICENSE), copyright
+2026 ThePhysic. The license is prepared locally and is not yet committed or uploaded.
+Third-party components retain their own licenses; see [third-party notices](THIRD_PARTY_NOTICES.md)
+and the [distribution decision register](_release/F5-D6-LICENSING-DECISIONS.md).
+The source remains **not authorized for publication**. Keep credentials, caches,
+state, private evaluation material and AGENTS.md out of review artifacts. Neither
+the MIT selection nor a private repository authorizes uploading this source.
