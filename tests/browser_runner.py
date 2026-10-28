@@ -3,9 +3,38 @@
 import ctypes
 import json
 import os
+import re
 import signal
+import stat
 import subprocess
 import tempfile
+
+
+class BrowserVersionFailure(RuntimeError):
+    """Finite diagnostics only; child output, paths and exception text stay private."""
+
+    REASONS = frozenset(
+        {
+            "executable_not_found",
+            "launch_failed",
+            "timeout",
+            "nonzero_exit",
+            "empty_stdout",
+            "unexpected_stdout_format",
+            "unsupported_version",
+            "capture_overflow",
+            "ownership_failed",
+            "process_failed",
+        }
+    )
+
+    def __init__(self, reason):
+        super().__init__("browser_version_unavailable")
+        self.reason = reason if reason in self.REASONS else "process_failed"
+
+
+class ProcessLaunchFailure(RuntimeError):
+    """Raised only when Popen failed; no child output or OS error text."""
 
 
 class WindowsJob:
@@ -88,15 +117,18 @@ def owned_process(command, *, cwd, env, timeout, release=None):
     try:
         with tempfile.TemporaryFile() as output, tempfile.TemporaryFile() as errors:
             try:
-                process = subprocess.Popen(
-                    command,
-                    cwd=cwd,
-                    env=env,
-                    stdin=subprocess.PIPE,
-                    stdout=output,
-                    stderr=errors,
-                    start_new_session=os.name != "nt",
-                )
+                try:
+                    process = subprocess.Popen(
+                        command,
+                        cwd=cwd,
+                        env=env,
+                        stdin=subprocess.PIPE,
+                        stdout=output,
+                        stderr=errors,
+                        start_new_session=os.name != "nt",
+                    )
+                except OSError:
+                    raise ProcessLaunchFailure("browser_process_launch_failed") from None
                 if job:
                     job.attach(process.pid)
                     attached = True
@@ -120,13 +152,17 @@ def owned_process(command, *, cwd, env, timeout, release=None):
             errors.seek(0)
             stdout, stderr = output.read(16385), errors.read(16385)
             if timed_out:
-                return subprocess.CompletedProcess(
+                result = subprocess.CompletedProcess(
                     command, 1, b"", b'{"failure":"browser_owner_timeout"}'
                 )
+                result.capture_failure = "timeout"
+                return result
             if len(stdout) > 16384 or len(stderr) > 16384:
-                return subprocess.CompletedProcess(
+                result = subprocess.CompletedProcess(
                     command, 1, b"", b'{"failure":"browser_output_oversized"}'
                 )
+                result.capture_failure = "capture_overflow"
+                return result
             return subprocess.CompletedProcess(command, process.returncode, stdout, stderr)
     finally:
         if job:
@@ -166,15 +202,56 @@ def chrome_version(executable, *, cwd, env):
         return ".".join(
             str(x) for x in (info[2] >> 16, info[2] & 65535, info[3] >> 16, info[3] & 65535)
         )
-    import re
+    return _command_chrome_version(executable, cwd=cwd, env=env)
 
-    result = owned_process([executable, "--version"], cwd=cwd, env=env, timeout=5)
+
+def _command_chrome_version(executable, *, cwd, env):
+    """Non-Windows version probe; unchanged command, five-second bound and grammar."""
+    if not executable:
+        raise BrowserVersionFailure("executable_not_found")
+    try:
+        regular = stat.S_ISREG(os.stat(executable).st_mode)
+    except FileNotFoundError:
+        raise BrowserVersionFailure("executable_not_found") from None
+    except OSError:
+        raise BrowserVersionFailure("process_failed") from None
+    if not regular:
+        raise BrowserVersionFailure("launch_failed")
+    try:
+        result = owned_process([executable, "--version"], cwd=cwd, env=env, timeout=5)
+    except ProcessLaunchFailure:
+        raise BrowserVersionFailure("launch_failed") from None
+    except RuntimeError as error:
+        reason = "ownership_failed" if str(error) == "browser_owner_failed" else "process_failed"
+        raise BrowserVersionFailure(reason) from None
+    except Exception:
+        # Cleanup/other process failures remain uncertain; never infer HTTP or auth status.
+        raise BrowserVersionFailure("process_failed") from None
+    capture_failure = getattr(result, "capture_failure", None)
+    if capture_failure in {"timeout", "capture_overflow"}:
+        raise BrowserVersionFailure(capture_failure)
+    if len(result.stdout) > 16384 or len(result.stderr) > 16384:
+        raise BrowserVersionFailure("capture_overflow")
+    if result.returncode != 0:
+        raise BrowserVersionFailure(
+            "nonzero_exit" if result.returncode is not None else "process_failed"
+        )
+    if not result.stdout.strip():
+        raise BrowserVersionFailure("empty_stdout")
     match = re.fullmatch(
         rb"(?:Google Chrome(?: for Testing)?|Chromium) (\d{1,3}\.\d{1,4}\.\d{1,6}\.\d{1,6})\s*",
         result.stdout,
     )
-    if result.returncode or not match:
-        raise RuntimeError("browser_version_unavailable")
+    if not match:
+        numeric = re.fullmatch(
+            rb"(?:Google Chrome(?: for Testing)?|Chromium) \d+\.\d+\.\d+\.\d+\s*",
+            result.stdout,
+        )
+        # No minimum supported Chrome version is established here. This category
+        # means the existing numeric representation bounds were exceeded.
+        raise BrowserVersionFailure(
+            "unsupported_version" if numeric else "unexpected_stdout_format"
+        )
     return match[1].decode("ascii")
 
 
@@ -229,6 +306,18 @@ def run_browser(root, base, executable, env):
             raise ValueError()
         return subprocess.CompletedProcess(
             result.args, result.returncode, result.stdout.decode(), result.stderr.decode()
+        )
+    except BrowserVersionFailure as error:
+        return subprocess.CompletedProcess(
+            [],
+            1,
+            "",
+            json.dumps(
+                {
+                    "failure": "browser_version_unavailable",
+                    "versionPreflight": {"reason": error.reason},
+                }
+            ),
         )
     except (
         ValueError,
