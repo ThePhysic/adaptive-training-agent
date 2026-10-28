@@ -65,11 +65,15 @@ The browser performs the actual controls in this order:
 
 Success prints zero runtime/external-page errors, same-key recovery booleans and
 structural SQL counts: one plan, one approval key, one audit, two session records
-and two session keys. Health/readiness are 200 against the owned schema. Three
-`docs/implementation/evidence/f5-d1-*.png` screenshots show desktop, mobile and the
-injected mobile Save error. Repeating this demonstration refreshes only those
-F5-D1 screenshots, not old evidence. A failing command must be investigated; do not
-skip assertions, reset approval state or rerun an uncertain real operation.
+and two session keys. Health/readiness are 200 against the owned schema.
+The tracked `docs/implementation/evidence/f5-d1-*.png` files are historical desktop,
+mobile and injected mobile Save-error evidence. Fresh runs preserve those bytes
+and write three PNGs under a new ignored `.cache/browser-evidence/<UUID>/` directory.
+The successful harness JSON prints their actual repository-relative paths in its
+`screenshots` array; use those reported paths to inspect the new run. The evidence
+stage selects the filename prefix, not an arbitrary output destination. No automatic
+copy into tracked historical evidence occurs. A failing command must be investigated;
+do not skip assertions, reset approval state or rerun an uncertain real operation.
 
 ## Optional hands-on application
 

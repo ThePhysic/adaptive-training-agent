@@ -2,8 +2,41 @@
 
 Evidence types: **A** = actual local application demonstration; **B** = automated
 regression; **C** = synthetic provider/dummy experiment; **D** = planned/unexecuted.
-F5-D1 results are accepted historical evidence, not tests rerun for F5-D2. Fresh
-F5-D2 commands/results are recorded in its [handoff](implementation/f5-d2-handoff.md).
+F5-D1/F5-D2 results below remain accepted historical evidence; F5-D2 commands are
+recorded in its [handoff](implementation/f5-d2-handoff.md). The following hosted
+verification is accepted F5-D10 evidence, not a fresh F5-D12 execution claim.
+
+## Accepted F5-D10 hosted verification
+
+[Run 40765462914](https://github.com/ThePhysic/adaptive-training-agent/actions/runs/40765462914)
+completed successfully on Ubuntu 24.04 for exact commit
+`a74e10c41fca740770428f4fdcff9b9f83c7c5bf`, push event, attempt 1.
+The job took **6m31s**. All mandatory phases executed successfully.
+
+| Population / phase | Accepted result | Interpretation |
+| --- | --- | --- |
+| Routine Python | 2,227 passed, 7 Windows-only skips, 403 deselected | Expected platform skips; no failed tests |
+| Installed-browser workflow | 1 passed | Actual Chrome, built React, loopback FastAPI and disposable native PostgreSQL; fake generation |
+| PostgreSQL/HTTP/TLS/fault integration | 402 passed, 2,234 deselected | No skipped/failed integration tests; not every test is a PostgreSQL test |
+| Frontend | 138 passed; production build passed | TypeScript, formatting and generated API/validator checks passed |
+| Isolated Langfuse SDK | 16 passed, 6 warnings | Offline compatibility; no hosted telemetry evidence |
+| Frozen software baseline | 40/40 | Exposed software-regression fixtures, not genuine unseen quality |
+| Expected comparison dispositions | 150/150 | Template/fake/replay handling, with intentional hard failures retained |
+| Frozen-artifact and contract guard | Passed | Existing frozen/generated assets preserved |
+| Container release and backup/restore | Passed | Synthetic local fault/restart/recovery/restore and compatible rollback; no production recovery guarantee |
+
+These populations are reported separately. Do not sum them with overlapping local
+selections or earlier milestones to inflate distinct test totals. Actual app
+execution used synthetic profiles and provider responses; counts, dummy judgments
+and synthetic liabilities establish no real-model quality or provider billing.
+
+The earlier [F5-D8 run](https://github.com/ThePhysic/adaptive-training-agent/actions/runs/40757298712)
+failed with `browser_version_unavailable` before its UI journey. Its native cause
+remains unknown. F5-D10 succeeded after finite diagnostic classifications were
+added; no version-grammar relaxation or timeout increase established a root-cause
+fix. That earlier failure remains historical evidence.
+
+## Detailed engineering claims
 
 | Claim and practical limit | Type | Specific evidence |
 | --- | --- | --- |

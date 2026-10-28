@@ -9,6 +9,10 @@ uses a deterministic fake provider. A separate experiment exercises counted
 Responses replay, accounting and evaluation. Real-model quality, independent human
 judgments, clinical effectiveness and production deployment have not been established.
 
+This is the curated, source-only [portfolio repository](https://github.com/ThePhysic/adaptive-training-agent).
+Its accepted F5-D10 source was uploaded privately; the original development
+repository and its historical/private records are preserved separately.
+
 <details>
 <summary>View the verified local workspace</summary>
 
@@ -63,7 +67,9 @@ recovery → durable readback → refresh → owner isolation. It uses a disposa
 schema, not the existing application records. Read the
 [complete demonstration runbook](docs/local-demonstration.md) first for environment
 flags, cleanup, supported platforms and a separate hands-on container window.
-That reproduction updates only its named demonstration screenshots.
+Fresh screenshots go to ignored `.cache/browser-evidence/<UUID>/` directories.
+The successful harness JSON reports their relative paths in `screenshots`; tracked
+historical PNGs are preserved.
 
 First-time setup requires dependency/image acquisition; it is not an air-gapped
 install. Use the pinned [setup instructions](docs/runbook.md#acquire-the-pinned-environment-once).
@@ -71,8 +77,8 @@ See the [four-minute recording guide](docs/portfolio-walkthrough.md) for present
 
 ## Evidence and reproducibility
 
-F5-D1 freshly demonstrated the integrated application twice and exercised native
-recovery/restore. Its accepted evidence records **2,598 distinct selected Python
+F5-D1 demonstrated the integrated application twice and exercised native
+recovery/restore. Its accepted historical evidence records **2,598 distinct selected Python
 tests**, **131 frontend tests**, the frozen **40/40** software baseline and **150/150**
 expected template/fake/replay handling dispositions. Counts establish tested
 software behavior, not fitness benefit or model quality.
@@ -89,9 +95,17 @@ name concurrency, warm-up, timings and host contention; these are not LLM latenc
 
 The shared check runner builds/tests the frontend, checks contracts/lint and runs
 the routine offline suite. Native SQL/browser tests and release recovery are
-separate opt-ins in the runbook. CI configuration is prepared; the current expanded
-source still requires a separately authorized hosted verification. No green badge
-or hosted run is claimed here. See [release readiness](docs/portfolio-readiness.md).
+separate opt-ins in the runbook. Accepted F5-D10 [hosted CI](https://github.com/ThePhysic/adaptive-training-agent/actions/runs/40765462914)
+passed all mandatory phases at commit
+`a74e10c41fca740770428f4fdcff9b9f83c7c5bf`: the installed-browser workflow,
+PostgreSQL/HTTP/TLS/fault integration, frontend build, frozen-artifact guard,
+isolated SDK checks and container release/restore drill. See the
+[phase counts and limits](docs/engineering-evidence.md#accepted-f5-d10-hosted-verification).
+These results are separate from overlapping local/historical test populations.
+The earlier [F5-D8 run](https://github.com/ThePhysic/adaptive-training-agent/actions/runs/40757298712)
+failed its browser-version preflight; its underlying cause remains unknown.
+Current [release readiness](docs/portfolio-readiness.md) separates source publication
+from deferred runtime distribution and genuine evaluation.
 
 ## Boundaries and deferred work
 
@@ -118,12 +132,14 @@ operated; hosted observability is disabled and optional.
 | `tests/` / `scripts/` | Offline regressions, builds, demonstrations and source checks |
 | [Evidence map](docs/engineering-evidence.md) | Specific claims, tests and evidence types |
 | [Engineering history](docs/engineering-history.md) | Historical acceptance and milestone records |
-| [Publication review](docs/implementation/f5-d2-publication-safety.md) | Privacy, scope, licensing and history decisions still required |
+| [Historical publication review](docs/implementation/f5-d2-publication-safety.md) | Dated findings; see [current source readiness](docs/portfolio-readiness.md) for resolved items and remaining scope |
 
-Project-owned source is licensed under the [MIT License](LICENSE), copyright
-2026 ThePhysic. The license is prepared locally and is not yet committed or uploaded.
-Third-party components retain their own licenses; see [third-party notices](THIRD_PARTY_NOTICES.md)
-and the [distribution decision register](_release/F5-D6-LICENSING-DECISIONS.md).
-The source remains **not authorized for publication**. Keep credentials, caches,
-state, private evaluation material and AGENTS.md out of review artifacts. Neither
-the MIT selection nor a private repository authorizes uploading this source.
+Project-owned material is licensed under the committed [MIT License](LICENSE),
+copyright 2026 ThePhysic. Third-party components retain their own licenses; see
+[third-party notices](THIRD_PARTY_NOTICES.md) and the
+[distribution decision register](_release/F5-D6-LICENSING-DECISIONS.md).
+The MIT grant is not conditional on the project's internal approval procedures.
+Maintainer-operated provider, spending, cloud and genuine-evaluation workflows
+remain separately gated; those controls do not add restrictions to the MIT grant.
+This source-only scope does not establish notice/compliance readiness for distributing
+bundled dependencies, installed environments or container images.
