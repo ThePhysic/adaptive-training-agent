@@ -1,0 +1,16 @@
+{
+  "exercise_id": "synthetic-timed-record",
+  "title": "Synthetic schema fixture; not an exercise recommendation",
+  "goals": ["general_conditioning"],
+  "mode": "timed",
+  "equipment": "bodyweight",
+  "experiences": ["beginner", "intermediate"],
+  "exclusion_tags": ["fixture_only"],
+  "provenance": {
+    "origin": "original",
+    "attribution": "Future Adaptive Training Agent project",
+    "license": "Original project-authored synthetic test metadata; no third-party content",
+    "source_reference": "data/catalog-provenance-seed.json"
+  },
+  "catalog_revision": "schema-fixture-v1"
+}

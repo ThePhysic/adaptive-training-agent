@@ -1,0 +1,27 @@
+{
+  "id": "resp-synthetic",
+  "incomplete_details": {
+    "reason": "max_output_tokens"
+  },
+  "model": "gpt-6.1-sol",
+  "object": "response",
+  "output": [],
+  "service_tier": "default",
+  "status": "incomplete",
+  "usage": {
+    "input_tokens": 1000,
+    "input_tokens_details": {
+      "cache_write_tokens": 300,
+      "cache_write_tokens_details": {
+        "ttl_12h_tokens": 0,
+        "ttl_30m_tokens": 300
+      },
+      "cached_tokens": 200
+    },
+    "output_tokens": 100,
+    "output_tokens_details": {
+      "reasoning_tokens": 20
+    },
+    "total_tokens": 1100
+  }
+}

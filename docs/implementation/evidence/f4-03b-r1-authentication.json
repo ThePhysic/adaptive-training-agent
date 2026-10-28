@@ -1,0 +1,74 @@
+{
+  "evidence": "native_Terraform_AWS_provider_synthetic_process_local_STS",
+  "terraform": "1.17.0",
+  "provider": "6.70.0",
+  "network": "none; loopback only",
+  "real_credentials_or_AWS_calls": false,
+  "remote_backend_exercised": false,
+  "cases": [
+    {
+      "mode": "valid",
+      "exit_code": 0,
+      "process_invocations": 1,
+      "loopback_STS_requests": 2,
+      "expected_outcome": true,
+      "credentials_in_captured_Terraform_output": false
+    },
+    {
+      "mode": "valid_env_selection",
+      "exit_code": 0,
+      "process_invocations": 1,
+      "loopback_STS_requests": 2,
+      "expected_outcome": true,
+      "credentials_in_captured_Terraform_output": false
+    },
+    {
+      "mode": "failed",
+      "exit_code": 1,
+      "process_invocations": 1,
+      "loopback_STS_requests": 0,
+      "expected_outcome": true,
+      "credentials_in_captured_Terraform_output": false
+    },
+    {
+      "mode": "malformed",
+      "exit_code": 1,
+      "process_invocations": 1,
+      "loopback_STS_requests": 0,
+      "expected_outcome": true,
+      "credentials_in_captured_Terraform_output": false
+    },
+    {
+      "mode": "unsupported_version",
+      "exit_code": 1,
+      "process_invocations": 1,
+      "loopback_STS_requests": 0,
+      "expected_outcome": true,
+      "credentials_in_captured_Terraform_output": false
+    },
+    {
+      "mode": "missing_profile",
+      "exit_code": 1,
+      "process_invocations": 0,
+      "loopback_STS_requests": 0,
+      "expected_outcome": true,
+      "credentials_in_captured_Terraform_output": false
+    },
+    {
+      "mode": "login_missing_cache",
+      "exit_code": 1,
+      "process_invocations": 0,
+      "loopback_STS_requests": 0,
+      "expected_outcome": true,
+      "credentials_in_captured_Terraform_output": false
+    },
+    {
+      "mode": "login_cached",
+      "exit_code": 0,
+      "process_invocations": 0,
+      "loopback_STS_requests": 2,
+      "expected_outcome": true,
+      "credentials_in_captured_Terraform_output": false
+    }
+  ]
+}

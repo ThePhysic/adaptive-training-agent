@@ -1,0 +1,128 @@
+[
+  {
+    "caller": "AROAEXAMPLE000000000001:operator-a",
+    "tag": "AROAEXAMPLE000000000001:operator-a",
+    "target": "i-00000000000000000",
+    "resource": "arn:aws:ssm:us-east-1:000000000000:session/opaque-session",
+    "action": "ssm:TerminateSession",
+    "allowed": true,
+    "name": "assumed-role-exact"
+  },
+  {
+    "caller": "AIDAEXAMPLE000000000001",
+    "tag": "AIDAEXAMPLE000000000001",
+    "target": "i-00000000000000000",
+    "resource": "arn:aws:ssm:us-east-1:000000000000:session/opaque-session",
+    "action": "ssm:TerminateSession",
+    "allowed": true,
+    "name": "iam-user-exact"
+  },
+  {
+    "caller": "AROAEXAMPLE000000000001:operator-a",
+    "tag": "AROAEXAMPLE000000000001:operator-b",
+    "target": "i-00000000000000000",
+    "resource": "arn:aws:ssm:us-east-1:000000000000:session/opaque-session",
+    "action": "ssm:TerminateSession",
+    "allowed": false,
+    "name": "same-role-other-session"
+  },
+  {
+    "caller": "AROAEXAMPLE000000000001:operator-a",
+    "tag": "AROAEXAMPLE000000000002:operator-a",
+    "target": "i-00000000000000000",
+    "resource": "arn:aws:ssm:us-east-1:000000000000:session/opaque-session",
+    "action": "ssm:TerminateSession",
+    "allowed": false,
+    "name": "other-role-same-session"
+  },
+  {
+    "caller": "AROAEXAMPLE000000000001:operator-a",
+    "tag": "AROAEXAMPLE000000000001:operator-a2",
+    "target": "i-00000000000000000",
+    "resource": "arn:aws:ssm:us-east-1:000000000000:session/opaque-session",
+    "action": "ssm:TerminateSession",
+    "allowed": false,
+    "name": "prefix-collision"
+  },
+  {
+    "caller": "AROAEXAMPLE000000000001:operator-a",
+    "tag": "AROAEXAMPLE000000000001:operator-a-other",
+    "target": "i-00000000000000000",
+    "resource": "arn:aws:ssm:us-east-1:000000000000:session/opaque-session",
+    "action": "ssm:TerminateSession",
+    "allowed": false,
+    "name": "hyphen-prefix-collision"
+  },
+  {
+    "caller": "AROAEXAMPLE000000000001:operator-a",
+    "tag": "AROAEXAMPLE000000000001:operator-a:undocumented",
+    "target": "i-00000000000000000",
+    "resource": "arn:aws:ssm:us-east-1:000000000000:session/opaque-session",
+    "action": "ssm:TerminateSession",
+    "allowed": false,
+    "name": "undocumented-suffix-blocked"
+  },
+  {
+    "caller": "AROAEXAMPLE000000000001:operator-a",
+    "tag": "",
+    "target": "i-00000000000000000",
+    "resource": "arn:aws:ssm:us-east-1:000000000000:session/opaque-session",
+    "action": "ssm:TerminateSession",
+    "allowed": false,
+    "name": "missing-owner-tag"
+  },
+  {
+    "caller": "AROAEXAMPLE000000000001:operator-a",
+    "tag": "AROAEXAMPLE000000000001:operator-a",
+    "target": "",
+    "resource": "arn:aws:ssm:us-east-1:000000000000:session/opaque-session",
+    "action": "ssm:TerminateSession",
+    "allowed": false,
+    "name": "missing-target-tag"
+  },
+  {
+    "caller": "AROAEXAMPLE000000000001:operator-a",
+    "tag": "AROAEXAMPLE000000000001:operator-a",
+    "target": "i-11111111111111111",
+    "resource": "arn:aws:ssm:us-east-1:000000000000:session/opaque-session",
+    "action": "ssm:TerminateSession",
+    "allowed": false,
+    "name": "wrong-target"
+  },
+  {
+    "caller": "AROAEXAMPLE000000000001:operator-a",
+    "tag": "AROAEXAMPLE000000000001:Operator-a",
+    "target": "i-00000000000000000",
+    "resource": "arn:aws:ssm:us-east-1:000000000000:session/opaque-session",
+    "action": "ssm:TerminateSession",
+    "allowed": false,
+    "name": "case-sensitive-owner"
+  },
+  {
+    "caller": "AROAEXAMPLE000000000001:operator-a",
+    "tag": "AROAEXAMPLE000000000001:operator-a",
+    "target": "i-00000000000000000",
+    "resource": "arn:aws:ssm:us-east-1:111111111111:session/opaque",
+    "action": "ssm:TerminateSession",
+    "allowed": false,
+    "name": "wrong-account"
+  },
+  {
+    "caller": "AROAEXAMPLE000000000001:operator-a",
+    "tag": "AROAEXAMPLE000000000001:operator-a",
+    "target": "i-00000000000000000",
+    "resource": "arn:aws:ssm:us-west-2:000000000000:session/opaque",
+    "action": "ssm:TerminateSession",
+    "allowed": false,
+    "name": "wrong-region"
+  },
+  {
+    "caller": "AROAEXAMPLE000000000001:operator-a",
+    "tag": "AROAEXAMPLE000000000001:operator-a",
+    "target": "i-00000000000000000",
+    "resource": "arn:aws:ssm:us-east-1:000000000000:session/opaque-session",
+    "action": "ssm:ResumeSession",
+    "allowed": false,
+    "name": "resume-not-granted"
+  }
+]

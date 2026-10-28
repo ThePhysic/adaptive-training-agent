@@ -1,0 +1,531 @@
+{
+  "date": "2026-10-25 America/Los_Angeles",
+  "scope": "F4-03B read-only AWS account preflight; no real account-connected Terraform plan",
+  "starting_head": "af70cf867bd30efc1a9b5f7470be9bdc0d53cfb3",
+  "profile": "future-f4-preflight",
+  "region": "us-east-1",
+  "aws_cli": "2.38.5",
+  "identity": {
+    "type": "IAM user",
+    "matches_named_login_session": true,
+    "private_identifiers_published": false
+  },
+  "profile_chain": {
+    "keys": [
+      "login_session",
+      "region"
+    ],
+    "credential_fallback": false,
+    "export_credentials": false,
+    "profile_edits": false,
+    "inherited_AWS_credentials_and_overrides_removed": true,
+    "metadata_credentials_disabled": true,
+    "proxy_inheritance_disabled": true,
+    "max_attempts": 1,
+    "pagination": false
+  },
+  "iam": {
+    "groups": [
+      "FutureReadOnly"
+    ],
+    "group_policy_names": [
+      "ViewOnlyAccess",
+      "SignInLocalDevelopmentAccess"
+    ],
+    "group_inline_policies": 0,
+    "direct_user_policies": 0,
+    "inline_user_policies": 0,
+    "registered_MFA_devices": 0,
+    "session_MFA_and_permission_boundary_verified": false,
+    "effective_SCPs_verified": false
+  },
+  "regional": {
+    "available_zones": [
+      "us-east-1a",
+      "us-east-1b",
+      "us-east-1c",
+      "us-east-1d",
+      "us-east-1e",
+      "us-east-1f"
+    ],
+    "t3_small_offered_zones": [
+      "us-east-1a",
+      "us-east-1b",
+      "us-east-1c",
+      "us-east-1d",
+      "us-east-1f"
+    ],
+    "instance_type": {
+      "name": "t3.small",
+      "vcpus": 2,
+      "memory_mib": 2048,
+      "architecture": "x86_64",
+      "hypervisor": "nitro",
+      "root": "ebs"
+    },
+    "vpcs": 1,
+    "default_vpcs": 1,
+    "proposed_ipv4_CIDR_overlap": false,
+    "project_tagged_instances": 0,
+    "project_tagged_volumes": 0,
+    "self_owned_available_x86_AMIs": 0,
+    "repositories": 0,
+    "self_owned_SSM_documents": 0,
+    "ebs_encryption_by_default": false,
+    "inventory_caveat": "us-east-1 only; EC2/EBS project-tag filter; no complete global inventory or billing audit"
+  },
+  "commands": [
+    {
+      "key": "identity",
+      "service": "sts",
+      "operation": "get-caller-identity",
+      "arguments": [],
+      "profile": "future-f4-preflight",
+      "region": "us-east-1",
+      "exit_code": 0,
+      "classification": "success"
+    },
+    {
+      "key": "own-user",
+      "service": "iam",
+      "operation": "get-user",
+      "arguments": [],
+      "profile": "future-f4-preflight",
+      "region": "us-east-1",
+      "exit_code": 254,
+      "classification": "access_denied"
+    },
+    {
+      "key": "own-groups",
+      "service": "iam",
+      "operation": "list-groups-for-user",
+      "arguments": [
+        "--user-name",
+        "<current-IAM-user>"
+      ],
+      "profile": "future-f4-preflight",
+      "region": "us-east-1",
+      "exit_code": 0,
+      "classification": "success"
+    },
+    {
+      "key": "user-attached",
+      "service": "iam",
+      "operation": "list-attached-user-policies",
+      "arguments": [
+        "--user-name",
+        "<current-IAM-user>"
+      ],
+      "profile": "future-f4-preflight",
+      "region": "us-east-1",
+      "exit_code": 0,
+      "classification": "success"
+    },
+    {
+      "key": "user-inline",
+      "service": "iam",
+      "operation": "list-user-policies",
+      "arguments": [
+        "--user-name",
+        "<current-IAM-user>"
+      ],
+      "profile": "future-f4-preflight",
+      "region": "us-east-1",
+      "exit_code": 0,
+      "classification": "success"
+    },
+    {
+      "key": "group-attached",
+      "service": "iam",
+      "operation": "list-attached-group-policies",
+      "arguments": [
+        "--group-name",
+        "FutureReadOnly"
+      ],
+      "profile": "future-f4-preflight",
+      "region": "us-east-1",
+      "exit_code": 0,
+      "classification": "success"
+    },
+    {
+      "key": "group-inline",
+      "service": "iam",
+      "operation": "list-group-policies",
+      "arguments": [
+        "--group-name",
+        "FutureReadOnly"
+      ],
+      "profile": "future-f4-preflight",
+      "region": "us-east-1",
+      "exit_code": 0,
+      "classification": "success"
+    },
+    {
+      "key": "account-summary",
+      "service": "iam",
+      "operation": "get-account-summary",
+      "arguments": [],
+      "profile": "future-f4-preflight",
+      "region": "us-east-1",
+      "exit_code": 0,
+      "classification": "success"
+    },
+    {
+      "key": "availability-zones",
+      "service": "ec2",
+      "operation": "describe-availability-zones",
+      "arguments": [],
+      "profile": "future-f4-preflight",
+      "region": "us-east-1",
+      "exit_code": 0,
+      "classification": "success"
+    },
+    {
+      "key": "instance-type",
+      "service": "ec2",
+      "operation": "describe-instance-types",
+      "arguments": [
+        "--instance-types",
+        "t3.small"
+      ],
+      "profile": "future-f4-preflight",
+      "region": "us-east-1",
+      "exit_code": 0,
+      "classification": "success"
+    },
+    {
+      "key": "instance-offerings",
+      "service": "ec2",
+      "operation": "describe-instance-type-offerings",
+      "arguments": [
+        "--location-type",
+        "availability-zone",
+        "--filters",
+        "Name=instance-type,Values=t3.small"
+      ],
+      "profile": "future-f4-preflight",
+      "region": "us-east-1",
+      "exit_code": 0,
+      "classification": "success"
+    },
+    {
+      "key": "vpcs",
+      "service": "ec2",
+      "operation": "describe-vpcs",
+      "arguments": [],
+      "profile": "future-f4-preflight",
+      "region": "us-east-1",
+      "exit_code": 0,
+      "classification": "success"
+    },
+    {
+      "key": "project-instances",
+      "service": "ec2",
+      "operation": "describe-instances",
+      "arguments": [
+        "--filters",
+        "Name=tag:Project,Values=fata-*"
+      ],
+      "profile": "future-f4-preflight",
+      "region": "us-east-1",
+      "exit_code": 0,
+      "classification": "success"
+    },
+    {
+      "key": "project-volumes",
+      "service": "ec2",
+      "operation": "describe-volumes",
+      "arguments": [
+        "--filters",
+        "Name=tag:Project,Values=fata-*"
+      ],
+      "profile": "future-f4-preflight",
+      "region": "us-east-1",
+      "exit_code": 0,
+      "classification": "success"
+    },
+    {
+      "key": "owned-images",
+      "service": "ec2",
+      "operation": "describe-images",
+      "arguments": [
+        "--owners",
+        "self",
+        "--filters",
+        "Name=architecture,Values=x86_64",
+        "Name=state,Values=available"
+      ],
+      "profile": "future-f4-preflight",
+      "region": "us-east-1",
+      "exit_code": 0,
+      "classification": "success"
+    },
+    {
+      "key": "ebs-default",
+      "service": "ec2",
+      "operation": "get-ebs-encryption-by-default",
+      "arguments": [],
+      "profile": "future-f4-preflight",
+      "region": "us-east-1",
+      "exit_code": 0,
+      "classification": "success"
+    },
+    {
+      "key": "managed-nodes",
+      "service": "ssm",
+      "operation": "describe-instance-information",
+      "arguments": [
+        "--max-results",
+        "5"
+      ],
+      "profile": "future-f4-preflight",
+      "region": "us-east-1",
+      "exit_code": 254,
+      "classification": "access_denied"
+    },
+    {
+      "key": "own-documents",
+      "service": "ssm",
+      "operation": "list-documents",
+      "arguments": [
+        "--filters",
+        "Key=Owner,Values=Self",
+        "--max-results",
+        "5"
+      ],
+      "profile": "future-f4-preflight",
+      "region": "us-east-1",
+      "exit_code": 0,
+      "classification": "success"
+    },
+    {
+      "key": "repositories",
+      "service": "ecr",
+      "operation": "describe-repositories",
+      "arguments": [
+        "--max-results",
+        "20"
+      ],
+      "profile": "future-f4-preflight",
+      "region": "us-east-1",
+      "exit_code": 0,
+      "classification": "success"
+    },
+    {
+      "key": "standard-vcpu-quota",
+      "service": "service-quotas",
+      "operation": "get-service-quota",
+      "arguments": [
+        "--service-code",
+        "ec2",
+        "--quota-code",
+        "L-1216C47A"
+      ],
+      "profile": "future-f4-preflight",
+      "region": "us-east-1",
+      "exit_code": 254,
+      "classification": "access_denied"
+    },
+    {
+      "key": "vpc-quota",
+      "service": "service-quotas",
+      "operation": "get-service-quota",
+      "arguments": [
+        "--service-code",
+        "vpc",
+        "--quota-code",
+        "L-F678F1CE"
+      ],
+      "profile": "future-f4-preflight",
+      "region": "us-east-1",
+      "exit_code": 254,
+      "classification": "access_denied"
+    },
+    {
+      "key": "own-mfa",
+      "service": "iam",
+      "operation": "list-mfa-devices",
+      "arguments": [
+        "--user-name",
+        "<current-IAM-user>"
+      ],
+      "profile": "future-f4-preflight",
+      "region": "us-east-1",
+      "exit_code": 0,
+      "classification": "success"
+    },
+    {
+      "key": "organization",
+      "service": "organizations",
+      "operation": "describe-organization",
+      "arguments": [],
+      "profile": "future-f4-preflight",
+      "region": "us-east-1",
+      "exit_code": 254,
+      "classification": "access_denied"
+    }
+  ],
+  "command_count": 23,
+  "successes": 18,
+  "denied": 5,
+  "counting_caveat": "CLI command count, not authentication or HTTP handshake count",
+  "terraform": {
+    "account_connected_plan": false,
+    "remote_backend_init": false,
+    "remote_state_read_or_write": false,
+    "remote_lock": false,
+    "offline_result": {
+      "evidence": "offline_schema_and_mock_only",
+      "sources": {
+        "source_files": 6,
+        "resource_blocks": 23,
+        "test_files": 3
+      },
+      "commands": [
+        {
+          "command": [
+            "fmt",
+            "-check",
+            "-recursive",
+            "infra/aws"
+          ],
+          "exit_code": 0,
+          "seconds": 0.109
+        },
+        {
+          "command": [
+            "-chdir=infra/aws/deployment",
+            "validate",
+            "-json"
+          ],
+          "exit_code": 0,
+          "seconds": 5.143
+        },
+        {
+          "command": [
+            "-chdir=infra/aws/deployment",
+            "test",
+            "-json",
+            "-no-color"
+          ],
+          "exit_code": 0,
+          "seconds": 4.174,
+          "tests": {
+            "status": "pass",
+            "passed": 5,
+            "failed": 0,
+            "errored": 0,
+            "skipped": 0
+          }
+        },
+        {
+          "command": [
+            "-chdir=infra/aws/state-bootstrap",
+            "validate",
+            "-json"
+          ],
+          "exit_code": 0,
+          "seconds": 4.622
+        },
+        {
+          "command": [
+            "-chdir=infra/aws/state-bootstrap",
+            "test",
+            "-json",
+            "-no-color"
+          ],
+          "exit_code": 0,
+          "seconds": 3.412,
+          "tests": {
+            "status": "pass",
+            "passed": 1,
+            "failed": 0,
+            "errored": 0,
+            "skipped": 0
+          }
+        },
+        {
+          "command": [
+            "-chdir=infra/aws/modules/protected-bucket",
+            "validate",
+            "-json"
+          ],
+          "exit_code": 0,
+          "seconds": 4.268
+        },
+        {
+          "command": [
+            "-chdir=infra/aws/modules/protected-bucket",
+            "test",
+            "-json",
+            "-no-color"
+          ],
+          "exit_code": 0,
+          "seconds": 3.39,
+          "tests": {
+            "status": "pass",
+            "passed": 2,
+            "failed": 0,
+            "errored": 0,
+            "skipped": 0
+          }
+        }
+      ],
+      "network": "Docker --network none",
+      "provider_acquisition": "Existing read-only signed-hash mirror, locked checksums"
+    },
+    "login_compatibility": "Documented Go v2 login-provider support absent; locked provider uses Go v2; actual authentication not attempted"
+  },
+  "local_checks": {
+    "infrastructure_host_release_tests": 71,
+    "failures": 0,
+    "baseline": {
+      "development": 24,
+      "held_out": 16
+    },
+    "contract_drift": false,
+    "format_check": "passed",
+    "protected_paths_unchanged": [
+      "infra/aws",
+      "src",
+      "scripts",
+      "tests",
+      "contracts",
+      "data",
+      "migrations",
+      "web",
+      "uv.lock",
+      "Dockerfile",
+      ".github"
+    ]
+  },
+  "hosted": {
+    "url": "https://github.com/ThePhysic/future-adaptive-training-agent/actions/runs/40251401740",
+    "head": "af70cf867bd30efc1a9b5f7470be9bdc0d53cfb3",
+    "conclusion": "success",
+    "steps": [
+      {
+        "name": "All offline checks and required installed browser",
+        "conclusion": "success"
+      },
+      {
+        "name": "Release disposable DB ports (retain volumes)",
+        "conclusion": "success"
+      },
+      {
+        "name": "Local container release and synthetic restore drill",
+        "conclusion": "success"
+      }
+    ],
+    "triggered_by_this_task": false
+  },
+  "safety": {
+    "resource_mutations": false,
+    "IAM_expansion": false,
+    "billable_resource_creation": false,
+    "billing_or_S3_data_plane_API": false,
+    "provider_calls": false,
+    "telemetry_export": false,
+    "commit_or_push": false
+  }
+}

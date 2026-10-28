@@ -1,0 +1,69 @@
+{
+  "automated": {
+    "completed_evaluations": 20,
+    "hard_failed": 1,
+    "hard_passed": 19,
+    "missing_or_indeterminate": 0,
+    "replay_dispositions": {
+      "completed": 9,
+      "failed": 1,
+      "indeterminate": 0,
+      "interrupted": 0,
+      "not_started": 0
+    },
+    "replay_evidence": "actual_local_execution_synthetic_native_responses",
+    "scheduled_public_outputs": 20,
+    "template_evidence": "actual_local_deterministic_template"
+  },
+  "configuration": "f0cb43f9f2792cecdb63593e3e86607b01753a205fc025e99a835fbcfcb0ca13",
+  "dummy_review": {
+    "dimension_denominators": {
+      "abstained_dummy": 3,
+      "indeterminate": 0,
+      "ineligible_pair": 12,
+      "issued": 108,
+      "missing": 99,
+      "planned": 120,
+      "rated_dummy": 6
+    },
+    "dummy_only_means": {
+      "perceived_usefulness": 4,
+      "plan_variety": 4,
+      "preference_adherence": 4
+    },
+    "events": {
+      "conflict": 1,
+      "duplicate": 1,
+      "invalid": 2
+    },
+    "issued_pairs": 9,
+    "issued_slots": 36,
+    "packet_issues": 1,
+    "planned_dimension_slots": 120,
+    "planned_slots": 40,
+    "rated_per_dimension": {
+      "perceived_usefulness": 2,
+      "plan_variety": 2,
+      "preference_adherence": 2
+    },
+    "statuses": {
+      "abstained_dummy": 1,
+      "indeterminate": 0,
+      "ineligible_pair": 4,
+      "missing": 33,
+      "rated_dummy": 2
+    },
+    "valid_submissions": 3
+  },
+  "genuine_human": {
+    "evidence": "not_collected",
+    "judgments": 0,
+    "planned_reviewers": null,
+    "quality_scores": null
+  },
+  "primary_design_pairs": 20,
+  "provenance": "local_execution_and_dummy_reviews_not_independent_model_or_human_quality",
+  "public_practice_pairs": 10,
+  "unopened_independent_pairs": 10,
+  "version": "synthetic-blinded-report-v1"
+}

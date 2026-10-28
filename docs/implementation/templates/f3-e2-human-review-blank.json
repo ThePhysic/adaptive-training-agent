@@ -1,0 +1,13 @@
+{
+  "version": "sealed-human-form-v1",
+  "rubric": "synthetic-plan-human-rubric-v1",
+  "evidence_type": "human_pending_not_collected",
+  "pair_id": null,
+  "variant": null,
+  "reviewer_token": null,
+  "judgment_status": "pending",
+  "judgment_reference": null,
+  "ratings": {"preference_adherence": null, "perceived_usefulness": null, "plan_variety": null},
+  "explanation_clarity": null,
+  "abstention_reason": null
+}

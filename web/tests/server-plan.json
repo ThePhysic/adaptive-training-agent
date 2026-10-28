@@ -1,0 +1,90 @@
+{
+  "candidate": {
+    "candidate_id": "fixture-candidate",
+    "content_hash": "ca260fb37897561888f36f67019df3eb6cbd9e6a44c77f596353c34f4d6b2034",
+    "revision": 1
+  },
+  "plan": {
+    "days": [
+      {
+        "blocks": [
+          {
+            "exercise_id": "bw_calf_raise",
+            "mode": "repetitions",
+            "repetitions_per_set": 6,
+            "rest_between_sets_seconds": 45,
+            "sets": 3
+          },
+          {
+            "exercise_id": "bw_dead_bug",
+            "mode": "repetitions",
+            "repetitions_per_set": 6,
+            "rest_between_sets_seconds": 45,
+            "sets": 3
+          },
+          {
+            "exercise_id": "bw_glute_bridge",
+            "mode": "repetitions",
+            "repetitions_per_set": 10,
+            "rest_between_sets_seconds": 75,
+            "sets": 3
+          },
+          {
+            "exercise_id": "bw_hip_hinge",
+            "mode": "repetitions",
+            "repetitions_per_set": 12,
+            "rest_between_sets_seconds": 75,
+            "sets": 2
+          }
+        ],
+        "day_index": 1,
+        "planned_seconds": 1200
+      },
+      {
+        "blocks": [
+          {
+            "exercise_id": "bw_knee_pushup",
+            "mode": "repetitions",
+            "repetitions_per_set": 6,
+            "rest_between_sets_seconds": 45,
+            "sets": 3
+          },
+          {
+            "exercise_id": "bw_prone_arm_raise",
+            "mode": "repetitions",
+            "repetitions_per_set": 6,
+            "rest_between_sets_seconds": 45,
+            "sets": 3
+          },
+          {
+            "exercise_id": "bw_side_leg_raise",
+            "mode": "repetitions",
+            "repetitions_per_set": 10,
+            "rest_between_sets_seconds": 75,
+            "sets": 3
+          },
+          {
+            "exercise_id": "bw_squat",
+            "mode": "repetitions",
+            "repetitions_per_set": 12,
+            "rest_between_sets_seconds": 75,
+            "sets": 2
+          }
+        ],
+        "day_index": 2,
+        "planned_seconds": 1200
+      }
+    ],
+    "profile": {
+      "adult": true,
+      "days_per_week": 2,
+      "equipment": "bodyweight",
+      "excluded_ids": [],
+      "excluded_tags": [],
+      "experience": "beginner",
+      "goal": "general_strength",
+      "session_minutes": 20
+    }
+  },
+  "source": "Accepted baseline and server candidate canonicalization"
+}

@@ -1,0 +1,11 @@
+{
+  "fixture_image_id": "sha256:859e9fa642c0b082f73ed4148727f4b8154dafcc03e10f53b5edf1fa8057c784",
+  "packages": [
+    "iproute2\t6.1.0-3",
+    "iptables\t1.8.9-2"
+  ],
+  "base": "python:3.14.9-slim-bookworm@sha256:945c2676dc2b18e0c1f16879244122c57c0ffede60006bf3df159c507a31bcae",
+  "bootstrap_bash_syntax": true,
+  "host_firewall_modified": false,
+  "cloud_access": false
+}

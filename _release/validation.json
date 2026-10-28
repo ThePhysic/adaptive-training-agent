@@ -1,0 +1,63 @@
+{
+  "application_or_historical_source_changes": false,
+  "backend_tests_failed": 0,
+  "backend_tests_passed": 207,
+  "backend_tests_skipped": 0,
+  "baseline": {
+    "passed": 40,
+    "total": 40
+  },
+  "candidate_source_files": 584,
+  "checks": [
+    {
+      "check": "contracts",
+      "exit_code": 0,
+      "seconds": 1.971
+    },
+    {
+      "check": "baseline",
+      "exit_code": 0,
+      "seconds": 0.651
+    },
+    {
+      "check": "comparison",
+      "exit_code": 1,
+      "seconds": 3.623
+    },
+    {
+      "check": "source_inventory",
+      "exit_code": 1,
+      "seconds": 0.272
+    },
+    {
+      "check": "sealed_configuration",
+      "exit_code": 1,
+      "seconds": 1.591
+    },
+    {
+      "check": "frontend_build",
+      "exit_code": 1,
+      "seconds": 8.659
+    }
+  ],
+  "comparison_dispositions": "not_verified_in_candidate_git_HEAD_required",
+  "existing_dependency_usage": "installed_Python_packages_only_no_original_application_source_imports",
+  "first_commit_created": false,
+  "fresh_live_financial_genuine_denials": "passed",
+  "frontend_dependency_acquisition": false,
+  "git_initialized": false,
+  "missing_document_links": 6,
+  "native_and_313_ast": "passed",
+  "public_distribution_approved": false,
+  "python_source_files": 202,
+  "remaining_blockers": [
+    "git_inventory_and_HEAD_required_for_current_tools",
+    "frontend_dependencies_not_installed",
+    "six_links_to_owner_excluded_documents",
+    "licensing_undecided"
+  ],
+  "ruff_format_checked_files": 204,
+  "ruff_lint": "passed",
+  "status": "BLOCKED_NOT_SELF_CONTAINMENT_ACCEPTED",
+  "version": "f5-d3-candidate-validation-v1"
+}

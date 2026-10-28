@@ -1,0 +1,51 @@
+-- Ratified A-C, OFFLINE replay only. No grant, permit or live mode is inserted.
+CREATE TABLE spend_pairs (
+    pair_id text PRIMARY KEY CHECK (pair_id ~ '^[A-Za-z0-9_-]{1,64}$'),
+    project_id text NOT NULL REFERENCES spend_projects,
+    grant_id text NOT NULL,
+    session_id text NOT NULL,
+    run_id text NOT NULL CHECK (run_id ~ '^[A-Za-z0-9_-]{1,64}$'),
+    ordinal integer NOT NULL CHECK (ordinal BETWEEN 1 AND 3),
+    input_ceiling integer NOT NULL CHECK (input_ceiling BETWEEN 1 AND 16000),
+    output_cap integer NOT NULL CHECK (output_cap BETWEEN 1 AND 2000),
+    count_ceiling_micro bigint NOT NULL CHECK (count_ceiling_micro BETWEEN 1 AND 1000000000),
+    count_quote text NOT NULL CHECK (count_quote = 'synthetic-count-ceiling-v1'),
+    fingerprint text NOT NULL CHECK (fingerprint ~ '^[0-9a-f]{64}$'),
+    FOREIGN KEY (grant_id,project_id) REFERENCES spend_grants(grant_id,project_id),
+    FOREIGN KEY (session_id,grant_id) REFERENCES spend_sessions(session_id,grant_id),
+    UNIQUE (run_id,ordinal),
+    UNIQUE (pair_id,project_id,grant_id,session_id,run_id,ordinal)
+);
+CREATE TABLE spend_operations (
+    operation_id text PRIMARY KEY CHECK (operation_id ~ '^[A-Za-z0-9_-]{1,64}$'),
+    pair_id text NOT NULL,
+    project_id text NOT NULL,
+    grant_id text NOT NULL,
+    session_id text NOT NULL,
+    run_id text NOT NULL,
+    ordinal integer NOT NULL,
+    kind text NOT NULL CHECK (kind IN ('count','generation')),
+    wire_ordinal integer CHECK (wire_ordinal BETWEEN 1 AND 6),
+    day date NOT NULL,
+    state text NOT NULL CHECK (state IN ('reserved','sent','responded_held','settled','not_sent')),
+    reserved_micro bigint NOT NULL CHECK (reserved_micro >= 0),
+    actual_micro bigint CHECK (actual_micro >= 0),
+    input_bound integer NOT NULL CHECK (input_bound BETWEEN 0 AND 16000),
+    output_cap integer NOT NULL CHECK (output_cap BETWEEN 0 AND 2000),
+    counted_input integer CHECK (counted_input BETWEEN 1 AND 16000),
+    usage jsonb,
+    settlement_hash text CHECK (settlement_hash ~ '^[0-9a-f]{64}$'),
+    FOREIGN KEY (pair_id,project_id,grant_id,session_id,run_id,ordinal)
+      REFERENCES spend_pairs(pair_id,project_id,grant_id,session_id,run_id,ordinal),
+    UNIQUE (pair_id,kind),
+    UNIQUE (run_id,kind,ordinal),
+    UNIQUE (run_id,wire_ordinal),
+    CHECK ((state='settled') = (actual_micro IS NOT NULL)),
+    CHECK ((state='settled') = (settlement_hash IS NOT NULL)),
+    CHECK ((state IN ('sent','responded_held','settled')) = (wire_ordinal IS NOT NULL)),
+    CHECK (state <> 'responded_held' OR (kind='count' AND counted_input IS NOT NULL)),
+    CHECK (kind <> 'count' OR (input_bound=0 AND output_cap=0 AND usage IS NULL)),
+    CHECK (kind <> 'generation' OR (output_cap>0 AND counted_input IS NULL)),
+    CHECK (kind <> 'generation' OR state <> 'settled' OR usage IS NOT NULL)
+);
+CREATE INDEX spend_operations_project ON spend_operations(project_id,day);

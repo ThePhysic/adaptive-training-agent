@@ -1,0 +1,448 @@
+{
+  "scope": "F4-03B-R3 only; exactly one real identity retry",
+  "date": "2026-10-25 America/Los_Angeles",
+  "starting_head": "f84b70606952deb0792fc7c6a67ff9d4f2958e3a",
+  "raw_sanitized_coordinator_observation": {
+    "scope": "F4-03B-R3 one authorized identity retry",
+    "profile": "future-f4-preflight",
+    "region": "us-east-1",
+    "expected_identity_from_accepted_private_preflight": true,
+    "real_credential_exports": 0,
+    "project_backend_access": false,
+    "managed_resources": 0,
+    "output_identifiers_published": false,
+    "commands": [
+      {
+        "command": [
+          "ROOT\\.tools\\terraform\\terraform.exe",
+          "version",
+          "-json"
+        ],
+        "exit_code": 0,
+        "seconds": 1.163
+      },
+      {
+        "command": [
+          "ROOT\\.tools\\terraform\\terraform.exe",
+          "init",
+          "-backend=false",
+          "-input=false",
+          "-lockfile=readonly"
+        ],
+        "exit_code": 0,
+        "seconds": 5.278
+      },
+      {
+        "command": [
+          "ROOT\\.tools\\terraform\\terraform.exe",
+          "validate",
+          "-json"
+        ],
+        "exit_code": 0,
+        "seconds": 7.617
+      },
+      {
+        "command": [
+          "ROOT\\.tools\\terraform\\terraform.exe",
+          "plan",
+          "-input=false",
+          "-no-color"
+        ],
+        "exit_code": 0,
+        "termination": "owned_tree_stopped_by_guard_or_deadline",
+        "seconds": 9.205
+      }
+    ],
+    "terraform": "1.17.0",
+    "provider": "6.70.0",
+    "init_and_validate_outbound_connections": 0,
+    "cache_fresh_for_probe": true,
+    "attempted_identity_plan": true,
+    "egress": {
+      "connection_attempts": 1,
+      "allowed_tunnels": 1,
+      "blocked_reasons": [
+        "transport_interrupted_or_bounded"
+      ]
+    },
+    "destination_diagnostics": {
+      "events": [
+        {
+          "method_class": "connect",
+          "port_class": "https_443",
+          "public_endpoint": "sts.us-east-1.amazonaws.com",
+          "destination_class": "regional_sts",
+          "decision": "allowed",
+          "reason": "regional_sts_only"
+        }
+      ],
+      "truncated": false,
+      "maximum_events": 16
+    },
+    "credential_source": "explicit named profile with login_session; no process/role/static fields; isolated empty credentials file",
+    "provider_validation_calls_disabled": true,
+    "operation_evidence": "single audited GetCallerIdentity data source; TLS tunnel is opaque and does not count/decrypt HTTP operations",
+    "saved_plan_or_state_files": false,
+    "tunnel_worker_awaited": true,
+    "temporary_working_directory_removed": true,
+    "failure_classification": "egress_guard_stopped_probe",
+    "outcome": "failed_closed"
+  },
+  "operator_wrapper_exit_code": 1,
+  "provider_identity_result": {
+    "status": "verified_by_native_private_postconditions",
+    "native_plan_exit_code": 0,
+    "expected_account_ARN_user_ID_checks": "mandatory lifecycle postconditions in unchanged identity_contract.py",
+    "explicit_output_boolean_retained": false,
+    "evidence_basis": "Native plan exit0 satisfies hard postconditions; wrong-principal native control exits1. No rejected destination in real run."
+  },
+  "coordinator_result": "transport abort path reported failure despite native plan exit0; preserve separately from provider result",
+  "original_transport_error_subtype": "not retained; cannot prove peer reset was the exact observed cause",
+  "post_attempt_offline_correction": "Peer-reset/broken-pipe classified as closure without implying authentication result. Timeout, byte bound and unexpected routes still abort. No real rerun.",
+  "real_probe_invocations": 1,
+  "real_TLS_tunnels": 1,
+  "rejected_destinations": 0,
+  "wire_API_count": "not independently observed; opaque TLS and one audited GetCallerIdentity data source",
+  "real_credential_exports": 0,
+  "new_profiles": 0,
+  "backend_state_lock_resource_changes": false,
+  "native_synthetic_controls": {
+    "evidence": "native R2 exact profile/skip/postcondition logic with synthetic fresh cache",
+    "local_GetCallerIdentity_count": 2,
+    "wrong_principal_plan_exit": 1,
+    "identity_postcondition_passed": true,
+    "canonical_destination_reached_only_guard": {
+      "connection_attempts": 1,
+      "allowed_tunnels": 0,
+      "blocked_reasons": [
+        "offline_no_sender"
+      ]
+    },
+    "external_network": "Windows native, no-sender guard and synthetic config/cache only",
+    "real_credentials": false,
+    "remote_backend": false
+  },
+  "offline_shared_checks": {
+    "integration": false,
+    "browser_required": false,
+    "commands": [
+      {
+        "command": [
+          "ROOT\\.venv\\Scripts\\python.exe",
+          "--version"
+        ],
+        "exit_code": 0,
+        "seconds": 0.043
+      },
+      {
+        "command": [
+          "node",
+          "--version"
+        ],
+        "exit_code": 0,
+        "seconds": 0.039
+      },
+      {
+        "command": [
+          "C:\\Program Files\\nodejs\\npm.cmd",
+          "--version"
+        ],
+        "exit_code": 0,
+        "seconds": 0.504
+      },
+      {
+        "command": [
+          "ROOT\\.venv\\Scripts\\ruff.exe",
+          "--version"
+        ],
+        "exit_code": 0,
+        "seconds": 0.027
+      },
+      {
+        "command": [
+          "C:\\Program Files\\nodejs\\npm.cmd",
+          "--prefix",
+          "web",
+          "ls",
+          "--depth=0"
+        ],
+        "exit_code": 0,
+        "seconds": 1.416
+      },
+      {
+        "command": [
+          "ROOT\\.venv\\Scripts\\ruff.exe",
+          "check",
+          "src",
+          "scripts",
+          "tests",
+          "--no-cache"
+        ],
+        "exit_code": 0,
+        "seconds": 0.114
+      },
+      {
+        "command": [
+          "ROOT\\.venv\\Scripts\\ruff.exe",
+          "format",
+          "--check",
+          "src",
+          "scripts",
+          "tests",
+          "--no-cache"
+        ],
+        "exit_code": 0,
+        "seconds": 0.06
+      },
+      {
+        "command": [
+          "ROOT\\.venv\\Scripts\\python.exe",
+          "scripts/export_contracts.py",
+          "--check"
+        ],
+        "exit_code": 0,
+        "seconds": 1.679
+      },
+      {
+        "command": [
+          "ROOT\\.venv\\Scripts\\python.exe",
+          "scripts/prepare_responses.py",
+          "--check"
+        ],
+        "exit_code": 0,
+        "seconds": 1.572
+      },
+      {
+        "command": [
+          "ROOT\\.venv\\Scripts\\python.exe",
+          "scripts/measure_token_admission.py",
+          "--check"
+        ],
+        "exit_code": 0,
+        "seconds": 1.588
+      },
+      {
+        "command": [
+          "ROOT\\.venv\\Scripts\\python.exe",
+          "scripts/prepare_model_evaluation.py",
+          "--check"
+        ],
+        "exit_code": 0,
+        "seconds": 0.747
+      },
+      {
+        "command": [
+          "ROOT\\.venv\\Scripts\\python.exe",
+          "scripts/evaluate_models.py",
+          "--check"
+        ],
+        "exit_code": 0,
+        "seconds": 4.072
+      },
+      {
+        "command": [
+          "C:\\Program Files\\nodejs\\npm.cmd",
+          "--prefix",
+          "web",
+          "run",
+          "check"
+        ],
+        "exit_code": 0,
+        "seconds": 3.459
+      },
+      {
+        "command": [
+          "C:\\Program Files\\nodejs\\npm.cmd",
+          "--prefix",
+          "web",
+          "run",
+          "format:check"
+        ],
+        "exit_code": 0,
+        "seconds": 0.994
+      },
+      {
+        "command": [
+          "C:\\Program Files\\nodejs\\npm.cmd",
+          "--prefix",
+          "web",
+          "run",
+          "check:generated"
+        ],
+        "exit_code": 0,
+        "seconds": 1.774
+      },
+      {
+        "command": [
+          "C:\\Program Files\\nodejs\\npm.cmd",
+          "--prefix",
+          "web",
+          "run",
+          "test"
+        ],
+        "exit_code": 0,
+        "seconds": 6.36
+      },
+      {
+        "command": [
+          "C:\\Program Files\\nodejs\\npm.cmd",
+          "--prefix",
+          "web",
+          "run",
+          "build"
+        ],
+        "exit_code": 0,
+        "seconds": 0.799
+      },
+      {
+        "command": [
+          "ROOT\\.venv\\Scripts\\python.exe",
+          "-m",
+          "pytest",
+          "-q",
+          "--basetemp=.cache/pytest-f107-unit",
+          "--junitxml=.cache/f107/unit.xml"
+        ],
+        "exit_code": 0,
+        "seconds": 39.688
+      },
+      {
+        "command": [
+          "ROOT\\.venv\\Scripts\\python.exe",
+          "scripts/evaluate_baseline.py",
+          "--check"
+        ],
+        "exit_code": 0,
+        "seconds": 0.62
+      },
+      {
+        "command": [
+          "ROOT\\.venv\\Scripts\\python.exe",
+          "scripts/measure_async_reads.py"
+        ],
+        "exit_code": 0,
+        "seconds": 2.387
+      }
+    ],
+    "tests": {
+      "unit": {
+        "tests": 1110,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    }
+  },
+  "terraform_mock_checks": {
+    "evidence": "offline_schema_and_mock_only",
+    "sources": {
+      "source_files": 6,
+      "resource_blocks": 23,
+      "test_files": 3
+    },
+    "commands": [
+      {
+        "command": [
+          "fmt",
+          "-check",
+          "-recursive",
+          "infra/aws"
+        ],
+        "exit_code": 0,
+        "seconds": 0.109
+      },
+      {
+        "command": [
+          "-chdir=infra/aws/deployment",
+          "validate",
+          "-json"
+        ],
+        "exit_code": 0,
+        "seconds": 3.834
+      },
+      {
+        "command": [
+          "-chdir=infra/aws/deployment",
+          "test",
+          "-json",
+          "-no-color"
+        ],
+        "exit_code": 0,
+        "seconds": 3.204,
+        "tests": {
+          "status": "pass",
+          "passed": 5,
+          "failed": 0,
+          "errored": 0,
+          "skipped": 0
+        }
+      },
+      {
+        "command": [
+          "-chdir=infra/aws/state-bootstrap",
+          "validate",
+          "-json"
+        ],
+        "exit_code": 0,
+        "seconds": 5.189
+      },
+      {
+        "command": [
+          "-chdir=infra/aws/state-bootstrap",
+          "test",
+          "-json",
+          "-no-color"
+        ],
+        "exit_code": 0,
+        "seconds": 3.11,
+        "tests": {
+          "status": "pass",
+          "passed": 1,
+          "failed": 0,
+          "errored": 0,
+          "skipped": 0
+        }
+      },
+      {
+        "command": [
+          "-chdir=infra/aws/modules/protected-bucket",
+          "validate",
+          "-json"
+        ],
+        "exit_code": 0,
+        "seconds": 5.228
+      },
+      {
+        "command": [
+          "-chdir=infra/aws/modules/protected-bucket",
+          "test",
+          "-json",
+          "-no-color"
+        ],
+        "exit_code": 0,
+        "seconds": 3.139,
+        "tests": {
+          "status": "pass",
+          "passed": 2,
+          "failed": 0,
+          "errored": 0,
+          "skipped": 0
+        }
+      }
+    ]
+  },
+  "target_tests": {
+    "passed": 130,
+    "seconds": 6.3,
+    "new_cases": 15
+  },
+  "operator_source_sha256": "8949e29f79b28db9de1beebb225ce9ff4530445c18de632d20e657e763051dae",
+  "limitations": [
+    "Coordinator clean termination not demonstrated; do not relabel wrapper exit1 as exit0",
+    "Original socket error subtype unclassified",
+    "No real rerun after offline close-handler correction",
+    "No login refresh, MFA, effective permission, quota, S3 backend or full infrastructure plan verification",
+    "Docker Linux engine unavailable; additional native controls ran on Windows with synthetic cache/local STS/no-sender proxy"
+  ],
+  "next_gate": "Provider identity requirement met; later backend/plan verification still needs separate owner authorization and readiness evidence"
+}

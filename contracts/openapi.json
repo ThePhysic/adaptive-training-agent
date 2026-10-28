@@ -1,0 +1,2956 @@
+{
+  "components": {
+    "schemas": {
+      "AbstainOutcome": {
+        "additionalProperties": false,
+        "properties": {
+          "next_step": {
+            "enum": [
+              "change_supported_preferences",
+              "seek_qualified_professional"
+            ],
+            "title": "Next Step",
+            "type": "string"
+          },
+          "outcome": {
+            "const": "abstain",
+            "title": "Outcome",
+            "type": "string"
+          },
+          "reason": {
+            "enum": [
+              "unsupported_scope",
+              "infeasible",
+              "medical_context"
+            ],
+            "title": "Reason",
+            "type": "string"
+          }
+        },
+        "required": [
+          "outcome",
+          "reason",
+          "next_step"
+        ],
+        "title": "AbstainOutcome",
+        "type": "object"
+      },
+      "ApiError": {
+        "additionalProperties": false,
+        "properties": {
+          "code": {
+            "enum": [
+              "invalid_request",
+              "not_found",
+              "candidate_expired",
+              "candidate_superseded",
+              "revision_in_progress",
+              "candidate_already_approved",
+              "candidate_mismatch",
+              "stale_profile",
+              "idempotency_mismatch",
+              "budget_exceeded",
+              "provider_failure",
+              "internal_error",
+              "reconciliation_pending",
+              "capacity_exceeded",
+              "unauthorized"
+            ],
+            "title": "Code",
+            "type": "string"
+          },
+          "retryable": {
+            "default": false,
+            "title": "Retryable",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "code"
+        ],
+        "title": "ApiError",
+        "type": "object"
+      },
+      "ApprovalRequest": {
+        "additionalProperties": false,
+        "properties": {
+          "candidate_id": {
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_-]+$",
+            "title": "Candidate Id",
+            "type": "string"
+          },
+          "content_hash": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Content Hash",
+            "type": "string"
+          },
+          "idempotency_key": {
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_-]+$",
+            "title": "Idempotency Key",
+            "type": "string"
+          },
+          "revision": {
+            "minimum": 1,
+            "title": "Revision",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "candidate_id",
+          "revision",
+          "content_hash",
+          "idempotency_key"
+        ],
+        "title": "ApprovalRequest",
+        "type": "object"
+      },
+      "ApprovalResult": {
+        "additionalProperties": false,
+        "properties": {
+          "candidate": {
+            "$ref": "#/components/schemas/CandidateIdentity"
+          },
+          "plan_id": {
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_-]+$",
+            "title": "Plan Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "plan_id",
+          "candidate"
+        ],
+        "title": "ApprovalResult",
+        "type": "object"
+      },
+      "BudgetLimits": {
+        "additionalProperties": false,
+        "properties": {
+          "deadline_seconds": {
+            "const": 30,
+            "default": 30,
+            "title": "Deadline Seconds",
+            "type": "integer"
+          },
+          "global_runs": {
+            "const": 2,
+            "default": 2,
+            "title": "Global Runs",
+            "type": "integer"
+          },
+          "input_tokens": {
+            "const": 16000,
+            "default": 16000,
+            "title": "Input Tokens",
+            "type": "integer"
+          },
+          "output_tokens": {
+            "const": 4000,
+            "default": 4000,
+            "title": "Output Tokens",
+            "type": "integer"
+          },
+          "per_principal_runs": {
+            "const": 1,
+            "default": 1,
+            "title": "Per Principal Runs",
+            "type": "integer"
+          },
+          "provider_attempts": {
+            "const": 3,
+            "default": 3,
+            "title": "Provider Attempts",
+            "type": "integer"
+          },
+          "read_tools": {
+            "const": 4,
+            "default": 4,
+            "title": "Read Tools",
+            "type": "integer"
+          },
+          "semantic_repairs": {
+            "const": 1,
+            "default": 1,
+            "title": "Semantic Repairs",
+            "type": "integer"
+          },
+          "transport_retries": {
+            "const": 1,
+            "default": 1,
+            "title": "Transport Retries",
+            "type": "integer"
+          }
+        },
+        "title": "BudgetLimits",
+        "type": "object"
+      },
+      "CandidateIdentity": {
+        "additionalProperties": false,
+        "properties": {
+          "candidate_id": {
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_-]+$",
+            "title": "Candidate Id",
+            "type": "string"
+          },
+          "content_hash": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Content Hash",
+            "type": "string"
+          },
+          "revision": {
+            "minimum": 1,
+            "title": "Revision",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "candidate_id",
+          "revision",
+          "content_hash"
+        ],
+        "title": "CandidateIdentity",
+        "type": "object"
+      },
+      "CandidateLimits": {
+        "additionalProperties": false,
+        "properties": {
+          "candidate_bytes": {
+            "const": 65536,
+            "default": 65536,
+            "title": "Candidate Bytes",
+            "type": "integer"
+          },
+          "lineages": {
+            "const": 200,
+            "default": 200,
+            "title": "Lineages",
+            "type": "integer"
+          },
+          "request_bytes": {
+            "const": 16384,
+            "default": 16384,
+            "title": "Request Bytes",
+            "type": "integer"
+          },
+          "store_bytes": {
+            "const": 16777216,
+            "default": 16777216,
+            "title": "Store Bytes",
+            "type": "integer"
+          },
+          "successful_revisions": {
+            "const": 1,
+            "default": 1,
+            "title": "Successful Revisions",
+            "type": "integer"
+          },
+          "ttl_seconds": {
+            "const": 1800,
+            "default": 1800,
+            "title": "Ttl Seconds",
+            "type": "integer"
+          }
+        },
+        "title": "CandidateLimits",
+        "type": "object"
+      },
+      "CatalogRecord": {
+        "additionalProperties": false,
+        "properties": {
+          "catalog_revision": {
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_-]+$",
+            "title": "Catalog Revision",
+            "type": "string"
+          },
+          "equipment": {
+            "enum": [
+              "bodyweight",
+              "dumbbells"
+            ],
+            "title": "Equipment",
+            "type": "string"
+          },
+          "exclusion_tags": {
+            "items": {
+              "maxLength": 32,
+              "minLength": 1,
+              "pattern": "^[a-z0-9_-]+$",
+              "type": "string"
+            },
+            "maxItems": 8,
+            "title": "Exclusion Tags",
+            "type": "array"
+          },
+          "exercise_id": {
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_-]+$",
+            "title": "Exercise Id",
+            "type": "string"
+          },
+          "experiences": {
+            "items": {
+              "enum": [
+                "beginner",
+                "intermediate"
+              ],
+              "type": "string"
+            },
+            "maxItems": 2,
+            "minItems": 1,
+            "title": "Experiences",
+            "type": "array"
+          },
+          "goals": {
+            "items": {
+              "enum": [
+                "general_strength",
+                "general_conditioning"
+              ],
+              "type": "string"
+            },
+            "maxItems": 2,
+            "minItems": 1,
+            "title": "Goals",
+            "type": "array"
+          },
+          "mode": {
+            "enum": [
+              "repetitions",
+              "timed"
+            ],
+            "title": "Mode",
+            "type": "string"
+          },
+          "provenance": {
+            "$ref": "#/components/schemas/Provenance"
+          },
+          "title": {
+            "maxLength": 120,
+            "minLength": 1,
+            "title": "Title",
+            "type": "string"
+          }
+        },
+        "required": [
+          "exercise_id",
+          "title",
+          "goals",
+          "mode",
+          "equipment",
+          "experiences",
+          "exclusion_tags",
+          "provenance",
+          "catalog_revision"
+        ],
+        "title": "CatalogRecord",
+        "type": "object"
+      },
+      "ClarifyOutcome": {
+        "additionalProperties": false,
+        "properties": {
+          "choices": {
+            "items": {
+              "maxLength": 512,
+              "minLength": 1,
+              "type": "string"
+            },
+            "maxItems": 12,
+            "minItems": 1,
+            "title": "Choices",
+            "type": "array"
+          },
+          "fields": {
+            "items": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9_-]+$",
+              "type": "string"
+            },
+            "maxItems": 12,
+            "minItems": 1,
+            "title": "Fields",
+            "type": "array"
+          },
+          "outcome": {
+            "const": "clarify",
+            "title": "Outcome",
+            "type": "string"
+          }
+        },
+        "required": [
+          "outcome",
+          "fields",
+          "choices"
+        ],
+        "title": "ClarifyOutcome",
+        "type": "object"
+      },
+      "ContextVersions": {
+        "additionalProperties": false,
+        "properties": {
+          "catalog_revision": {
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_-]+$",
+            "title": "Catalog Revision",
+            "type": "string"
+          },
+          "profile_revision": {
+            "minimum": 1,
+            "title": "Profile Revision",
+            "type": "integer"
+          },
+          "validator_revision": {
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_-]+$",
+            "title": "Validator Revision",
+            "type": "string"
+          }
+        },
+        "required": [
+          "profile_revision",
+          "catalog_revision",
+          "validator_revision"
+        ],
+        "title": "ContextVersions",
+        "type": "object"
+      },
+      "DayPlan": {
+        "additionalProperties": false,
+        "properties": {
+          "blocks": {
+            "items": {
+              "discriminator": {
+                "mapping": {
+                  "repetitions": "#/components/schemas/RepetitionBlock",
+                  "timed": "#/components/schemas/TimedBlock"
+                },
+                "propertyName": "mode"
+              },
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/RepetitionBlock"
+                },
+                {
+                  "$ref": "#/components/schemas/TimedBlock"
+                }
+              ]
+            },
+            "maxItems": 6,
+            "minItems": 3,
+            "title": "Blocks",
+            "type": "array"
+          },
+          "day_index": {
+            "maximum": 4,
+            "minimum": 1,
+            "title": "Day Index",
+            "type": "integer"
+          },
+          "planned_seconds": {
+            "minimum": 0,
+            "title": "Planned Seconds",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "day_index",
+          "blocks",
+          "planned_seconds"
+        ],
+        "title": "DayPlan",
+        "type": "object"
+      },
+      "DependencyChecks": {
+        "additionalProperties": false,
+        "properties": {
+          "catalog": {
+            "title": "Catalog",
+            "type": "boolean"
+          },
+          "database_schema": {
+            "title": "Database Schema",
+            "type": "boolean"
+          },
+          "local_configuration": {
+            "title": "Local Configuration",
+            "type": "boolean"
+          },
+          "web_assets": {
+            "title": "Web Assets",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "local_configuration",
+          "database_schema",
+          "catalog",
+          "web_assets"
+        ],
+        "title": "DependencyChecks",
+        "type": "object"
+      },
+      "DoneEvent": {
+        "additionalProperties": false,
+        "properties": {
+          "event_type": {
+            "const": "done",
+            "title": "Event Type",
+            "type": "string"
+          },
+          "payload": {
+            "discriminator": {
+              "mapping": {
+                "abstain": "#/components/schemas/AbstainOutcome",
+                "clarify": "#/components/schemas/ClarifyOutcome",
+                "error": "#/components/schemas/ErrorOutcome",
+                "plan": "#/components/schemas/PlanOutcome"
+              },
+              "propertyName": "outcome"
+            },
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/PlanOutcome"
+              },
+              {
+                "$ref": "#/components/schemas/ClarifyOutcome"
+              },
+              {
+                "$ref": "#/components/schemas/AbstainOutcome"
+              },
+              {
+                "$ref": "#/components/schemas/ErrorOutcome"
+              }
+            ],
+            "title": "Payload"
+          },
+          "request_id": {
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_-]+$",
+            "title": "Request Id",
+            "type": "string"
+          },
+          "schema_version": {
+            "const": "1",
+            "default": "1",
+            "title": "Schema Version",
+            "type": "string"
+          },
+          "sequence": {
+            "minimum": 0,
+            "title": "Sequence",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "request_id",
+          "sequence",
+          "event_type",
+          "payload"
+        ],
+        "title": "DoneEvent",
+        "type": "object"
+      },
+      "DraftEvent": {
+        "additionalProperties": false,
+        "properties": {
+          "event_type": {
+            "const": "draft",
+            "title": "Event Type",
+            "type": "string"
+          },
+          "payload": {
+            "$ref": "#/components/schemas/PlanProposal"
+          },
+          "request_id": {
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_-]+$",
+            "title": "Request Id",
+            "type": "string"
+          },
+          "schema_version": {
+            "const": "1",
+            "default": "1",
+            "title": "Schema Version",
+            "type": "string"
+          },
+          "sequence": {
+            "minimum": 0,
+            "title": "Sequence",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "request_id",
+          "sequence",
+          "event_type",
+          "payload"
+        ],
+        "title": "DraftEvent",
+        "type": "object"
+      },
+      "ErrorEvent": {
+        "additionalProperties": false,
+        "properties": {
+          "event_type": {
+            "const": "error",
+            "title": "Event Type",
+            "type": "string"
+          },
+          "payload": {
+            "$ref": "#/components/schemas/ApiError"
+          },
+          "request_id": {
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_-]+$",
+            "title": "Request Id",
+            "type": "string"
+          },
+          "schema_version": {
+            "const": "1",
+            "default": "1",
+            "title": "Schema Version",
+            "type": "string"
+          },
+          "sequence": {
+            "minimum": 0,
+            "title": "Sequence",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "request_id",
+          "sequence",
+          "event_type",
+          "payload"
+        ],
+        "title": "ErrorEvent",
+        "type": "object"
+      },
+      "ErrorOutcome": {
+        "additionalProperties": false,
+        "properties": {
+          "error": {
+            "$ref": "#/components/schemas/ApiError"
+          },
+          "outcome": {
+            "const": "error",
+            "title": "Outcome",
+            "type": "string"
+          }
+        },
+        "required": [
+          "outcome",
+          "error"
+        ],
+        "title": "ErrorOutcome",
+        "type": "object"
+      },
+      "GenerateRequest": {
+        "additionalProperties": false,
+        "properties": {
+          "preferences_text": {
+            "default": "",
+            "maxLength": 2048,
+            "title": "Preferences Text",
+            "type": "string"
+          },
+          "profile_revision": {
+            "minimum": 1,
+            "title": "Profile Revision",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "profile_revision"
+        ],
+        "title": "GenerateRequest",
+        "type": "object"
+      },
+      "PlanOutcome": {
+        "additionalProperties": false,
+        "properties": {
+          "candidate": {
+            "$ref": "#/components/schemas/CandidateIdentity"
+          },
+          "outcome": {
+            "const": "plan",
+            "title": "Outcome",
+            "type": "string"
+          }
+        },
+        "required": [
+          "outcome",
+          "candidate"
+        ],
+        "title": "PlanOutcome",
+        "type": "object"
+      },
+      "PlanProposal": {
+        "additionalProperties": false,
+        "description": "Structural proposal only; never a domain-validation certificate.",
+        "properties": {
+          "days": {
+            "items": {
+              "$ref": "#/components/schemas/DayPlan"
+            },
+            "maxItems": 4,
+            "minItems": 2,
+            "title": "Days",
+            "type": "array"
+          },
+          "profile": {
+            "$ref": "#/components/schemas/ProfilePreferences"
+          }
+        },
+        "required": [
+          "profile",
+          "days"
+        ],
+        "title": "PlanProposal",
+        "type": "object"
+      },
+      "ProfilePreferences": {
+        "additionalProperties": false,
+        "properties": {
+          "adult": {
+            "title": "Adult",
+            "type": "boolean"
+          },
+          "days_per_week": {
+            "enum": [
+              2,
+              3,
+              4
+            ],
+            "title": "Days Per Week",
+            "type": "integer"
+          },
+          "equipment": {
+            "enum": [
+              "bodyweight",
+              "dumbbells_and_bodyweight"
+            ],
+            "title": "Equipment",
+            "type": "string"
+          },
+          "excluded_ids": {
+            "items": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9_-]+$",
+              "type": "string"
+            },
+            "maxItems": 12,
+            "title": "Excluded Ids",
+            "type": "array"
+          },
+          "excluded_tags": {
+            "items": {
+              "maxLength": 32,
+              "minLength": 1,
+              "pattern": "^[a-z0-9_-]+$",
+              "type": "string"
+            },
+            "maxItems": 8,
+            "title": "Excluded Tags",
+            "type": "array"
+          },
+          "experience": {
+            "enum": [
+              "beginner",
+              "intermediate"
+            ],
+            "title": "Experience",
+            "type": "string"
+          },
+          "goal": {
+            "enum": [
+              "general_strength",
+              "general_conditioning"
+            ],
+            "title": "Goal",
+            "type": "string"
+          },
+          "session_minutes": {
+            "enum": [
+              20,
+              30,
+              45
+            ],
+            "title": "Session Minutes",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "adult",
+          "goal",
+          "equipment",
+          "experience",
+          "days_per_week",
+          "session_minutes"
+        ],
+        "title": "ProfilePreferences",
+        "type": "object"
+      },
+      "ProfileSaveRequest": {
+        "additionalProperties": false,
+        "properties": {
+          "expected_revision": {
+            "minimum": 0,
+            "title": "Expected Revision",
+            "type": "integer"
+          },
+          "preferences": {
+            "$ref": "#/components/schemas/ProfilePreferences"
+          }
+        },
+        "required": [
+          "expected_revision",
+          "preferences"
+        ],
+        "title": "ProfileSaveRequest",
+        "type": "object"
+      },
+      "Provenance": {
+        "additionalProperties": false,
+        "properties": {
+          "attribution": {
+            "maxLength": 512,
+            "minLength": 1,
+            "title": "Attribution",
+            "type": "string"
+          },
+          "license": {
+            "maxLength": 512,
+            "minLength": 1,
+            "title": "License",
+            "type": "string"
+          },
+          "origin": {
+            "enum": [
+              "original",
+              "licensed"
+            ],
+            "title": "Origin",
+            "type": "string"
+          },
+          "source_reference": {
+            "maxLength": 512,
+            "minLength": 1,
+            "title": "Source Reference",
+            "type": "string"
+          }
+        },
+        "required": [
+          "origin",
+          "attribution",
+          "license",
+          "source_reference"
+        ],
+        "title": "Provenance",
+        "type": "object"
+      },
+      "ReadinessStatus": {
+        "additionalProperties": false,
+        "properties": {
+          "checks": {
+            "$ref": "#/components/schemas/DependencyChecks"
+          },
+          "mode": {
+            "const": "single_process_synthetic_fake",
+            "default": "single_process_synthetic_fake",
+            "title": "Mode",
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "ready_local",
+              "unavailable"
+            ],
+            "title": "Status",
+            "type": "string"
+          }
+        },
+        "required": [
+          "status",
+          "checks"
+        ],
+        "title": "ReadinessStatus",
+        "type": "object"
+      },
+      "RepetitionBlock": {
+        "additionalProperties": false,
+        "properties": {
+          "exercise_id": {
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_-]+$",
+            "title": "Exercise Id",
+            "type": "string"
+          },
+          "mode": {
+            "const": "repetitions",
+            "title": "Mode",
+            "type": "string"
+          },
+          "repetitions_per_set": {
+            "maximum": 15,
+            "minimum": 6,
+            "title": "Repetitions Per Set",
+            "type": "integer"
+          },
+          "rest_between_sets_seconds": {
+            "maximum": 90,
+            "minimum": 30,
+            "multipleOf": 15,
+            "title": "Rest Between Sets Seconds",
+            "type": "integer"
+          },
+          "sets": {
+            "maximum": 4,
+            "minimum": 2,
+            "title": "Sets",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "exercise_id",
+          "mode",
+          "sets",
+          "repetitions_per_set",
+          "rest_between_sets_seconds"
+        ],
+        "title": "RepetitionBlock",
+        "type": "object"
+      },
+      "ReviseRequest": {
+        "additionalProperties": false,
+        "properties": {
+          "candidate": {
+            "$ref": "#/components/schemas/CandidateIdentity"
+          },
+          "preferences_text": {
+            "default": "",
+            "maxLength": 2048,
+            "title": "Preferences Text",
+            "type": "string"
+          },
+          "profile_revision": {
+            "minimum": 1,
+            "title": "Profile Revision",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "profile_revision",
+          "candidate"
+        ],
+        "title": "ReviseRequest",
+        "type": "object"
+      },
+      "SavedPlan": {
+        "additionalProperties": false,
+        "properties": {
+          "approval": {
+            "$ref": "#/components/schemas/ApprovalResult"
+          },
+          "plan": {
+            "$ref": "#/components/schemas/PlanProposal"
+          },
+          "versions": {
+            "$ref": "#/components/schemas/ContextVersions"
+          }
+        },
+        "required": [
+          "approval",
+          "plan",
+          "versions"
+        ],
+        "title": "SavedPlan",
+        "type": "object"
+      },
+      "SavedProfile": {
+        "additionalProperties": false,
+        "properties": {
+          "preferences": {
+            "$ref": "#/components/schemas/ProfilePreferences"
+          },
+          "revision": {
+            "minimum": 1,
+            "title": "Revision",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "revision",
+          "preferences"
+        ],
+        "title": "SavedProfile",
+        "type": "object"
+      },
+      "SessionRecord": {
+        "additionalProperties": false,
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "status": {
+                  "const": "skipped"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "effort": {
+                  "type": "null"
+                },
+                "rating": {
+                  "type": "null"
+                }
+              }
+            }
+          }
+        ],
+        "properties": {
+          "day_index": {
+            "maximum": 4,
+            "minimum": 1,
+            "title": "Day Index",
+            "type": "integer"
+          },
+          "effort": {
+            "anyOf": [
+              {
+                "enum": [
+                  "easy",
+                  "moderate",
+                  "hard"
+                ],
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Effort"
+          },
+          "plan_content_hash": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Plan Content Hash",
+            "type": "string"
+          },
+          "plan_id": {
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_-]+$",
+            "title": "Plan Id",
+            "type": "string"
+          },
+          "plan_revision": {
+            "maximum": 2,
+            "minimum": 1,
+            "title": "Plan Revision",
+            "type": "integer"
+          },
+          "rating": {
+            "anyOf": [
+              {
+                "maximum": 5,
+                "minimum": 1,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Rating"
+          },
+          "record_id": {
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_-]+$",
+            "title": "Record Id",
+            "type": "string"
+          },
+          "revision": {
+            "const": 1,
+            "default": 1,
+            "title": "Revision",
+            "type": "integer"
+          },
+          "status": {
+            "enum": [
+              "completed",
+              "partial",
+              "skipped"
+            ],
+            "title": "Status",
+            "type": "string"
+          }
+        },
+        "required": [
+          "status",
+          "record_id",
+          "plan_id",
+          "day_index",
+          "plan_revision",
+          "plan_content_hash"
+        ],
+        "title": "SessionRecord",
+        "type": "object"
+      },
+      "SessionSubmission": {
+        "additionalProperties": false,
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "status": {
+                  "const": "skipped"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "effort": {
+                  "type": "null"
+                },
+                "rating": {
+                  "type": "null"
+                }
+              }
+            }
+          }
+        ],
+        "properties": {
+          "effort": {
+            "anyOf": [
+              {
+                "enum": [
+                  "easy",
+                  "moderate",
+                  "hard"
+                ],
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Effort"
+          },
+          "expected_revision": {
+            "const": 0,
+            "title": "Expected Revision",
+            "type": "integer"
+          },
+          "idempotency_key": {
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_-]+$",
+            "title": "Idempotency Key",
+            "type": "string"
+          },
+          "plan_content_hash": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Plan Content Hash",
+            "type": "string"
+          },
+          "plan_revision": {
+            "maximum": 2,
+            "minimum": 1,
+            "title": "Plan Revision",
+            "type": "integer"
+          },
+          "rating": {
+            "anyOf": [
+              {
+                "maximum": 5,
+                "minimum": 1,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Rating"
+          },
+          "status": {
+            "enum": [
+              "completed",
+              "partial",
+              "skipped"
+            ],
+            "title": "Status",
+            "type": "string"
+          }
+        },
+        "required": [
+          "status",
+          "expected_revision",
+          "plan_revision",
+          "plan_content_hash",
+          "idempotency_key"
+        ],
+        "title": "SessionSubmission",
+        "type": "object"
+      },
+      "StatusEvent": {
+        "additionalProperties": false,
+        "properties": {
+          "event_type": {
+            "const": "status",
+            "title": "Event Type",
+            "type": "string"
+          },
+          "payload": {
+            "$ref": "#/components/schemas/StatusPayload"
+          },
+          "request_id": {
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_-]+$",
+            "title": "Request Id",
+            "type": "string"
+          },
+          "schema_version": {
+            "const": "1",
+            "default": "1",
+            "title": "Schema Version",
+            "type": "string"
+          },
+          "sequence": {
+            "minimum": 0,
+            "title": "Sequence",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "request_id",
+          "sequence",
+          "event_type",
+          "payload"
+        ],
+        "title": "StatusEvent",
+        "type": "object"
+      },
+      "StatusPayload": {
+        "additionalProperties": false,
+        "properties": {
+          "stage": {
+            "enum": [
+              "context",
+              "drafting",
+              "validating",
+              "repairing"
+            ],
+            "title": "Stage",
+            "type": "string"
+          }
+        },
+        "required": [
+          "stage"
+        ],
+        "title": "StatusPayload",
+        "type": "object"
+      },
+      "StreamEvent": {
+        "discriminator": {
+          "mapping": {
+            "done": "#/components/schemas/DoneEvent",
+            "draft": "#/components/schemas/DraftEvent",
+            "error": "#/components/schemas/ErrorEvent",
+            "status": "#/components/schemas/StatusEvent"
+          },
+          "propertyName": "event_type"
+        },
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/StatusEvent"
+          },
+          {
+            "$ref": "#/components/schemas/DraftEvent"
+          },
+          {
+            "$ref": "#/components/schemas/ErrorEvent"
+          },
+          {
+            "$ref": "#/components/schemas/DoneEvent"
+          }
+        ]
+      },
+      "SubmissionError": {
+        "additionalProperties": false,
+        "properties": {
+          "code": {
+            "anyOf": [
+              {
+                "enum": [
+                  "invalid_request",
+                  "not_found",
+                  "candidate_expired",
+                  "candidate_superseded",
+                  "revision_in_progress",
+                  "candidate_already_approved",
+                  "candidate_mismatch",
+                  "stale_profile",
+                  "idempotency_mismatch",
+                  "budget_exceeded",
+                  "provider_failure",
+                  "internal_error",
+                  "reconciliation_pending",
+                  "capacity_exceeded",
+                  "unauthorized"
+                ],
+                "type": "string"
+              },
+              {
+                "enum": [
+                  "session_already_recorded",
+                  "plan_mismatch"
+                ],
+                "type": "string"
+              }
+            ],
+            "title": "Code"
+          },
+          "retryable": {
+            "default": false,
+            "title": "Retryable",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "code"
+        ],
+        "title": "SubmissionError",
+        "type": "object"
+      },
+      "TimedBlock": {
+        "additionalProperties": false,
+        "properties": {
+          "exercise_id": {
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_-]+$",
+            "title": "Exercise Id",
+            "type": "string"
+          },
+          "mode": {
+            "const": "timed",
+            "title": "Mode",
+            "type": "string"
+          },
+          "rest_between_sets_seconds": {
+            "maximum": 90,
+            "minimum": 30,
+            "multipleOf": 15,
+            "title": "Rest Between Sets Seconds",
+            "type": "integer"
+          },
+          "sets": {
+            "maximum": 4,
+            "minimum": 2,
+            "title": "Sets",
+            "type": "integer"
+          },
+          "work_seconds_per_set": {
+            "maximum": 90,
+            "minimum": 30,
+            "title": "Work Seconds Per Set",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "exercise_id",
+          "mode",
+          "sets",
+          "work_seconds_per_set",
+          "rest_between_sets_seconds"
+        ],
+        "title": "TimedBlock",
+        "type": "object"
+      }
+    },
+    "securitySchemes": {
+      "SyntheticPrincipal": {
+        "description": "Local opt-in and actual loopback peer only; synthetic-a or synthetic-b. Not production authentication.",
+        "in": "header",
+        "name": "X-Synthetic-Principal",
+        "type": "apiKey"
+      }
+    }
+  },
+  "info": {
+    "description": "Local profiles, catalog and direct POST generation/revision streams are implemented. Business operations marked x-implementation=specification-only are NOT implemented. Stream ordering, durable approval/idempotency and owned history are implemented locally. Explicit owner-scoped session completion and structured feedback Submit/readback are implemented.",
+    "title": "Future Training local workspace",
+    "version": "0.1.0"
+  },
+  "openapi": "3.1.0",
+  "paths": {
+    "/api/v1/drafts/stream": {
+      "post": {
+        "description": "No replay; only done(plan) exposes approval identity. EOF without terminal done is incomplete. Post-header errors use error+done(error).",
+        "operationId": "post_api_v1_drafts_stream",
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GenerateRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "text/event-stream": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "description": "Implemented local success"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          },
+          "410": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          }
+        },
+        "security": [
+          {
+            "SyntheticPrincipal": []
+          }
+        ],
+        "x-implementation": "implemented-local",
+        "x-sse-envelope": {
+          "$ref": "#/components/schemas/StreamEvent"
+        },
+        "x-sse-limits": {
+          "maxEvents": 64,
+          "maxFrameBytes": 16384
+        }
+      }
+    },
+    "/api/v1/drafts/{candidate_id}/approve": {
+      "post": {
+        "description": "Path candidate_id must equal body candidate_id. Owner comes from server identity. Committed idempotency lookup BEFORE candidate access AND AGAIN after guard wait. Unknown commit blocks approval/revision until reconciled; see approval-safety.md.",
+        "operationId": "post_api_v1_drafts_candidate_id_approve",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "candidate_id",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "pattern": "^[A-Za-z0-9_-]+$",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ApprovalRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApprovalResult"
+                }
+              }
+            },
+            "description": "Implemented local success"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          },
+          "410": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          }
+        },
+        "security": [
+          {
+            "SyntheticPrincipal": []
+          }
+        ],
+        "x-implementation": "implemented-local"
+      }
+    },
+    "/api/v1/drafts/{candidate_id}/revise/stream": {
+      "post": {
+        "description": "No replay; only done(plan) exposes approval identity. EOF without terminal done is incomplete. Post-header errors use error+done(error).",
+        "operationId": "post_api_v1_drafts_candidate_id_revise_stream",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "candidate_id",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "pattern": "^[A-Za-z0-9_-]+$",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReviseRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "text/event-stream": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "description": "Implemented local success"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          },
+          "410": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          }
+        },
+        "security": [
+          {
+            "SyntheticPrincipal": []
+          }
+        ],
+        "x-implementation": "implemented-local",
+        "x-sse-envelope": {
+          "$ref": "#/components/schemas/StreamEvent"
+        },
+        "x-sse-limits": {
+          "maxEvents": 64,
+          "maxFrameBytes": 16384
+        }
+      }
+    },
+    "/api/v1/exercises": {
+      "get": {
+        "operationId": "get_api_v1_exercises",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "default": 20,
+              "maximum": 20,
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "cursor",
+            "schema": {
+              "maxLength": 64,
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "goal",
+            "schema": {
+              "enum": [
+                "general_strength",
+                "general_conditioning"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "equipment",
+            "schema": {
+              "enum": [
+                "bodyweight",
+                "dumbbells_and_bodyweight"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "experience",
+            "schema": {
+              "enum": [
+                "beginner",
+                "intermediate"
+              ],
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/CatalogRecord"
+                  },
+                  "maxItems": 20,
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Implemented local success"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          },
+          "410": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          }
+        },
+        "security": [
+          {
+            "SyntheticPrincipal": []
+          }
+        ],
+        "x-implementation": "implemented-local"
+      }
+    },
+    "/api/v1/plans": {
+      "get": {
+        "operationId": "get_api_v1_plans",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "default": 20,
+              "maximum": 20,
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "cursor",
+            "schema": {
+              "maxLength": 64,
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/SavedPlan"
+                  },
+                  "maxItems": 20,
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Implemented local success"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          },
+          "410": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          }
+        },
+        "security": [
+          {
+            "SyntheticPrincipal": []
+          }
+        ],
+        "x-implementation": "implemented-local"
+      }
+    },
+    "/api/v1/plans/{plan_id}": {
+      "get": {
+        "operationId": "get_api_v1_plans_plan_id",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "plan_id",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "pattern": "^[A-Za-z0-9_-]+$",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SavedPlan"
+                }
+              }
+            },
+            "description": "Implemented local success"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          },
+          "410": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          }
+        },
+        "security": [
+          {
+            "SyntheticPrincipal": []
+          }
+        ],
+        "x-implementation": "implemented-local"
+      }
+    },
+    "/api/v1/plans/{plan_id}/completions": {
+      "get": {
+        "description": "Explicit immutable session Submit/readback against an owned approved snapshot. First create expects revision 0; record revision 1 is immutable. Same-key matching retry returns original; different key conflicts. No free-text notes; see contracts/completion-feedback.md.",
+        "operationId": "get_api_v1_plans_plan_id_completions",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "plan_id",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "pattern": "^[A-Za-z0-9_-]+$",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/SessionRecord"
+                  },
+                  "maxItems": 4,
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Implemented local success"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SubmissionError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SubmissionError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SubmissionError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SubmissionError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          },
+          "410": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SubmissionError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SubmissionError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SubmissionError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SubmissionError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SubmissionError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          }
+        },
+        "security": [
+          {
+            "SyntheticPrincipal": []
+          }
+        ],
+        "x-implementation": "implemented-local"
+      }
+    },
+    "/api/v1/plans/{plan_id}/sessions/{day_index}/completion": {
+      "get": {
+        "description": "Explicit immutable session Submit/readback against an owned approved snapshot. First create expects revision 0; record revision 1 is immutable. Same-key matching retry returns original; different key conflicts. No free-text notes; see contracts/completion-feedback.md.",
+        "operationId": "get_api_v1_plans_plan_id_sessions_day_index_completion",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "plan_id",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "pattern": "^[A-Za-z0-9_-]+$",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "day_index",
+            "required": true,
+            "schema": {
+              "maximum": 4,
+              "minimum": 1,
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SessionRecord"
+                }
+              }
+            },
+            "description": "Implemented local success"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SubmissionError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SubmissionError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SubmissionError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SubmissionError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          },
+          "410": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SubmissionError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SubmissionError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SubmissionError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SubmissionError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SubmissionError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          }
+        },
+        "security": [
+          {
+            "SyntheticPrincipal": []
+          }
+        ],
+        "x-implementation": "implemented-local"
+      },
+      "post": {
+        "description": "Explicit immutable session Submit/readback against an owned approved snapshot. First create expects revision 0; record revision 1 is immutable. Same-key matching retry returns original; different key conflicts. No free-text notes; see contracts/completion-feedback.md.",
+        "operationId": "post_api_v1_plans_plan_id_sessions_day_index_completion",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "plan_id",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "pattern": "^[A-Za-z0-9_-]+$",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "day_index",
+            "required": true,
+            "schema": {
+              "maximum": 4,
+              "minimum": 1,
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SessionSubmission"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SessionRecord"
+                }
+              }
+            },
+            "description": "Implemented local success"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SubmissionError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SubmissionError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SubmissionError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SubmissionError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          },
+          "410": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SubmissionError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SubmissionError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SubmissionError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SubmissionError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SubmissionError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          }
+        },
+        "security": [
+          {
+            "SyntheticPrincipal": []
+          }
+        ],
+        "x-implementation": "implemented-local",
+        "x-request-max-bytes": 4096
+      }
+    },
+    "/api/v1/profile": {
+      "get": {
+        "description": "Requires FATA_LOCAL_DEV=1, loopback peer/listener and synthetic principal header. PUT is explicit Save with optimistic expected_revision; no owner field accepted.",
+        "operationId": "get_api_v1_profile",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SavedProfile"
+                }
+              }
+            },
+            "description": "Implemented local success"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          },
+          "410": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          }
+        },
+        "security": [
+          {
+            "SyntheticPrincipal": []
+          }
+        ],
+        "x-implementation": "implemented-local"
+      },
+      "put": {
+        "description": "Requires FATA_LOCAL_DEV=1, loopback peer/listener and synthetic principal header. PUT is explicit Save with optimistic expected_revision; no owner field accepted.",
+        "operationId": "put_api_v1_profile",
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProfileSaveRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SavedProfile"
+                }
+              }
+            },
+            "description": "Implemented local success"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          },
+          "410": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Sanitized pre-header error"
+          }
+        },
+        "security": [
+          {
+            "SyntheticPrincipal": []
+          }
+        ],
+        "x-implementation": "implemented-local"
+      }
+    },
+    "/health": {
+      "get": {
+        "operationId": "health_health_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "title": "Response Health Health Get",
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "Health",
+        "x-implementation": "implemented-foundation"
+      }
+    },
+    "/ready": {
+      "get": {
+        "operationId": "ready_ready_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReadinessStatus"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReadinessStatus"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "summary": "Ready",
+        "x-implementation": "implemented-foundation"
+      }
+    }
+  }
+}

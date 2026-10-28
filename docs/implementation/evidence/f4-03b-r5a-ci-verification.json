@@ -1,0 +1,469 @@
+{
+  "scope": "F4-03B-R5A supplemental hosted-CI browser investigation",
+  "starting_head": "991824bdb8351234a2d9ef8b99ac01542264d1ec",
+  "date": "2026-10-25",
+  "hosted_failure_source": "owner report: run #24, 256 integration passed / one browser startup failure",
+  "hosted_root_cause": "unconfirmed; original Chrome stderr discarded; not reproduced in Linux original-source run",
+  "confirmed_failure_stage": "launch / DevToolsActivePort wait, before navigation",
+  "linux_original": [
+    {
+      "run": 1,
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 30.582
+    }
+  ],
+  "linux_binary_repetitions": [
+    {
+      "run": 1,
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 16.332
+    },
+    {
+      "run": 2,
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 13.785
+    },
+    {
+      "run": 3,
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 13.475
+    },
+    {
+      "run": 4,
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 14.045
+    },
+    {
+      "run": 5,
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 14.234
+    }
+  ],
+  "linux_launcher_repetitions": [
+    {
+      "run": 1,
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 13.743
+    },
+    {
+      "run": 2,
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 13.813
+    },
+    {
+      "run": 3,
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 13.877
+    },
+    {
+      "run": 4,
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 13.807
+    },
+    {
+      "run": 5,
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 13.333
+    }
+  ],
+  "linux_final_source": [
+    {
+      "run": 1,
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 14.117
+    }
+  ],
+  "windows_integration": {
+    "tests": 257,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds_reported": 142.66
+  },
+  "linux_initial_environment_attempt": {
+    "passed": 240,
+    "failed": 6,
+    "errors": 11,
+    "cause": "isolated PYTHONPATH dependency placement plus unsupported OpenSSL 3.6 negative-days CLI; no test/source changes to resolve"
+  },
+  "linux_final_integration": {
+    "tests": 257,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds_reported": 180.25
+  },
+  "shared_checks": {
+    "integration": false,
+    "browser_required": false,
+    "commands": [
+      {
+        "command": [
+          "ROOT\\.venv\\Scripts\\python.exe",
+          "--version"
+        ],
+        "exit_code": 0,
+        "seconds": 0.055
+      },
+      {
+        "command": [
+          "node",
+          "--version"
+        ],
+        "exit_code": 0,
+        "seconds": 0.044
+      },
+      {
+        "command": [
+          "C:\\Program Files\\nodejs\\npm.cmd",
+          "--version"
+        ],
+        "exit_code": 0,
+        "seconds": 0.521
+      },
+      {
+        "command": [
+          "ROOT\\.venv\\Scripts\\ruff.exe",
+          "--version"
+        ],
+        "exit_code": 0,
+        "seconds": 0.037
+      },
+      {
+        "command": [
+          "C:\\Program Files\\nodejs\\npm.cmd",
+          "--prefix",
+          "web",
+          "ls",
+          "--depth=0"
+        ],
+        "exit_code": 0,
+        "seconds": 1.429
+      },
+      {
+        "command": [
+          "ROOT\\.venv\\Scripts\\ruff.exe",
+          "check",
+          "src",
+          "scripts",
+          "tests",
+          "--no-cache"
+        ],
+        "exit_code": 0,
+        "seconds": 0.186
+      },
+      {
+        "command": [
+          "ROOT\\.venv\\Scripts\\ruff.exe",
+          "format",
+          "--check",
+          "src",
+          "scripts",
+          "tests",
+          "--no-cache"
+        ],
+        "exit_code": 0,
+        "seconds": 0.064
+      },
+      {
+        "command": [
+          "ROOT\\.venv\\Scripts\\python.exe",
+          "scripts/export_contracts.py",
+          "--check"
+        ],
+        "exit_code": 0,
+        "seconds": 1.658
+      },
+      {
+        "command": [
+          "ROOT\\.venv\\Scripts\\python.exe",
+          "scripts/prepare_responses.py",
+          "--check"
+        ],
+        "exit_code": 0,
+        "seconds": 1.407
+      },
+      {
+        "command": [
+          "ROOT\\.venv\\Scripts\\python.exe",
+          "scripts/measure_token_admission.py",
+          "--check"
+        ],
+        "exit_code": 0,
+        "seconds": 1.625
+      },
+      {
+        "command": [
+          "ROOT\\.venv\\Scripts\\python.exe",
+          "scripts/prepare_model_evaluation.py",
+          "--check"
+        ],
+        "exit_code": 0,
+        "seconds": 0.643
+      },
+      {
+        "command": [
+          "ROOT\\.venv\\Scripts\\python.exe",
+          "scripts/evaluate_models.py",
+          "--check"
+        ],
+        "exit_code": 0,
+        "seconds": 3.757
+      },
+      {
+        "command": [
+          "C:\\Program Files\\nodejs\\npm.cmd",
+          "--prefix",
+          "web",
+          "run",
+          "check"
+        ],
+        "exit_code": 0,
+        "seconds": 6.187
+      },
+      {
+        "command": [
+          "C:\\Program Files\\nodejs\\npm.cmd",
+          "--prefix",
+          "web",
+          "run",
+          "format:check"
+        ],
+        "exit_code": 0,
+        "seconds": 1.805
+      },
+      {
+        "command": [
+          "C:\\Program Files\\nodejs\\npm.cmd",
+          "--prefix",
+          "web",
+          "run",
+          "check:generated"
+        ],
+        "exit_code": 0,
+        "seconds": 12.751
+      },
+      {
+        "command": [
+          "C:\\Program Files\\nodejs\\npm.cmd",
+          "--prefix",
+          "web",
+          "run",
+          "test"
+        ],
+        "exit_code": 0,
+        "seconds": 38.254
+      },
+      {
+        "command": [
+          "C:\\Program Files\\nodejs\\npm.cmd",
+          "--prefix",
+          "web",
+          "run",
+          "build"
+        ],
+        "exit_code": 0,
+        "seconds": 1.016
+      },
+      {
+        "command": [
+          "ROOT\\.venv\\Scripts\\python.exe",
+          "-m",
+          "pytest",
+          "-q",
+          "--basetemp=.cache/pytest-f107-unit",
+          "--junitxml=.cache/f107/unit.xml"
+        ],
+        "exit_code": 0,
+        "seconds": 40.466
+      },
+      {
+        "command": [
+          "ROOT\\.venv\\Scripts\\python.exe",
+          "scripts/evaluate_baseline.py",
+          "--check"
+        ],
+        "exit_code": 0,
+        "seconds": 0.612
+      },
+      {
+        "command": [
+          "ROOT\\.venv\\Scripts\\python.exe",
+          "scripts/measure_async_reads.py"
+        ],
+        "exit_code": 0,
+        "seconds": 2.346
+      }
+    ],
+    "tests": {
+      "unit": {
+        "tests": 1155,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    }
+  },
+  "terraform_checks": {
+    "evidence": "offline_schema_and_mock_only",
+    "sources": {
+      "source_files": 7,
+      "resource_blocks": 23,
+      "test_files": 3
+    },
+    "commands": [
+      {
+        "command": [
+          "fmt",
+          "-check",
+          "-recursive",
+          "infra/aws"
+        ],
+        "exit_code": 0,
+        "seconds": 1.394
+      },
+      {
+        "command": [
+          "-chdir=infra/aws/deployment",
+          "validate",
+          "-json"
+        ],
+        "exit_code": 0,
+        "seconds": 6.016
+      },
+      {
+        "command": [
+          "-chdir=infra/aws/deployment",
+          "test",
+          "-json",
+          "-no-color"
+        ],
+        "exit_code": 0,
+        "seconds": 3.266,
+        "tests": {
+          "status": "pass",
+          "passed": 5,
+          "failed": 0,
+          "errored": 0,
+          "skipped": 0
+        }
+      },
+      {
+        "command": [
+          "-chdir=infra/aws/state-bootstrap",
+          "validate",
+          "-json"
+        ],
+        "exit_code": 0,
+        "seconds": 5.281
+      },
+      {
+        "command": [
+          "-chdir=infra/aws/state-bootstrap",
+          "test",
+          "-json",
+          "-no-color"
+        ],
+        "exit_code": 0,
+        "seconds": 3.356,
+        "tests": {
+          "status": "pass",
+          "passed": 7,
+          "failed": 0,
+          "errored": 0,
+          "skipped": 0
+        }
+      },
+      {
+        "command": [
+          "-chdir=infra/aws/modules/protected-bucket",
+          "validate",
+          "-json"
+        ],
+        "exit_code": 0,
+        "seconds": 5.318
+      },
+      {
+        "command": [
+          "-chdir=infra/aws/modules/protected-bucket",
+          "test",
+          "-json",
+          "-no-color"
+        ],
+        "exit_code": 0,
+        "seconds": 3.062,
+        "tests": {
+          "status": "pass",
+          "passed": 2,
+          "failed": 0,
+          "errored": 0,
+          "skipped": 0
+        }
+      }
+    ]
+  },
+  "versions": {
+    "python": "3.14.9",
+    "node": "24.22.1",
+    "windows_chrome": "155.0.8059.85",
+    "linux_chrome": "156.0.8078.47",
+    "linux": "Ubuntu WSL, kernel 6.18.54.1, uid 1000",
+    "openssl_fixture": "3.0.22 cached Debian",
+    "hosted_chrome_version": "not supplied/verified"
+  },
+  "chrome_deb_sha256": "6c92cd22e90c6e3e255d782991543fa2091db8614e8536a971a7433a5c4d7ac8",
+  "source_sha256": {
+    "tests/test_browser_ui.py": "6ccd0717fcda3bda15db5f7f956df606d2ae3b35f553b82884517cecb7a5e86f",
+    "tests/test_browser_harness.py": "dbd63df5d09db45fdcd13da50421815e12376108c921384d29af5f447a615e37",
+    "web/scripts/browser-smoke.mjs": "0a0bc9e18ac7dd25dd843ad3b99087025f4d013ba8e1eea2cfd9a37a113ef3bd",
+    "web/scripts/browser-support.mjs": "7cb3ab31a509499f7824ad1fdceec474da1884da580d9ad7965bd524b9e65d08",
+    "web/scripts/browser-support.d.mts": "df87e42ffab96c801e4822a26f3667e7aa18b4b560b7c16b19e9189d60aa3f9f",
+    "web/tests/browser-support.test.ts": "96ee312d355db13ce4811cbc29f91494075ccd6282b4a44a053341e5400a5a67"
+  },
+  "safety": {
+    "sandbox_disabling_flags_added": false,
+    "application_security_changed": false,
+    "workflow_assertions_removed": false,
+    "hosted_run_triggered": false,
+    "AWS_calls": 0,
+    "provider_calls": 0,
+    "raw_failure_messages_exported": false
+  },
+  "next_gate": "owner review, then separately owner-run hosted CI; no commit/push/deployment authorization"
+}

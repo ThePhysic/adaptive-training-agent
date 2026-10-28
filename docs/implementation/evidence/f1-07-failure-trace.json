@@ -1,0 +1,130 @@
+[
+  {
+    "stage": "provider",
+    "trace_id": "fcb863ced5504fb1b044114967f229a0",
+    "span_id": "de82b283164d415ea35b70e6a9164ac5",
+    "parent_id": "079b553c925443faaf755d4c6d324a22",
+    "duration_ms": 0.103,
+    "attributes": {
+      "outcome": "ok",
+      "attempt": 1
+    }
+  },
+  {
+    "stage": "tool",
+    "trace_id": "fcb863ced5504fb1b044114967f229a0",
+    "span_id": "790b02beae7c4e13a388e07fe005055a",
+    "parent_id": "079b553c925443faaf755d4c6d324a22",
+    "duration_ms": 0.614,
+    "attributes": {
+      "outcome": "ok",
+      "tool": "search_exercises"
+    }
+  },
+  {
+    "stage": "provider",
+    "trace_id": "fcb863ced5504fb1b044114967f229a0",
+    "span_id": "b54c20d6a93946d7a171cff32b00ceed",
+    "parent_id": "079b553c925443faaf755d4c6d324a22",
+    "duration_ms": 3.671,
+    "attributes": {
+      "outcome": "ok",
+      "attempt": 2
+    }
+  },
+  {
+    "stage": "validation",
+    "trace_id": "fcb863ced5504fb1b044114967f229a0",
+    "span_id": "f2e4a80b244040aebd38fcdebf8519fb",
+    "parent_id": "079b553c925443faaf755d4c6d324a22",
+    "duration_ms": 0.326,
+    "attributes": {
+      "outcome": "error",
+      "reason": "invalid_plan"
+    }
+  },
+  {
+    "stage": "provider",
+    "trace_id": "fcb863ced5504fb1b044114967f229a0",
+    "span_id": "4d604fb1eafa4457b63274995bff24f0",
+    "parent_id": "079b553c925443faaf755d4c6d324a22",
+    "duration_ms": 3.432,
+    "attributes": {
+      "outcome": "ok",
+      "attempt": 3
+    }
+  },
+  {
+    "stage": "validation",
+    "trace_id": "fcb863ced5504fb1b044114967f229a0",
+    "span_id": "3b75f9be0cd34493b1b83d2312abe4e0",
+    "parent_id": "079b553c925443faaf755d4c6d324a22",
+    "duration_ms": 0.202,
+    "attributes": {
+      "outcome": "error",
+      "reason": "invalid_plan"
+    }
+  },
+  {
+    "stage": "agent.execute",
+    "trace_id": "fcb863ced5504fb1b044114967f229a0",
+    "span_id": "079b553c925443faaf755d4c6d324a22",
+    "parent_id": "9039ad0cd54748738844c9599c4689b9",
+    "duration_ms": 18.888,
+    "attributes": {
+      "outcome": "error",
+      "state": "failed",
+      "reason": "semantic_repair_exhausted",
+      "provider_requests": 3,
+      "tool_dispatches": 1,
+      "transport_retries": 0,
+      "semantic_repairs": 1,
+      "input_tokens": 7308,
+      "output_tokens": 787,
+      "uncertain_attempts": 0,
+      "finish_reason": "stop",
+      "profile_revision": 1,
+      "catalog_revision": "catalog-v1",
+      "validator_revision": "validator-v1",
+      "prompt_version": "planner-prompt-v1",
+      "tool_version": "read-tools-v1",
+      "output_version": "plan-output-v1",
+      "model_id": "deterministic-fake-v1"
+    }
+  },
+  {
+    "stage": "stream.terminal",
+    "trace_id": "fcb863ced5504fb1b044114967f229a0",
+    "span_id": "61b55be4eb6541f9a17cd4737e875b8b",
+    "parent_id": "9039ad0cd54748738844c9599c4689b9",
+    "duration_ms": 0.017,
+    "attributes": {
+      "outcome": "error"
+    }
+  },
+  {
+    "stage": "agent.session",
+    "trace_id": "fcb863ced5504fb1b044114967f229a0",
+    "span_id": "9039ad0cd54748738844c9599c4689b9",
+    "parent_id": "fc58214b5de14946bb8445acb923ca27",
+    "duration_ms": 19.609,
+    "attributes": {
+      "outcome": "error",
+      "terminal_complete": true,
+      "cancelled_cleanup": true
+    }
+  },
+  {
+    "stage": "http",
+    "trace_id": "fcb863ced5504fb1b044114967f229a0",
+    "span_id": "fc58214b5de14946bb8445acb923ca27",
+    "parent_id": null,
+    "duration_ms": 22.18,
+    "attributes": {
+      "outcome": "error",
+      "route": "generate",
+      "http_status": 200,
+      "terminal_complete": true
+    }
+  }
+]

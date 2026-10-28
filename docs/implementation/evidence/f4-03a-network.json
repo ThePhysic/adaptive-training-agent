@@ -1,0 +1,59 @@
+{
+  "type": "actual_Linux_owner_firewall_and_PostgreSQL_synthetic_namespace",
+  "host_network_used": false,
+  "external_network": "none",
+  "phases": {
+    "before": {
+      "probes": [
+        {
+          "uid": 0,
+          "ipv4_metadata": true,
+          "ipv6_metadata": true,
+          "loopback": true
+        },
+        {
+          "uid": 10001,
+          "ipv4_metadata": false,
+          "ipv6_metadata": false,
+          "loopback": true
+        },
+        {
+          "uid": 999,
+          "ipv4_metadata": true,
+          "ipv6_metadata": true,
+          "loopback": true
+        }
+      ],
+      "postgres_program_metadata_connected": true,
+      "postgres_backend_uid": 999,
+      "postgres_loopback_query": true
+    },
+    "after": {
+      "probes": [
+        {
+          "uid": 0,
+          "ipv4_metadata": true,
+          "ipv6_metadata": true,
+          "loopback": true
+        },
+        {
+          "uid": 10001,
+          "ipv4_metadata": false,
+          "ipv6_metadata": false,
+          "loopback": true
+        },
+        {
+          "uid": 999,
+          "ipv4_metadata": false,
+          "ipv6_metadata": false,
+          "loopback": true
+        }
+      ],
+      "postgres_program_metadata_connected": false,
+      "postgres_backend_uid": 999,
+      "postgres_loopback_query": true
+    }
+  },
+  "actual_preparation_lock_barrier": true,
+  "baseline": "F4-02 app-only fence; PostgreSQL unprotected"
+}

@@ -1,0 +1,36 @@
+{
+  "type": "real_Linux_PostgreSQL_TIME_WAIT_handoff",
+  "ports": [
+    8000,
+    55432
+  ],
+  "after_pg_stop_ss": [
+    "TIME-WAIT 0      0      127.0.0.1:55432 127.0.0.1:45408"
+  ],
+  "original_probe_failure": {
+    "port": 55432,
+    "errno": 98
+  },
+  "passive_wait_seconds": 59.115,
+  "strict_binds_succeeded_after_close_state": true,
+  "unrelated_listener_refused_and_left_listening": true,
+  "before_stop_postgres_processes": [
+    "PID                 COMMAND",
+    "658                 postgres",
+    "810                 postgres",
+    "811                 postgres",
+    "812                 postgres",
+    "813                 postgres",
+    "814                 postgres",
+    "816                 postgres",
+    "817                 postgres",
+    "818                 postgres"
+  ],
+  "before_stop_ss": [
+    "LISTEN 0      200    127.0.0.1:55432 0.0.0.0:*"
+  ],
+  "pg_container_stopped_before_check": true,
+  "network": "none",
+  "host_ports_used": false,
+  "volumes_deleted": false
+}

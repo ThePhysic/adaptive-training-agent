@@ -1,0 +1,697 @@
+{
+  "version": "catalog-cpu-profile-v1",
+  "note": "instrumented CPU, not latency samples",
+  "uncached": {
+    "workload": "216 planning calls plus independent revalidation of returned plans",
+    "total_calls": 243145,
+    "total_seconds": 0.30367030000000006,
+    "top_cumulative": [
+      {
+        "file": "src/future_training/domain/baseline.py",
+        "line": 105,
+        "function": "plan_week",
+        "calls": 216,
+        "primitive_calls": 216,
+        "own_seconds": 0.008721900000000001,
+        "cumulative_seconds": 0.232778
+      },
+      {
+        "file": "src/future_training/domain/validator.py",
+        "line": 47,
+        "function": "validate_plan",
+        "calls": 432,
+        "primitive_calls": 432,
+        "own_seconds": 0.0234723,
+        "cumulative_seconds": 0.1454476
+      },
+      {
+        "file": ".venv/Lib/site-packages/pydantic/main.py",
+        "line": 800,
+        "function": "model_validate_json",
+        "calls": 10800,
+        "primitive_calls": 10800,
+        "own_seconds": 0.0047695,
+        "cumulative_seconds": 0.0754607
+      },
+      {
+        "file": "src/future_training/domain/baseline.py",
+        "line": 66,
+        "function": "_schedule",
+        "calls": 216,
+        "primitive_calls": 216,
+        "own_seconds": 0.0504309,
+        "cumulative_seconds": 0.07348460000000001
+      },
+      {
+        "file": "~",
+        "line": 0,
+        "function": "<method 'validate_json' of 'pydantic_core._pydantic_core.SchemaValidator' objects>",
+        "calls": 10800,
+        "primitive_calls": 10800,
+        "own_seconds": 0.0632249,
+        "cumulative_seconds": 0.07069120000000001
+      },
+      {
+        "file": "~",
+        "line": 0,
+        "function": "<method 'validate_python' of 'pydantic_core._pydantic_core.SchemaValidator' objects>",
+        "calls": 5184,
+        "primitive_calls": 5184,
+        "own_seconds": 0.0332891,
+        "cumulative_seconds": 0.052671800000000005
+      },
+      {
+        "file": "src/future_training/domain/catalog.py",
+        "line": 44,
+        "function": "get",
+        "calls": 6480,
+        "primitive_calls": 6480,
+        "own_seconds": 0.0053149,
+        "cumulative_seconds": 0.0525291
+      },
+      {
+        "file": "src/future_training/domain/catalog.py",
+        "line": 64,
+        "function": "eligible",
+        "calls": 216,
+        "primitive_calls": 216,
+        "own_seconds": 0.0034188,
+        "cumulative_seconds": 0.0387797
+      },
+      {
+        "file": ".venv/Lib/site-packages/pydantic/main.py",
+        "line": 746,
+        "function": "model_validate",
+        "calls": 1080,
+        "primitive_calls": 1080,
+        "own_seconds": 0.0006163000000000001,
+        "cumulative_seconds": 0.0345238
+      },
+      {
+        "file": "src/future_training/domain/catalog.py",
+        "line": 48,
+        "function": "records",
+        "calls": 216,
+        "primitive_calls": 216,
+        "own_seconds": 0.0031365000000000004,
+        "cumulative_seconds": 0.0337533
+      },
+      {
+        "file": ".venv/Lib/site-packages/pydantic/main.py",
+        "line": 270,
+        "function": "__init__",
+        "calls": 4104,
+        "primitive_calls": 4104,
+        "own_seconds": 0.0016845,
+        "cumulative_seconds": 0.0204488
+      },
+      {
+        "file": "~",
+        "line": 0,
+        "function": "<built-in method builtins.sorted>",
+        "calls": 3240,
+        "primitive_calls": 3240,
+        "own_seconds": 0.0085375,
+        "cumulative_seconds": 0.017883200000000002
+      },
+      {
+        "file": "src/future_training/domain/duration.py",
+        "line": 31,
+        "function": "session_seconds",
+        "calls": 1944,
+        "primitive_calls": 1944,
+        "own_seconds": 0.0034031,
+        "cumulative_seconds": 0.0170438
+      },
+      {
+        "file": "src/future_training/domain/validator.py",
+        "line": 34,
+        "function": "parse_profile",
+        "calls": 648,
+        "primitive_calls": 648,
+        "own_seconds": 0.0015115,
+        "cumulative_seconds": 0.014111100000000001
+      },
+      {
+        "file": ".venv/Lib/site-packages/pydantic/main.py",
+        "line": 472,
+        "function": "model_dump",
+        "calls": 1944,
+        "primitive_calls": 1944,
+        "own_seconds": 0.0011206,
+        "cumulative_seconds": 0.0136544
+      },
+      {
+        "file": "~",
+        "line": 0,
+        "function": "<method 'to_python' of 'pydantic_core._pydantic_core.SchemaSerializer' objects>",
+        "calls": 1944,
+        "primitive_calls": 1944,
+        "own_seconds": 0.012533800000000001,
+        "cumulative_seconds": 0.012533800000000001
+      },
+      {
+        "file": "src/future_training/domain/baseline.py",
+        "line": 38,
+        "function": "_block",
+        "calls": 3240,
+        "primitive_calls": 3240,
+        "own_seconds": 0.0041763,
+        "cumulative_seconds": 0.0122641
+      },
+      {
+        "file": "~",
+        "line": 0,
+        "function": "<built-in method builtins.sum>",
+        "calls": 1944,
+        "primitive_calls": 1944,
+        "own_seconds": 0.0025558,
+        "cumulative_seconds": 0.012172200000000001
+      },
+      {
+        "file": "src/future_training/domain/duration.py",
+        "line": 38,
+        "function": "<genexpr>",
+        "calls": 11664,
+        "primitive_calls": 11664,
+        "own_seconds": 0.0033251,
+        "cumulative_seconds": 0.0096164
+      },
+      {
+        "file": "src/future_training/domain/baseline.py",
+        "line": 85,
+        "function": "<lambda>",
+        "calls": 26136,
+        "primitive_calls": 26136,
+        "own_seconds": 0.0056429,
+        "cumulative_seconds": 0.008026400000000001
+      },
+      {
+        "file": "src/future_training/schemas.py",
+        "line": 96,
+        "function": "compatible_mode",
+        "calls": 10800,
+        "primitive_calls": 10800,
+        "own_seconds": 0.0074663,
+        "cumulative_seconds": 0.0074663
+      },
+      {
+        "file": "src/future_training/domain/baseline.py",
+        "line": 93,
+        "function": "<genexpr>",
+        "calls": 2160,
+        "primitive_calls": 2160,
+        "own_seconds": 0.007456600000000001,
+        "cumulative_seconds": 0.007456600000000001
+      },
+      {
+        "file": "~",
+        "line": 0,
+        "function": "<built-in method builtins.next>",
+        "calls": 1080,
+        "primitive_calls": 1080,
+        "own_seconds": 0.00040080000000000004,
+        "cumulative_seconds": 0.0072989000000000005
+      },
+      {
+        "file": "src/future_training/schemas.py",
+        "line": 141,
+        "function": "matrix_bounds",
+        "calls": 648,
+        "primitive_calls": 648,
+        "own_seconds": 0.0046669,
+        "cumulative_seconds": 0.0067596
+      },
+      {
+        "file": "src/future_training/domain/duration.py",
+        "line": 22,
+        "function": "block_seconds",
+        "calls": 9720,
+        "primitive_calls": 9720,
+        "own_seconds": 0.0046685,
+        "cumulative_seconds": 0.0062913000000000005
+      },
+      {
+        "file": "~",
+        "line": 0,
+        "function": "<method 'extend' of 'list' objects>",
+        "calls": 6480,
+        "primitive_calls": 6480,
+        "own_seconds": 0.0038725,
+        "cumulative_seconds": 0.0058091
+      },
+      {
+        "file": "src/future_training/schemas.py",
+        "line": 54,
+        "function": "deduplicate",
+        "calls": 2160,
+        "primitive_calls": 2160,
+        "own_seconds": 0.0035885,
+        "cumulative_seconds": 0.0051428
+      },
+      {
+        "file": "src/future_training/schemas.py",
+        "line": 128,
+        "function": "distinct_exercises",
+        "calls": 2592,
+        "primitive_calls": 2592,
+        "own_seconds": 0.0035073,
+        "cumulative_seconds": 0.0041617
+      },
+      {
+        "file": "src/future_training/domain/validator.py",
+        "line": 40,
+        "function": "_constraints",
+        "calls": 864,
+        "primitive_calls": 864,
+        "own_seconds": 0.0012232,
+        "cumulative_seconds": 0.003954200000000001
+      },
+      {
+        "file": "~",
+        "line": 0,
+        "function": "<built-in method builtins.isinstance>",
+        "calls": 18756,
+        "primitive_calls": 18756,
+        "own_seconds": 0.0031724,
+        "cumulative_seconds": 0.0031724
+      }
+    ],
+    "catalog_functions": [
+      {
+        "file": "src/future_training/domain/catalog.py",
+        "line": 44,
+        "function": "get",
+        "calls": 6480,
+        "primitive_calls": 6480,
+        "own_seconds": 0.0053149,
+        "cumulative_seconds": 0.0525291
+      },
+      {
+        "file": "src/future_training/domain/catalog.py",
+        "line": 64,
+        "function": "eligible",
+        "calls": 216,
+        "primitive_calls": 216,
+        "own_seconds": 0.0034188,
+        "cumulative_seconds": 0.0387797
+      },
+      {
+        "file": "src/future_training/domain/catalog.py",
+        "line": 48,
+        "function": "records",
+        "calls": 216,
+        "primitive_calls": 216,
+        "own_seconds": 0.0031365000000000004,
+        "cumulative_seconds": 0.0337533
+      },
+      {
+        "file": "src/future_training/domain/catalog.py",
+        "line": 59,
+        "function": "unknown_exclusions",
+        "calls": 648,
+        "primitive_calls": 648,
+        "own_seconds": 0.0016495000000000001,
+        "cumulative_seconds": 0.0028697
+      },
+      {
+        "file": "src/future_training/domain/catalog.py",
+        "line": 40,
+        "function": "ids",
+        "calls": 648,
+        "primitive_calls": 648,
+        "own_seconds": 0.0011167,
+        "cumulative_seconds": 0.0011167
+      },
+      {
+        "file": "src/future_training/domain/catalog.py",
+        "line": 80,
+        "function": "<lambda>",
+        "calls": 1800,
+        "primitive_calls": 1800,
+        "own_seconds": 0.00040330000000000005,
+        "cumulative_seconds": 0.00040330000000000005
+      },
+      {
+        "file": "src/future_training/domain/catalog.py",
+        "line": 36,
+        "function": "known_tags",
+        "calls": 648,
+        "primitive_calls": 648,
+        "own_seconds": 0.00010350000000000001,
+        "cumulative_seconds": 0.00010350000000000001
+      }
+    ]
+  },
+  "warm": {
+    "workload": "216 planning calls plus independent revalidation of returned plans",
+    "total_calls": 247969,
+    "total_seconds": 0.2947652000000002,
+    "top_cumulative": [
+      {
+        "file": "src/future_training/domain/baseline.py",
+        "line": 105,
+        "function": "plan_week",
+        "calls": 216,
+        "primitive_calls": 216,
+        "own_seconds": 0.009287700000000001,
+        "cumulative_seconds": 0.2209145
+      },
+      {
+        "file": "src/future_training/domain/validator.py",
+        "line": 47,
+        "function": "validate_plan",
+        "calls": 432,
+        "primitive_calls": 432,
+        "own_seconds": 0.024174,
+        "cumulative_seconds": 0.151489
+      },
+      {
+        "file": "src/future_training/domain/baseline.py",
+        "line": 66,
+        "function": "_schedule",
+        "calls": 216,
+        "primitive_calls": 216,
+        "own_seconds": 0.0505429,
+        "cumulative_seconds": 0.07301200000000001
+      },
+      {
+        "file": ".venv/Lib/site-packages/pydantic/main.py",
+        "line": 800,
+        "function": "model_validate_json",
+        "calls": 8424,
+        "primitive_calls": 8424,
+        "own_seconds": 0.0036077,
+        "cumulative_seconds": 0.060301900000000005
+      },
+      {
+        "file": "src/future_training/experiments/catalog_cache.py",
+        "line": 96,
+        "function": "get",
+        "calls": 6480,
+        "primitive_calls": 6480,
+        "own_seconds": 0.0023692,
+        "cumulative_seconds": 0.056924800000000005
+      },
+      {
+        "file": "~",
+        "line": 0,
+        "function": "<method 'validate_json' of 'pydantic_core._pydantic_core.SchemaValidator' objects>",
+        "calls": 8424,
+        "primitive_calls": 8424,
+        "own_seconds": 0.050372400000000005,
+        "cumulative_seconds": 0.0566942
+      },
+      {
+        "file": "~",
+        "line": 0,
+        "function": "<method 'validate_python' of 'pydantic_core._pydantic_core.SchemaValidator' objects>",
+        "calls": 5400,
+        "primitive_calls": 5400,
+        "own_seconds": 0.0344159,
+        "cumulative_seconds": 0.055242700000000006
+      },
+      {
+        "file": "src/future_training/domain/catalog.py",
+        "line": 44,
+        "function": "get",
+        "calls": 6480,
+        "primitive_calls": 6480,
+        "own_seconds": 0.0055078,
+        "cumulative_seconds": 0.0545556
+      },
+      {
+        "file": ".venv/Lib/site-packages/pydantic/main.py",
+        "line": 746,
+        "function": "model_validate",
+        "calls": 1296,
+        "primitive_calls": 1296,
+        "own_seconds": 0.0007525,
+        "cumulative_seconds": 0.037377400000000005
+      },
+      {
+        "file": "src/future_training/experiments/catalog_cache.py",
+        "line": 108,
+        "function": "eligible",
+        "calls": 216,
+        "primitive_calls": 216,
+        "own_seconds": 0.0008922,
+        "cumulative_seconds": 0.0236686
+      },
+      {
+        "file": ".venv/Lib/site-packages/pydantic/main.py",
+        "line": 270,
+        "function": "__init__",
+        "calls": 4104,
+        "primitive_calls": 4104,
+        "own_seconds": 0.001758,
+        "cumulative_seconds": 0.020375800000000003
+      },
+      {
+        "file": "src/future_training/domain/catalog.py",
+        "line": 64,
+        "function": "eligible",
+        "calls": 216,
+        "primitive_calls": 216,
+        "own_seconds": 0.0025353000000000003,
+        "cumulative_seconds": 0.0191699
+      },
+      {
+        "file": "~",
+        "line": 0,
+        "function": "<built-in method builtins.sorted>",
+        "calls": 3240,
+        "primitive_calls": 3240,
+        "own_seconds": 0.0083823,
+        "cumulative_seconds": 0.017705600000000002
+      },
+      {
+        "file": "src/future_training/domain/duration.py",
+        "line": 31,
+        "function": "session_seconds",
+        "calls": 1944,
+        "primitive_calls": 1944,
+        "own_seconds": 0.0031408,
+        "cumulative_seconds": 0.017546000000000003
+      },
+      {
+        "file": "src/future_training/domain/catalog.py",
+        "line": 48,
+        "function": "records",
+        "calls": 216,
+        "primitive_calls": 216,
+        "own_seconds": 0.0015898000000000002,
+        "cumulative_seconds": 0.0150702
+      },
+      {
+        "file": ".venv/Lib/site-packages/pydantic/main.py",
+        "line": 472,
+        "function": "model_dump",
+        "calls": 2160,
+        "primitive_calls": 2160,
+        "own_seconds": 0.0011690000000000001,
+        "cumulative_seconds": 0.013948100000000001
+      },
+      {
+        "file": "src/future_training/domain/validator.py",
+        "line": 34,
+        "function": "parse_profile",
+        "calls": 648,
+        "primitive_calls": 648,
+        "own_seconds": 0.0015809,
+        "cumulative_seconds": 0.013809900000000002
+      },
+      {
+        "file": "~",
+        "line": 0,
+        "function": "<built-in method builtins.sum>",
+        "calls": 1944,
+        "primitive_calls": 1944,
+        "own_seconds": 0.0026032,
+        "cumulative_seconds": 0.012906800000000001
+      },
+      {
+        "file": "~",
+        "line": 0,
+        "function": "<method 'to_python' of 'pydantic_core._pydantic_core.SchemaSerializer' objects>",
+        "calls": 2160,
+        "primitive_calls": 2160,
+        "own_seconds": 0.012779100000000002,
+        "cumulative_seconds": 0.012779100000000002
+      },
+      {
+        "file": "src/future_training/domain/baseline.py",
+        "line": 38,
+        "function": "_block",
+        "calls": 3240,
+        "primitive_calls": 3240,
+        "own_seconds": 0.0040505,
+        "cumulative_seconds": 0.0123762
+      },
+      {
+        "file": "src/future_training/domain/duration.py",
+        "line": 38,
+        "function": "<genexpr>",
+        "calls": 11664,
+        "primitive_calls": 11664,
+        "own_seconds": 0.0036804000000000003,
+        "cumulative_seconds": 0.010303600000000001
+      },
+      {
+        "file": "src/future_training/domain/baseline.py",
+        "line": 85,
+        "function": "<lambda>",
+        "calls": 26136,
+        "primitive_calls": 26136,
+        "own_seconds": 0.0055999000000000005,
+        "cumulative_seconds": 0.0079547
+      },
+      {
+        "file": "src/future_training/schemas.py",
+        "line": 141,
+        "function": "matrix_bounds",
+        "calls": 648,
+        "primitive_calls": 648,
+        "own_seconds": 0.0051378000000000005,
+        "cumulative_seconds": 0.0072602000000000005
+      },
+      {
+        "file": "src/future_training/domain/baseline.py",
+        "line": 93,
+        "function": "<genexpr>",
+        "calls": 2160,
+        "primitive_calls": 2160,
+        "own_seconds": 0.0069213,
+        "cumulative_seconds": 0.0069213
+      },
+      {
+        "file": "~",
+        "line": 0,
+        "function": "<built-in method builtins.next>",
+        "calls": 1080,
+        "primitive_calls": 1080,
+        "own_seconds": 0.0004,
+        "cumulative_seconds": 0.006684600000000001
+      },
+      {
+        "file": "src/future_training/domain/duration.py",
+        "line": 22,
+        "function": "block_seconds",
+        "calls": 9720,
+        "primitive_calls": 9720,
+        "own_seconds": 0.0049158000000000006,
+        "cumulative_seconds": 0.0066232
+      },
+      {
+        "file": "src/future_training/schemas.py",
+        "line": 96,
+        "function": "compatible_mode",
+        "calls": 8424,
+        "primitive_calls": 8424,
+        "own_seconds": 0.006321800000000001,
+        "cumulative_seconds": 0.006321800000000001
+      },
+      {
+        "file": "src/future_training/schemas.py",
+        "line": 54,
+        "function": "deduplicate",
+        "calls": 2592,
+        "primitive_calls": 2592,
+        "own_seconds": 0.0040972000000000005,
+        "cumulative_seconds": 0.005946300000000001
+      },
+      {
+        "file": "~",
+        "line": 0,
+        "function": "<method 'extend' of 'list' objects>",
+        "calls": 6480,
+        "primitive_calls": 6480,
+        "own_seconds": 0.00318,
+        "cumulative_seconds": 0.0055306
+      },
+      {
+        "file": "src/future_training/schemas.py",
+        "line": 128,
+        "function": "distinct_exercises",
+        "calls": 2592,
+        "primitive_calls": 2592,
+        "own_seconds": 0.0035185000000000004,
+        "cumulative_seconds": 0.0044183
+      }
+    ],
+    "catalog_functions": [
+      {
+        "file": "src/future_training/domain/catalog.py",
+        "line": 44,
+        "function": "get",
+        "calls": 6480,
+        "primitive_calls": 6480,
+        "own_seconds": 0.0055078,
+        "cumulative_seconds": 0.0545556
+      },
+      {
+        "file": "src/future_training/domain/catalog.py",
+        "line": 64,
+        "function": "eligible",
+        "calls": 216,
+        "primitive_calls": 216,
+        "own_seconds": 0.0025353000000000003,
+        "cumulative_seconds": 0.0191699
+      },
+      {
+        "file": "src/future_training/domain/catalog.py",
+        "line": 48,
+        "function": "records",
+        "calls": 216,
+        "primitive_calls": 216,
+        "own_seconds": 0.0015898000000000002,
+        "cumulative_seconds": 0.0150702
+      },
+      {
+        "file": "src/future_training/domain/catalog.py",
+        "line": 59,
+        "function": "unknown_exclusions",
+        "calls": 648,
+        "primitive_calls": 648,
+        "own_seconds": 0.0016892,
+        "cumulative_seconds": 0.0031671000000000004
+      },
+      {
+        "file": "src/future_training/domain/catalog.py",
+        "line": 40,
+        "function": "ids",
+        "calls": 648,
+        "primitive_calls": 648,
+        "own_seconds": 0.0013778,
+        "cumulative_seconds": 0.0013778
+      },
+      {
+        "file": "src/future_training/domain/catalog.py",
+        "line": 80,
+        "function": "<lambda>",
+        "calls": 1800,
+        "primitive_calls": 1800,
+        "own_seconds": 0.0004308,
+        "cumulative_seconds": 0.0004308
+      },
+      {
+        "file": "src/future_training/domain/catalog.py",
+        "line": 36,
+        "function": "known_tags",
+        "calls": 648,
+        "primitive_calls": 648,
+        "own_seconds": 0.00010010000000000001,
+        "cumulative_seconds": 0.00010010000000000001
+      },
+      {
+        "file": "src/future_training/domain/catalog.py",
+        "line": 32,
+        "function": "revision",
+        "calls": 216,
+        "primitive_calls": 216,
+        "own_seconds": 2.93e-05,
+        "cumulative_seconds": 2.93e-05
+      }
+    ]
+  }
+}

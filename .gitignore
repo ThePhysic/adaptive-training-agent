@@ -1,0 +1,26 @@
+AGENTS.md
+.aws/
+.env
+.env.*
+!.env.example
+.venv/
+__pycache__/
+node_modules/
+dist/
+.tools/
+.cache/
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+web/.cache/
+# Terraform working data and private deployment inputs; lockfiles remain tracked.
+**/.terraform/
+*.tfstate
+*.tfstate.*
+*.tfplan
+*.tfplan.json
+*.tfvars
+*.tfvars.json
+*.tfbackend
+backend.hcl
+crash.log

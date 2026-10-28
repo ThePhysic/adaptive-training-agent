@@ -1,0 +1,532 @@
+{
+  "scope": "F4-03A hosted-CI test-simulation compatibility correction only",
+  "head_before_correction": "1bdd3a012358ec370f0fba5dc8c2a9cd851cd1b6",
+  "provider_cloud_telemetry_execution": false,
+  "hosted_before": {
+    "run_url": "https://github.com/ThePhysic/future-adaptive-training-agent/actions/runs/40249712991",
+    "head": "1bdd3a012358ec370f0fba5dc8c2a9cd851cd1b6",
+    "release_drill": "skipped"
+  },
+  "before_fix": {
+    "Windows_target": {
+      "passed": 27
+    },
+    "Linux_target": {
+      "passed": 15,
+      "failed": 12,
+      "error": "incorrect_mounted_volume"
+    }
+  },
+  "after_fix": {
+    "Windows": {
+      "integration": true,
+      "browser_required": true,
+      "commands": [
+        {
+          "command": [
+            "ROOT\\.venv\\Scripts\\python.exe",
+            "--version"
+          ],
+          "exit_code": 0,
+          "seconds": 0.037
+        },
+        {
+          "command": [
+            "node",
+            "--version"
+          ],
+          "exit_code": 0,
+          "seconds": 0.036
+        },
+        {
+          "command": [
+            "C:\\Program Files\\nodejs\\npm.cmd",
+            "--version"
+          ],
+          "exit_code": 0,
+          "seconds": 0.455
+        },
+        {
+          "command": [
+            "ROOT\\.venv\\Scripts\\ruff.exe",
+            "--version"
+          ],
+          "exit_code": 0,
+          "seconds": 0.03
+        },
+        {
+          "command": [
+            "C:\\Program Files\\nodejs\\npm.cmd",
+            "--prefix",
+            "web",
+            "ls",
+            "--depth=0"
+          ],
+          "exit_code": 0,
+          "seconds": 1.255
+        },
+        {
+          "command": [
+            "ROOT\\.venv\\Scripts\\ruff.exe",
+            "check",
+            "src",
+            "scripts",
+            "tests",
+            "--no-cache"
+          ],
+          "exit_code": 0,
+          "seconds": 0.094
+        },
+        {
+          "command": [
+            "ROOT\\.venv\\Scripts\\ruff.exe",
+            "format",
+            "--check",
+            "src",
+            "scripts",
+            "tests",
+            "--no-cache"
+          ],
+          "exit_code": 0,
+          "seconds": 0.043
+        },
+        {
+          "command": [
+            "ROOT\\.venv\\Scripts\\python.exe",
+            "scripts/export_contracts.py",
+            "--check"
+          ],
+          "exit_code": 0,
+          "seconds": 1.428
+        },
+        {
+          "command": [
+            "ROOT\\.venv\\Scripts\\python.exe",
+            "scripts/prepare_responses.py",
+            "--check"
+          ],
+          "exit_code": 0,
+          "seconds": 1.426
+        },
+        {
+          "command": [
+            "ROOT\\.venv\\Scripts\\python.exe",
+            "scripts/measure_token_admission.py",
+            "--check"
+          ],
+          "exit_code": 0,
+          "seconds": 1.415
+        },
+        {
+          "command": [
+            "ROOT\\.venv\\Scripts\\python.exe",
+            "scripts/prepare_model_evaluation.py",
+            "--check"
+          ],
+          "exit_code": 0,
+          "seconds": 0.64
+        },
+        {
+          "command": [
+            "ROOT\\.venv\\Scripts\\python.exe",
+            "scripts/evaluate_models.py",
+            "--check"
+          ],
+          "exit_code": 0,
+          "seconds": 3.362
+        },
+        {
+          "command": [
+            "C:\\Program Files\\nodejs\\npm.cmd",
+            "--prefix",
+            "web",
+            "run",
+            "check"
+          ],
+          "exit_code": 0,
+          "seconds": 4.915
+        },
+        {
+          "command": [
+            "C:\\Program Files\\nodejs\\npm.cmd",
+            "--prefix",
+            "web",
+            "run",
+            "format:check"
+          ],
+          "exit_code": 0,
+          "seconds": 1.686
+        },
+        {
+          "command": [
+            "C:\\Program Files\\nodejs\\npm.cmd",
+            "--prefix",
+            "web",
+            "run",
+            "check:generated"
+          ],
+          "exit_code": 0,
+          "seconds": 1.519
+        },
+        {
+          "command": [
+            "C:\\Program Files\\nodejs\\npm.cmd",
+            "--prefix",
+            "web",
+            "run",
+            "test"
+          ],
+          "exit_code": 0,
+          "seconds": 5.842
+        },
+        {
+          "command": [
+            "C:\\Program Files\\nodejs\\npm.cmd",
+            "--prefix",
+            "web",
+            "run",
+            "build"
+          ],
+          "exit_code": 0,
+          "seconds": 0.762
+        },
+        {
+          "command": [
+            "ROOT\\.venv\\Scripts\\python.exe",
+            "-m",
+            "pytest",
+            "-q",
+            "--basetemp=.cache/pytest-f107-unit",
+            "--junitxml=.cache/f107/unit.xml"
+          ],
+          "exit_code": 0,
+          "seconds": 34.53
+        },
+        {
+          "command": [
+            "ROOT\\.venv\\Scripts\\python.exe",
+            "scripts/smoke_local.py"
+          ],
+          "exit_code": 0,
+          "seconds": 1.93
+        },
+        {
+          "command": [
+            "ROOT\\.venv\\Scripts\\python.exe",
+            "-m",
+            "pytest",
+            "-q",
+            "-s",
+            "-m",
+            "integration",
+            "--basetemp=.cache/pytest-f107-integration",
+            "--junitxml=.cache/f107/integration.xml"
+          ],
+          "exit_code": 0,
+          "seconds": 129.439
+        },
+        {
+          "command": [
+            "ROOT\\.venv\\Scripts\\python.exe",
+            "scripts/evaluate_baseline.py",
+            "--check"
+          ],
+          "exit_code": 0,
+          "seconds": 0.61
+        },
+        {
+          "command": [
+            "ROOT\\.venv\\Scripts\\python.exe",
+            "scripts/measure_async_reads.py"
+          ],
+          "exit_code": 0,
+          "seconds": 2.155
+        }
+      ],
+      "tests": {
+        "unit": {
+          "tests": 1051,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "integration": {
+          "tests": 257,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        }
+      }
+    },
+    "Linux": {
+      "command": "python -m pytest -q --junitxml=/work/result.xml",
+      "passed": 1051,
+      "deselected": 257,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 36.26,
+      "network": "Docker --network none",
+      "python": "3.14.9",
+      "dependencies": "uv sync --frozen; unchanged uv.lock",
+      "production_working_tree": "read-only mount, tracked source and Git metadata copied to disposable tmpfs"
+    }
+  },
+  "target_population_after": 35,
+  "new_test_cases": 8,
+  "terraform": {
+    "windows": {
+      "evidence": "offline_schema_and_mock_only",
+      "sources": {
+        "source_files": 6,
+        "resource_blocks": 23,
+        "test_files": 3
+      },
+      "commands": [
+        {
+          "command": [
+            "fmt",
+            "-check",
+            "-recursive",
+            "infra/aws"
+          ],
+          "exit_code": 0,
+          "seconds": 0.085
+        },
+        {
+          "command": [
+            "-chdir=infra/aws/deployment",
+            "validate",
+            "-json"
+          ],
+          "exit_code": 0,
+          "seconds": 3.211
+        },
+        {
+          "command": [
+            "-chdir=infra/aws/deployment",
+            "test",
+            "-json",
+            "-no-color"
+          ],
+          "exit_code": 0,
+          "seconds": 2.914,
+          "tests": {
+            "status": "pass",
+            "passed": 5,
+            "failed": 0,
+            "errored": 0,
+            "skipped": 0
+          }
+        },
+        {
+          "command": [
+            "-chdir=infra/aws/state-bootstrap",
+            "validate",
+            "-json"
+          ],
+          "exit_code": 0,
+          "seconds": 3.493
+        },
+        {
+          "command": [
+            "-chdir=infra/aws/state-bootstrap",
+            "test",
+            "-json",
+            "-no-color"
+          ],
+          "exit_code": 0,
+          "seconds": 2.485,
+          "tests": {
+            "status": "pass",
+            "passed": 1,
+            "failed": 0,
+            "errored": 0,
+            "skipped": 0
+          }
+        },
+        {
+          "command": [
+            "-chdir=infra/aws/modules/protected-bucket",
+            "validate",
+            "-json"
+          ],
+          "exit_code": 0,
+          "seconds": 3.119
+        },
+        {
+          "command": [
+            "-chdir=infra/aws/modules/protected-bucket",
+            "test",
+            "-json",
+            "-no-color"
+          ],
+          "exit_code": 0,
+          "seconds": 2.819,
+          "tests": {
+            "status": "pass",
+            "passed": 2,
+            "failed": 0,
+            "errored": 0,
+            "skipped": 0
+          }
+        }
+      ]
+    },
+    "linux": {
+      "evidence": "offline_schema_and_mock_only",
+      "sources": {
+        "source_files": 6,
+        "resource_blocks": 23,
+        "test_files": 3
+      },
+      "commands": [
+        {
+          "command": [
+            "fmt",
+            "-check",
+            "-recursive",
+            "infra/aws"
+          ],
+          "exit_code": 0,
+          "seconds": 0.062
+        },
+        {
+          "command": [
+            "-chdir=infra/aws/deployment",
+            "validate",
+            "-json"
+          ],
+          "exit_code": 0,
+          "seconds": 3.895
+        },
+        {
+          "command": [
+            "-chdir=infra/aws/deployment",
+            "test",
+            "-json",
+            "-no-color"
+          ],
+          "exit_code": 0,
+          "seconds": 3.192,
+          "tests": {
+            "status": "pass",
+            "passed": 5,
+            "failed": 0,
+            "errored": 0,
+            "skipped": 0
+          }
+        },
+        {
+          "command": [
+            "-chdir=infra/aws/state-bootstrap",
+            "validate",
+            "-json"
+          ],
+          "exit_code": 0,
+          "seconds": 3.812
+        },
+        {
+          "command": [
+            "-chdir=infra/aws/state-bootstrap",
+            "test",
+            "-json",
+            "-no-color"
+          ],
+          "exit_code": 0,
+          "seconds": 2.868,
+          "tests": {
+            "status": "pass",
+            "passed": 1,
+            "failed": 0,
+            "errored": 0,
+            "skipped": 0
+          }
+        },
+        {
+          "command": [
+            "-chdir=infra/aws/modules/protected-bucket",
+            "validate",
+            "-json"
+          ],
+          "exit_code": 0,
+          "seconds": 3.479
+        },
+        {
+          "command": [
+            "-chdir=infra/aws/modules/protected-bucket",
+            "test",
+            "-json",
+            "-no-color"
+          ],
+          "exit_code": 0,
+          "seconds": 2.876,
+          "tests": {
+            "status": "pass",
+            "passed": 2,
+            "failed": 0,
+            "errored": 0,
+            "skipped": 0
+          }
+        }
+      ],
+      "network": "Docker --network none",
+      "provider_acquisition": "Existing read-only signed-hash mirror, locked checksums"
+    }
+  },
+  "port_regression": {
+    "type": "real_Linux_PostgreSQL_TIME_WAIT_handoff",
+    "ports": [
+      8000,
+      55432
+    ],
+    "after_pg_stop_ss": [
+      "TIME-WAIT 0      0      127.0.0.1:55432 127.0.0.1:49378"
+    ],
+    "original_probe_failure": {
+      "port": 55432,
+      "errno": 98
+    },
+    "passive_wait_seconds": 60.336,
+    "strict_binds_succeeded_after_close_state": true,
+    "unrelated_listener_refused_and_left_listening": true,
+    "before_stop_postgres_processes": [
+      "PID                 COMMAND",
+      "5852                postgres",
+      "6045                postgres",
+      "6046                postgres",
+      "6052                postgres",
+      "6053                postgres",
+      "6054                postgres",
+      "6056                postgres",
+      "6057                postgres",
+      "6058                postgres"
+    ],
+    "before_stop_ss": [
+      "LISTEN 0      200    127.0.0.1:55432 0.0.0.0:*"
+    ],
+    "pg_container_stopped_before_check": true,
+    "network": "none",
+    "host_ports_used": false,
+    "volumes_deleted": false
+  },
+  "protected_paths_unchanged": [
+    "infra/aws/host/host.py",
+    "scripts/check_release.py",
+    ".github/workflows/offline.yml",
+    "src",
+    "contracts",
+    "data",
+    "migrations",
+    "web",
+    "uv.lock"
+  ],
+  "historical_browser_screenshots": "Regenerated test copies retained under ignored cache; tracked originals restored byte-for-byte from starting HEAD",
+  "hosted_after_fix_executed": false,
+  "limitations": [
+    "No actual AWS IAM/EC2/EBS/systemd execution",
+    "Full PostgreSQL/browser sequence ran on Windows; Linux routine suite used Docker Desktop Linux, not a hosted Ubuntu runner",
+    "Hosted release drill remains unverified; latest run skipped it",
+    "Temporary fixture setup errors were resolved; no production behavior was changed"
+  ]
+}

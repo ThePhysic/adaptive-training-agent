@@ -1,0 +1,62 @@
+[
+  {
+    "stage": "provider",
+    "trace_id": "c0614ce251b942b9b5d88d84a6170e17",
+    "span_id": "7ce671f454a64cb7bef670824d806cef",
+    "parent_id": "11dd492c449d4739a7baae759bcd5058",
+    "duration_ms": 0.396,
+    "attributes": {
+      "outcome": "cancelled",
+      "attempt": 1,
+      "reason": "cancelled"
+    }
+  },
+  {
+    "stage": "agent.execute",
+    "trace_id": "c0614ce251b942b9b5d88d84a6170e17",
+    "span_id": "11dd492c449d4739a7baae759bcd5058",
+    "parent_id": "f2a5e5e2e6954fa9ac603c3fc4e4d656",
+    "duration_ms": 9.86,
+    "attributes": {
+      "outcome": "cancelled",
+      "state": "cancelled",
+      "reason": "cancelled",
+      "provider_requests": 1,
+      "tool_dispatches": 0,
+      "transport_retries": 0,
+      "semantic_repairs": 0,
+      "input_tokens": 1634,
+      "output_tokens": 2000,
+      "uncertain_attempts": 1,
+      "profile_revision": 1,
+      "catalog_revision": "catalog-v1",
+      "validator_revision": "validator-v1",
+      "prompt_version": "planner-prompt-v1",
+      "tool_version": "read-tools-v1",
+      "output_version": "plan-output-v1",
+      "model_id": "deterministic-fake-v1"
+    }
+  },
+  {
+    "stage": "agent.session",
+    "trace_id": "c0614ce251b942b9b5d88d84a6170e17",
+    "span_id": "f2a5e5e2e6954fa9ac603c3fc4e4d656",
+    "parent_id": "b61f14c36100403caed8e224718cb37b",
+    "duration_ms": 10.172,
+    "attributes": {
+      "outcome": "cancelled",
+      "reason": "cancelled"
+    }
+  },
+  {
+    "stage": "http",
+    "trace_id": "c0614ce251b942b9b5d88d84a6170e17",
+    "span_id": "b61f14c36100403caed8e224718cb37b",
+    "parent_id": null,
+    "duration_ms": 10.315,
+    "attributes": {
+      "outcome": "cancelled",
+      "reason": "cancelled"
+    }
+  }
+]

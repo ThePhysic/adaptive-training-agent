@@ -1,0 +1,22 @@
+{
+  "version": "independent-study-selection-v1",
+  "status": "proposal_not_owner_approved",
+  "development_ids": ["ME-D01-20", "ME-D02-30", "ME-D03-45", "ME-D04-20", "ME-D05-30", "ME-D06-45", "ME-D07-20", "ME-D08-30", "ME-D01-45", "ME-D08-20"],
+  "selection_basis": "eight_rows_rotating_duration_then_two_end_row_extensions_no_output_selection",
+  "independent_ordinals": [1,2,3,4,5,6,7,8,9,10],
+  "comparison_variants": ["template", "model"],
+  "offline_rehearsal_variants": ["template", "fake", "replay"],
+  "pairing": "same_case_same_constraints_no_cross_case_pairing",
+  "run_order": "development_list_then_independent_ordinals_odd_template_first_even_model_first",
+  "first_result": "one_result_per_case_variant_keep_failure_missing_uncertainty_no_replacement",
+  "hard_denominator": 40,
+  "quality_pairs": 20,
+  "quality_outputs": 40,
+  "human_denominator": "predeclared_reviewer_case_variant_dimension_slots",
+  "missingness": "keep_missing_abstained_ineligible_separate_no_imputation",
+  "clarity": "not_applicable",
+  "reviewers": "unappointed_two_preferred_at_least_ten_shared_pairs",
+  "coverage": "aggregate_eight_rows_all_three_durations_all_day_counts_feasible_id_and_tag_exclusions",
+  "targets": "independent_9_of_10_legacy_9_of_9_separate_all_returned_plans_valid_zero_critical_failures",
+  "live_enabled": false
+}

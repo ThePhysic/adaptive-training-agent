@@ -1,0 +1,35 @@
+{
+  "version": "catalog-measurement-manifest-v1",
+  "environment": {
+    "python": "3.14.9",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "processor": "AMD64 Family 25 Model 116 Stepping 1, AuthenticAMD",
+    "logical_cpus": 16,
+    "dependencies": {
+      "pydantic": "2.14.1",
+      "fastapi": "0.162.0",
+      "httpx": "0.28.1",
+      "psycopg": "3.3.6",
+      "uvicorn": "0.54.0",
+      "pytest": "9.1.1",
+      "ruff": "0.17.2"
+    }
+  },
+  "reproduction_sources": {
+    "scripts/measure_catalog.py": "2527c41f7f61f970fed7707c3ff317baa69b301a226de7275b65a091b8583cbc",
+    "src/future_training/experiments/catalog_api_measure.py": "035552225cd3dfb688047b328cbae053d5e0fba2cd91fe000349c864b6809125",
+    "src/future_training/experiments/catalog_cache.py": "cebde20ef60b67dc57c4439492064371d9344434779577f6ba33d27262a06c00",
+    "src/future_training/experiments/catalog_performance.py": "ad195467c1f21eff65d3b52f7d633552c1817b7c806bcee88070a01aaba4c905"
+  },
+  "artifacts": {
+    "docs/implementation/evidence/f2-02-cache-comparison.json": "5bf1db69273df9e97905f71445176e8a5fa7ed63bb8dcfe7129eff97073b7517",
+    "docs/implementation/evidence/f2-02-cpu-profile.json": "f991212c89353553a703eae2b6a925c977148d9c6da25b8e5e52d8cbf39bbb8c",
+    "docs/implementation/evidence/f2-02-native-api-comparison.json": "1600cd5076927cc418d7f24a608e6ee43f71f13d459b1e8277d36e2e8f4f8823",
+    "docs/implementation/evidence/f2-02-uncached-baseline.json": "a17fc187099edd4d04c56ac3b54622e220adc918446b1c4eefd60f976667ddea"
+  },
+  "locks": {
+    "uv.lock": "a56c144811ce65504791a4a259715950d89e5195089f3dcb441f52ffef47849a",
+    "web/package-lock.json": "cc7282b0a959a2724d73267c22a679005e2d0dde040e58b2c32a9d75185d3ccf"
+  },
+  "note": "Final reproduction-source hashes; initial baseline preceded prototype code. Timings vary, frozen F1 hashes do not."
+}

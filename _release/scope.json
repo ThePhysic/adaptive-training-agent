@@ -1,0 +1,22 @@
+{
+  "excluded_original_files": [
+    "docs/implementation/f1-03-handoff.md",
+    "docs/implementation/f1-04-handoff.md",
+    "docs/implementation/f1-05-handoff.md",
+    "docs/implementation/f1-06-handoff.md",
+    "docs/implementation/f4-03a-ci-follow-up.md",
+    "docs/implementation/f4-03b-r5a-ci-devtools-follow-up.md",
+    "docs/implementation/f4-03b-r5a-ci-startup-stabilization.md",
+    "docs/implementation/f4-a1a-windows-home-isolation-assessment.md",
+    "infra/aws/README.md"
+  ],
+  "format": "curated-portfolio-scope-v1",
+  "git_history_copied": false,
+  "git_initialization_authorized": false,
+  "included_original_files": 584,
+  "license_selected": false,
+  "original_bytes_changed": false,
+  "original_public_files": 593,
+  "publication_approved": false,
+  "source_changes_authorized": false
+}

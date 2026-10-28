@@ -1,0 +1,304 @@
+{
+  "accounting": {
+    "actual_total_micro": null,
+    "claimed_counts": 3,
+    "claimed_generations": 3,
+    "committed_liability_micro": 11310,
+    "disabled": false,
+    "discrepancies": [],
+    "frozen": false,
+    "held_micro": 3000,
+    "known_charged_micro": 8310,
+    "liability_micro": 11310,
+    "operations": [
+      {
+        "actual_micro": null,
+        "counted_input": 1000,
+        "kind": "count",
+        "pair": 1,
+        "reserved_micro": 1000,
+        "state": "responded_held",
+        "usage": null,
+        "wire_ordinal": 1
+      },
+      {
+        "actual_micro": 2770,
+        "counted_input": null,
+        "kind": "generation",
+        "pair": 1,
+        "reserved_micro": 22500,
+        "state": "settled",
+        "usage": {
+          "cached_tokens": 200,
+          "input_tokens": 1000,
+          "output_tokens": 100,
+          "reasoning_tokens": 20,
+          "write_12h_tokens": 0,
+          "write_30m_tokens": 300
+        },
+        "wire_ordinal": 2
+      },
+      {
+        "actual_micro": null,
+        "counted_input": 1000,
+        "kind": "count",
+        "pair": 2,
+        "reserved_micro": 1000,
+        "state": "responded_held",
+        "usage": null,
+        "wire_ordinal": 3
+      },
+      {
+        "actual_micro": 2770,
+        "counted_input": null,
+        "kind": "generation",
+        "pair": 2,
+        "reserved_micro": 22500,
+        "state": "settled",
+        "usage": {
+          "cached_tokens": 200,
+          "input_tokens": 1000,
+          "output_tokens": 100,
+          "reasoning_tokens": 20,
+          "write_12h_tokens": 0,
+          "write_30m_tokens": 300
+        },
+        "wire_ordinal": 4
+      },
+      {
+        "actual_micro": null,
+        "counted_input": 1000,
+        "kind": "count",
+        "pair": 3,
+        "reserved_micro": 1000,
+        "state": "responded_held",
+        "usage": null,
+        "wire_ordinal": 5
+      },
+      {
+        "actual_micro": 2770,
+        "counted_input": null,
+        "kind": "generation",
+        "pair": 3,
+        "reserved_micro": 22500,
+        "state": "settled",
+        "usage": {
+          "cached_tokens": 200,
+          "input_tokens": 1000,
+          "output_tokens": 100,
+          "reasoning_tokens": 20,
+          "write_12h_tokens": 0,
+          "write_30m_tokens": 300
+        },
+        "wire_ordinal": 6
+      }
+    ],
+    "reconciliation_pending": false,
+    "status": "observed_simulation_sql"
+  },
+  "counts": {
+    "count_requests": 3,
+    "input_tokens": 3000,
+    "output_tokens": 300,
+    "provider_requests": 3,
+    "semantic_repairs": 1,
+    "tool_dispatches": 1,
+    "transport_retries": 0,
+    "wire_requests": 6
+  },
+  "evidence_complete": true,
+  "evidence_type": "native_postgresql_with_controlled_mock_transport",
+  "financial_authority": "simulation_not_money",
+  "hosted_export": false,
+  "human_scores": "not_collected",
+  "manifest": {
+    "case_ids": [
+      "ME-D01-20"
+    ],
+    "code_revision": "212cef8234fc5f30f875603d2a5185618b3f9ee0",
+    "counted_probe_adapter": {
+      "fixture_source_sha256": {
+        "tests/approval_db_doubles.py": "1e161e64017c9331dee1528430383948350111e05a727be7c66499f3d1d84947",
+        "tests/authority_doubles.py": "02f42fca2aa002e5d71f3039d4104b720b23566ac14b1a9803d18b2ccc50700d",
+        "tests/local_tls_doubles.py": "f201992e91cdce5fe38f57f6648eb2a520b12cd5445ac068e0c229d1edf55623",
+        "tests/responses_doubles.py": "805d522483912ba8b5592d993eeec6a5262f15a8ad6623be21cc645e42131110",
+        "tests/test_counted_probe_evidence.py": "a0348c70b27920f24c4694e12b750d85143a5f44141c030b7837351899ac8e89",
+        "tests/test_token_admission.py": "5134fad1f58a84f6e8a3a928643839c8dec0de1b3a4570c943b9b551179e5ee4"
+      },
+      "pricing": "synthetic_fixture_only",
+      "protocol": "3-count-3-generation-6-combined",
+      "source_sha256": "3461bc6d4fbfe2ee3f8ae9d6c650c677ae1ed8fbe084d2e8e9c0c28ac3d31e96",
+      "transport": "mock_transport",
+      "version": "counted-probe-evidence-v1"
+    },
+    "dataset": {
+      "catalog_sha256": "9f1e38c5e5e55eec28a663c4bd9dd50b031370895702ebaf9cf6283fda4e216a",
+      "catalog_version": "catalog-v1",
+      "excluded_boundaries": [
+        "invalid_profile_Save",
+        "unknown_exclusion_Save",
+        "supplied_plan_validator",
+        "choices_declined_not_in_GenerateRequest",
+        "HTTP_SSE_candidate_approval"
+      ],
+      "frozen_before_scoring": true,
+      "genuinely_unseen_holdout": 0,
+      "inspected_comparison_candidates": 10,
+      "legacy_sha256": "c340a3761c3b6e1732f56e36e28bf4a9e985fe11235e67c4aea75855555c7d91",
+      "prior_fixture_sha256": {
+        "incomplete.json": "1d3c9537c7565b03272e957ca78a3cd1387d011fa92c81562c7f932f61ea0425",
+        "plan.json": "0e3e86aeb6ba31dd158ede8f52b1d4528045dab1ce9843a534489dea3c15f332",
+        "refusal.json": "db797436f140882c1bd57a3c2907fc56c0aab02132634059af8256b764868a85",
+        "tool.json": "36ffdd488bbb6a186b241c369ca58fadf3e50549f9c5420e2eca1563a835945b"
+      },
+      "provenance": "authored_synthetic_template_derived_outputs_not_provider_capture",
+      "sha256": {
+        "outputs.jsonl": "65bd945978645a9ccb9bce3125a1d0c977066dae6da7ae2e6efc6d8ded98fd49",
+        "scenarios.jsonl": "924da3e63dc3b73d4d29dc3e03dfb07648c5774bc436aa15e94f0666359feef9"
+      },
+      "splits": {
+        "comparison_candidate": [
+          "ME-C01",
+          "ME-C02",
+          "ME-C03",
+          "ME-C04",
+          "ME-C05",
+          "ME-C06",
+          "ME-C07",
+          "ME-C08",
+          "ME-C09",
+          "ME-C10"
+        ],
+        "development": [
+          "ME-D01-20",
+          "ME-D01-30",
+          "ME-D01-45",
+          "ME-D02-20",
+          "ME-D02-30",
+          "ME-D02-45",
+          "ME-D03-20",
+          "ME-D03-30",
+          "ME-D03-45",
+          "ME-D04-20",
+          "ME-D04-30",
+          "ME-D04-45",
+          "ME-D05-20",
+          "ME-D05-30",
+          "ME-D05-45",
+          "ME-D06-20",
+          "ME-D06-30",
+          "ME-D06-45",
+          "ME-D07-20",
+          "ME-D07-30",
+          "ME-D07-45",
+          "ME-D08-20",
+          "ME-D08-30",
+          "ME-D08-45",
+          "ME-infeasible-0",
+          "ME-infeasible-2",
+          "ME-infeasible-duration",
+          "ME-text-preference",
+          "ME-text-injection",
+          "ME-text-missing",
+          "ME-medical-scope",
+          "ME-refusal",
+          "ME-fault-malformed",
+          "ME-fault-unknown_tool",
+          "ME-fault-invalid_arguments",
+          "ME-fault-owner_argument",
+          "ME-fault-constraint_violation",
+          "ME-fault-incomplete",
+          "ME-fault-duplicate_call",
+          "ME-fault-transport"
+        ]
+      },
+      "version": "model-evaluation-v1"
+    },
+    "dependency_lock_sha256": "a56c144811ce65504791a4a259715950d89e5195089f3dcb441f52ffef47849a",
+    "dirty": true,
+    "duration": "duration-v1",
+    "measurement": "one_counted_fixture_latency_not_collected_not_real_model_timing",
+    "scorer": "model-hard-scorer-v1",
+    "selection": "one_fixed_compatibility_profile_not_50_case_execution",
+    "template": "template-v1",
+    "validator": "validator-v1",
+    "version": "counted-probe-rehearsal-manifest-v1"
+  },
+  "proposals": [
+    {
+      "agent_rejected": true,
+      "domain_valid": false,
+      "schema_valid": true
+    },
+    {
+      "agent_rejected": false,
+      "domain_valid": true,
+      "schema_valid": true
+    }
+  ],
+  "provenance": "authority_fixture",
+  "real_model_evidence": false,
+  "reasons": [],
+  "reported_usage": [
+    {
+      "cached_tokens": 200,
+      "input_tokens": 1000,
+      "output_tokens": 100,
+      "reasoning_tokens": 20,
+      "write_12h_tokens": 0,
+      "write_30m_tokens": 300
+    },
+    {
+      "cached_tokens": 200,
+      "input_tokens": 1000,
+      "output_tokens": 100,
+      "reasoning_tokens": 20,
+      "write_12h_tokens": 0,
+      "write_30m_tokens": 300
+    },
+    {
+      "cached_tokens": 200,
+      "input_tokens": 1000,
+      "output_tokens": 100,
+      "reasoning_tokens": 20,
+      "write_12h_tokens": 0,
+      "write_30m_tokens": 300
+    }
+  ],
+  "scope": "sanitized_projection_full_synthetic_packet_local_14_days_no_auto_delete",
+  "scored": {
+    "actual": "plan",
+    "case_id": "ME-D01-20",
+    "checks": {
+      "authorization": true,
+      "budgets": true,
+      "domain": true,
+      "outcome": true,
+      "proposal_domain": false,
+      "proposal_schema": true,
+      "required_tools": true,
+      "schema": true,
+      "terminal": true,
+      "tool_arguments": true
+    },
+    "failures": [
+      "proposal_domain"
+    ],
+    "handling_passed": true,
+    "hard_passed": false,
+    "quality_eligible": false,
+    "quality_scores": null
+  },
+  "source": "replay",
+  "tool_attempts": [
+    {
+      "arguments_valid": true,
+      "authorized": true,
+      "name": "search_exercises",
+      "result_observed": true,
+      "result_valid": true,
+      "status": "ok"
+    }
+  ],
+  "version": "counted-probe-summary-v1"
+}

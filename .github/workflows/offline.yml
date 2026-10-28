@@ -1,0 +1,90 @@
+name: Offline application and release checks
+on:
+  pull_request:
+  push:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: offline-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  offline:
+    runs-on: ubuntu-24.04
+    # 45m routine + 15m integration + 3m browser + 12m setup/release reserve.
+    # F5-D1 Windows measurements: routine 22m; integration 6m52s. Ubuntu unverified.
+    timeout-minutes: 75
+    env:
+      UV_PYTHON_INSTALL_DIR: ${{ github.workspace }}/.tools/python
+      UV_CACHE_DIR: ${{ github.workspace }}/.cache/uv
+      FATA_PROVIDER: fake
+      FATA_TELEMETRY_EXPORTER: none
+      FATA_LOCAL_DEV: '0'
+      # Deliberate fake credential canaries; never reference provider/telemetry secrets.
+      OPENAI_API_KEY: synthetic-ci-canary-not-a-key
+      LANGFUSE_SECRET_KEY: synthetic-ci-canary-not-a-key
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+      - uses: astral-sh/setup-uv@07a047e608db84b3d8c06cd9a7c7dcc9c355c18e # v10.3.2
+        with:
+          version: '0.13.5'
+          enable-cache: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7
+        with:
+          node-version: '24.22.1'
+          package-manager-cache: false
+      - name: Acquire locked dependencies and cached DB image
+        run: |
+          uv python install 3.14.9 --install-dir .tools/python --no-bin --no-registry
+          uv sync --frozen
+          npm --prefix web ci --ignore-scripts --cache .cache/npm
+          docker compose pull postgres
+      - name: Isolated local database and migrations
+        run: |
+          docker compose up -d --wait --pull never postgres
+          .venv/bin/python scripts/migrate.py
+      - name: Routine offline checks and frontend build
+        timeout-minutes: 45
+        run: .venv/bin/python scripts/check.py --evidence
+      - name: Mandatory isolated installed-Chrome workflow
+        timeout-minutes: 3
+        run: |
+          openssl version
+          export FATA_BROWSER_EXECUTABLE="$(command -v google-chrome)"
+          .venv/bin/python scripts/check_browser.py
+      - name: Remaining PostgreSQL HTTP TLS and fault integration checks
+        timeout-minutes: 15
+        run: |
+          .venv/bin/python scripts/smoke_local.py
+          .venv/bin/python -m pytest -q -s -m integration --ignore=tests/test_browser_ui.py --basetemp=.cache/pytest-f107-integration --junitxml=.cache/f107/integration.xml
+          .venv/bin/python -c 'import xml.etree.ElementTree as E; s=list(E.parse(".cache/f107/integration.xml").getroot().iter("testsuite")); assert sum(int(x.get("tests", "0")) for x in s)>0; assert all(int(x.get(k,"0"))==0 for x in s for k in ("failures","errors","skipped"))'
+      - name: Preserve frozen artifacts and generated contracts
+        run: git diff --exit-code -- contracts web/src/api.generated.ts web/src/validators.generated.js web/src/validators.generated.d.ts data
+      - name: Isolated offline Langfuse SDK compatibility
+        run: |
+          uv sync --frozen --directory experiments/langfuse --python "$GITHUB_WORKSPACE/.venv/bin/python"
+          .venv/bin/ruff check src scripts tests experiments/langfuse --no-cache
+          .venv/bin/ruff format --check src scripts tests experiments/langfuse --no-cache
+          .venv/bin/python scripts/prepare_langfuse.py
+          cd experiments/langfuse
+          .venv/bin/python -m pytest -q --junitxml=../../.cache/f305a-sdk.xml
+          PYTHONPATH=../../src .venv/bin/python run.py
+      - name: Release disposable DB ports (retain volumes)
+        if: always()
+        run: |
+          ss -H -tanp '( sport = :8000 or sport = :55432 )'
+          docker compose stop --timeout 30 postgres
+          docker compose rm --force postgres
+          docker compose ps --all
+          ss -H -tanp '( sport = :8000 or sport = :55432 )'
+      - name: Local container release and synthetic restore drill
+        run: |
+          docker build --provenance=false --sbom=false --build-arg FATA_RELEASE_VERSION=f4-01-baseline -t fata-release:f4-01-baseline .
+          docker build --provenance=false --sbom=false --build-arg FATA_RELEASE_VERSION=f4-01 -t fata-release:f4-01 .
+          if ! .venv/bin/python scripts/check_release.py; then
+            ss -H -tanp '( sport = :8000 or sport = :55432 )'
+            docker ps --all --format '{{.Names}} {{.Status}} {{.Ports}}'
+            exit 1
+          fi

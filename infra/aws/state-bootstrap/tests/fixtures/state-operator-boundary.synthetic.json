@@ -1,0 +1,210 @@
+{
+  "Statement": [
+    {
+      "Action": [
+        "signin:AuthorizeOAuth2Access",
+        "signin:CreateOAuth2Token"
+      ],
+      "Effect": "Allow",
+      "Resource": "arn:aws:signin:*:*:oauth2/public-client/*",
+      "Sid": "BrowserLogin"
+    },
+    {
+      "Action": [
+        "s3:ListBucket"
+      ],
+      "Condition": {
+        "ArnEquals": {
+          "aws:PrincipalArn": "arn:aws:iam::000000000000:user/future-f4-state-operator"
+        },
+        "Bool": {
+          "aws:SecureTransport": "true"
+        },
+        "StringEquals": {
+          "aws:PrincipalAccount": "000000000000",
+          "aws:RequestedRegion": "us-east-1",
+          "s3:prefix": [
+            "env:/"
+          ]
+        }
+      },
+      "Effect": "Allow",
+      "Resource": "arn:aws:s3:::fata-synthetic-state",
+      "Sid": "WorkspaceDiscovery"
+    },
+    {
+      "Action": [
+        "s3:GetObject",
+        "s3:PutObject"
+      ],
+      "Condition": {
+        "ArnEquals": {
+          "aws:PrincipalArn": "arn:aws:iam::000000000000:user/future-f4-state-operator"
+        },
+        "Bool": {
+          "aws:SecureTransport": "true"
+        },
+        "StringEquals": {
+          "aws:PrincipalAccount": "000000000000",
+          "aws:RequestedRegion": "us-east-1"
+        }
+      },
+      "Effect": "Allow",
+      "Resource": "arn:aws:s3:::fata-synthetic-state/ec2-demo/terraform.tfstate",
+      "Sid": "StateReadWrite"
+    },
+    {
+      "Action": [
+        "s3:GetObject",
+        "s3:PutObject",
+        "s3:DeleteObject"
+      ],
+      "Condition": {
+        "ArnEquals": {
+          "aws:PrincipalArn": "arn:aws:iam::000000000000:user/future-f4-state-operator"
+        },
+        "Bool": {
+          "aws:SecureTransport": "true"
+        },
+        "StringEquals": {
+          "aws:PrincipalAccount": "000000000000",
+          "aws:RequestedRegion": "us-east-1"
+        }
+      },
+      "Effect": "Allow",
+      "Resource": "arn:aws:s3:::fata-synthetic-state/ec2-demo/terraform.tfstate.tflock",
+      "Sid": "LockLifecycle"
+    },
+    {
+      "Effect": "Deny",
+      "NotAction": [
+        "signin:AuthorizeOAuth2Access",
+        "signin:CreateOAuth2Token",
+        "s3:ListBucket",
+        "s3:GetObject",
+        "s3:PutObject",
+        "s3:DeleteObject"
+      ],
+      "Resource": "*",
+      "Sid": "DenyOtherActions"
+    },
+    {
+      "Action": [
+        "signin:AuthorizeOAuth2Access",
+        "signin:CreateOAuth2Token"
+      ],
+      "Effect": "Deny",
+      "NotResource": "arn:aws:signin:*:*:oauth2/public-client/*",
+      "Sid": "DenyOtherLoginResources"
+    },
+    {
+      "Action": [
+        "s3:ListBucket"
+      ],
+      "Effect": "Deny",
+      "NotResource": "arn:aws:s3:::fata-synthetic-state",
+      "Sid": "DenyOtherBuckets"
+    },
+    {
+      "Action": [
+        "s3:GetObject",
+        "s3:PutObject",
+        "s3:DeleteObject"
+      ],
+      "Effect": "Deny",
+      "NotResource": [
+        "arn:aws:s3:::fata-synthetic-state/ec2-demo/terraform.tfstate",
+        "arn:aws:s3:::fata-synthetic-state/ec2-demo/terraform.tfstate.tflock"
+      ],
+      "Sid": "DenyOtherObjectKeys"
+    },
+    {
+      "Action": [
+        "s3:DeleteObject"
+      ],
+      "Effect": "Deny",
+      "Resource": "arn:aws:s3:::fata-synthetic-state/ec2-demo/terraform.tfstate",
+      "Sid": "DenyStateDeletion"
+    },
+    {
+      "Action": [
+        "s3:ListBucket"
+      ],
+      "Condition": {
+        "StringNotEquals": {
+          "s3:prefix": [
+            "env:/"
+          ]
+        }
+      },
+      "Effect": "Deny",
+      "Resource": "arn:aws:s3:::fata-synthetic-state",
+      "Sid": "DenyOtherPrefixes"
+    },
+    {
+      "Action": [
+        "s3:ListBucket",
+        "s3:GetObject",
+        "s3:PutObject",
+        "s3:DeleteObject"
+      ],
+      "Condition": {
+        "ArnNotEquals": {
+          "aws:PrincipalArn": "arn:aws:iam::000000000000:user/future-f4-state-operator"
+        }
+      },
+      "Effect": "Deny",
+      "Resource": "*",
+      "Sid": "DenyWrongPrincipal"
+    },
+    {
+      "Action": [
+        "s3:ListBucket",
+        "s3:GetObject",
+        "s3:PutObject",
+        "s3:DeleteObject"
+      ],
+      "Condition": {
+        "StringNotEquals": {
+          "aws:PrincipalAccount": "000000000000"
+        }
+      },
+      "Effect": "Deny",
+      "Resource": "*",
+      "Sid": "DenyWrongAccount"
+    },
+    {
+      "Action": [
+        "s3:ListBucket",
+        "s3:GetObject",
+        "s3:PutObject",
+        "s3:DeleteObject"
+      ],
+      "Condition": {
+        "StringNotEquals": {
+          "aws:RequestedRegion": "us-east-1"
+        }
+      },
+      "Effect": "Deny",
+      "Resource": "*",
+      "Sid": "DenyWrongRegion"
+    },
+    {
+      "Action": [
+        "s3:ListBucket",
+        "s3:GetObject",
+        "s3:PutObject",
+        "s3:DeleteObject"
+      ],
+      "Condition": {
+        "BoolIfExists": {
+          "aws:SecureTransport": "false"
+        }
+      },
+      "Effect": "Deny",
+      "Resource": "*",
+      "Sid": "DenyInsecureOrMissingTransport"
+    }
+  ],
+  "Version": "2012-10-17"
+}

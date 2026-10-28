@@ -1,0 +1,66 @@
+{
+  "backend_failed": 0,
+  "backend_passed": 207,
+  "backend_skipped": 0,
+  "checks": [
+    {
+      "arguments": [
+        "scripts/export_contracts.py",
+        "--check"
+      ],
+      "exit_code": 0,
+      "name": "contracts",
+      "seconds": 1.525
+    },
+    {
+      "arguments": [
+        "scripts/evaluate_baseline.py",
+        "--check"
+      ],
+      "exit_code": 0,
+      "name": "baseline",
+      "seconds": 0.615
+    },
+    {
+      "arguments": [
+        "scripts/evaluate_models.py",
+        "--check"
+      ],
+      "exit_code": 1,
+      "name": "comparison",
+      "seconds": 3.206
+    },
+    {
+      "arguments": [
+        "scripts/review_source.py",
+        "check"
+      ],
+      "exit_code": 1,
+      "name": "source_inventory",
+      "seconds": 0.271
+    },
+    {
+      "arguments": [
+        "-c",
+        "import sys;sys.path.insert(0,'src');from experiments.blinded_review import freeze;freeze()"
+      ],
+      "exit_code": 1,
+      "name": "sealed_configuration",
+      "seconds": 1.519
+    }
+  ],
+  "comparison_150": "blocked_Git_HEAD_required",
+  "earlier_stage_results_are_separate": "207_tests_in_validation_workspace_not_additional_unique_tests",
+  "existing_doc_links_to_exclusions": 6,
+  "format": "f5-d3-clean-candidate-validation-v1",
+  "fresh_native_or_browser_demonstration": false,
+  "frontend_build": "blocked_missing_esbuild_no_dependencies_acquired",
+  "imports_resolve_inside_clean_candidate": true,
+  "live_financial_genuine_denials": "passed",
+  "no_cache_created_inside_clean_candidate": true,
+  "python_grammar_files": 202,
+  "ruff_format_files": 204,
+  "ruff_lint": "passed",
+  "sealed_and_source_inventory": "blocked_Git_required",
+  "status": "BLOCKED"
+}

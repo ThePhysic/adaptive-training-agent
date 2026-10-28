@@ -1,0 +1,25 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "ProposedReadOnlyCurrentUserBoundaryMetadata",
+      "Effect": "Allow",
+      "Action": "iam:GetUser",
+      "Resource": "arn:aws:iam::<APPROVED_ACCOUNT>:user/<EXACT_USER_PATH_AND_NAME>"
+    },
+    {
+      "Sid": "ProposedReadOnlyTwoAppliedRegionalQuotas",
+      "Effect": "Allow",
+      "Action": "servicequotas:GetServiceQuota",
+      "Resource": [
+        "arn:aws:servicequotas:us-east-1:<APPROVED_ACCOUNT>:ec2/L-1216C47A",
+        "arn:aws:servicequotas:us-east-1:<APPROVED_ACCOUNT>:vpc/L-F678F1CE"
+      ],
+      "Condition": {
+        "StringEquals": {
+          "aws:RequestedRegion": "us-east-1"
+        }
+      }
+    }
+  ]
+}

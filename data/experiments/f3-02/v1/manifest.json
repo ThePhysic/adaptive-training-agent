@@ -1,0 +1,232 @@
+{
+  "cases": [
+    {
+      "case_id": "dev-impossible-duration",
+      "eligibility": "agent_reachable",
+      "split": "development"
+    },
+    {
+      "case_id": "dev-invalid-id",
+      "eligibility": "validator_only",
+      "split": "development"
+    },
+    {
+      "case_id": "dev-missing-goal",
+      "eligibility": "profile_rejected",
+      "split": "development"
+    },
+    {
+      "case_id": "dev-two-eligible",
+      "eligibility": "agent_reachable",
+      "split": "development"
+    },
+    {
+      "case_id": "dev-unknown-id",
+      "eligibility": "save_rejected",
+      "split": "development"
+    },
+    {
+      "case_id": "dev-unknown-tag",
+      "eligibility": "save_rejected",
+      "split": "development"
+    },
+    {
+      "case_id": "dev-wrong-seconds",
+      "eligibility": "validator_only",
+      "split": "development"
+    },
+    {
+      "case_id": "dev-zero-eligible",
+      "eligibility": "agent_reachable",
+      "split": "development"
+    },
+    {
+      "case_id": "holdout-declined-exclusions",
+      "eligibility": "decline_flag_not_in_agent_api",
+      "split": "held_out"
+    },
+    {
+      "case_id": "holdout-excluded-id",
+      "eligibility": "validator_only",
+      "split": "held_out"
+    },
+    {
+      "case_id": "holdout-injection-text",
+      "eligibility": "agent_reachable",
+      "split": "held_out"
+    },
+    {
+      "case_id": "holdout-medical-text",
+      "eligibility": "decline_flag_not_in_agent_api",
+      "split": "held_out"
+    },
+    {
+      "case_id": "holdout-owner-field",
+      "eligibility": "profile_rejected",
+      "split": "held_out"
+    },
+    {
+      "case_id": "holdout-unsupported-goal",
+      "eligibility": "profile_rejected",
+      "split": "held_out"
+    },
+    {
+      "case_id": "holdout-unsupported-preset",
+      "eligibility": "profile_rejected",
+      "split": "held_out"
+    },
+    {
+      "case_id": "holdout-wrong-equipment",
+      "eligibility": "validator_only",
+      "split": "held_out"
+    },
+    {
+      "case_id": "matrix-01-20",
+      "eligibility": "agent_reachable",
+      "split": "held_out"
+    },
+    {
+      "case_id": "matrix-01-30",
+      "eligibility": "agent_reachable",
+      "split": "development"
+    },
+    {
+      "case_id": "matrix-01-45",
+      "eligibility": "agent_reachable",
+      "split": "development"
+    },
+    {
+      "case_id": "matrix-02-20",
+      "eligibility": "agent_reachable",
+      "split": "development"
+    },
+    {
+      "case_id": "matrix-02-30",
+      "eligibility": "agent_reachable",
+      "split": "held_out"
+    },
+    {
+      "case_id": "matrix-02-45",
+      "eligibility": "agent_reachable",
+      "split": "development"
+    },
+    {
+      "case_id": "matrix-03-20",
+      "eligibility": "agent_reachable",
+      "split": "development"
+    },
+    {
+      "case_id": "matrix-03-30",
+      "eligibility": "agent_reachable",
+      "split": "development"
+    },
+    {
+      "case_id": "matrix-03-45",
+      "eligibility": "agent_reachable",
+      "split": "held_out"
+    },
+    {
+      "case_id": "matrix-04-20",
+      "eligibility": "agent_reachable",
+      "split": "held_out"
+    },
+    {
+      "case_id": "matrix-04-30",
+      "eligibility": "agent_reachable",
+      "split": "development"
+    },
+    {
+      "case_id": "matrix-04-45",
+      "eligibility": "agent_reachable",
+      "split": "development"
+    },
+    {
+      "case_id": "matrix-05-20",
+      "eligibility": "agent_reachable",
+      "split": "development"
+    },
+    {
+      "case_id": "matrix-05-30",
+      "eligibility": "agent_reachable",
+      "split": "held_out"
+    },
+    {
+      "case_id": "matrix-05-45",
+      "eligibility": "agent_reachable",
+      "split": "development"
+    },
+    {
+      "case_id": "matrix-06-20",
+      "eligibility": "agent_reachable",
+      "split": "development"
+    },
+    {
+      "case_id": "matrix-06-30",
+      "eligibility": "agent_reachable",
+      "split": "development"
+    },
+    {
+      "case_id": "matrix-06-45",
+      "eligibility": "agent_reachable",
+      "split": "held_out"
+    },
+    {
+      "case_id": "matrix-07-20",
+      "eligibility": "agent_reachable",
+      "split": "held_out"
+    },
+    {
+      "case_id": "matrix-07-30",
+      "eligibility": "agent_reachable",
+      "split": "development"
+    },
+    {
+      "case_id": "matrix-07-45",
+      "eligibility": "agent_reachable",
+      "split": "development"
+    },
+    {
+      "case_id": "matrix-08-20",
+      "eligibility": "agent_reachable",
+      "split": "development"
+    },
+    {
+      "case_id": "matrix-08-30",
+      "eligibility": "agent_reachable",
+      "split": "held_out"
+    },
+    {
+      "case_id": "matrix-08-45",
+      "eligibility": "agent_reachable",
+      "split": "development"
+    }
+  ],
+  "catalog_sha256": "9f1e38c5e5e55eec28a663c4bd9dd50b031370895702ebaf9cf6283fda4e216a",
+  "dataset_sha256": "c340a3761c3b6e1732f56e36e28bf4a9e985fe11235e67c4aea75855555c7d91",
+  "evidence_source": "replay",
+  "explanation_clarity": "not_measured_no_explanation_contract",
+  "fixture_provenance": "authored_synthetic_not_provider_capture",
+  "fixture_sha256": {
+    "incomplete.json": "1d3c9537c7565b03272e957ca78a3cd1387d011fa92c81562c7f932f61ea0425",
+    "plan.json": "0e3e86aeb6ba31dd158ede8f52b1d4528045dab1ce9843a534489dea3c15f332",
+    "refusal.json": "db797436f140882c1bd57a3c2907fc56c0aab02132634059af8256b764868a85",
+    "tool.json": "36ffdd488bbb6a186b241c369ca58fadf3e50549f9c5420e2eca1563a835945b"
+  },
+  "input_admission": "unproven_live_fixture_allowances_only",
+  "legacy_held_out_is_developer_exposed": true,
+  "live_enabled": false,
+  "permitted_evidence_labels": [
+    "template",
+    "fake",
+    "replay",
+    "live"
+  ],
+  "rate_version": "sol-standard-2026-10-24-v1",
+  "sha256": {
+    "config.json": "4603b94c56b285e4868c223d22d9aae4e6f39592a8b33d1cb6a517dffc1ca039",
+    "output.json": "b146a992821217150eca75e5592a53d2f358099446e386451543837388c2cded",
+    "prompt.txt": "dd713bec4c0ad12127a9f9816245066e70a9389e3f0e673d4b043783cd16bf9a",
+    "tools.json": "dfa0d5678d13495b86c2548c896b08f84b6b718fdb05577f2cfe228b740833cb"
+  },
+  "version": "offline-provider-manifest-v1"
+}

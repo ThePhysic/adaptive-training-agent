@@ -1,0 +1,99 @@
+{
+  "actual_total_micro": null,
+  "configuration": "465cc097674593403350750b3af63031c25808a9a9e5fdf2cebc8ff00475b082",
+  "dispositions": {
+    "completed": 9,
+    "failed": 1,
+    "indeterminate": 0,
+    "interrupted": 0,
+    "not_started": 0
+  },
+  "hard_passed": 9,
+  "known_charged_subtotal_micro": 58170,
+  "known_held_subtotal_micro": 21000,
+  "observed": 10,
+  "observed_counts_subtotal": {
+    "count_requests": 21,
+    "provider_requests": 21,
+    "wire_requests": 42
+  },
+  "provenance": "local_replay_not_independent_or_model_quality",
+  "quality_scores": null,
+  "scheduled": 10,
+  "scored": 10,
+  "selection": "dab3769466d499d6d27803b4af6758ea5687e7db2ec3413fdd734ec7298a1779",
+  "slots": [
+    {
+      "case_id": "fixture-01",
+      "disposition": "completed",
+      "hard_passed": true,
+      "ordinal": 1,
+      "scored": true
+    },
+    {
+      "case_id": "fixture-02",
+      "disposition": "completed",
+      "hard_passed": true,
+      "ordinal": 2,
+      "scored": true
+    },
+    {
+      "case_id": "fixture-03",
+      "disposition": "failed",
+      "hard_passed": false,
+      "ordinal": 3,
+      "scored": true
+    },
+    {
+      "case_id": "fixture-04",
+      "disposition": "completed",
+      "hard_passed": true,
+      "ordinal": 4,
+      "scored": true
+    },
+    {
+      "case_id": "fixture-05",
+      "disposition": "completed",
+      "hard_passed": true,
+      "ordinal": 5,
+      "scored": true
+    },
+    {
+      "case_id": "fixture-06",
+      "disposition": "completed",
+      "hard_passed": true,
+      "ordinal": 6,
+      "scored": true
+    },
+    {
+      "case_id": "fixture-07",
+      "disposition": "completed",
+      "hard_passed": true,
+      "ordinal": 7,
+      "scored": true
+    },
+    {
+      "case_id": "fixture-08",
+      "disposition": "completed",
+      "hard_passed": true,
+      "ordinal": 8,
+      "scored": true
+    },
+    {
+      "case_id": "fixture-09",
+      "disposition": "completed",
+      "hard_passed": true,
+      "ordinal": 9,
+      "scored": true
+    },
+    {
+      "case_id": "fixture-10",
+      "disposition": "completed",
+      "hard_passed": true,
+      "ordinal": 10,
+      "scored": true
+    }
+  ],
+  "unknown_liability_slots": 0,
+  "version": "synthetic-ten-summary-v1"
+}

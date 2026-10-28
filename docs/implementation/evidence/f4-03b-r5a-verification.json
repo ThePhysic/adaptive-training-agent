@@ -1,0 +1,461 @@
+{
+  "scope": "F4-03B-R5A offline preparation",
+  "date": "2026-10-25",
+  "starting_head": "991824bdb8351234a2d9ef8b99ac01542264d1ec",
+  "account_evidence_source": "owner message; no new account API verification",
+  "AWS_account_calls": 0,
+  "created_resources": 0,
+  "IAM_changes": 0,
+  "real_backend_initialization": false,
+  "real_provider_identity_retry": false,
+  "positive_spending_authority": false,
+  "native_core_mock": {
+    "evidence": "native_core_synthetic_login_cache_loopback_S3_STS",
+    "terraform": "1.17.0",
+    "real_AWS_requests": 0,
+    "real_credentials": false,
+    "cases": [
+      {
+        "case": "fresh_cache",
+        "native_exit_codes": [
+          0,
+          0,
+          0
+        ],
+        "operations": {
+          "identity_read": 6,
+          "lock_delete": 1,
+          "lock_put": 1,
+          "lock_read": 1,
+          "state_read": 6,
+          "workspace_list": 5
+        },
+        "external_proxy_attempts": 0,
+        "expected_disposition": true
+      },
+      {
+        "case": "missing_cache",
+        "native_exit_codes": [
+          1
+        ],
+        "operations": {},
+        "external_proxy_attempts": 0,
+        "expected_disposition": true
+      },
+      {
+        "case": "wrong_account",
+        "native_exit_codes": [
+          1
+        ],
+        "operations": {
+          "identity_read": 2
+        },
+        "external_proxy_attempts": 0,
+        "expected_disposition": true
+      },
+      {
+        "case": "s3_denied",
+        "native_exit_codes": [
+          1
+        ],
+        "operations": {
+          "identity_read": 2,
+          "state_read": 1,
+          "workspace_list": 2
+        },
+        "external_proxy_attempts": 0,
+        "expected_disposition": true
+      },
+      {
+        "case": "missing_profile",
+        "native_exit_codes": [
+          1
+        ],
+        "operations": {},
+        "external_proxy_attempts": 0,
+        "expected_disposition": true
+      },
+      {
+        "case": "s3_transient",
+        "native_exit_codes": [
+          1
+        ],
+        "operations": {
+          "identity_read": 2,
+          "workspace_list": 1
+        },
+        "external_proxy_attempts": 0,
+        "expected_disposition": true
+      },
+      {
+        "case": "empty_state",
+        "native_exit_codes": [
+          0,
+          0
+        ],
+        "operations": {
+          "identity_read": 4,
+          "lock_delete": 1,
+          "lock_put": 1,
+          "lock_read": 1,
+          "state_read": 2,
+          "workspace_list": 3
+        },
+        "external_proxy_attempts": 0,
+        "expected_disposition": true
+      },
+      {
+        "case": "lock_held",
+        "native_exit_codes": [
+          0,
+          1
+        ],
+        "operations": {
+          "identity_read": 4,
+          "lock_put": 1,
+          "lock_read": 1,
+          "state_read": 2,
+          "workspace_list": 3
+        },
+        "external_proxy_attempts": 0,
+        "expected_disposition": true
+      }
+    ],
+    "limits": "No AWS IAM/TLS/refresh/Free-plan proof; Windows proxy isolation is not a kernel network namespace"
+  },
+  "terraform_mock_checks": {
+    "evidence": "offline_schema_and_mock_only",
+    "sources": {
+      "source_files": 7,
+      "resource_blocks": 23,
+      "test_files": 3
+    },
+    "commands": [
+      {
+        "command": [
+          "fmt",
+          "-check",
+          "-recursive",
+          "infra/aws"
+        ],
+        "exit_code": 0,
+        "seconds": 0.109
+      },
+      {
+        "command": [
+          "-chdir=infra/aws/deployment",
+          "validate",
+          "-json"
+        ],
+        "exit_code": 0,
+        "seconds": 3.92
+      },
+      {
+        "command": [
+          "-chdir=infra/aws/deployment",
+          "test",
+          "-json",
+          "-no-color"
+        ],
+        "exit_code": 0,
+        "seconds": 3.19,
+        "tests": {
+          "status": "pass",
+          "passed": 5,
+          "failed": 0,
+          "errored": 0,
+          "skipped": 0
+        }
+      },
+      {
+        "command": [
+          "-chdir=infra/aws/state-bootstrap",
+          "validate",
+          "-json"
+        ],
+        "exit_code": 0,
+        "seconds": 3.721
+      },
+      {
+        "command": [
+          "-chdir=infra/aws/state-bootstrap",
+          "test",
+          "-json",
+          "-no-color"
+        ],
+        "exit_code": 0,
+        "seconds": 3.059,
+        "tests": {
+          "status": "pass",
+          "passed": 7,
+          "failed": 0,
+          "errored": 0,
+          "skipped": 0
+        }
+      },
+      {
+        "command": [
+          "-chdir=infra/aws/modules/protected-bucket",
+          "validate",
+          "-json"
+        ],
+        "exit_code": 0,
+        "seconds": 3.649
+      },
+      {
+        "command": [
+          "-chdir=infra/aws/modules/protected-bucket",
+          "test",
+          "-json",
+          "-no-color"
+        ],
+        "exit_code": 0,
+        "seconds": 2.95,
+        "tests": {
+          "status": "pass",
+          "passed": 2,
+          "failed": 0,
+          "errored": 0,
+          "skipped": 0
+        }
+      }
+    ]
+  },
+  "shared_checks": {
+    "integration": false,
+    "browser_required": false,
+    "commands": [
+      {
+        "command": [
+          "ROOT\\.venv\\Scripts\\python.exe",
+          "--version"
+        ],
+        "exit_code": 0,
+        "seconds": 0.048
+      },
+      {
+        "command": [
+          "node",
+          "--version"
+        ],
+        "exit_code": 0,
+        "seconds": 0.044
+      },
+      {
+        "command": [
+          "C:\\Program Files\\nodejs\\npm.cmd",
+          "--version"
+        ],
+        "exit_code": 0,
+        "seconds": 0.536
+      },
+      {
+        "command": [
+          "ROOT\\.venv\\Scripts\\ruff.exe",
+          "--version"
+        ],
+        "exit_code": 0,
+        "seconds": 0.024
+      },
+      {
+        "command": [
+          "C:\\Program Files\\nodejs\\npm.cmd",
+          "--prefix",
+          "web",
+          "ls",
+          "--depth=0"
+        ],
+        "exit_code": 0,
+        "seconds": 1.468
+      },
+      {
+        "command": [
+          "ROOT\\.venv\\Scripts\\ruff.exe",
+          "check",
+          "src",
+          "scripts",
+          "tests",
+          "--no-cache"
+        ],
+        "exit_code": 0,
+        "seconds": 0.136
+      },
+      {
+        "command": [
+          "ROOT\\.venv\\Scripts\\ruff.exe",
+          "format",
+          "--check",
+          "src",
+          "scripts",
+          "tests",
+          "--no-cache"
+        ],
+        "exit_code": 0,
+        "seconds": 0.059
+      },
+      {
+        "command": [
+          "ROOT\\.venv\\Scripts\\python.exe",
+          "scripts/export_contracts.py",
+          "--check"
+        ],
+        "exit_code": 0,
+        "seconds": 1.572
+      },
+      {
+        "command": [
+          "ROOT\\.venv\\Scripts\\python.exe",
+          "scripts/prepare_responses.py",
+          "--check"
+        ],
+        "exit_code": 0,
+        "seconds": 1.452
+      },
+      {
+        "command": [
+          "ROOT\\.venv\\Scripts\\python.exe",
+          "scripts/measure_token_admission.py",
+          "--check"
+        ],
+        "exit_code": 0,
+        "seconds": 1.641
+      },
+      {
+        "command": [
+          "ROOT\\.venv\\Scripts\\python.exe",
+          "scripts/prepare_model_evaluation.py",
+          "--check"
+        ],
+        "exit_code": 0,
+        "seconds": 0.66
+      },
+      {
+        "command": [
+          "ROOT\\.venv\\Scripts\\python.exe",
+          "scripts/evaluate_models.py",
+          "--check"
+        ],
+        "exit_code": 0,
+        "seconds": 4.056
+      },
+      {
+        "command": [
+          "C:\\Program Files\\nodejs\\npm.cmd",
+          "--prefix",
+          "web",
+          "run",
+          "check"
+        ],
+        "exit_code": 0,
+        "seconds": 5.077
+      },
+      {
+        "command": [
+          "C:\\Program Files\\nodejs\\npm.cmd",
+          "--prefix",
+          "web",
+          "run",
+          "format:check"
+        ],
+        "exit_code": 0,
+        "seconds": 1.61
+      },
+      {
+        "command": [
+          "C:\\Program Files\\nodejs\\npm.cmd",
+          "--prefix",
+          "web",
+          "run",
+          "check:generated"
+        ],
+        "exit_code": 0,
+        "seconds": 1.757
+      },
+      {
+        "command": [
+          "C:\\Program Files\\nodejs\\npm.cmd",
+          "--prefix",
+          "web",
+          "run",
+          "test"
+        ],
+        "exit_code": 0,
+        "seconds": 6.246
+      },
+      {
+        "command": [
+          "C:\\Program Files\\nodejs\\npm.cmd",
+          "--prefix",
+          "web",
+          "run",
+          "build"
+        ],
+        "exit_code": 0,
+        "seconds": 0.778
+      },
+      {
+        "command": [
+          "ROOT\\.venv\\Scripts\\python.exe",
+          "-m",
+          "pytest",
+          "-q",
+          "--basetemp=.cache/pytest-f107-unit",
+          "--junitxml=.cache/f107/unit.xml"
+        ],
+        "exit_code": 0,
+        "seconds": 39.54
+      },
+      {
+        "command": [
+          "ROOT\\.venv\\Scripts\\python.exe",
+          "scripts/evaluate_baseline.py",
+          "--check"
+        ],
+        "exit_code": 0,
+        "seconds": 0.598
+      },
+      {
+        "command": [
+          "ROOT\\.venv\\Scripts\\python.exe",
+          "scripts/measure_async_reads.py"
+        ],
+        "exit_code": 0,
+        "seconds": 2.35
+      }
+    ],
+    "tests": {
+      "unit": {
+        "tests": 1154,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    }
+  },
+  "focused_tests": {
+    "passed": 174,
+    "seconds": 8.35,
+    "new_state_backend_cases": 28,
+    "overlap_with_routine": true
+  },
+  "versions": {
+    "python": "3.14.9",
+    "node": "24.22.1",
+    "npm": "11.19.1",
+    "ruff": "0.17.2",
+    "terraform": "1.17.0",
+    "aws_provider": "6.70.0"
+  },
+  "baseline": {
+    "development_passed": 24,
+    "held_out_passed": 16,
+    "live_model_quality_evidence": false
+  },
+  "limitations": [
+    "No AWS IAM/TLS/account-eligibility/renewal evidence",
+    "Docker Linux engine unavailable; native fixture used Windows loopback and senderless proxy",
+    "No active cloud launcher or grant; actual writer/source not selected",
+    "R3 provider identity accepted without rerun; coordinator caveat preserved",
+    "No new PostgreSQL/browser/container/hosted CI run; 257 integration tests deselected"
+  ]
+}

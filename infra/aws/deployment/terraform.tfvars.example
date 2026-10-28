@@ -1,0 +1,11 @@
+# OFFLINE PLACEHOLDERS ONLY; not an authorized account, AMI, image or run window.
+account_id        = "000000000000"
+name              = "fata-offline"
+owner             = "synthetic-operator"
+availability_zone = "us-east-1a"
+ami_id            = "ami-00000000000000000"
+host_tools_sha256 = "0000000000000000000000000000000000000000000000000000000000000000"
+app_digest        = "sha256:1111111111111111111111111111111111111111111111111111111111111111"
+postgres_digest   = "sha256:2222222222222222222222222222222222222222222222222222222222222222"
+starts_at         = "2030-01-01T00:00:00Z"
+expires_at        = "2030-01-02T00:00:00Z"

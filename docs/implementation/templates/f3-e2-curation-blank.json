@@ -1,0 +1,16 @@
+{
+  "version": "independent-curation-checklist-v1",
+  "status": "awaiting_owner_freeze_and_independent_curator",
+  "owner_freeze_reference": null,
+  "curator_attestation_reference": null,
+  "population_identifier": null,
+  "case_content_commitment": null,
+  "key_context": null,
+  "approved_manifest_digest": null,
+  "approved_exposure_index_digest": null,
+  "checks": {"independent_custody": null, "curated_after_owner_freeze": null,
+    "ten_feasible_new_inputs": null, "coverage_verified_privately": null,
+    "duplicate_and_exposed_overlap_checked": null, "commitment_context_verified": null,
+    "owner_opening_authorized": null},
+  "warning": "Blank checklist, not a sealed manifest, attestation or opening authorization"
+}

@@ -1,0 +1,981 @@
+{
+  "version": "local-release-drill-v1",
+  "source": "actual_Docker_PostgreSQL_HTTP_fake",
+  "projects": [
+    "fata-f401-3539bb6f-source",
+    "fata-f401-3539bb6f-restore"
+  ],
+  "image": "fata-release:f4-01",
+  "faults": {
+    "connection_terminated": {
+      "barrier": "native_pg_lock_wait_observed",
+      "outcome": "http_error",
+      "seconds": 0.22515349999594036
+    },
+    "graceful_inflight_stop": {
+      "barrier": "native_pg_lock_wait_observed",
+      "outcome": "http_error",
+      "seconds": 2.69695940001111
+    },
+    "db_unavailable": {
+      "health": 200,
+      "ready": 503
+    }
+  },
+  "initial": {
+    "immutable_readback": true,
+    "approval_retry": true,
+    "completion_retry": true,
+    "owner_isolation": true
+  },
+  "cold_request_observation": {
+    "first_generation_ms": 60.624674999871786,
+    "revision_ms": 63.218767999842385
+  },
+  "performance": {
+    "version": "release-fake-load-v1",
+    "warmup": 4,
+    "modes": {
+      "1": {
+        "requests": 60,
+        "errors": 0,
+        "latency_ms": {
+          "n": 60,
+          "p50": 51.48077800004103,
+          "p95": 98.5464300001695
+        },
+        "first_status_ms": {
+          "n": 60,
+          "p50": 10.915120500158082,
+          "p95": 49.82056300013937
+        },
+        "samples": [
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 88.30371700014439,
+            "first_update_ms": 52.503316000183986,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 87.50822499996502,
+            "first_update_ms": 12.011429000267526,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 89.93840099992667,
+            "first_update_ms": 10.718277000250964,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 93.16731899980368,
+            "first_update_ms": 10.291877999861754,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 95.07436100011546,
+            "first_update_ms": 12.371049000194034,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 91.11692800024684,
+            "first_update_ms": 11.4811160001409,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 54.3993539999974,
+            "first_update_ms": 11.220774999856076,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 52.37674699992567,
+            "first_update_ms": 11.682512999868777,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 99.58137400008127,
+            "first_update_ms": 57.131697999921016,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 89.22300099993663,
+            "first_update_ms": 49.82056300013937,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 92.4797050001871,
+            "first_update_ms": 13.130718999946112,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 98.5464300001695,
+            "first_update_ms": 11.767854000027,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 95.01120300001276,
+            "first_update_ms": 11.462696000307915,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 91.81595100017148,
+            "first_update_ms": 12.088953000329639,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 98.21617299985519,
+            "first_update_ms": 10.25238200008971,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 93.99150100034603,
+            "first_update_ms": 10.909339000136242,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 88.51800699994783,
+            "first_update_ms": 10.802820000208158,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 104.45803299990075,
+            "first_update_ms": 13.725636999879498,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 109.13207300018257,
+            "first_update_ms": 26.39046000012968,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 92.58275699994556,
+            "first_update_ms": 10.09179699985907,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 86.36316000001898,
+            "first_update_ms": 10.902547000114282,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 60.02587200009657,
+            "first_update_ms": 14.172271999996156,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 84.93958400003976,
+            "first_update_ms": 44.64133000010406,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 88.95173100017928,
+            "first_update_ms": 50.47696400015411,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 50.97960000011881,
+            "first_update_ms": 11.223135999898659,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 51.98195599996325,
+            "first_update_ms": 11.643977999938215,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 49.43420599965975,
+            "first_update_ms": 11.425853999753599,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 47.989681999752065,
+            "first_update_ms": 10.567960999651405,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 43.50261500030683,
+            "first_update_ms": 10.353087000112282,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 45.194174999778625,
+            "first_update_ms": 9.192949999942357,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 46.35100599989528,
+            "first_update_ms": 9.84178399994562,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 55.486333000317245,
+            "first_update_ms": 12.393222000355308,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 49.6499290002248,
+            "first_update_ms": 11.80535699995744,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 47.79781300021568,
+            "first_update_ms": 10.013149999849702,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 57.39871800005858,
+            "first_update_ms": 13.428474999727769,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 48.8823090004189,
+            "first_update_ms": 12.08985700031917,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 46.94439400009287,
+            "first_update_ms": 10.792133999984799,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 48.89682200018797,
+            "first_update_ms": 10.928788999990502,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 49.353207999956794,
+            "first_update_ms": 12.59977700010495,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 46.730628999739565,
+            "first_update_ms": 9.821062999890273,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 44.736075999935565,
+            "first_update_ms": 9.912994999922375,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 44.45363200011343,
+            "first_update_ms": 9.204324000165798,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 42.50487699982841,
+            "first_update_ms": 9.707692000120005,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 42.241079000177706,
+            "first_update_ms": 9.577737000199704,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 45.127954999770736,
+            "first_update_ms": 9.38398700009202,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 42.96607200012659,
+            "first_update_ms": 9.694136000234721,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 47.536741999920196,
+            "first_update_ms": 10.406823999801418,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 43.68890099976852,
+            "first_update_ms": 9.321362999799021,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 44.724642999881326,
+            "first_update_ms": 9.306221999850095,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 44.6500670000205,
+            "first_update_ms": 11.265056999945955,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 46.70886800022345,
+            "first_update_ms": 9.853988000031677,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 49.65477799987639,
+            "first_update_ms": 10.107014999903186,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 45.39634100001422,
+            "first_update_ms": 9.473953999986406,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 45.94858599966756,
+            "first_update_ms": 9.492459999819403,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 46.15475099990363,
+            "first_update_ms": 10.920902000179922,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 54.92673399976411,
+            "first_update_ms": 9.644957000091381,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 60.776344999794674,
+            "first_update_ms": 10.059833000013896,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 89.08650500006843,
+            "first_update_ms": 11.559566999949311,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 47.91198900011295,
+            "first_update_ms": 10.760769000171422,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 47.367766999741434,
+            "first_update_ms": 11.679992999688693,
+            "events": 6
+          }
+        ]
+      },
+      "2": {
+        "requests": 60,
+        "errors": 0,
+        "latency_ms": {
+          "n": 60,
+          "p50": 74.18272600011733,
+          "p95": 156.09202599989658
+        },
+        "first_status_ms": {
+          "n": 60,
+          "p50": 12.820490499962034,
+          "p95": 60.83004299989625
+        },
+        "samples": [
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 62.2892039996259,
+            "first_update_ms": 11.111304999758431,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 59.656534000168904,
+            "first_update_ms": 12.61761200021283,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 64.32387699987885,
+            "first_update_ms": 12.747375999879296,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 61.382304999824555,
+            "first_update_ms": 11.240710000038234,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 66.21734400005153,
+            "first_update_ms": 13.155497999832733,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 63.15899099990929,
+            "first_update_ms": 11.162667000007787,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 64.59834599991154,
+            "first_update_ms": 14.452533000167023,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 61.5153450003163,
+            "first_update_ms": 12.537644000076398,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 65.38973899978373,
+            "first_update_ms": 13.49819999995816,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 67.76202599985481,
+            "first_update_ms": 14.25758000004862,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 61.904237999897305,
+            "first_update_ms": 12.445944999853964,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 63.997597999787104,
+            "first_update_ms": 14.017398999840225,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 65.006196000013,
+            "first_update_ms": 12.573355000313313,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 68.07415699995545,
+            "first_update_ms": 13.803389000258903,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 75.27279600026304,
+            "first_update_ms": 12.893605000044772,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 72.39844400010043,
+            "first_update_ms": 15.084334000221133,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 72.79634499991516,
+            "first_update_ms": 14.042528000118182,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 76.0623050000504,
+            "first_update_ms": 15.90889099998094,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 70.61717700025838,
+            "first_update_ms": 12.586850999923627,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 72.9447749999963,
+            "first_update_ms": 14.017299999977695,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 78.9385980001498,
+            "first_update_ms": 15.779877000113629,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 74.655243000052,
+            "first_update_ms": 13.753760999861697,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 73.71020900018266,
+            "first_update_ms": 14.06242899975041,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 76.14379500000723,
+            "first_update_ms": 15.426295999986905,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 70.26394399963465,
+            "first_update_ms": 15.758054999878368,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 72.17098599994642,
+            "first_update_ms": 13.670277000073838,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 63.789550000365125,
+            "first_update_ms": 12.268898999991507,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 65.90702499988765,
+            "first_update_ms": 13.38620299975446,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 63.87320299972998,
+            "first_update_ms": 14.442273999975441,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 66.22554000023229,
+            "first_update_ms": 12.545432000024448,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 65.09231499967427,
+            "first_update_ms": 13.230464999651304,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 62.121253999976034,
+            "first_update_ms": 11.27160099986213,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 58.45258399995146,
+            "first_update_ms": 10.989799000071798,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 60.100047000105405,
+            "first_update_ms": 11.877280000135215,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 57.332779000262235,
+            "first_update_ms": 10.181463000208169,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 76.90404799996031,
+            "first_update_ms": 11.226884999814501,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 116.06527999992977,
+            "first_update_ms": 11.775257999943278,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 112.70131799983574,
+            "first_update_ms": 13.216356999691925,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 109.50586899980408,
+            "first_update_ms": 11.460392000117281,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 110.88581700005307,
+            "first_update_ms": 12.599807999777113,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 105.06463199999416,
+            "first_update_ms": 12.496504999944591,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 102.9129489998013,
+            "first_update_ms": 10.613640999963536,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 104.62544999973034,
+            "first_update_ms": 10.544705000029353,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 106.29225200000292,
+            "first_update_ms": 11.725262999789265,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 161.62661900034436,
+            "first_update_ms": 63.006834000134404,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 156.09202599989658,
+            "first_update_ms": 60.83004299989625,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 111.13418500008265,
+            "first_update_ms": 14.841337000234489,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 114.90932400010934,
+            "first_update_ms": 12.631137999960629,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 104.96159000012995,
+            "first_update_ms": 11.148348999995505,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 108.35305599994172,
+            "first_update_ms": 14.848902000267117,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 108.28985199987073,
+            "first_update_ms": 12.216224999974656,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 105.7867599997735,
+            "first_update_ms": 10.438837000037893,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 104.45720100005929,
+            "first_update_ms": 59.036240999830625,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 106.42676599991319,
+            "first_update_ms": 60.26123599986022,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 166.9112889999269,
+            "first_update_ms": 62.214588999722764,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 168.3920760001456,
+            "first_update_ms": 64.02934100015045,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 108.09287599977324,
+            "first_update_ms": 11.317240000153106,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 111.58749299966075,
+            "first_update_ms": 12.096948999896995,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 114.14406099993357,
+            "first_update_ms": 11.686344999816356,
+            "events": 6
+          },
+          {
+            "status": 200,
+            "outcome": "plan",
+            "ms": 117.43475900038902,
+            "first_update_ms": 13.978253999994195,
+            "events": 6
+          }
+        ]
+      }
+    },
+    "source": "fake_over_loopback_TCP",
+    "artificial_delay_ms": 0,
+    "catalog_cache": "application_uncached",
+    "request_retries": 0,
+    "backend_memory_kib": {
+      "VmHWM": 74932,
+      "VmRSS": 74932
+    }
+  },
+  "resources": [
+    "{\"BlockIO\":\"1.96MB / 0B\",\"CPUPerc\":\"0.33%\",\"Container\":\"fata-f401-3539bb6f-source-app-1\",\"ID\":\"e1916649d114\",\"MemPerc\":\"11.14%\",\"MemUsage\":\"57.05MiB / 512MiB\",\"Name\":\"fata-f401-3539bb6f-source-app-1\",\"NetIO\":\"0B / 0B\",\"PIDs\":\"3\"}",
+    "{\"BlockIO\":\"23.1MB / 54.7MB\",\"CPUPerc\":\"1.13%\",\"Container\":\"fata-f401-3539bb6f-source-postgres-1\",\"ID\":\"4bb585046e62\",\"MemPerc\":\"8.24%\",\"MemUsage\":\"42.2MiB / 512MiB\",\"Name\":\"fata-f401-3539bb6f-source-postgres-1\",\"NetIO\":\"0B / 0B\",\"PIDs\":\"9\"}"
+  ],
+  "graceful_exit": "0",
+  "after_restart": {
+    "immutable_readback": true,
+    "approval_retry": true,
+    "completion_retry": true,
+    "owner_isolation": true
+  },
+  "after_db_recovery": {
+    "immutable_readback": true,
+    "approval_retry": true,
+    "completion_retry": true,
+    "owner_isolation": true
+  },
+  "after_crash": {
+    "immutable_readback": true,
+    "approval_retry": true,
+    "completion_retry": true,
+    "owner_isolation": true
+  },
+  "backup": {
+    "bytes": 79992,
+    "sha256": "700e19ea129c8c6be30d6d479b698064d1b8b3547deba0e57f0b2c6886010409",
+    "seconds": 0.35764829999243375,
+    "quiesced": true
+  },
+  "restore_seconds": 0.3833561999927042,
+  "restored": {
+    "immutable_readback": true,
+    "approval_retry": true,
+    "completion_retry": true,
+    "owner_isolation": true
+  },
+  "row_counts": "1|1|1|1|1",
+  "migration_count": 9,
+  "rollback_same_schema": {
+    "immutable_readback": true,
+    "approval_retry": true,
+    "completion_retry": true,
+    "owner_isolation": true
+  },
+  "incompatible_migration_start_rejected": true,
+  "forward_again": {
+    "immutable_readback": true,
+    "approval_retry": true,
+    "completion_retry": true,
+    "owner_isolation": true
+  },
+  "image_metadata": "sha256:deb14981a984fc945af2a7f3fe4d328dedd9fdca72a93fcc1e844b8b3701f4ce",
+  "post_drill_verification": {
+    "served_frontend_files_matching_final_manifest": 3,
+    "windows_listener": "127.0.0.1:8000",
+    "probe_authorities": 0,
+    "test_schema_tables": 0,
+    "owned_release_containers_stopped_and_removed": true,
+    "volumes_retained": true
+  }
+}

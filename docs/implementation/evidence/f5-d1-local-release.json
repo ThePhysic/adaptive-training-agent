@@ -1,0 +1,162 @@
+{
+  "version": "f5-d1-current-source-release-v1",
+  "provenance": "actual_Docker_PostgreSQL_HTTP_fake",
+  "host": {
+    "os": "Windows",
+    "os_release": "11",
+    "architecture": "AMD64",
+    "python": "3.14.9",
+    "node": "24.22.1",
+    "chrome": "156.0.8078.48",
+    "logical_cpu_observed": 16,
+    "total_memory_mib_observed": 31963
+  },
+  "images": {
+    "fata-release:f5-d1": {
+      "checked_files": 75,
+      "all_bytes_match": true,
+      "image_id": "sha256:43afb3417a132b25fd0b905c184881d4e25d46aa73b9407acde6aa0f7aaa46fa"
+    },
+    "fata-release:f5-d1-baseline": {
+      "checked_files": 75,
+      "all_bytes_match": true,
+      "image_id": "sha256:28aa80243679e7815f4094cf4cdcf91b55fb847828ca8e2ad56158b29aa4299e"
+    }
+  },
+  "readback": {
+    "initial": {
+      "immutable_readback": true,
+      "approval_retry": true,
+      "completion_retry": true,
+      "owner_isolation": true
+    },
+    "after_restart": {
+      "immutable_readback": true,
+      "approval_retry": true,
+      "completion_retry": true,
+      "owner_isolation": true
+    },
+    "after_db_recovery": {
+      "immutable_readback": true,
+      "approval_retry": true,
+      "completion_retry": true,
+      "owner_isolation": true
+    },
+    "after_crash": {
+      "immutable_readback": true,
+      "approval_retry": true,
+      "completion_retry": true,
+      "owner_isolation": true
+    },
+    "restored": {
+      "immutable_readback": true,
+      "approval_retry": true,
+      "completion_retry": true,
+      "owner_isolation": true
+    },
+    "rollback_same_schema": {
+      "immutable_readback": true,
+      "approval_retry": true,
+      "completion_retry": true,
+      "owner_isolation": true
+    },
+    "forward_again": {
+      "immutable_readback": true,
+      "approval_retry": true,
+      "completion_retry": true,
+      "owner_isolation": true
+    }
+  },
+  "faults": {
+    "connection_terminated": {
+      "barrier": "native_pg_lock_wait_observed",
+      "outcome": "http_error",
+      "seconds": 0.20394189999205992
+    },
+    "graceful_inflight_stop": {
+      "barrier": "native_pg_lock_wait_observed",
+      "outcome": "http_error",
+      "seconds": 2.261949799954891
+    },
+    "db_unavailable": {
+      "health": 200,
+      "ready": 503
+    }
+  },
+  "graceful_exit": 0,
+  "migration_count": 9,
+  "restored_counts": {
+    "approved_plans": 1,
+    "approval_keys": 1,
+    "approval_audits": 1,
+    "session_records": 1,
+    "session_keys": 1
+  },
+  "incompatible_migration_start_rejected": true,
+  "backup": {
+    "bytes": 79989,
+    "seconds": 0.3775512999854982,
+    "quiesced": true
+  },
+  "restore_seconds": 0.2850923999794759,
+  "cold_request_observation": {
+    "first_generation_ms": 46.16509799996038,
+    "revision_ms": 46.867818999999145
+  },
+  "performance": {
+    "version": "release-fake-load-v1",
+    "warmup": 4,
+    "source": "fake_over_loopback_TCP",
+    "artificial_delay_ms": 0,
+    "catalog_cache": "application_uncached",
+    "request_retries": 0,
+    "backend_memory_kib": {
+      "VmHWM": 74292,
+      "VmRSS": 73644
+    },
+    "modes": {
+      "1": {
+        "requests": 60,
+        "errors": 0,
+        "latency_ms": {
+          "n": 60,
+          "p50": 41.931784000041716,
+          "p95": 85.90315000003557
+        },
+        "first_status_ms": {
+          "n": 60,
+          "p50": 8.878830500009371,
+          "p95": 13.455147999934525
+        }
+      },
+      "2": {
+        "requests": 60,
+        "errors": 0,
+        "latency_ms": {
+          "n": 60,
+          "p50": 51.14077500002168,
+          "p95": 58.863258999963364
+        },
+        "first_status_ms": {
+          "n": 60,
+          "p50": 10.462590499969338,
+          "p95": 13.695984000037242
+        }
+      }
+    }
+  },
+  "resource_snapshot": [
+    {
+      "MemUsage": "67.57MiB / 512MiB",
+      "CPUPerc": "53.53%",
+      "PIDs": "3"
+    },
+    {
+      "MemUsage": "42.78MiB / 512MiB",
+      "CPUPerc": "5.73%",
+      "PIDs": "9"
+    }
+  ],
+  "cleanup": "owned_compose_projects_stopped_and_down_without_volume_deletion",
+  "retention": "synthetic_backup_and_two_owned_release_volumes_retained_ignored_no_automatic_cleanup"
+}

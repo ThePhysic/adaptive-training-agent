@@ -1,0 +1,53 @@
+{
+  "version": "f5-d2-validation-v1",
+  "fresh_python_tests": [
+    {
+      "name": "focused",
+      "passed": 205,
+      "deselected": 23,
+      "skipped": 0,
+      "failures": 0,
+      "seconds": 10.975
+    },
+    {
+      "name": "approval",
+      "passed": 11,
+      "deselected": 10,
+      "skipped": 0,
+      "failures": 0,
+      "seconds": 1.58
+    }
+  ],
+  "distinct_selected_python_passes": 216,
+  "fresh_frontend_passes": 131,
+  "baseline_passed": 40,
+  "baseline_total": 40,
+  "comparison_dispositions_matched": 150,
+  "comparison_total": 150,
+  "public_python_grammar_native_and_313": 202,
+  "ruff_formatted_files": 205,
+  "workflow_yaml_parsed": true,
+  "hosted_ci_executed": false,
+  "application_sources_migrations_locks_scoring_historical_artifacts_unchanged": true,
+  "e10_candidate_current_and_unchanged": true,
+  "task_entry_public_files": 585,
+  "changed_existing": [
+    ".github/workflows/offline.yml",
+    "README.md",
+    "docs/development.md",
+    "docs/runbook.md",
+    "tests/test_browser_runner.py"
+  ],
+  "unchanged_existing": 580,
+  "not_rerun": [
+    "full_routine_Python",
+    "native_PostgreSQL",
+    "installed_Chrome_journey",
+    "container_restore_and_performance",
+    "fresh_install",
+    "hosted_CI"
+  ],
+  "historical_evidence_reused": "F5-D1_accepted_local_synthetic_only",
+  "publication_approved": false,
+  "preserved_live_financial_and_genuine_denials": true
+}

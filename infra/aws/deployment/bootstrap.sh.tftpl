@@ -1,0 +1,30 @@
+#!/bin/bash
+set -euo pipefail
+umask 077
+# Persistent inhibition precedes every file/disk operation. Interrupted cloud-init
+# cannot leave the stock daemon/socket starting on the root filesystem.
+systemctl mask --now docker.service docker.socket
+systemctl disable docker.service docker.socket
+# No credentials, package acquisition, unpinned scripts, or application payloads.
+install -d -m 0700 /opt/fata
+python3 - <<'PY'
+import base64, hashlib, json, os, pathlib, runpy
+folder = pathlib.Path('/opt/fata')
+payloads = {'config.json': '${config}', 'host.py': '${host}', 'compose.release.yaml': '${compose}'}
+manifest = {}
+def write(path, raw):
+    staging = path.with_name(path.name + '.new')
+    with staging.open('wb') as out:
+        out.write(raw); out.flush(); os.fsync(out.fileno())
+    os.replace(staging, path)
+for name, encoded in payloads.items():
+    raw = base64.b64decode(encoded, validate=True)
+    write(folder / name, raw)
+    manifest[name] = hashlib.sha256(raw).hexdigest()
+write(folder / 'bundle.json', json.dumps(manifest).encode())
+unit = runpy.run_path(str(folder / 'host.py'))['PREPARE_UNIT']
+write(pathlib.Path('/etc/systemd/system/fata-prepare.service'), unit.encode())
+PY
+systemctl daemon-reload
+systemctl enable fata-prepare.service
+systemctl start fata-prepare.service

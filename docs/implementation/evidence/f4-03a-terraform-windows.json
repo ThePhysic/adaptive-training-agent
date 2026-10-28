@@ -1,0 +1,98 @@
+{
+  "evidence": "offline_schema_and_mock_only",
+  "sources": {
+    "source_files": 6,
+    "resource_blocks": 23,
+    "test_files": 3
+  },
+  "commands": [
+    {
+      "command": [
+        "fmt",
+        "-check",
+        "-recursive",
+        "infra/aws"
+      ],
+      "exit_code": 0,
+      "seconds": 0.129
+    },
+    {
+      "command": [
+        "-chdir=infra/aws/deployment",
+        "validate",
+        "-json"
+      ],
+      "exit_code": 0,
+      "seconds": 4.09
+    },
+    {
+      "command": [
+        "-chdir=infra/aws/deployment",
+        "test",
+        "-json",
+        "-no-color"
+      ],
+      "exit_code": 0,
+      "seconds": 3.191,
+      "tests": {
+        "status": "pass",
+        "passed": 5,
+        "failed": 0,
+        "errored": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "command": [
+        "-chdir=infra/aws/state-bootstrap",
+        "validate",
+        "-json"
+      ],
+      "exit_code": 0,
+      "seconds": 4.136
+    },
+    {
+      "command": [
+        "-chdir=infra/aws/state-bootstrap",
+        "test",
+        "-json",
+        "-no-color"
+      ],
+      "exit_code": 0,
+      "seconds": 3.038,
+      "tests": {
+        "status": "pass",
+        "passed": 1,
+        "failed": 0,
+        "errored": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "command": [
+        "-chdir=infra/aws/modules/protected-bucket",
+        "validate",
+        "-json"
+      ],
+      "exit_code": 0,
+      "seconds": 3.738
+    },
+    {
+      "command": [
+        "-chdir=infra/aws/modules/protected-bucket",
+        "test",
+        "-json",
+        "-no-color"
+      ],
+      "exit_code": 0,
+      "seconds": 2.972,
+      "tests": {
+        "status": "pass",
+        "passed": 2,
+        "failed": 0,
+        "errored": 0,
+        "skipped": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "evidence": "offline_schema_and_mock_only",
+  "sources": {
+    "source_files": 6,
+    "resource_blocks": 23,
+    "test_files": 3
+  },
+  "commands": [
+    {
+      "command": [
+        "fmt",
+        "-check",
+        "-recursive",
+        "infra/aws"
+      ],
+      "exit_code": 0,
+      "seconds": 0.071
+    },
+    {
+      "command": [
+        "-chdir=infra/aws/deployment",
+        "validate",
+        "-json"
+      ],
+      "exit_code": 0,
+      "seconds": 4.172
+    },
+    {
+      "command": [
+        "-chdir=infra/aws/deployment",
+        "test",
+        "-json",
+        "-no-color"
+      ],
+      "exit_code": 0,
+      "seconds": 3.366,
+      "tests": {
+        "status": "pass",
+        "passed": 4,
+        "failed": 0,
+        "errored": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "command": [
+        "-chdir=infra/aws/state-bootstrap",
+        "validate",
+        "-json"
+      ],
+      "exit_code": 0,
+      "seconds": 3.824
+    },
+    {
+      "command": [
+        "-chdir=infra/aws/state-bootstrap",
+        "test",
+        "-json",
+        "-no-color"
+      ],
+      "exit_code": 0,
+      "seconds": 2.917,
+      "tests": {
+        "status": "pass",
+        "passed": 1,
+        "failed": 0,
+        "errored": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "command": [
+        "-chdir=infra/aws/modules/protected-bucket",
+        "validate",
+        "-json"
+      ],
+      "exit_code": 0,
+      "seconds": 3.639
+    },
+    {
+      "command": [
+        "-chdir=infra/aws/modules/protected-bucket",
+        "test",
+        "-json",
+        "-no-color"
+      ],
+      "exit_code": 0,
+      "seconds": 2.824,
+      "tests": {
+        "status": "pass",
+        "passed": 2,
+        "failed": 0,
+        "errored": 0,
+        "skipped": 0
+      }
+    }
+  ],
+  "network": "Docker --network none",
+  "provider_acquisition": "Existing read-only signed-hash mirror, locked checksums"
+}

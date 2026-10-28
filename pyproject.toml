@@ -1,0 +1,41 @@
+[project]
+name = "future-adaptive-training-agent"
+version = "0.1.0"
+description = "F1-01 offline contracts and local environment"
+requires-python = ">=3.14,<3.15"
+dependencies = [
+  "fastapi==0.162.0",
+  "pydantic==2.14.1",
+  "psycopg[binary]==3.3.6",
+  "uvicorn==0.54.0",
+]
+
+[dependency-groups]
+dev = [
+  "httpx==0.28.1",
+  "pytest==9.1.1",
+  "pytest-asyncio==1.4.0",
+  "pytest-socket==0.8.1",
+  "ruff==0.17.2",
+]
+
+[tool.uv]
+package = false
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+addopts = "-ra -p no:cacheprovider --strict-markers --basetemp=.cache/pytest --allow-hosts=127.0.0.1,::1 -m 'not integration'"
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+markers = [
+  "integration: opt-in localhost PostgreSQL environment checks",
+  "contract_spec: executable reference behavior, not an implemented approval service",
+]
+
+[tool.ruff]
+target-version = "py314"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]

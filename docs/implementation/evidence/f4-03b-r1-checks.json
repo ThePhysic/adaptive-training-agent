@@ -1,0 +1,357 @@
+{
+  "scope": "F4-03B-R1 offline only",
+  "date": "2026-10-25 America/Los_Angeles",
+  "new_AWS_account_calls": 0,
+  "real_credential_exports": 0,
+  "live_profile_or_IAM_changes": 0,
+  "windows_shared_checks": {
+    "integration": false,
+    "browser_required": false,
+    "commands": [
+      {
+        "command": [
+          "ROOT\\.venv\\Scripts\\python.exe",
+          "--version"
+        ],
+        "exit_code": 0,
+        "seconds": 0.052
+      },
+      {
+        "command": [
+          "node",
+          "--version"
+        ],
+        "exit_code": 0,
+        "seconds": 0.043
+      },
+      {
+        "command": [
+          "C:\\Program Files\\nodejs\\npm.cmd",
+          "--version"
+        ],
+        "exit_code": 0,
+        "seconds": 0.555
+      },
+      {
+        "command": [
+          "ROOT\\.venv\\Scripts\\ruff.exe",
+          "--version"
+        ],
+        "exit_code": 0,
+        "seconds": 0.033
+      },
+      {
+        "command": [
+          "C:\\Program Files\\nodejs\\npm.cmd",
+          "--prefix",
+          "web",
+          "ls",
+          "--depth=0"
+        ],
+        "exit_code": 0,
+        "seconds": 2.026
+      },
+      {
+        "command": [
+          "ROOT\\.venv\\Scripts\\ruff.exe",
+          "check",
+          "src",
+          "scripts",
+          "tests",
+          "--no-cache"
+        ],
+        "exit_code": 0,
+        "seconds": 0.112
+      },
+      {
+        "command": [
+          "ROOT\\.venv\\Scripts\\ruff.exe",
+          "format",
+          "--check",
+          "src",
+          "scripts",
+          "tests",
+          "--no-cache"
+        ],
+        "exit_code": 0,
+        "seconds": 0.055
+      },
+      {
+        "command": [
+          "ROOT\\.venv\\Scripts\\python.exe",
+          "scripts/export_contracts.py",
+          "--check"
+        ],
+        "exit_code": 0,
+        "seconds": 1.696
+      },
+      {
+        "command": [
+          "ROOT\\.venv\\Scripts\\python.exe",
+          "scripts/prepare_responses.py",
+          "--check"
+        ],
+        "exit_code": 0,
+        "seconds": 1.544
+      },
+      {
+        "command": [
+          "ROOT\\.venv\\Scripts\\python.exe",
+          "scripts/measure_token_admission.py",
+          "--check"
+        ],
+        "exit_code": 0,
+        "seconds": 1.658
+      },
+      {
+        "command": [
+          "ROOT\\.venv\\Scripts\\python.exe",
+          "scripts/prepare_model_evaluation.py",
+          "--check"
+        ],
+        "exit_code": 0,
+        "seconds": 0.724
+      },
+      {
+        "command": [
+          "ROOT\\.venv\\Scripts\\python.exe",
+          "scripts/evaluate_models.py",
+          "--check"
+        ],
+        "exit_code": 0,
+        "seconds": 4.321
+      },
+      {
+        "command": [
+          "C:\\Program Files\\nodejs\\npm.cmd",
+          "--prefix",
+          "web",
+          "run",
+          "check"
+        ],
+        "exit_code": 0,
+        "seconds": 5.525
+      },
+      {
+        "command": [
+          "C:\\Program Files\\nodejs\\npm.cmd",
+          "--prefix",
+          "web",
+          "run",
+          "format:check"
+        ],
+        "exit_code": 0,
+        "seconds": 1.665
+      },
+      {
+        "command": [
+          "C:\\Program Files\\nodejs\\npm.cmd",
+          "--prefix",
+          "web",
+          "run",
+          "check:generated"
+        ],
+        "exit_code": 0,
+        "seconds": 1.857
+      },
+      {
+        "command": [
+          "C:\\Program Files\\nodejs\\npm.cmd",
+          "--prefix",
+          "web",
+          "run",
+          "test"
+        ],
+        "exit_code": 0,
+        "seconds": 6.778
+      },
+      {
+        "command": [
+          "C:\\Program Files\\nodejs\\npm.cmd",
+          "--prefix",
+          "web",
+          "run",
+          "build"
+        ],
+        "exit_code": 0,
+        "seconds": 0.829
+      },
+      {
+        "command": [
+          "ROOT\\.venv\\Scripts\\python.exe",
+          "-m",
+          "pytest",
+          "-q",
+          "--basetemp=.cache/pytest-f107-unit",
+          "--junitxml=.cache/f107/unit.xml"
+        ],
+        "exit_code": 0,
+        "seconds": 39.156
+      },
+      {
+        "command": [
+          "ROOT\\.venv\\Scripts\\python.exe",
+          "scripts/evaluate_baseline.py",
+          "--check"
+        ],
+        "exit_code": 0,
+        "seconds": 0.606
+      },
+      {
+        "command": [
+          "ROOT\\.venv\\Scripts\\python.exe",
+          "scripts/measure_async_reads.py"
+        ],
+        "exit_code": 0,
+        "seconds": 2.348
+      }
+    ],
+    "tests": {
+      "unit": {
+        "tests": 1077,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    }
+  },
+  "linux_routine": {
+    "passed": 1077,
+    "deselected": 257,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "seconds": 45.27,
+    "network": "none"
+  },
+  "final_target_tests": {
+    "passed": 97,
+    "seconds": 7.05
+  },
+  "new_auth_unit_tests": 26,
+  "terraform_offline": {
+    "evidence": "offline_schema_and_mock_only",
+    "sources": {
+      "source_files": 6,
+      "resource_blocks": 23,
+      "test_files": 3
+    },
+    "commands": [
+      {
+        "command": [
+          "fmt",
+          "-check",
+          "-recursive",
+          "infra/aws"
+        ],
+        "exit_code": 0,
+        "seconds": 0.14
+      },
+      {
+        "command": [
+          "-chdir=infra/aws/deployment",
+          "validate",
+          "-json"
+        ],
+        "exit_code": 0,
+        "seconds": 5.182
+      },
+      {
+        "command": [
+          "-chdir=infra/aws/deployment",
+          "test",
+          "-json",
+          "-no-color"
+        ],
+        "exit_code": 0,
+        "seconds": 3.258,
+        "tests": {
+          "status": "pass",
+          "passed": 5,
+          "failed": 0,
+          "errored": 0,
+          "skipped": 0
+        }
+      },
+      {
+        "command": [
+          "-chdir=infra/aws/state-bootstrap",
+          "validate",
+          "-json"
+        ],
+        "exit_code": 0,
+        "seconds": 4.733
+      },
+      {
+        "command": [
+          "-chdir=infra/aws/state-bootstrap",
+          "test",
+          "-json",
+          "-no-color"
+        ],
+        "exit_code": 0,
+        "seconds": 3.093,
+        "tests": {
+          "status": "pass",
+          "passed": 1,
+          "failed": 0,
+          "errored": 0,
+          "skipped": 0
+        }
+      },
+      {
+        "command": [
+          "-chdir=infra/aws/modules/protected-bucket",
+          "validate",
+          "-json"
+        ],
+        "exit_code": 0,
+        "seconds": 4.238
+      },
+      {
+        "command": [
+          "-chdir=infra/aws/modules/protected-bucket",
+          "test",
+          "-json",
+          "-no-color"
+        ],
+        "exit_code": 0,
+        "seconds": 3.161,
+        "tests": {
+          "status": "pass",
+          "passed": 2,
+          "failed": 0,
+          "errored": 0,
+          "skipped": 0
+        }
+      }
+    ]
+  },
+  "binary_build_info": {
+    "terraform_1.17.0": {
+      "config": "1.32.12",
+      "credentials": "1.19.12"
+    },
+    "aws_provider_6.70.0": {
+      "config": "1.33.9",
+      "credentials": "1.20.9"
+    }
+  },
+  "not_verified": [
+    "Actual login cache or AWS CLI process export",
+    "Native login/token refresh",
+    "MFA/session context",
+    "Windows SDK command quoting",
+    "Terraform-core S3 backend initialization/locking/authentication",
+    "Effective IAM permission evaluation"
+  ],
+  "policy_draft": "Only exact-user GetUser and two quota ARNs; optional, owner review required, no wildcard resource or write actions",
+  "evidence_types": [
+    "Native Terraform provider with loopback fake STS and synthetic credentials",
+    "Unit fake-process/environment tests",
+    "Static policy tests",
+    "Existing mock-provider Terraform plans",
+    "Routine offline app/fake/replay regressions"
+  ],
+  "cloud_readiness": "NO-GO; separate owner authorization and evidence required"
+}

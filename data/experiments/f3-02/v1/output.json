@@ -1,0 +1,330 @@
+{
+  "schema": {
+    "$defs": {
+      "AbstainOutcome": {
+        "additionalProperties": false,
+        "properties": {
+          "next_step": {
+            "enum": [
+              "change_supported_preferences",
+              "seek_qualified_professional"
+            ],
+            "type": "string"
+          },
+          "outcome": {
+            "enum": [
+              "abstain"
+            ],
+            "type": "string"
+          },
+          "reason": {
+            "enum": [
+              "unsupported_scope",
+              "infeasible",
+              "medical_context"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "outcome",
+          "reason",
+          "next_step"
+        ],
+        "type": "object"
+      },
+      "ClarifyOutcome": {
+        "additionalProperties": false,
+        "properties": {
+          "choices": {
+            "items": {
+              "maxLength": 512,
+              "minLength": 1,
+              "type": "string"
+            },
+            "maxItems": 12,
+            "minItems": 1,
+            "type": "array"
+          },
+          "fields": {
+            "items": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9_-]+$",
+              "type": "string"
+            },
+            "maxItems": 12,
+            "minItems": 1,
+            "type": "array"
+          },
+          "outcome": {
+            "enum": [
+              "clarify"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "outcome",
+          "fields",
+          "choices"
+        ],
+        "type": "object"
+      },
+      "DayPlan": {
+        "additionalProperties": false,
+        "properties": {
+          "blocks": {
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/$defs/RepetitionBlock"
+                },
+                {
+                  "$ref": "#/$defs/TimedBlock"
+                }
+              ]
+            },
+            "maxItems": 6,
+            "minItems": 3,
+            "type": "array"
+          },
+          "day_index": {
+            "maximum": 4,
+            "minimum": 1,
+            "type": "integer"
+          },
+          "planned_seconds": {
+            "minimum": 0,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "day_index",
+          "blocks",
+          "planned_seconds"
+        ],
+        "type": "object"
+      },
+      "ModelPlan": {
+        "additionalProperties": false,
+        "properties": {
+          "outcome": {
+            "enum": [
+              "plan"
+            ],
+            "type": "string"
+          },
+          "plan": {
+            "$ref": "#/$defs/PlanProposal"
+          }
+        },
+        "required": [
+          "outcome",
+          "plan"
+        ],
+        "type": "object"
+      },
+      "PlanProposal": {
+        "additionalProperties": false,
+        "properties": {
+          "days": {
+            "items": {
+              "$ref": "#/$defs/DayPlan"
+            },
+            "maxItems": 4,
+            "minItems": 2,
+            "type": "array"
+          },
+          "profile": {
+            "$ref": "#/$defs/ProfilePreferences"
+          }
+        },
+        "required": [
+          "profile",
+          "days"
+        ],
+        "type": "object"
+      },
+      "ProfilePreferences": {
+        "additionalProperties": false,
+        "properties": {
+          "adult": {
+            "type": "boolean"
+          },
+          "days_per_week": {
+            "enum": [
+              2,
+              3,
+              4
+            ],
+            "type": "integer"
+          },
+          "equipment": {
+            "enum": [
+              "bodyweight",
+              "dumbbells_and_bodyweight"
+            ],
+            "type": "string"
+          },
+          "excluded_ids": {
+            "items": {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9_-]+$",
+              "type": "string"
+            },
+            "maxItems": 12,
+            "type": "array"
+          },
+          "excluded_tags": {
+            "items": {
+              "maxLength": 32,
+              "minLength": 1,
+              "pattern": "^[a-z0-9_-]+$",
+              "type": "string"
+            },
+            "maxItems": 8,
+            "type": "array"
+          },
+          "experience": {
+            "enum": [
+              "beginner",
+              "intermediate"
+            ],
+            "type": "string"
+          },
+          "goal": {
+            "enum": [
+              "general_strength",
+              "general_conditioning"
+            ],
+            "type": "string"
+          },
+          "session_minutes": {
+            "enum": [
+              20,
+              30,
+              45
+            ],
+            "type": "integer"
+          }
+        },
+        "required": [
+          "adult",
+          "goal",
+          "equipment",
+          "experience",
+          "days_per_week",
+          "session_minutes",
+          "excluded_ids",
+          "excluded_tags"
+        ],
+        "type": "object"
+      },
+      "RepetitionBlock": {
+        "additionalProperties": false,
+        "properties": {
+          "exercise_id": {
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_-]+$",
+            "type": "string"
+          },
+          "mode": {
+            "enum": [
+              "repetitions"
+            ],
+            "type": "string"
+          },
+          "repetitions_per_set": {
+            "maximum": 15,
+            "minimum": 6,
+            "type": "integer"
+          },
+          "rest_between_sets_seconds": {
+            "maximum": 90,
+            "minimum": 30,
+            "multipleOf": 15,
+            "type": "integer"
+          },
+          "sets": {
+            "maximum": 4,
+            "minimum": 2,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "exercise_id",
+          "mode",
+          "sets",
+          "repetitions_per_set",
+          "rest_between_sets_seconds"
+        ],
+        "type": "object"
+      },
+      "TimedBlock": {
+        "additionalProperties": false,
+        "properties": {
+          "exercise_id": {
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_-]+$",
+            "type": "string"
+          },
+          "mode": {
+            "enum": [
+              "timed"
+            ],
+            "type": "string"
+          },
+          "rest_between_sets_seconds": {
+            "maximum": 90,
+            "minimum": 30,
+            "multipleOf": 15,
+            "type": "integer"
+          },
+          "sets": {
+            "maximum": 4,
+            "minimum": 2,
+            "type": "integer"
+          },
+          "work_seconds_per_set": {
+            "maximum": 90,
+            "minimum": 30,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "exercise_id",
+          "mode",
+          "sets",
+          "work_seconds_per_set",
+          "rest_between_sets_seconds"
+        ],
+        "type": "object"
+      }
+    },
+    "additionalProperties": false,
+    "properties": {
+      "result": {
+        "anyOf": [
+          {
+            "$ref": "#/$defs/ModelPlan"
+          },
+          {
+            "$ref": "#/$defs/ClarifyOutcome"
+          },
+          {
+            "$ref": "#/$defs/AbstainOutcome"
+          }
+        ]
+      }
+    },
+    "required": [
+      "result"
+    ],
+    "type": "object"
+  },
+  "version": "real-plan-envelope-v1"
+}

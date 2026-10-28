@@ -1,0 +1,820 @@
+{
+  "cases": [
+    {
+      "scenario": "plan",
+      "output_equal": true,
+      "metrics_equal": true,
+      "outcome": "plan",
+      "typed_reason": "validated_unpublished",
+      "graph_reason": "validated_unpublished",
+      "metrics": {
+        "provider_requests": 2,
+        "tool_dispatches": 1,
+        "transport_retries": 0,
+        "semantic_repairs": 0,
+        "input_tokens": 4458,
+        "output_tokens": 415,
+        "uncertain_attempts": 0,
+        "finish_reasons": [
+          "tool_calls",
+          "stop"
+        ],
+        "token_kind": "simulated_utf8_quarters"
+      },
+      "checkpoint_counts": {
+        "checkpoints": 11,
+        "writes": 19
+      },
+      "typed_states": [
+        "created",
+        "context",
+        "model",
+        "tools",
+        "model",
+        "validating",
+        "ready_unpublished"
+      ],
+      "graph_stages": [
+        "context",
+        "reserve_model",
+        "model",
+        "reserve_tool",
+        "tool",
+        "gate",
+        "reserve_model",
+        "model",
+        "validate",
+        "end"
+      ]
+    },
+    {
+      "scenario": "clarify",
+      "output_equal": true,
+      "metrics_equal": true,
+      "outcome": "clarify",
+      "typed_reason": "validated_unpublished",
+      "graph_reason": "validated_unpublished",
+      "metrics": {
+        "provider_requests": 2,
+        "tool_dispatches": 1,
+        "transport_retries": 0,
+        "semantic_repairs": 0,
+        "input_tokens": 4466,
+        "output_tokens": 120,
+        "uncertain_attempts": 0,
+        "finish_reasons": [
+          "tool_calls",
+          "stop"
+        ],
+        "token_kind": "simulated_utf8_quarters"
+      },
+      "checkpoint_counts": {
+        "checkpoints": 11,
+        "writes": 19
+      },
+      "typed_states": [
+        "created",
+        "context",
+        "model",
+        "tools",
+        "model",
+        "validating",
+        "ready_unpublished"
+      ],
+      "graph_stages": [
+        "context",
+        "reserve_model",
+        "model",
+        "reserve_tool",
+        "tool",
+        "gate",
+        "reserve_model",
+        "model",
+        "validate",
+        "end"
+      ]
+    },
+    {
+      "scenario": "refusal",
+      "output_equal": true,
+      "metrics_equal": true,
+      "outcome": "abstain",
+      "typed_reason": "validated_unpublished",
+      "graph_reason": "validated_unpublished",
+      "metrics": {
+        "provider_requests": 1,
+        "tool_dispatches": 0,
+        "transport_retries": 0,
+        "semantic_repairs": 0,
+        "input_tokens": 1634,
+        "output_tokens": 22,
+        "uncertain_attempts": 0,
+        "finish_reasons": [
+          "refusal"
+        ],
+        "token_kind": "simulated_utf8_quarters"
+      },
+      "checkpoint_counts": {
+        "checkpoints": 6,
+        "writes": 9
+      },
+      "typed_states": [
+        "created",
+        "context",
+        "model",
+        "validating",
+        "ready_unpublished"
+      ],
+      "graph_stages": [
+        "context",
+        "reserve_model",
+        "model",
+        "validate",
+        "end"
+      ]
+    },
+    {
+      "scenario": "repair",
+      "output_equal": true,
+      "metrics_equal": true,
+      "outcome": "plan",
+      "typed_reason": "validated_unpublished",
+      "graph_reason": "validated_unpublished",
+      "metrics": {
+        "provider_requests": 3,
+        "tool_dispatches": 1,
+        "transport_retries": 0,
+        "semantic_repairs": 1,
+        "input_tokens": 7317,
+        "output_tokens": 444,
+        "uncertain_attempts": 0,
+        "finish_reasons": [
+          "tool_calls",
+          "stop",
+          "stop"
+        ],
+        "token_kind": "simulated_utf8_quarters"
+      },
+      "checkpoint_counts": {
+        "checkpoints": 14,
+        "writes": 25
+      },
+      "typed_states": [
+        "created",
+        "context",
+        "model",
+        "tools",
+        "model",
+        "validating",
+        "repairing",
+        "model",
+        "validating",
+        "ready_unpublished"
+      ],
+      "graph_stages": [
+        "context",
+        "reserve_model",
+        "model",
+        "reserve_tool",
+        "tool",
+        "gate",
+        "reserve_model",
+        "model",
+        "validate",
+        "reserve_model",
+        "model",
+        "validate",
+        "end"
+      ]
+    },
+    {
+      "scenario": "invalid_twice",
+      "output_equal": true,
+      "metrics_equal": true,
+      "outcome": "error",
+      "typed_reason": "semantic_repair_exhausted",
+      "graph_reason": "semantic_repair_exhausted",
+      "metrics": {
+        "provider_requests": 3,
+        "tool_dispatches": 1,
+        "transport_retries": 0,
+        "semantic_repairs": 1,
+        "input_tokens": 7317,
+        "output_tokens": 100,
+        "uncertain_attempts": 0,
+        "finish_reasons": [
+          "tool_calls",
+          "stop",
+          "stop"
+        ],
+        "token_kind": "simulated_utf8_quarters"
+      },
+      "checkpoint_counts": {
+        "checkpoints": 14,
+        "writes": 25
+      },
+      "typed_states": [
+        "created",
+        "context",
+        "model",
+        "tools",
+        "model",
+        "validating",
+        "repairing",
+        "model",
+        "validating",
+        "failed"
+      ],
+      "graph_stages": [
+        "context",
+        "reserve_model",
+        "model",
+        "reserve_tool",
+        "tool",
+        "gate",
+        "reserve_model",
+        "model",
+        "validate",
+        "reserve_model",
+        "model",
+        "validate",
+        "end"
+      ]
+    },
+    {
+      "scenario": "transient",
+      "output_equal": true,
+      "metrics_equal": true,
+      "outcome": "plan",
+      "typed_reason": "validated_unpublished",
+      "graph_reason": "validated_unpublished",
+      "metrics": {
+        "provider_requests": 3,
+        "tool_dispatches": 1,
+        "transport_retries": 1,
+        "semantic_repairs": 0,
+        "input_tokens": 6092,
+        "output_tokens": 2415,
+        "uncertain_attempts": 1,
+        "finish_reasons": [
+          "transport",
+          "tool_calls",
+          "stop"
+        ],
+        "token_kind": "simulated_utf8_quarters"
+      },
+      "checkpoint_counts": {
+        "checkpoints": 13,
+        "writes": 23
+      },
+      "typed_states": [
+        "created",
+        "context",
+        "model",
+        "tools",
+        "model",
+        "validating",
+        "ready_unpublished"
+      ],
+      "graph_stages": [
+        "context",
+        "reserve_model",
+        "model",
+        "reserve_model",
+        "model",
+        "reserve_tool",
+        "tool",
+        "gate",
+        "reserve_model",
+        "model",
+        "validate",
+        "end"
+      ]
+    },
+    {
+      "scenario": "retry_exhausted",
+      "output_equal": true,
+      "metrics_equal": true,
+      "outcome": "error",
+      "typed_reason": "transport_retry_exhausted",
+      "graph_reason": "transport_retry_exhausted",
+      "metrics": {
+        "provider_requests": 2,
+        "tool_dispatches": 0,
+        "transport_retries": 1,
+        "semantic_repairs": 0,
+        "input_tokens": 3268,
+        "output_tokens": 4000,
+        "uncertain_attempts": 2,
+        "finish_reasons": [
+          "transport",
+          "transport"
+        ],
+        "token_kind": "simulated_utf8_quarters"
+      },
+      "checkpoint_counts": {
+        "checkpoints": 7,
+        "writes": 11
+      },
+      "typed_states": [
+        "created",
+        "context",
+        "model",
+        "failed"
+      ],
+      "graph_stages": [
+        "context",
+        "reserve_model",
+        "model",
+        "reserve_model",
+        "model",
+        "end"
+      ]
+    },
+    {
+      "scenario": "malformed",
+      "output_equal": true,
+      "metrics_equal": true,
+      "outcome": "error",
+      "typed_reason": "malformed_provider_response",
+      "graph_reason": "malformed_provider_response",
+      "metrics": {
+        "provider_requests": 1,
+        "tool_dispatches": 0,
+        "transport_retries": 0,
+        "semantic_repairs": 0,
+        "input_tokens": 1634,
+        "output_tokens": 2000,
+        "uncertain_attempts": 1,
+        "finish_reasons": [
+          "unclassified_failure"
+        ],
+        "token_kind": "simulated_utf8_quarters"
+      },
+      "checkpoint_counts": {
+        "checkpoints": 5,
+        "writes": 7
+      },
+      "typed_states": [
+        "created",
+        "context",
+        "model",
+        "failed"
+      ],
+      "graph_stages": [
+        "context",
+        "reserve_model",
+        "model",
+        "end"
+      ]
+    },
+    {
+      "scenario": "unknown_tool",
+      "output_equal": true,
+      "metrics_equal": true,
+      "outcome": "abstain",
+      "typed_reason": "validated_unpublished",
+      "graph_reason": "validated_unpublished",
+      "metrics": {
+        "provider_requests": 2,
+        "tool_dispatches": 1,
+        "transport_retries": 0,
+        "semantic_repairs": 0,
+        "input_tokens": 3336,
+        "output_tokens": 61,
+        "uncertain_attempts": 0,
+        "finish_reasons": [
+          "tool_calls",
+          "refusal"
+        ],
+        "token_kind": "simulated_utf8_quarters"
+      },
+      "checkpoint_counts": {
+        "checkpoints": 11,
+        "writes": 19
+      },
+      "typed_states": [
+        "created",
+        "context",
+        "model",
+        "tools",
+        "model",
+        "validating",
+        "ready_unpublished"
+      ],
+      "graph_stages": [
+        "context",
+        "reserve_model",
+        "model",
+        "reserve_tool",
+        "tool",
+        "gate",
+        "reserve_model",
+        "model",
+        "validate",
+        "end"
+      ]
+    },
+    {
+      "scenario": "tool_budget",
+      "output_equal": true,
+      "metrics_equal": true,
+      "outcome": "error",
+      "typed_reason": "tool_budget_exhausted",
+      "graph_reason": "tool_budget_exhausted",
+      "metrics": {
+        "provider_requests": 2,
+        "tool_dispatches": 4,
+        "transport_retries": 0,
+        "semantic_repairs": 0,
+        "input_tokens": 7990,
+        "output_tokens": 146,
+        "uncertain_attempts": 0,
+        "finish_reasons": [
+          "tool_calls",
+          "tool_calls"
+        ],
+        "token_kind": "simulated_utf8_quarters"
+      },
+      "checkpoint_counts": {
+        "checkpoints": 17,
+        "writes": 31
+      },
+      "typed_states": [
+        "created",
+        "context",
+        "model",
+        "tools",
+        "model",
+        "tools",
+        "failed"
+      ],
+      "graph_stages": [
+        "context",
+        "reserve_model",
+        "model",
+        "reserve_tool",
+        "tool",
+        "reserve_tool",
+        "tool",
+        "reserve_tool",
+        "tool",
+        "reserve_tool",
+        "tool",
+        "gate",
+        "reserve_model",
+        "model",
+        "reserve_tool",
+        "end"
+      ]
+    },
+    {
+      "scenario": "provider_budget",
+      "output_equal": true,
+      "metrics_equal": true,
+      "outcome": "error",
+      "typed_reason": "provider_budget_exhausted",
+      "graph_reason": "provider_budget_exhausted",
+      "metrics": {
+        "provider_requests": 3,
+        "tool_dispatches": 3,
+        "transport_retries": 0,
+        "semantic_repairs": 0,
+        "input_tokens": 8472,
+        "output_tokens": 126,
+        "uncertain_attempts": 0,
+        "finish_reasons": [
+          "tool_calls",
+          "tool_calls",
+          "tool_calls"
+        ],
+        "token_kind": "simulated_utf8_quarters"
+      },
+      "checkpoint_counts": {
+        "checkpoints": 19,
+        "writes": 35
+      },
+      "typed_states": [
+        "created",
+        "context",
+        "model",
+        "tools",
+        "model",
+        "tools",
+        "model",
+        "tools",
+        "model",
+        "failed"
+      ],
+      "graph_stages": [
+        "context",
+        "reserve_model",
+        "model",
+        "reserve_tool",
+        "tool",
+        "gate",
+        "reserve_model",
+        "model",
+        "reserve_tool",
+        "tool",
+        "gate",
+        "reserve_model",
+        "model",
+        "reserve_tool",
+        "tool",
+        "gate",
+        "reserve_model",
+        "end"
+      ]
+    },
+    {
+      "scenario": "token_overrun",
+      "output_equal": true,
+      "metrics_equal": true,
+      "outcome": "error",
+      "typed_reason": "reported_token_overrun",
+      "graph_reason": "reported_token_overrun",
+      "metrics": {
+        "provider_requests": 1,
+        "tool_dispatches": 0,
+        "transport_retries": 0,
+        "semantic_repairs": 0,
+        "input_tokens": 16001,
+        "output_tokens": 4001,
+        "uncertain_attempts": 0,
+        "finish_reasons": [
+          "refusal"
+        ],
+        "token_kind": "simulated_utf8_quarters"
+      },
+      "checkpoint_counts": {
+        "checkpoints": 5,
+        "writes": 7
+      },
+      "typed_states": [
+        "created",
+        "context",
+        "model",
+        "failed"
+      ],
+      "graph_stages": [
+        "context",
+        "reserve_model",
+        "model",
+        "end"
+      ]
+    },
+    {
+      "scenario": "bad_tool",
+      "output_equal": true,
+      "metrics_equal": true,
+      "outcome": "error",
+      "typed_reason": "tool_result_mismatch",
+      "graph_reason": "tool_result_mismatch",
+      "metrics": {
+        "provider_requests": 1,
+        "tool_dispatches": 1,
+        "transport_retries": 0,
+        "semantic_repairs": 0,
+        "input_tokens": 1634,
+        "output_tokens": 42,
+        "uncertain_attempts": 0,
+        "finish_reasons": [
+          "tool_calls"
+        ],
+        "token_kind": "simulated_utf8_quarters"
+      },
+      "checkpoint_counts": {
+        "checkpoints": 7,
+        "writes": 11
+      },
+      "typed_states": [
+        "created",
+        "context",
+        "model",
+        "tools",
+        "failed"
+      ],
+      "graph_stages": [
+        "context",
+        "reserve_model",
+        "model",
+        "reserve_tool",
+        "tool",
+        "end"
+      ]
+    },
+    {
+      "scenario": "malformed_tool",
+      "output_equal": true,
+      "metrics_equal": true,
+      "outcome": "error",
+      "typed_reason": "invalid_tool_result",
+      "graph_reason": "invalid_tool_result",
+      "metrics": {
+        "provider_requests": 1,
+        "tool_dispatches": 1,
+        "transport_retries": 0,
+        "semantic_repairs": 0,
+        "input_tokens": 1634,
+        "output_tokens": 42,
+        "uncertain_attempts": 0,
+        "finish_reasons": [
+          "tool_calls"
+        ],
+        "token_kind": "simulated_utf8_quarters"
+      },
+      "checkpoint_counts": {
+        "checkpoints": 7,
+        "writes": 11
+      },
+      "typed_states": [
+        "created",
+        "context",
+        "model",
+        "tools",
+        "failed"
+      ],
+      "graph_stages": [
+        "context",
+        "reserve_model",
+        "model",
+        "reserve_tool",
+        "tool",
+        "end"
+      ]
+    }
+  ],
+  "typed_interruption": {
+    "cancelled_metrics": {
+      "provider_requests": 1,
+      "tool_dispatches": 1,
+      "transport_retries": 0,
+      "semantic_repairs": 0,
+      "input_tokens": 1634,
+      "output_tokens": 42,
+      "uncertain_attempts": 0,
+      "finish_reasons": [
+        "tool_calls"
+      ],
+      "token_kind": "simulated_utf8_quarters"
+    },
+    "closed_run_rejected": true,
+    "new_request_metrics": {
+      "provider_requests": 2,
+      "tool_dispatches": 1,
+      "transport_retries": 0,
+      "semantic_repairs": 0,
+      "input_tokens": 4458,
+      "output_tokens": 415,
+      "uncertain_attempts": 0,
+      "finish_reasons": [
+        "tool_calls",
+        "stop"
+      ],
+      "token_kind": "simulated_utf8_quarters"
+    },
+    "new_request_outcome": "plan",
+    "meaning": "new explicit request; no checkpoint or resumption in typed application"
+  },
+  "timing": {
+    "warmup_per_mode": 5,
+    "samples_per_mode": 20,
+    "scope": "fresh fixture/app agent per trial; graph includes SQLite open/setup/checkpoints/close",
+    "intentional_io_delay": false,
+    "failures": 0,
+    "modes": {
+      "typed": {
+        "raw_ns": [
+          10070900,
+          10647400,
+          12026200,
+          10618600,
+          11854600,
+          10827100,
+          11154000,
+          10122400,
+          11826300,
+          12147800,
+          11220300,
+          10594400,
+          11868000,
+          13385100,
+          12800800,
+          11604900,
+          13295800,
+          11945400,
+          13149300,
+          10679700
+        ],
+        "median_ms": 11.7156,
+        "p95_ms": 13.2958
+      },
+      "graph_sqlite": {
+        "raw_ns": [
+          141083400,
+          137108600,
+          162991800,
+          157520100,
+          186180700,
+          168198700,
+          163803700,
+          160411300,
+          153973200,
+          159716800,
+          157900500,
+          151915900,
+          154724100,
+          172695200,
+          179856600,
+          149697500,
+          162508100,
+          160179900,
+          148700900,
+          150385000
+        ],
+        "median_ms": 158.80865,
+        "p95_ms": 179.8566
+      }
+    }
+  },
+  "dependencies": {
+    "aiosqlite": "0.22.1",
+    "annotated-doc": "0.0.5",
+    "annotated-types": "0.8.0",
+    "anyio": "4.15.1",
+    "certifi": "2026.10.23",
+    "charset-normalizer": "3.5.2",
+    "colorama": "0.4.6",
+    "distro": "1.9.0",
+    "fastapi": "0.162.0",
+    "h11": "0.16.0",
+    "httpcore": "1.0.9",
+    "httpcore2": "2.16.0",
+    "httpx": "0.28.1",
+    "httpx2": "2.16.0",
+    "idna": "3.20",
+    "iniconfig": "2.3.1",
+    "jsonpatch": "1.37",
+    "jsonpointer": "3.5",
+    "langchain-core": "1.7.0",
+    "langchain-protocol": "0.0.20",
+    "langgraph": "1.2.17",
+    "langgraph-checkpoint": "4.3.0",
+    "langgraph-checkpoint-sqlite": "3.1.2",
+    "langgraph-prebuilt": "1.1.1",
+    "langgraph-sdk": "0.4.9",
+    "langsmith": "0.14.12",
+    "opentelemetry-api": "1.45.1",
+    "orjson": "3.13.0",
+    "ormsgpack": "1.13.0",
+    "packaging": "26.3",
+    "pluggy": "1.7.0",
+    "psycopg": "3.3.6",
+    "psycopg-binary": "3.3.6",
+    "pydantic": "2.14.1",
+    "pydantic_core": "2.50.1",
+    "Pygments": "2.21.0",
+    "pytest": "9.1.1",
+    "pytest-asyncio": "1.4.0",
+    "pytest-socket": "0.8.1",
+    "PyYAML": "6.0.3",
+    "requests": "2.34.2",
+    "requests-toolbelt": "1.0.0",
+    "sniffio": "1.3.1",
+    "sqlite-vec": "0.1.9",
+    "starlette": "1.10.0",
+    "tenacity": "9.2.1",
+    "truststore": "0.10.5",
+    "typing_extensions": "4.16.0",
+    "typing-inspection": "0.4.4",
+    "tzdata": "2026.5",
+    "urllib3": "2.8.0",
+    "uuid_utils": "0.18.0",
+    "websockets": "17.3",
+    "xxhash": "4.0.2",
+    "zstandard": "0.25.0"
+  },
+  "python": "3.14.9",
+  "provenance": {
+    "experiment_sources": {
+      "experiments/langgraph/spike.py": "be84a0c126a818e84e30b1cf9565500d0eef1401a17872b0304a973e7740fe1c",
+      "experiments/langgraph/run.py": "252fc257620c6d3ee961ebf82fe4e06fd9c933898b551c730c27e6987dd1747c",
+      "experiments/langgraph/pyproject.toml": "be3344a7e660517b1d6c8767c9b7609b6e2d0c5194f28e207f2ba9a349d2695f",
+      "experiments/langgraph/uv.lock": "a6c1e4853fe4080bf912d9e9eb21c260eb179cea402dd17d870b043b0e06640d",
+      "experiments/langgraph/tests/conftest.py": "6e3cf075baba206afa21b7f61f9accf0d63687e8a350acd9901ae3ff5136ee5e",
+      "experiments/langgraph/tests/test_spike.py": "5e611d9bed176a476a0b38bf00fcc4407a6a2ba15b76ffd7762d7c7987f05b7f"
+    },
+    "application_locks": {
+      "uv.lock": "a56c144811ce65504791a4a259715950d89e5195089f3dcb441f52ffef47849a",
+      "web/package-lock.json": "cc7282b0a959a2724d73267c22a679005e2d0dde040e58b2c32a9d75185d3ccf"
+    },
+    "physical_source_lines": {
+      "experiments/langgraph/spike.py": 678,
+      "experiments/langgraph/run.py": 310,
+      "experiments/langgraph/tests/conftest.py": 20,
+      "experiments/langgraph/tests/test_spike.py": 377
+    },
+    "typed_orchestration_lines": 489
+  }
+}

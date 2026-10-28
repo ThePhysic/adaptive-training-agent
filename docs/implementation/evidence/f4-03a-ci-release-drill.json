@@ -1,0 +1,133 @@
+{
+  "version": "local-release-drill-v1",
+  "source": "actual_Docker_PostgreSQL_HTTP_fake",
+  "projects": [
+    "fata-f401-345fd061-source",
+    "fata-f401-345fd061-restore"
+  ],
+  "image": "fata-release:f4-01",
+  "faults": {
+    "connection_terminated": {
+      "barrier": "native_pg_lock_wait_observed",
+      "outcome": "http_error",
+      "seconds": 0.2843609999981709
+    },
+    "graceful_inflight_stop": {
+      "barrier": "native_pg_lock_wait_observed",
+      "outcome": "http_error",
+      "seconds": 2.586069699988002
+    },
+    "db_unavailable": {
+      "health": 200,
+      "ready": 503
+    }
+  },
+  "initial": {
+    "immutable_readback": true,
+    "approval_retry": true,
+    "completion_retry": true,
+    "owner_isolation": true
+  },
+  "cold_request_observation": {
+    "first_generation_ms": 55.243566000001465,
+    "revision_ms": 58.070563999990554
+  },
+  "performance": {
+    "version": "release-fake-load-v1",
+    "warmup": 4,
+    "modes": {
+      "1": {
+        "requests": 60,
+        "errors": 0,
+        "latency_ms": {
+          "n": 60,
+          "p50": 48.27950500001066,
+          "p95": 93.84899200000518
+        },
+        "first_status_ms": {
+          "n": 60,
+          "p50": 10.006415499987042,
+          "p95": 45.75599100002137
+        }
+      },
+      "2": {
+        "requests": 60,
+        "errors": 0,
+        "latency_ms": {
+          "n": 60,
+          "p50": 67.92199800000276,
+          "p95": 117.20020000001341
+        },
+        "first_status_ms": {
+          "n": 60,
+          "p50": 12.635211000002755,
+          "p95": 55.467094999983146
+        }
+      }
+    },
+    "source": "fake_over_loopback_TCP",
+    "artificial_delay_ms": 0,
+    "catalog_cache": "application_uncached",
+    "request_retries": 0,
+    "backend_memory_kib": {
+      "VmHWM": 74176,
+      "VmRSS": 73628
+    }
+  },
+  "resources": [
+    "{\"BlockIO\":\"42.7MB / 0B\",\"CPUPerc\":\"91.69%\",\"Container\":\"fata-f401-345fd061-source-app-1\",\"ID\":\"2c59617e01ee\",\"MemPerc\":\"14.92%\",\"MemUsage\":\"76.4MiB / 512MiB\",\"Name\":\"fata-f401-345fd061-source-app-1\",\"NetIO\":\"0B / 0B\",\"PIDs\":\"3\"}",
+    "{\"BlockIO\":\"16.4kB / 54.7MB\",\"CPUPerc\":\"9.89%\",\"Container\":\"fata-f401-345fd061-source-postgres-1\",\"ID\":\"365b6565bcea\",\"MemPerc\":\"8.17%\",\"MemUsage\":\"41.82MiB / 512MiB\",\"Name\":\"fata-f401-345fd061-source-postgres-1\",\"NetIO\":\"0B / 0B\",\"PIDs\":\"9\"}"
+  ],
+  "graceful_exit": "0",
+  "after_restart": {
+    "immutable_readback": true,
+    "approval_retry": true,
+    "completion_retry": true,
+    "owner_isolation": true
+  },
+  "after_db_recovery": {
+    "immutable_readback": true,
+    "approval_retry": true,
+    "completion_retry": true,
+    "owner_isolation": true
+  },
+  "after_crash": {
+    "immutable_readback": true,
+    "approval_retry": true,
+    "completion_retry": true,
+    "owner_isolation": true
+  },
+  "backup": {
+    "bytes": 79987,
+    "sha256": "f8051d4e4ec05b4f05571db471f4c7fcd65877d8cfbfb5555fd4408fcc3c47ad",
+    "seconds": 0.3509514999896055,
+    "quiesced": true
+  },
+  "restore_seconds": 0.40130679999128915,
+  "restored": {
+    "immutable_readback": true,
+    "approval_retry": true,
+    "completion_retry": true,
+    "owner_isolation": true
+  },
+  "row_counts": "1|1|1|1|1",
+  "migration_count": 9,
+  "rollback_same_schema": {
+    "immutable_readback": true,
+    "approval_retry": true,
+    "completion_retry": true,
+    "owner_isolation": true
+  },
+  "incompatible_migration_start_rejected": true,
+  "forward_again": {
+    "immutable_readback": true,
+    "approval_retry": true,
+    "completion_retry": true,
+    "owner_isolation": true
+  },
+  "image_metadata": "sha256:deb14981a984fc945af2a7f3fe4d328dedd9fdca72a93fcc1e844b8b3701f4ce",
+  "source_environment": "Docker Desktop Linux engine, loopback host-network, existing accepted images",
+  "images_rebuilt_for_this_correction": false,
+  "containers_removed_volumes_retained": true,
+  "application_or_database_behavior_changed": false
+}

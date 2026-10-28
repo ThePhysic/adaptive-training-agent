@@ -1,0 +1,435 @@
+{
+  "scope": "F4-03B-R2 only; stop after restricted attempt",
+  "date": "2026-10-25 America/Los_Angeles",
+  "starting_head": "641938a22dce1ef5d40d19a6d614fa450ed89de7",
+  "real_probe_observation": {
+    "scope": "F4-03B-R2 identity-only direct-login probe",
+    "profile": "future-f4-preflight",
+    "region": "us-east-1",
+    "expected_identity_from_accepted_private_preflight": true,
+    "real_credential_exports": 0,
+    "project_backend_access": false,
+    "managed_resources": 0,
+    "output_identifiers_published": false,
+    "commands": [
+      {
+        "command": [
+          "ROOT\\.tools\\terraform\\terraform.exe",
+          "version",
+          "-json"
+        ],
+        "exit_code": 0,
+        "seconds": 0.105
+      },
+      {
+        "command": [
+          "ROOT\\.tools\\terraform\\terraform.exe",
+          "init",
+          "-backend=false",
+          "-input=false",
+          "-lockfile=readonly"
+        ],
+        "exit_code": 0,
+        "seconds": 3.982
+      },
+      {
+        "command": [
+          "ROOT\\.tools\\terraform\\terraform.exe",
+          "validate",
+          "-json"
+        ],
+        "exit_code": 0,
+        "seconds": 6.481
+      }
+    ],
+    "terraform": "1.17.0",
+    "provider": "6.70.0",
+    "init_and_validate_outbound_connections": 0,
+    "attempted_identity_plan": true,
+    "egress": {
+      "connection_attempts": 1,
+      "allowed_tunnels": 0,
+      "blocked_reasons": [
+        "unexpected_destination"
+      ]
+    },
+    "credential_source": "explicit named profile with login_session; no process/role/static fields; isolated empty credentials file",
+    "provider_validation_calls_disabled": true,
+    "operation_evidence": "single audited GetCallerIdentity data source; TLS tunnel is opaque and does not count/decrypt HTTP operations",
+    "saved_plan_or_state_files": false,
+    "tunnel_worker_awaited": true,
+    "temporary_working_directory_removed": true,
+    "failure_classification": "egress_guard_stopped_probe",
+    "outcome": "failed_closed"
+  },
+  "attempted_plan_command": [
+    "terraform.exe",
+    "plan",
+    "-input=false",
+    "-no-color"
+  ],
+  "plan_termination": "guard requested owned-process-tree termination; native plan exit code not retained",
+  "operator_wrapper_exit_code": 1,
+  "authenticated_identity_result": "not_obtained",
+  "actual_STS_tunnels": 0,
+  "actual_AWS_responses": 0,
+  "configured_credential_source": "explicit named login-session profile, alternative sources excluded; no successful retrieval proven",
+  "cache_expiration_metadata": {
+    "inspection": "local expiration metadata only; no AWS request",
+    "standard_cache_file_present": true,
+    "access_token_expired_at_inspection": true
+  },
+  "diagnostic_limit": "Rejected hostname was not retained. Expiration is consistent with refresh but the blocked service cannot be proved retroactively.",
+  "post_attempt_diagnostic_test": "Known regional Sign-In hostname variant is classified while remaining blocked; no real retry",
+  "operator_source_sha256": "9a70c090986f2722a03a9da10ac3178d97e1cd562eadeb89944034331738e866",
+  "offline_native_probe": {
+    "evidence": "native R2 exact profile/skip/postcondition logic with synthetic fresh cache",
+    "local_GetCallerIdentity_count": 1,
+    "identity_postcondition_passed": true,
+    "canonical_destination_reached_only_guard": {
+      "connection_attempts": 1,
+      "allowed_tunnels": 0,
+      "blocked_reasons": [
+        "offline_no_sender"
+      ]
+    },
+    "external_network": "Docker network-none",
+    "real_credentials": false,
+    "remote_backend": false
+  },
+  "routine_checks": {
+    "integration": false,
+    "browser_required": false,
+    "commands": [
+      {
+        "command": [
+          "ROOT\\.venv\\Scripts\\python.exe",
+          "--version"
+        ],
+        "exit_code": 0,
+        "seconds": 0.037
+      },
+      {
+        "command": [
+          "node",
+          "--version"
+        ],
+        "exit_code": 0,
+        "seconds": 0.036
+      },
+      {
+        "command": [
+          "C:\\Program Files\\nodejs\\npm.cmd",
+          "--version"
+        ],
+        "exit_code": 0,
+        "seconds": 0.44
+      },
+      {
+        "command": [
+          "ROOT\\.venv\\Scripts\\ruff.exe",
+          "--version"
+        ],
+        "exit_code": 0,
+        "seconds": 0.023
+      },
+      {
+        "command": [
+          "C:\\Program Files\\nodejs\\npm.cmd",
+          "--prefix",
+          "web",
+          "ls",
+          "--depth=0"
+        ],
+        "exit_code": 0,
+        "seconds": 1.151
+      },
+      {
+        "command": [
+          "ROOT\\.venv\\Scripts\\ruff.exe",
+          "check",
+          "src",
+          "scripts",
+          "tests",
+          "--no-cache"
+        ],
+        "exit_code": 0,
+        "seconds": 0.098
+      },
+      {
+        "command": [
+          "ROOT\\.venv\\Scripts\\ruff.exe",
+          "format",
+          "--check",
+          "src",
+          "scripts",
+          "tests",
+          "--no-cache"
+        ],
+        "exit_code": 0,
+        "seconds": 0.047
+      },
+      {
+        "command": [
+          "ROOT\\.venv\\Scripts\\python.exe",
+          "scripts/export_contracts.py",
+          "--check"
+        ],
+        "exit_code": 0,
+        "seconds": 1.412
+      },
+      {
+        "command": [
+          "ROOT\\.venv\\Scripts\\python.exe",
+          "scripts/prepare_responses.py",
+          "--check"
+        ],
+        "exit_code": 0,
+        "seconds": 1.242
+      },
+      {
+        "command": [
+          "ROOT\\.venv\\Scripts\\python.exe",
+          "scripts/measure_token_admission.py",
+          "--check"
+        ],
+        "exit_code": 0,
+        "seconds": 1.492
+      },
+      {
+        "command": [
+          "ROOT\\.venv\\Scripts\\python.exe",
+          "scripts/prepare_model_evaluation.py",
+          "--check"
+        ],
+        "exit_code": 0,
+        "seconds": 0.601
+      },
+      {
+        "command": [
+          "ROOT\\.venv\\Scripts\\python.exe",
+          "scripts/evaluate_models.py",
+          "--check"
+        ],
+        "exit_code": 0,
+        "seconds": 3.112
+      },
+      {
+        "command": [
+          "C:\\Program Files\\nodejs\\npm.cmd",
+          "--prefix",
+          "web",
+          "run",
+          "check"
+        ],
+        "exit_code": 0,
+        "seconds": 4.81
+      },
+      {
+        "command": [
+          "C:\\Program Files\\nodejs\\npm.cmd",
+          "--prefix",
+          "web",
+          "run",
+          "format:check"
+        ],
+        "exit_code": 0,
+        "seconds": 1.464
+      },
+      {
+        "command": [
+          "C:\\Program Files\\nodejs\\npm.cmd",
+          "--prefix",
+          "web",
+          "run",
+          "check:generated"
+        ],
+        "exit_code": 0,
+        "seconds": 1.633
+      },
+      {
+        "command": [
+          "C:\\Program Files\\nodejs\\npm.cmd",
+          "--prefix",
+          "web",
+          "run",
+          "test"
+        ],
+        "exit_code": 0,
+        "seconds": 5.701
+      },
+      {
+        "command": [
+          "C:\\Program Files\\nodejs\\npm.cmd",
+          "--prefix",
+          "web",
+          "run",
+          "build"
+        ],
+        "exit_code": 0,
+        "seconds": 0.759
+      },
+      {
+        "command": [
+          "ROOT\\.venv\\Scripts\\python.exe",
+          "-m",
+          "pytest",
+          "-q",
+          "--basetemp=.cache/pytest-f107-unit",
+          "--junitxml=.cache/f107/unit.xml"
+        ],
+        "exit_code": 0,
+        "seconds": 37.338
+      },
+      {
+        "command": [
+          "ROOT\\.venv\\Scripts\\python.exe",
+          "scripts/evaluate_baseline.py",
+          "--check"
+        ],
+        "exit_code": 0,
+        "seconds": 0.619
+      },
+      {
+        "command": [
+          "ROOT\\.venv\\Scripts\\python.exe",
+          "scripts/measure_async_reads.py"
+        ],
+        "exit_code": 0,
+        "seconds": 2.269
+      }
+    ],
+    "tests": {
+      "unit": {
+        "tests": 1095,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    }
+  },
+  "terraform_offline_checks": {
+    "evidence": "offline_schema_and_mock_only",
+    "sources": {
+      "source_files": 6,
+      "resource_blocks": 23,
+      "test_files": 3
+    },
+    "commands": [
+      {
+        "command": [
+          "fmt",
+          "-check",
+          "-recursive",
+          "infra/aws"
+        ],
+        "exit_code": 0,
+        "seconds": 0.109
+      },
+      {
+        "command": [
+          "-chdir=infra/aws/deployment",
+          "validate",
+          "-json"
+        ],
+        "exit_code": 0,
+        "seconds": 3.467
+      },
+      {
+        "command": [
+          "-chdir=infra/aws/deployment",
+          "test",
+          "-json",
+          "-no-color"
+        ],
+        "exit_code": 0,
+        "seconds": 2.865,
+        "tests": {
+          "status": "pass",
+          "passed": 5,
+          "failed": 0,
+          "errored": 0,
+          "skipped": 0
+        }
+      },
+      {
+        "command": [
+          "-chdir=infra/aws/state-bootstrap",
+          "validate",
+          "-json"
+        ],
+        "exit_code": 0,
+        "seconds": 3.264
+      },
+      {
+        "command": [
+          "-chdir=infra/aws/state-bootstrap",
+          "test",
+          "-json",
+          "-no-color"
+        ],
+        "exit_code": 0,
+        "seconds": 2.71,
+        "tests": {
+          "status": "pass",
+          "passed": 1,
+          "failed": 0,
+          "errored": 0,
+          "skipped": 0
+        }
+      },
+      {
+        "command": [
+          "-chdir=infra/aws/modules/protected-bucket",
+          "validate",
+          "-json"
+        ],
+        "exit_code": 0,
+        "seconds": 3.298
+      },
+      {
+        "command": [
+          "-chdir=infra/aws/modules/protected-bucket",
+          "test",
+          "-json",
+          "-no-color"
+        ],
+        "exit_code": 0,
+        "seconds": 2.607,
+        "tests": {
+          "status": "pass",
+          "passed": 2,
+          "failed": 0,
+          "errored": 0,
+          "skipped": 0
+        }
+      }
+    ]
+  },
+  "target_regressions": {
+    "passed": 115,
+    "seconds": 6.61,
+    "new_routine_cases": 18
+  },
+  "MFA": "Not read under STS-only scope; previous zero-device observation remains historical; session MFA unverified",
+  "unverified": [
+    "Real provider identity",
+    "Login renewal/refresh",
+    "MFA",
+    "S3 backend authentication and locking",
+    "Quota/boundary/organization evidence",
+    "Full infrastructure plan"
+  ],
+  "no_changes": [
+    "IAM",
+    "quota",
+    "login profile",
+    "credential process",
+    "project backend",
+    "resource infrastructure",
+    "provider financial authority",
+    "application business records",
+    "frozen evaluation"
+  ],
+  "readiness": "NO-GO; owner-refreshed source session and new explicit restricted retry authorization required; no automatic fallback"
+}

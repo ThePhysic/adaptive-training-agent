@@ -1,0 +1,34 @@
+{
+  "name": "future-training-contracts",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "engines": {
+    "node": ">=24 <25"
+  },
+  "scripts": {
+    "generate": "openapi-typescript ../contracts/openapi.json -o src/api.generated.ts && node scripts/validators.mjs",
+    "check": "tsc --noEmit",
+    "check:generated": "openapi-typescript ../contracts/openapi.json -o src/api.generated.ts --check && node scripts/validators.mjs --check",
+    "build": "node scripts/build.mjs",
+    "test": "node scripts/test.mjs",
+    "format": "prettier --write src/App.tsx src/CompletionPanel.tsx src/main.tsx src/api.ts src/sse.ts src/styles.css tests scripts index.html tsconfig.json package.json",
+    "format:check": "prettier --check src/App.tsx src/CompletionPanel.tsx src/main.tsx src/api.ts src/sse.ts src/styles.css tests scripts index.html tsconfig.json package.json"
+  },
+  "dependencies": {
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "ajv": "8.20.0"
+  },
+  "devDependencies": {
+    "typescript": "5.9.3",
+    "openapi-typescript": "7.13.0",
+    "esbuild": "0.28.2",
+    "jsdom": "30.1.3",
+    "prettier": "3.9.10",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@types/node": "24.19.2",
+    "@types/jsdom": "30.0.0"
+  }
+}

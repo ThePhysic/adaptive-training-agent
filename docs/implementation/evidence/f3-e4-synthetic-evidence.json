@@ -1,0 +1,113 @@
+{
+  "configuration_freeze": "efbbe0dc28781ff952e60c7368e02c31b773858e78383c5b413015b31f434234",
+  "evidence_type": "declared_unit_fixtures_not_provider_execution_or_SQL_billing",
+  "genuine_sealed_cases": 0,
+  "human_judgments": 0,
+  "public_development_control": "ME-D01-20",
+  "real_model_observations": 0,
+  "results": [
+    {
+      "accounting": {
+        "actual_total_micro": null,
+        "charged_micro": 7,
+        "held_micro": 13,
+        "status": "synthetic_known"
+      },
+      "counts": {
+        "count_requests": 2,
+        "input_tokens": 2000,
+        "output_tokens": 300,
+        "provider_requests": 2,
+        "semantic_repairs": 0,
+        "tool_dispatches": 1,
+        "transport_retries": 0,
+        "wire_requests": 4
+      },
+      "fixture": "valid_fixture",
+      "handling_passed": true,
+      "hard_passed": true,
+      "proposals": [
+        {
+          "domain_valid": true,
+          "response_ordinal": 2,
+          "schema_valid": true
+        }
+      ],
+      "provenance": "synthetic_not_model_or_human_evidence",
+      "quality_eligible": true,
+      "quality_scores": null,
+      "state": "scored_synthetic_fixture"
+    },
+    {
+      "accounting": {
+        "actual_total_micro": null,
+        "charged_micro": 7,
+        "held_micro": 13,
+        "status": "synthetic_known"
+      },
+      "counts": {
+        "count_requests": 3,
+        "input_tokens": 2000,
+        "output_tokens": 300,
+        "provider_requests": 3,
+        "semantic_repairs": 1,
+        "tool_dispatches": 1,
+        "transport_retries": 0,
+        "wire_requests": 6
+      },
+      "fixture": "intermediate_domain_failure_fixture",
+      "handling_passed": true,
+      "hard_passed": false,
+      "proposals": [
+        {
+          "domain_valid": false,
+          "response_ordinal": 2,
+          "schema_valid": true
+        },
+        {
+          "domain_valid": true,
+          "response_ordinal": 3,
+          "schema_valid": true
+        }
+      ],
+      "provenance": "synthetic_not_model_or_human_evidence",
+      "quality_eligible": false,
+      "quality_scores": null,
+      "state": "scored_synthetic_fixture"
+    },
+    {
+      "accounting": {
+        "actual_total_micro": null,
+        "charged_micro": null,
+        "held_micro": null,
+        "status": "synthetic_unknown"
+      },
+      "counts": {
+        "count_requests": 2,
+        "input_tokens": 2000,
+        "output_tokens": 300,
+        "provider_requests": 2,
+        "semantic_repairs": 0,
+        "tool_dispatches": 1,
+        "transport_retries": 0,
+        "wire_requests": 4
+      },
+      "fixture": "unknown_accounting_fixture",
+      "handling_passed": null,
+      "hard_passed": null,
+      "proposals": [
+        {
+          "domain_valid": true,
+          "response_ordinal": 2,
+          "schema_valid": true
+        }
+      ],
+      "provenance": "synthetic_not_model_or_human_evidence",
+      "quality_eligible": false,
+      "quality_scores": null,
+      "state": "incomplete"
+    }
+  ],
+  "selection_sha256": "dab3769466d499d6d27803b4af6758ea5687e7db2ec3413fdd734ec7298a1779",
+  "version": "f3-e4-synthetic-verdict-examples-v1"
+}

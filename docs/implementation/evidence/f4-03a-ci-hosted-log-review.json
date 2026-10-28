@@ -1,0 +1,35 @@
+{
+  "evidence": "read_only_GitHub_Actions_log_review",
+  "run_ids": [
+    40245078312,
+    40241677865
+  ],
+  "runs": [
+    {
+      "id": 40245078312,
+      "head": "f58eb5d5f7e6bf018030d4cb95b65f49a21a3493",
+      "url": "https://github.com/ThePhysic/future-adaptive-training-agent/actions/runs/40245078312",
+      "postgres_stopped_utc": "2026-10-25T23:32:56.1500561Z",
+      "bind_failure_utc": "2026-10-25T23:33:07.8942222Z",
+      "seconds_after_stop": 11.744,
+      "integration_tests_passed": 257
+    },
+    {
+      "id": 40241677865,
+      "head": "036dfb35f0b5dd1a265015315fe78e279a821490",
+      "url": "https://github.com/ThePhysic/future-adaptive-training-agent/actions/runs/40241677865",
+      "postgres_stopped_utc": "2026-10-25T22:48:10.5053038Z",
+      "bind_failure_utc": "2026-10-25T22:48:21.8229708Z",
+      "seconds_after_stop": 11.318,
+      "integration_tests_passed": 257
+    }
+  ],
+  "observed_error": {
+    "errno": 98,
+    "class": "EADDRINUSE"
+  },
+  "hosted_conflicting_port": "not_recorded",
+  "hosted_conflicting_pid_or_container": "not_recorded",
+  "likely_cause_inference": "55432 TCP TIME_WAIT from integration PostgreSQL connections; independently reproduced locally",
+  "corrected_hosted_workflow_executed": false
+}

@@ -1,0 +1,15 @@
+{
+  "type": "offline_resource_inventory_comparison",
+  "date": "2026-10-25",
+  "authorized_cloud_spend": 0,
+  "previous_cost_source": "docs/implementation/evidence/f4-02-costs.json",
+  "previous_cost_sha256": "a0e01c56249dc04e59cba5341391c60d0ac1127a8eeb72500b571c73ebf50682",
+  "estimated_usd": 1.5586595671232877,
+  "declared_resource_blocks_before": 23,
+  "declared_resource_blocks_after": 23,
+  "additional_AWS_resources": [],
+  "additional_allocated_storage_GB": 0,
+  "additional_hosted_services": [],
+  "actual_billing": "unverified; no AWS operation",
+  "limits": "Same retained-disk/ECR/S3/AMI assumptions; failure and expiry require attended stop."
+}

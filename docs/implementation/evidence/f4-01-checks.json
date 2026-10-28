@@ -1,0 +1,240 @@
+{
+  "integration": true,
+  "browser_required": true,
+  "commands": [
+    {
+      "command": [
+        "ROOT\\.venv\\Scripts\\python.exe",
+        "--version"
+      ],
+      "exit_code": 0,
+      "seconds": 0.041
+    },
+    {
+      "command": [
+        "node",
+        "--version"
+      ],
+      "exit_code": 0,
+      "seconds": 0.039
+    },
+    {
+      "command": [
+        "C:\\Program Files\\nodejs\\npm.cmd",
+        "--version"
+      ],
+      "exit_code": 0,
+      "seconds": 0.513
+    },
+    {
+      "command": [
+        "ROOT\\.venv\\Scripts\\ruff.exe",
+        "--version"
+      ],
+      "exit_code": 0,
+      "seconds": 0.028
+    },
+    {
+      "command": [
+        "C:\\Program Files\\nodejs\\npm.cmd",
+        "--prefix",
+        "web",
+        "ls",
+        "--depth=0"
+      ],
+      "exit_code": 0,
+      "seconds": 1.352
+    },
+    {
+      "command": [
+        "ROOT\\.venv\\Scripts\\ruff.exe",
+        "check",
+        "src",
+        "scripts",
+        "tests",
+        "--no-cache"
+      ],
+      "exit_code": 0,
+      "seconds": 0.108
+    },
+    {
+      "command": [
+        "ROOT\\.venv\\Scripts\\ruff.exe",
+        "format",
+        "--check",
+        "src",
+        "scripts",
+        "tests",
+        "--no-cache"
+      ],
+      "exit_code": 0,
+      "seconds": 0.056
+    },
+    {
+      "command": [
+        "ROOT\\.venv\\Scripts\\python.exe",
+        "scripts/export_contracts.py",
+        "--check"
+      ],
+      "exit_code": 0,
+      "seconds": 1.618
+    },
+    {
+      "command": [
+        "ROOT\\.venv\\Scripts\\python.exe",
+        "scripts/prepare_responses.py",
+        "--check"
+      ],
+      "exit_code": 0,
+      "seconds": 1.49
+    },
+    {
+      "command": [
+        "ROOT\\.venv\\Scripts\\python.exe",
+        "scripts/measure_token_admission.py",
+        "--check"
+      ],
+      "exit_code": 0,
+      "seconds": 1.59
+    },
+    {
+      "command": [
+        "ROOT\\.venv\\Scripts\\python.exe",
+        "scripts/prepare_model_evaluation.py",
+        "--check"
+      ],
+      "exit_code": 0,
+      "seconds": 0.663
+    },
+    {
+      "command": [
+        "ROOT\\.venv\\Scripts\\python.exe",
+        "scripts/evaluate_models.py",
+        "--check"
+      ],
+      "exit_code": 0,
+      "seconds": 4.165
+    },
+    {
+      "command": [
+        "C:\\Program Files\\nodejs\\npm.cmd",
+        "--prefix",
+        "web",
+        "run",
+        "check"
+      ],
+      "exit_code": 0,
+      "seconds": 6.198
+    },
+    {
+      "command": [
+        "C:\\Program Files\\nodejs\\npm.cmd",
+        "--prefix",
+        "web",
+        "run",
+        "format:check"
+      ],
+      "exit_code": 0,
+      "seconds": 1.89
+    },
+    {
+      "command": [
+        "C:\\Program Files\\nodejs\\npm.cmd",
+        "--prefix",
+        "web",
+        "run",
+        "check:generated"
+      ],
+      "exit_code": 0,
+      "seconds": 1.942
+    },
+    {
+      "command": [
+        "C:\\Program Files\\nodejs\\npm.cmd",
+        "--prefix",
+        "web",
+        "run",
+        "test"
+      ],
+      "exit_code": 0,
+      "seconds": 7.731
+    },
+    {
+      "command": [
+        "C:\\Program Files\\nodejs\\npm.cmd",
+        "--prefix",
+        "web",
+        "run",
+        "build"
+      ],
+      "exit_code": 0,
+      "seconds": 0.84
+    },
+    {
+      "command": [
+        "ROOT\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "-q",
+        "--basetemp=.cache/pytest-f107-unit",
+        "--junitxml=.cache/f107/unit.xml"
+      ],
+      "exit_code": 0,
+      "seconds": 38.092
+    },
+    {
+      "command": [
+        "ROOT\\.venv\\Scripts\\python.exe",
+        "scripts/smoke_local.py"
+      ],
+      "exit_code": 0,
+      "seconds": 1.947
+    },
+    {
+      "command": [
+        "ROOT\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "-q",
+        "-s",
+        "-m",
+        "integration",
+        "--basetemp=.cache/pytest-f107-integration",
+        "--junitxml=.cache/f107/integration.xml"
+      ],
+      "exit_code": 0,
+      "seconds": 142.443
+    },
+    {
+      "command": [
+        "ROOT\\.venv\\Scripts\\python.exe",
+        "scripts/evaluate_baseline.py",
+        "--check"
+      ],
+      "exit_code": 0,
+      "seconds": 0.62
+    },
+    {
+      "command": [
+        "ROOT\\.venv\\Scripts\\python.exe",
+        "scripts/measure_async_reads.py"
+      ],
+      "exit_code": 0,
+      "seconds": 2.397
+    }
+  ],
+  "tests": {
+    "unit": {
+      "tests": 985,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "integration": {
+      "tests": 257,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  }
+}

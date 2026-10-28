@@ -1,0 +1,194 @@
+{
+  "version": "f5-d1-validation-v1",
+  "evidence": "fresh_local_synthetic_software_checks_not_model_quality",
+  "python_suites": [
+    {
+      "suite": "unit",
+      "passed": 2193,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 1321.53
+    },
+    {
+      "suite": "integration",
+      "passed": 401,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 411.591
+    },
+    {
+      "suite": "release-unit",
+      "passed": 11,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 3.823
+    },
+    {
+      "suite": "check-runner",
+      "passed": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 0.126
+    },
+    {
+      "suite": "browser-final",
+      "passed": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 4.342
+    },
+    {
+      "suite": "browser-repeat",
+      "passed": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 4.657
+    }
+  ],
+  "distinct_selected_python_tests": 2598,
+  "passing_python_executions": 2609,
+  "overlapping_executions": 11,
+  "frontend_tests": {
+    "passed": 131,
+    "failed": 0,
+    "skipped": 0,
+    "cancelled": 0
+  },
+  "baseline": {
+    "passed": 40,
+    "total": 40,
+    "development": 24,
+    "historical_held_out": 16
+  },
+  "comparison_dispositions": {
+    "matched": 150,
+    "total": 150,
+    "template_hard_passed": 50,
+    "fake_hard_passed": 44,
+    "replay_hard_passed": 44
+  },
+  "final_source_checks": {
+    "public_python_native_and_313_grammar": 202,
+    "ruff_formatted_files": 205,
+    "ruff_lint": "passed",
+    "git_diff_check": "passed",
+    "generated_contracts": "passed",
+    "typescript": "passed",
+    "frontend_format": "passed",
+    "frontend_build": "passed",
+    "responses_assets": "checked_5",
+    "historical_admission_experiment": "checked_unchanged"
+  },
+  "aggregate_runner_budget_seconds": {
+    "ordinary": 180,
+    "routine_pytest": 2400,
+    "integration_pytest": 900
+  },
+  "source_preservation": {
+    "task_entry_public_files": 573,
+    "modified_existing_files": [
+      "README.md",
+      "docs/runbook.md",
+      "scripts/check.py",
+      "scripts/check_release.py",
+      "tests/test_browser_ui.py",
+      "tests/test_release.py",
+      "web/scripts/browser-smoke.mjs",
+      "web/scripts/browser-support.mjs"
+    ],
+    "unchanged_existing_files": 565,
+    "production_sources_and_migrations_unchanged": true,
+    "historical_evaluation_and_claims_unchanged": true,
+    "e10_candidate_unchanged_and_reproduced": true
+  },
+  "not_executed": [
+    "hosted_CI",
+    "full_Linux_Python_suite",
+    "fresh_dependency_install",
+    "manual_human_usability_session",
+    "real_provider_or_counting",
+    "AWS",
+    "hosted_telemetry",
+    "genuine_cases_or_human_quality_study",
+    "final_freeze_approval"
+  ],
+  "check_commands": [
+    {
+      "command": [
+        ".venv/Scripts/python.exe",
+        "scripts/export_contracts.py",
+        "--check"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        ".venv/Scripts/python.exe",
+        "scripts/prepare_model_evaluation.py",
+        "--check"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        ".venv/Scripts/python.exe",
+        "scripts/evaluate_models.py",
+        "--check"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        ".venv/Scripts/python.exe",
+        "scripts/evaluate_baseline.py",
+        "--check"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        ".venv/Scripts/python.exe",
+        "scripts/review_source.py",
+        "check"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        ".venv/Scripts/ruff.exe",
+        "check",
+        "."
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        ".venv/Scripts/ruff.exe",
+        "format",
+        "--check",
+        "src",
+        "tests",
+        "scripts",
+        "infra",
+        "experiments"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "git",
+        "-c",
+        "core.safecrlf=false",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0
+    }
+  ]
+}

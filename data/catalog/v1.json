@@ -1,0 +1,485 @@
+{
+  "revision": "catalog-v1",
+  "records": [
+    {
+      "exercise_id": "bw_squat",
+      "title": "Bodyweight squat",
+      "goals": [
+        "general_strength"
+      ],
+      "mode": "repetitions",
+      "equipment": "bodyweight",
+      "experiences": [
+        "beginner",
+        "intermediate"
+      ],
+      "exclusion_tags": [
+        "lower_body",
+        "squat"
+      ],
+      "provenance": {
+        "origin": "original",
+        "attribution": "Future Adaptive Training Agent project",
+        "license": "Original project-authored metadata; no third-party content or external license grant asserted",
+        "source_reference": "data/catalog/README.md#catalog-v1"
+      },
+      "catalog_revision": "catalog-v1"
+    },
+    {
+      "exercise_id": "bw_knee_pushup",
+      "title": "Knee push-up",
+      "goals": [
+        "general_strength"
+      ],
+      "mode": "repetitions",
+      "equipment": "bodyweight",
+      "experiences": [
+        "beginner",
+        "intermediate"
+      ],
+      "exclusion_tags": [
+        "upper_body",
+        "push"
+      ],
+      "provenance": {
+        "origin": "original",
+        "attribution": "Future Adaptive Training Agent project",
+        "license": "Original project-authored metadata; no third-party content or external license grant asserted",
+        "source_reference": "data/catalog/README.md#catalog-v1"
+      },
+      "catalog_revision": "catalog-v1"
+    },
+    {
+      "exercise_id": "bw_glute_bridge",
+      "title": "Glute bridge",
+      "goals": [
+        "general_strength"
+      ],
+      "mode": "repetitions",
+      "equipment": "bodyweight",
+      "experiences": [
+        "beginner",
+        "intermediate"
+      ],
+      "exclusion_tags": [
+        "lower_body",
+        "hip"
+      ],
+      "provenance": {
+        "origin": "original",
+        "attribution": "Future Adaptive Training Agent project",
+        "license": "Original project-authored metadata; no third-party content or external license grant asserted",
+        "source_reference": "data/catalog/README.md#catalog-v1"
+      },
+      "catalog_revision": "catalog-v1"
+    },
+    {
+      "exercise_id": "bw_calf_raise",
+      "title": "Standing calf raise",
+      "goals": [
+        "general_strength"
+      ],
+      "mode": "repetitions",
+      "equipment": "bodyweight",
+      "experiences": [
+        "beginner",
+        "intermediate"
+      ],
+      "exclusion_tags": [
+        "lower_body",
+        "calf"
+      ],
+      "provenance": {
+        "origin": "original",
+        "attribution": "Future Adaptive Training Agent project",
+        "license": "Original project-authored metadata; no third-party content or external license grant asserted",
+        "source_reference": "data/catalog/README.md#catalog-v1"
+      },
+      "catalog_revision": "catalog-v1"
+    },
+    {
+      "exercise_id": "bw_hip_hinge",
+      "title": "Bodyweight hip hinge",
+      "goals": [
+        "general_strength"
+      ],
+      "mode": "repetitions",
+      "equipment": "bodyweight",
+      "experiences": [
+        "beginner",
+        "intermediate"
+      ],
+      "exclusion_tags": [
+        "lower_body",
+        "hip"
+      ],
+      "provenance": {
+        "origin": "original",
+        "attribution": "Future Adaptive Training Agent project",
+        "license": "Original project-authored metadata; no third-party content or external license grant asserted",
+        "source_reference": "data/catalog/README.md#catalog-v1"
+      },
+      "catalog_revision": "catalog-v1"
+    },
+    {
+      "exercise_id": "bw_side_leg_raise",
+      "title": "Side-lying leg raise",
+      "goals": [
+        "general_strength"
+      ],
+      "mode": "repetitions",
+      "equipment": "bodyweight",
+      "experiences": [
+        "beginner",
+        "intermediate"
+      ],
+      "exclusion_tags": [
+        "lower_body",
+        "hip"
+      ],
+      "provenance": {
+        "origin": "original",
+        "attribution": "Future Adaptive Training Agent project",
+        "license": "Original project-authored metadata; no third-party content or external license grant asserted",
+        "source_reference": "data/catalog/README.md#catalog-v1"
+      },
+      "catalog_revision": "catalog-v1"
+    },
+    {
+      "exercise_id": "bw_prone_arm_raise",
+      "title": "Prone arm raise",
+      "goals": [
+        "general_strength"
+      ],
+      "mode": "repetitions",
+      "equipment": "bodyweight",
+      "experiences": [
+        "beginner",
+        "intermediate"
+      ],
+      "exclusion_tags": [
+        "upper_body",
+        "pull"
+      ],
+      "provenance": {
+        "origin": "original",
+        "attribution": "Future Adaptive Training Agent project",
+        "license": "Original project-authored metadata; no third-party content or external license grant asserted",
+        "source_reference": "data/catalog/README.md#catalog-v1"
+      },
+      "catalog_revision": "catalog-v1"
+    },
+    {
+      "exercise_id": "bw_dead_bug",
+      "title": "Dead bug",
+      "goals": [
+        "general_strength"
+      ],
+      "mode": "repetitions",
+      "equipment": "bodyweight",
+      "experiences": [
+        "beginner",
+        "intermediate"
+      ],
+      "exclusion_tags": [
+        "trunk",
+        "core"
+      ],
+      "provenance": {
+        "origin": "original",
+        "attribution": "Future Adaptive Training Agent project",
+        "license": "Original project-authored metadata; no third-party content or external license grant asserted",
+        "source_reference": "data/catalog/README.md#catalog-v1"
+      },
+      "catalog_revision": "catalog-v1"
+    },
+    {
+      "exercise_id": "bw_march",
+      "title": "March in place",
+      "goals": [
+        "general_conditioning"
+      ],
+      "mode": "timed",
+      "equipment": "bodyweight",
+      "experiences": [
+        "beginner",
+        "intermediate"
+      ],
+      "exclusion_tags": [
+        "standing",
+        "march"
+      ],
+      "provenance": {
+        "origin": "original",
+        "attribution": "Future Adaptive Training Agent project",
+        "license": "Original project-authored metadata; no third-party content or external license grant asserted",
+        "source_reference": "data/catalog/README.md#catalog-v1"
+      },
+      "catalog_revision": "catalog-v1"
+    },
+    {
+      "exercise_id": "bw_step_touch",
+      "title": "Step touch",
+      "goals": [
+        "general_conditioning"
+      ],
+      "mode": "timed",
+      "equipment": "bodyweight",
+      "experiences": [
+        "beginner",
+        "intermediate"
+      ],
+      "exclusion_tags": [
+        "standing",
+        "lateral"
+      ],
+      "provenance": {
+        "origin": "original",
+        "attribution": "Future Adaptive Training Agent project",
+        "license": "Original project-authored metadata; no third-party content or external license grant asserted",
+        "source_reference": "data/catalog/README.md#catalog-v1"
+      },
+      "catalog_revision": "catalog-v1"
+    },
+    {
+      "exercise_id": "bw_side_step",
+      "title": "Alternating side step",
+      "goals": [
+        "general_conditioning"
+      ],
+      "mode": "timed",
+      "equipment": "bodyweight",
+      "experiences": [
+        "beginner",
+        "intermediate"
+      ],
+      "exclusion_tags": [
+        "standing",
+        "lateral"
+      ],
+      "provenance": {
+        "origin": "original",
+        "attribution": "Future Adaptive Training Agent project",
+        "license": "Original project-authored metadata; no third-party content or external license grant asserted",
+        "source_reference": "data/catalog/README.md#catalog-v1"
+      },
+      "catalog_revision": "catalog-v1"
+    },
+    {
+      "exercise_id": "bw_heel_dig",
+      "title": "Alternating heel dig",
+      "goals": [
+        "general_conditioning"
+      ],
+      "mode": "timed",
+      "equipment": "bodyweight",
+      "experiences": [
+        "beginner",
+        "intermediate"
+      ],
+      "exclusion_tags": [
+        "standing",
+        "lower_body"
+      ],
+      "provenance": {
+        "origin": "original",
+        "attribution": "Future Adaptive Training Agent project",
+        "license": "Original project-authored metadata; no third-party content or external license grant asserted",
+        "source_reference": "data/catalog/README.md#catalog-v1"
+      },
+      "catalog_revision": "catalog-v1"
+    },
+    {
+      "exercise_id": "bw_knee_lift",
+      "title": "Alternating standing knee lift",
+      "goals": [
+        "general_conditioning"
+      ],
+      "mode": "timed",
+      "equipment": "bodyweight",
+      "experiences": [
+        "beginner",
+        "intermediate"
+      ],
+      "exclusion_tags": [
+        "standing",
+        "lower_body"
+      ],
+      "provenance": {
+        "origin": "original",
+        "attribution": "Future Adaptive Training Agent project",
+        "license": "Original project-authored metadata; no third-party content or external license grant asserted",
+        "source_reference": "data/catalog/README.md#catalog-v1"
+      },
+      "catalog_revision": "catalog-v1"
+    },
+    {
+      "exercise_id": "bw_hamstring_curl",
+      "title": "Alternating standing hamstring curl",
+      "goals": [
+        "general_conditioning"
+      ],
+      "mode": "timed",
+      "equipment": "bodyweight",
+      "experiences": [
+        "beginner",
+        "intermediate"
+      ],
+      "exclusion_tags": [
+        "standing",
+        "lower_body"
+      ],
+      "provenance": {
+        "origin": "original",
+        "attribution": "Future Adaptive Training Agent project",
+        "license": "Original project-authored metadata; no third-party content or external license grant asserted",
+        "source_reference": "data/catalog/README.md#catalog-v1"
+      },
+      "catalog_revision": "catalog-v1"
+    },
+    {
+      "exercise_id": "bw_arm_circle",
+      "title": "Standing arm circles",
+      "goals": [
+        "general_conditioning"
+      ],
+      "mode": "timed",
+      "equipment": "bodyweight",
+      "experiences": [
+        "beginner",
+        "intermediate"
+      ],
+      "exclusion_tags": [
+        "standing",
+        "upper_body"
+      ],
+      "provenance": {
+        "origin": "original",
+        "attribution": "Future Adaptive Training Agent project",
+        "license": "Original project-authored metadata; no third-party content or external license grant asserted",
+        "source_reference": "data/catalog/README.md#catalog-v1"
+      },
+      "catalog_revision": "catalog-v1"
+    },
+    {
+      "exercise_id": "bw_standing_punch",
+      "title": "Alternating standing punch",
+      "goals": [
+        "general_conditioning"
+      ],
+      "mode": "timed",
+      "equipment": "bodyweight",
+      "experiences": [
+        "beginner",
+        "intermediate"
+      ],
+      "exclusion_tags": [
+        "standing",
+        "upper_body"
+      ],
+      "provenance": {
+        "origin": "original",
+        "attribution": "Future Adaptive Training Agent project",
+        "license": "Original project-authored metadata; no third-party content or external license grant asserted",
+        "source_reference": "data/catalog/README.md#catalog-v1"
+      },
+      "catalog_revision": "catalog-v1"
+    },
+    {
+      "exercise_id": "db_goblet_squat",
+      "title": "Dumbbell goblet squat",
+      "goals": [
+        "general_strength"
+      ],
+      "mode": "repetitions",
+      "equipment": "dumbbells",
+      "experiences": [
+        "beginner",
+        "intermediate"
+      ],
+      "exclusion_tags": [
+        "lower_body",
+        "squat"
+      ],
+      "provenance": {
+        "origin": "original",
+        "attribution": "Future Adaptive Training Agent project",
+        "license": "Original project-authored metadata; no third-party content or external license grant asserted",
+        "source_reference": "data/catalog/README.md#catalog-v1"
+      },
+      "catalog_revision": "catalog-v1"
+    },
+    {
+      "exercise_id": "db_floor_press",
+      "title": "Dumbbell floor press",
+      "goals": [
+        "general_strength"
+      ],
+      "mode": "repetitions",
+      "equipment": "dumbbells",
+      "experiences": [
+        "beginner",
+        "intermediate"
+      ],
+      "exclusion_tags": [
+        "upper_body",
+        "push"
+      ],
+      "provenance": {
+        "origin": "original",
+        "attribution": "Future Adaptive Training Agent project",
+        "license": "Original project-authored metadata; no third-party content or external license grant asserted",
+        "source_reference": "data/catalog/README.md#catalog-v1"
+      },
+      "catalog_revision": "catalog-v1"
+    },
+    {
+      "exercise_id": "db_bent_over_row",
+      "title": "Dumbbell bent-over row",
+      "goals": [
+        "general_strength"
+      ],
+      "mode": "repetitions",
+      "equipment": "dumbbells",
+      "experiences": [
+        "beginner",
+        "intermediate"
+      ],
+      "exclusion_tags": [
+        "upper_body",
+        "pull"
+      ],
+      "provenance": {
+        "origin": "original",
+        "attribution": "Future Adaptive Training Agent project",
+        "license": "Original project-authored metadata; no third-party content or external license grant asserted",
+        "source_reference": "data/catalog/README.md#catalog-v1"
+      },
+      "catalog_revision": "catalog-v1"
+    },
+    {
+      "exercise_id": "db_hip_hinge",
+      "title": "Dumbbell hip hinge",
+      "goals": [
+        "general_strength"
+      ],
+      "mode": "repetitions",
+      "equipment": "dumbbells",
+      "experiences": [
+        "beginner",
+        "intermediate"
+      ],
+      "exclusion_tags": [
+        "lower_body",
+        "hip"
+      ],
+      "provenance": {
+        "origin": "original",
+        "attribution": "Future Adaptive Training Agent project",
+        "license": "Original project-authored metadata; no third-party content or external license grant asserted",
+        "source_reference": "data/catalog/README.md#catalog-v1"
+      },
+      "catalog_revision": "catalog-v1"
+    }
+  ]
+}

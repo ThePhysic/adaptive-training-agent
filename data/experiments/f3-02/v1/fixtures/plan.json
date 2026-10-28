@@ -1,0 +1,38 @@
+{
+  "id": "resp-synthetic",
+  "model": "gpt-6.1-sol",
+  "object": "response",
+  "output": [
+    {
+      "content": [
+        {
+          "annotations": [],
+          "text": "{\"result\": {\"outcome\": \"plan\", \"plan\": {\"profile\": {\"adult\": true, \"goal\": \"general_strength\", \"equipment\": \"bodyweight\", \"experience\": \"beginner\", \"days_per_week\": 2, \"session_minutes\": 20, \"excluded_ids\": [], \"excluded_tags\": []}, \"days\": [{\"day_index\": 1, \"blocks\": [{\"exercise_id\": \"bw_calf_raise\", \"mode\": \"repetitions\", \"sets\": 3, \"repetitions_per_set\": 6, \"rest_between_sets_seconds\": 45}, {\"exercise_id\": \"bw_dead_bug\", \"mode\": \"repetitions\", \"sets\": 3, \"repetitions_per_set\": 6, \"rest_between_sets_seconds\": 45}, {\"exercise_id\": \"bw_glute_bridge\", \"mode\": \"repetitions\", \"sets\": 3, \"repetitions_per_set\": 10, \"rest_between_sets_seconds\": 75}, {\"exercise_id\": \"bw_hip_hinge\", \"mode\": \"repetitions\", \"sets\": 2, \"repetitions_per_set\": 12, \"rest_between_sets_seconds\": 75}], \"planned_seconds\": 1200}, {\"day_index\": 2, \"blocks\": [{\"exercise_id\": \"bw_knee_pushup\", \"mode\": \"repetitions\", \"sets\": 3, \"repetitions_per_set\": 6, \"rest_between_sets_seconds\": 45}, {\"exercise_id\": \"bw_prone_arm_raise\", \"mode\": \"repetitions\", \"sets\": 3, \"repetitions_per_set\": 6, \"rest_between_sets_seconds\": 45}, {\"exercise_id\": \"bw_side_leg_raise\", \"mode\": \"repetitions\", \"sets\": 3, \"repetitions_per_set\": 10, \"rest_between_sets_seconds\": 75}, {\"exercise_id\": \"bw_squat\", \"mode\": \"repetitions\", \"sets\": 2, \"repetitions_per_set\": 12, \"rest_between_sets_seconds\": 75}], \"planned_seconds\": 1200}]}}}",
+          "type": "output_text"
+        }
+      ],
+      "id": "msg-synthetic",
+      "role": "assistant",
+      "status": "completed",
+      "type": "message"
+    }
+  ],
+  "service_tier": "default",
+  "status": "completed",
+  "usage": {
+    "input_tokens": 1000,
+    "input_tokens_details": {
+      "cache_write_tokens": 300,
+      "cache_write_tokens_details": {
+        "ttl_12h_tokens": 0,
+        "ttl_30m_tokens": 300
+      },
+      "cached_tokens": 200
+    },
+    "output_tokens": 100,
+    "output_tokens_details": {
+      "reasoning_tokens": 20
+    },
+    "total_tokens": 1100
+  }
+}

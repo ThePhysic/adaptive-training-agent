@@ -1,0 +1,103 @@
+{
+  "fault": "lost acknowledgement after native COMMIT",
+  "statuses": [
+    503,
+    200,
+    200
+  ],
+  "record_and_key_counts": [
+    1,
+    1
+  ],
+  "trace": [
+    {
+      "stage": "completion.transaction",
+      "trace_id": "181529acb4ef419da3444ba99109ccaa",
+      "span_id": "9fbe6addd21e4fc9adbd0ebf6306c29c",
+      "parent_id": "6e9b1a789c994e97a1ab2432d3ef54fc",
+      "duration_ms": 31.072,
+      "attributes": {
+        "outcome": "error",
+        "reason": "reconciliation_pending"
+      }
+    },
+    {
+      "stage": "completion.submit",
+      "trace_id": "181529acb4ef419da3444ba99109ccaa",
+      "span_id": "6e9b1a789c994e97a1ab2432d3ef54fc",
+      "parent_id": "214bb5e7f6004421a83b7bbad8717c17",
+      "duration_ms": 32.014,
+      "attributes": {
+        "outcome": "error",
+        "reason": "reconciliation_pending"
+      }
+    },
+    {
+      "stage": "http",
+      "trace_id": "181529acb4ef419da3444ba99109ccaa",
+      "span_id": "214bb5e7f6004421a83b7bbad8717c17",
+      "parent_id": null,
+      "duration_ms": 34.5,
+      "attributes": {
+        "outcome": "error",
+        "route": "completions",
+        "reason": "reconciliation_pending",
+        "http_status": 503
+      }
+    },
+    {
+      "stage": "completion.transaction",
+      "trace_id": "f5d164e445734cb5ad2819474e4a25b5",
+      "span_id": "482b9d1224a54d3f914c62f5711a7694",
+      "parent_id": "91d435f0ba3445539156c110ceaf9bf3",
+      "duration_ms": 15.079,
+      "attributes": {
+        "outcome": "ok"
+      }
+    },
+    {
+      "stage": "completion.submit",
+      "trace_id": "f5d164e445734cb5ad2819474e4a25b5",
+      "span_id": "91d435f0ba3445539156c110ceaf9bf3",
+      "parent_id": "ac88b0a71de34ce58808ea81255923d4",
+      "duration_ms": 16.818,
+      "attributes": {
+        "outcome": "ok"
+      }
+    },
+    {
+      "stage": "http",
+      "trace_id": "f5d164e445734cb5ad2819474e4a25b5",
+      "span_id": "ac88b0a71de34ce58808ea81255923d4",
+      "parent_id": null,
+      "duration_ms": 18.204,
+      "attributes": {
+        "outcome": "ok",
+        "route": "completions",
+        "http_status": 200
+      }
+    },
+    {
+      "stage": "completion.read",
+      "trace_id": "ea162a24fdfe496385895f93761031d7",
+      "span_id": "a44fb6a042cf420d9c3d55ad0f2faba9",
+      "parent_id": "f32f06d7e71b47e782b8063ce077535b",
+      "duration_ms": 18.043,
+      "attributes": {
+        "outcome": "ok"
+      }
+    },
+    {
+      "stage": "http",
+      "trace_id": "ea162a24fdfe496385895f93761031d7",
+      "span_id": "f32f06d7e71b47e782b8063ce077535b",
+      "parent_id": null,
+      "duration_ms": 20.357,
+      "attributes": {
+        "outcome": "ok",
+        "route": "completions",
+        "http_status": 200
+      }
+    }
+  ]
+}

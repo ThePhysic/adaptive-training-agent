@@ -1,0 +1,18 @@
+{
+  "background": false,
+  "endpoint": "https://api.openai.com/v1/responses",
+  "model": "gpt-6.1-sol",
+  "parallel_tool_calls": false,
+  "prompt_cache_options": {
+    "mode": "implicit",
+    "ttl": "30m"
+  },
+  "reasoning": {
+    "effort": "low"
+  },
+  "service_tier": "default",
+  "store": false,
+  "stream": true,
+  "tool_choice": "auto",
+  "version": "real-model-config-v1"
+}

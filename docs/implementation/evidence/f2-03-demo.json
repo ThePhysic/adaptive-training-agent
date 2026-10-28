@@ -1,0 +1,237 @@
+{
+  "version": "graph-restart-v1",
+  "phases": [
+    {
+      "next": [
+        "gate"
+      ],
+      "stage": "gate",
+      "reason": "running",
+      "metrics": {
+        "provider_requests": 1,
+        "tool_dispatches": 1,
+        "transport_retries": 0,
+        "semantic_repairs": 0,
+        "input_tokens": 1634,
+        "output_tokens": 42,
+        "uncertain_attempts": 0,
+        "finish_reasons": [
+          "tool_calls"
+        ],
+        "token_kind": "simulated_utf8_quarters"
+      },
+      "tables": {
+        "checkpoints": 7,
+        "writes": 13
+      },
+      "context_restored": true,
+      "pending": null,
+      "file_bytes": 4096,
+      "storage_bytes": {
+        "main": 4096,
+        "wal": 276072,
+        "shm": 32768,
+        "total": 312936
+      },
+      "context_sha256": "d26b0cb3605936732a2a16cd31685e0affab581e3923cd58bb395c04be16db1d",
+      "history_stages": [
+        "context",
+        "reserve_model",
+        "model",
+        "reserve_tool",
+        "tool",
+        "gate"
+      ],
+      "pid": 34980
+    },
+    {
+      "next": [],
+      "stage": "end",
+      "reason": "validated_unpublished",
+      "metrics": {
+        "provider_requests": 2,
+        "tool_dispatches": 1,
+        "transport_retries": 0,
+        "semantic_repairs": 0,
+        "input_tokens": 4458,
+        "output_tokens": 415,
+        "uncertain_attempts": 0,
+        "finish_reasons": [
+          "tool_calls",
+          "stop"
+        ],
+        "token_kind": "simulated_utf8_quarters"
+      },
+      "tables": {
+        "checkpoints": 11,
+        "writes": 22
+      },
+      "context_restored": true,
+      "pending": null,
+      "file_bytes": 114688,
+      "storage_bytes": {
+        "main": 114688,
+        "wal": 222512,
+        "shm": 32768,
+        "total": 369968
+      },
+      "context_sha256": "d26b0cb3605936732a2a16cd31685e0affab581e3923cd58bb395c04be16db1d",
+      "history_stages": [
+        "context",
+        "reserve_model",
+        "model",
+        "reserve_tool",
+        "tool",
+        "gate",
+        "reserve_model",
+        "model",
+        "validate",
+        "end"
+      ],
+      "pid": 15540,
+      "restored_before_execution": {
+        "next": [
+          "gate"
+        ],
+        "stage": "gate",
+        "reason": "running",
+        "metrics": {
+          "provider_requests": 1,
+          "tool_dispatches": 1,
+          "transport_retries": 0,
+          "semantic_repairs": 0,
+          "input_tokens": 1634,
+          "output_tokens": 42,
+          "uncertain_attempts": 0,
+          "finish_reasons": [
+            "tool_calls"
+          ],
+          "token_kind": "simulated_utf8_quarters"
+        },
+        "tables": {
+          "checkpoints": 7,
+          "writes": 13
+        },
+        "context_restored": true,
+        "pending": null,
+        "file_bytes": 114688,
+        "storage_bytes": {
+          "main": 114688,
+          "wal": 0,
+          "shm": 32768,
+          "total": 147456
+        },
+        "context_sha256": "d26b0cb3605936732a2a16cd31685e0affab581e3923cd58bb395c04be16db1d",
+        "history_stages": [
+          "context",
+          "reserve_model",
+          "model",
+          "reserve_tool",
+          "tool",
+          "gate"
+        ]
+      },
+      "output_sha256": "16c5196d299fc2b492dfcc35cb559f124b09be8c67287f6bbf44660f57c92b5d"
+    },
+    {
+      "next": [],
+      "stage": "end",
+      "reason": "validated_unpublished",
+      "metrics": {
+        "provider_requests": 2,
+        "tool_dispatches": 1,
+        "transport_retries": 0,
+        "semantic_repairs": 0,
+        "input_tokens": 4458,
+        "output_tokens": 415,
+        "uncertain_attempts": 0,
+        "finish_reasons": [
+          "tool_calls",
+          "stop"
+        ],
+        "token_kind": "simulated_utf8_quarters"
+      },
+      "tables": {
+        "checkpoints": 11,
+        "writes": 22
+      },
+      "context_restored": true,
+      "pending": null,
+      "file_bytes": 225280,
+      "storage_bytes": {
+        "main": 225280,
+        "wal": 0,
+        "shm": 32768,
+        "total": 258048
+      },
+      "context_sha256": "d26b0cb3605936732a2a16cd31685e0affab581e3923cd58bb395c04be16db1d",
+      "history_stages": [
+        "context",
+        "reserve_model",
+        "model",
+        "reserve_tool",
+        "tool",
+        "gate",
+        "reserve_model",
+        "model",
+        "validate",
+        "end"
+      ],
+      "pid": 35800,
+      "restored_before_execution": {
+        "next": [],
+        "stage": "end",
+        "reason": "validated_unpublished",
+        "metrics": {
+          "provider_requests": 2,
+          "tool_dispatches": 1,
+          "transport_retries": 0,
+          "semantic_repairs": 0,
+          "input_tokens": 4458,
+          "output_tokens": 415,
+          "uncertain_attempts": 0,
+          "finish_reasons": [
+            "tool_calls",
+            "stop"
+          ],
+          "token_kind": "simulated_utf8_quarters"
+        },
+        "tables": {
+          "checkpoints": 11,
+          "writes": 22
+        },
+        "context_restored": true,
+        "pending": null,
+        "file_bytes": 225280,
+        "storage_bytes": {
+          "main": 225280,
+          "wal": 0,
+          "shm": 32768,
+          "total": 258048
+        },
+        "context_sha256": "d26b0cb3605936732a2a16cd31685e0affab581e3923cd58bb395c04be16db1d",
+        "history_stages": [
+          "context",
+          "reserve_model",
+          "model",
+          "reserve_tool",
+          "tool",
+          "gate",
+          "reserve_model",
+          "model",
+          "validate",
+          "end"
+        ]
+      },
+      "output_sha256": "16c5196d299fc2b492dfcc35cb559f124b09be8c67287f6bbf44660f57c92b5d"
+    }
+  ],
+  "sqlite_integrity": "ok",
+  "tables": [
+    "checkpoints",
+    "writes"
+  ],
+  "original_process_exited": true,
+  "independent_processes": 3,
+  "cleanup": "experiment database and sidecars deleted"
+}

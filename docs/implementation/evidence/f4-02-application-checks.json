@@ -1,0 +1,211 @@
+{
+  "integration": false,
+  "browser_required": false,
+  "commands": [
+    {
+      "command": [
+        "ROOT\\.venv\\Scripts\\python.exe",
+        "--version"
+      ],
+      "exit_code": 0,
+      "seconds": 0.046
+    },
+    {
+      "command": [
+        "node",
+        "--version"
+      ],
+      "exit_code": 0,
+      "seconds": 0.044
+    },
+    {
+      "command": [
+        "C:\\Program Files\\nodejs\\npm.cmd",
+        "--version"
+      ],
+      "exit_code": 0,
+      "seconds": 0.512
+    },
+    {
+      "command": [
+        "ROOT\\.venv\\Scripts\\ruff.exe",
+        "--version"
+      ],
+      "exit_code": 0,
+      "seconds": 0.022
+    },
+    {
+      "command": [
+        "C:\\Program Files\\nodejs\\npm.cmd",
+        "--prefix",
+        "web",
+        "ls",
+        "--depth=0"
+      ],
+      "exit_code": 0,
+      "seconds": 1.659
+    },
+    {
+      "command": [
+        "ROOT\\.venv\\Scripts\\ruff.exe",
+        "check",
+        "src",
+        "scripts",
+        "tests",
+        "--no-cache"
+      ],
+      "exit_code": 0,
+      "seconds": 0.138
+    },
+    {
+      "command": [
+        "ROOT\\.venv\\Scripts\\ruff.exe",
+        "format",
+        "--check",
+        "src",
+        "scripts",
+        "tests",
+        "--no-cache"
+      ],
+      "exit_code": 0,
+      "seconds": 0.072
+    },
+    {
+      "command": [
+        "ROOT\\.venv\\Scripts\\python.exe",
+        "scripts/export_contracts.py",
+        "--check"
+      ],
+      "exit_code": 0,
+      "seconds": 1.797
+    },
+    {
+      "command": [
+        "ROOT\\.venv\\Scripts\\python.exe",
+        "scripts/prepare_responses.py",
+        "--check"
+      ],
+      "exit_code": 0,
+      "seconds": 1.877
+    },
+    {
+      "command": [
+        "ROOT\\.venv\\Scripts\\python.exe",
+        "scripts/measure_token_admission.py",
+        "--check"
+      ],
+      "exit_code": 0,
+      "seconds": 1.734
+    },
+    {
+      "command": [
+        "ROOT\\.venv\\Scripts\\python.exe",
+        "scripts/prepare_model_evaluation.py",
+        "--check"
+      ],
+      "exit_code": 0,
+      "seconds": 0.985
+    },
+    {
+      "command": [
+        "ROOT\\.venv\\Scripts\\python.exe",
+        "scripts/evaluate_models.py",
+        "--check"
+      ],
+      "exit_code": 0,
+      "seconds": 4.264
+    },
+    {
+      "command": [
+        "C:\\Program Files\\nodejs\\npm.cmd",
+        "--prefix",
+        "web",
+        "run",
+        "check"
+      ],
+      "exit_code": 0,
+      "seconds": 7.926
+    },
+    {
+      "command": [
+        "C:\\Program Files\\nodejs\\npm.cmd",
+        "--prefix",
+        "web",
+        "run",
+        "format:check"
+      ],
+      "exit_code": 0,
+      "seconds": 1.907
+    },
+    {
+      "command": [
+        "C:\\Program Files\\nodejs\\npm.cmd",
+        "--prefix",
+        "web",
+        "run",
+        "check:generated"
+      ],
+      "exit_code": 0,
+      "seconds": 1.863
+    },
+    {
+      "command": [
+        "C:\\Program Files\\nodejs\\npm.cmd",
+        "--prefix",
+        "web",
+        "run",
+        "test"
+      ],
+      "exit_code": 0,
+      "seconds": 6.947
+    },
+    {
+      "command": [
+        "C:\\Program Files\\nodejs\\npm.cmd",
+        "--prefix",
+        "web",
+        "run",
+        "build"
+      ],
+      "exit_code": 0,
+      "seconds": 0.915
+    },
+    {
+      "command": [
+        "ROOT\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "-q",
+        "--basetemp=.cache/pytest-f107-unit",
+        "--junitxml=.cache/f107/unit.xml"
+      ],
+      "exit_code": 0,
+      "seconds": 42.553
+    },
+    {
+      "command": [
+        "ROOT\\.venv\\Scripts\\python.exe",
+        "scripts/evaluate_baseline.py",
+        "--check"
+      ],
+      "exit_code": 0,
+      "seconds": 0.682
+    },
+    {
+      "command": [
+        "ROOT\\.venv\\Scripts\\python.exe",
+        "scripts/measure_async_reads.py"
+      ],
+      "exit_code": 0,
+      "seconds": 2.78
+    }
+  ],
+  "tests": {
+    "unit": {
+      "tests": 1014,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  }
+}

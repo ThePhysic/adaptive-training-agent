@@ -1,0 +1,100 @@
+[
+  {
+    "stage": "async.http",
+    "trace_id": "cc3a89002c804f4ba5b9c408db33459f",
+    "span_id": "c164586687e04516b9efaaa9cf835369",
+    "parent_id": "83472ec3b7ab4b68a12e69faee3ff05e",
+    "duration_ms": 5.013,
+    "attributes": {
+      "outcome": "ok",
+      "read": "catalog",
+      "http_status": 200,
+      "response_bytes": 10556
+    }
+  },
+  {
+    "stage": "async.read",
+    "trace_id": "cc3a89002c804f4ba5b9c408db33459f",
+    "span_id": "83472ec3b7ab4b68a12e69faee3ff05e",
+    "parent_id": "27268010442d4f279bf166dbf001d3ac",
+    "duration_ms": 6.509,
+    "attributes": {
+      "outcome": "error",
+      "read": "catalog",
+      "reason": "read_invalid_result"
+    }
+  },
+  {
+    "stage": "async.http",
+    "trace_id": "cc3a89002c804f4ba5b9c408db33459f",
+    "span_id": "0616a6fef5fe456b9a0f97bebfc41db2",
+    "parent_id": "197e9c46cf814f4d97bf4ade5c7e847d",
+    "duration_ms": 7.933,
+    "attributes": {
+      "outcome": "cancelled",
+      "read": "profile",
+      "http_status": 200,
+      "reason": "cancelled"
+    }
+  },
+  {
+    "stage": "async.read",
+    "trace_id": "cc3a89002c804f4ba5b9c408db33459f",
+    "span_id": "197e9c46cf814f4d97bf4ade5c7e847d",
+    "parent_id": "27268010442d4f279bf166dbf001d3ac",
+    "duration_ms": 8.026,
+    "attributes": {
+      "outcome": "cancelled",
+      "read": "profile",
+      "reason": "cancelled"
+    }
+  },
+  {
+    "stage": "async.http",
+    "trace_id": "cc3a89002c804f4ba5b9c408db33459f",
+    "span_id": "4e53a92131e84e2688d3fbabbf5a7d60",
+    "parent_id": "e2a44e76e6ab495896f12c0249efdef2",
+    "duration_ms": 7.133,
+    "attributes": {
+      "outcome": "cancelled",
+      "read": "history",
+      "http_status": 200,
+      "reason": "cancelled"
+    }
+  },
+  {
+    "stage": "async.read",
+    "trace_id": "cc3a89002c804f4ba5b9c408db33459f",
+    "span_id": "e2a44e76e6ab495896f12c0249efdef2",
+    "parent_id": "27268010442d4f279bf166dbf001d3ac",
+    "duration_ms": 7.181,
+    "attributes": {
+      "outcome": "cancelled",
+      "read": "history",
+      "reason": "cancelled"
+    }
+  },
+  {
+    "stage": "async.batch",
+    "trace_id": "cc3a89002c804f4ba5b9c408db33459f",
+    "span_id": "27268010442d4f279bf166dbf001d3ac",
+    "parent_id": "f2a0810ac40247f9ab56d30eb2ec5366",
+    "duration_ms": 8.43,
+    "attributes": {
+      "outcome": "error",
+      "execution": "concurrent",
+      "reason": "read_invalid_result"
+    }
+  },
+  {
+    "stage": "http",
+    "trace_id": "cc3a89002c804f4ba5b9c408db33459f",
+    "span_id": "f2a0810ac40247f9ab56d30eb2ec5366",
+    "parent_id": null,
+    "duration_ms": 10.505,
+    "attributes": {
+      "outcome": "error",
+      "reason": "read_invalid_result"
+    }
+  }
+]

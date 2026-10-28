@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-25",
+  "region": "us-east-1",
+  "authorized_spend": 0,
+  "evidence": "proposal_not_bill",
+  "items": {
+    "EC2_24h": 0.4992,
+    "root_8GB_24h": 0.02104109589041096,
+    "data_32GB_7days": 0.5891506849315068,
+    "public_IPv4_24h": 0.12,
+    "ECR_2GB_7days": 0.046027397260273974,
+    "backup_1GB_14days": 0.010586301369863013,
+    "reviewed_AMI_8GB_snapshot_7days_allowance": 0.09205479452054795,
+    "state_1MB_7days": 5.2931506849315065e-06,
+    "S3_110PUT_110GET": 0.000594,
+    "gross_2GB_DTO": 0.18
+  },
+  "total": 1.5586595671232877,
+  "running_730h_no_traffic": 22.657022999999995,
+  "notes": [
+    "Actual design has no NAT, ALB, RDS, CloudWatch, secret, customer KMS key or EBS snapshot resource.",
+    "AMI snapshot allowance is a conservative future artifact prerequisite, not provisioned by this configuration.",
+    "Backup versions may be billable about 14 days plus asynchronous lifecycle delay, not exactly seven.",
+    "Retained data volume and ECR/buckets require explicit reviewed deletion.",
+    "Bootstrap temporarily adds another 8GB root volume during instance replacement; no overlapping apps allowed."
+  ],
+  "after_instance_termination_retained_730h_no_traffic": 3.1830230000000004
+}

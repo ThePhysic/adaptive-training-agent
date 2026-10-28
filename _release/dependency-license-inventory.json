@@ -1,0 +1,101 @@
+{
+  "complete_license_clearance": false,
+  "dependency_payloads_redistributed": false,
+  "npm_license_field_counts": {
+    "(MIT OR CC0-1.0)": 1,
+    "Apache-2.0": 3,
+    "BSD-2-Clause": 2,
+    "BSD-3-Clause": 3,
+    "BlueOak-1.0.0": 1,
+    "CC0-1.0": 1,
+    "ISC": 4,
+    "MIT": 91,
+    "MIT-0": 2,
+    "Python-2.0": 1
+  },
+  "npm_locked_package_count": 109,
+  "python_installed_metadata": [
+    {
+      "license_classifiers": [],
+      "license_expression": "MIT",
+      "license_field": null,
+      "license_or_notice_files": [
+        "fastapi-0.162.0.dist-info/licenses/LICENSE"
+      ],
+      "name": "fastapi",
+      "version": "0.162.0"
+    },
+    {
+      "license_classifiers": [],
+      "license_expression": "MIT",
+      "license_field": null,
+      "license_or_notice_files": [
+        "pydantic-2.14.1.dist-info/licenses/LICENSE"
+      ],
+      "name": "pydantic",
+      "version": "2.14.1"
+    },
+    {
+      "license_classifiers": [],
+      "license_expression": "LGPL-3.0-only",
+      "license_field": null,
+      "license_or_notice_files": [
+        "psycopg-3.3.6.dist-info/licenses/LICENSE.txt"
+      ],
+      "name": "psycopg",
+      "version": "3.3.6"
+    },
+    {
+      "license_classifiers": [],
+      "license_expression": "LGPL-3.0-only",
+      "license_field": null,
+      "license_or_notice_files": [
+        "psycopg_binary-3.3.6.dist-info/licenses/LICENSE.txt"
+      ],
+      "name": "psycopg-binary",
+      "version": "3.3.6"
+    },
+    {
+      "license_classifiers": [],
+      "license_expression": "BSD-3-Clause",
+      "license_field": null,
+      "license_or_notice_files": [
+        "uvicorn-0.54.0.dist-info/licenses/LICENSE.md"
+      ],
+      "name": "uvicorn",
+      "version": "0.54.0"
+    },
+    {
+      "license_classifiers": [
+        "License :: OSI Approved :: BSD License"
+      ],
+      "license_expression": null,
+      "license_field": "BSD-3-Clause",
+      "license_or_notice_files": [
+        "httpx-0.28.1.dist-info/licenses/LICENSE.md"
+      ],
+      "name": "httpx",
+      "version": "0.28.1"
+    },
+    {
+      "license_classifiers": [],
+      "license_expression": "MIT",
+      "license_field": null,
+      "license_or_notice_files": [
+        "pytest-9.1.1.dist-info/licenses/LICENSE"
+      ],
+      "name": "pytest",
+      "version": "9.1.1"
+    },
+    {
+      "license_classifiers": [],
+      "license_expression": "MIT",
+      "license_field": null,
+      "license_or_notice_files": [
+        "ruff-0.17.2.dist-info/licenses/LICENSE"
+      ],
+      "name": "ruff",
+      "version": "0.17.2"
+    }
+  ]
+}

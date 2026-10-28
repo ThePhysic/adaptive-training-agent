@@ -1,0 +1,83 @@
+{
+  "catalog_sha256": "9f1e38c5e5e55eec28a663c4bd9dd50b031370895702ebaf9cf6283fda4e216a",
+  "catalog_version": "catalog-v1",
+  "excluded_boundaries": [
+    "invalid_profile_Save",
+    "unknown_exclusion_Save",
+    "supplied_plan_validator",
+    "choices_declined_not_in_GenerateRequest",
+    "HTTP_SSE_candidate_approval"
+  ],
+  "frozen_before_scoring": true,
+  "genuinely_unseen_holdout": 0,
+  "inspected_comparison_candidates": 10,
+  "legacy_sha256": "c340a3761c3b6e1732f56e36e28bf4a9e985fe11235e67c4aea75855555c7d91",
+  "prior_fixture_sha256": {
+    "incomplete.json": "1d3c9537c7565b03272e957ca78a3cd1387d011fa92c81562c7f932f61ea0425",
+    "plan.json": "0e3e86aeb6ba31dd158ede8f52b1d4528045dab1ce9843a534489dea3c15f332",
+    "refusal.json": "db797436f140882c1bd57a3c2907fc56c0aab02132634059af8256b764868a85",
+    "tool.json": "36ffdd488bbb6a186b241c369ca58fadf3e50549f9c5420e2eca1563a835945b"
+  },
+  "provenance": "authored_synthetic_template_derived_outputs_not_provider_capture",
+  "sha256": {
+    "outputs.jsonl": "65bd945978645a9ccb9bce3125a1d0c977066dae6da7ae2e6efc6d8ded98fd49",
+    "scenarios.jsonl": "924da3e63dc3b73d4d29dc3e03dfb07648c5774bc436aa15e94f0666359feef9"
+  },
+  "splits": {
+    "comparison_candidate": [
+      "ME-C01",
+      "ME-C02",
+      "ME-C03",
+      "ME-C04",
+      "ME-C05",
+      "ME-C06",
+      "ME-C07",
+      "ME-C08",
+      "ME-C09",
+      "ME-C10"
+    ],
+    "development": [
+      "ME-D01-20",
+      "ME-D01-30",
+      "ME-D01-45",
+      "ME-D02-20",
+      "ME-D02-30",
+      "ME-D02-45",
+      "ME-D03-20",
+      "ME-D03-30",
+      "ME-D03-45",
+      "ME-D04-20",
+      "ME-D04-30",
+      "ME-D04-45",
+      "ME-D05-20",
+      "ME-D05-30",
+      "ME-D05-45",
+      "ME-D06-20",
+      "ME-D06-30",
+      "ME-D06-45",
+      "ME-D07-20",
+      "ME-D07-30",
+      "ME-D07-45",
+      "ME-D08-20",
+      "ME-D08-30",
+      "ME-D08-45",
+      "ME-infeasible-0",
+      "ME-infeasible-2",
+      "ME-infeasible-duration",
+      "ME-text-preference",
+      "ME-text-injection",
+      "ME-text-missing",
+      "ME-medical-scope",
+      "ME-refusal",
+      "ME-fault-malformed",
+      "ME-fault-unknown_tool",
+      "ME-fault-invalid_arguments",
+      "ME-fault-owner_argument",
+      "ME-fault-constraint_violation",
+      "ME-fault-incomplete",
+      "ME-fault-duplicate_call",
+      "ME-fault-transport"
+    ]
+  },
+  "version": "model-evaluation-v1"
+}

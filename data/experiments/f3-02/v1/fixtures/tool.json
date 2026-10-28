@@ -1,0 +1,39 @@
+{
+  "id": "resp-synthetic",
+  "model": "gpt-6.1-sol",
+  "object": "response",
+  "output": [
+    {
+      "encrypted_content": "opaque-synthetic-only",
+      "id": "reasoning-synthetic",
+      "summary": [],
+      "type": "reasoning"
+    },
+    {
+      "arguments": "{\"limit\": 20, \"goal\": null, \"experience\": null, \"equipment\": null, \"tag\": null}",
+      "call_id": "call.synthetic/one",
+      "id": "fc-synthetic",
+      "name": "search_exercises",
+      "status": "completed",
+      "type": "function_call"
+    }
+  ],
+  "service_tier": "default",
+  "status": "completed",
+  "usage": {
+    "input_tokens": 1000,
+    "input_tokens_details": {
+      "cache_write_tokens": 300,
+      "cache_write_tokens_details": {
+        "ttl_12h_tokens": 0,
+        "ttl_30m_tokens": 300
+      },
+      "cached_tokens": 200
+    },
+    "output_tokens": 100,
+    "output_tokens_details": {
+      "reasoning_tokens": 20
+    },
+    "total_tokens": 1100
+  }
+}

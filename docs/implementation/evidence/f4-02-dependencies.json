@@ -1,0 +1,16 @@
+{
+  "terraform": "1.17.0",
+  "aws_provider": "6.70.0",
+  "aws_provider_published": "2026-10-22T01:11:12Z",
+  "source": "https://registry.terraform.io/v1/providers/hashicorp/aws",
+  "cli_hashes": {
+    "windows_amd64": "2948dd7f77dec0f562ec29000103e0441d915be5e5f1a02c1ce23681951cfb19",
+    "linux_amd64": "c168cab7c637a8769fdb90089ddd19de701bc6ff8aca64dc2e2185fe46f59f67"
+  },
+  "locks": {
+    "infra\\aws\\deployment\\.terraform.lock.hcl": "458bce6542af8021f1583499ec52d4237da0b5d74c5d0ea23f3425be72224e55",
+    "infra\\aws\\state-bootstrap\\.terraform.lock.hcl": "458bce6542af8021f1583499ec52d4237da0b5d74c5d0ea23f3425be72224e55",
+    "infra\\aws\\modules\\protected-bucket\\.terraform.lock.hcl": "458bce6542af8021f1583499ec52d4237da0b5d74c5d0ea23f3425be72224e55"
+  },
+  "authorized_cloud_spend": 0
+}

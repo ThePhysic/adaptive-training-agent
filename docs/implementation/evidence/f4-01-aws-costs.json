@@ -1,0 +1,87 @@
+{
+  "version": "f4-01-cost-assumptions-v1",
+  "verified_date": "2026-10-25",
+  "region": "us-east-1",
+  "currency": "USD",
+  "authorized_spend": 0,
+  "hours": 24,
+  "retention_hours": 168,
+  "month_hours": 730,
+  "rates": {
+    "ec2_t3_small_hour": 0.0208,
+    "fargate_vcpu_hour": 0.04048,
+    "fargate_GB_hour": 0.004445,
+    "rds_t4g_micro_hour": 0.016,
+    "alb_hour": 0.0225,
+    "alb_LCU_hour": 0.008,
+    "public_ipv4_hour": 0.005,
+    "ebs_gp3_GB_month": 0.08,
+    "ebs_snapshot_GB_month": 0.05,
+    "rds_gp3_GB_month": 0.115,
+    "rds_backup_GB_month": 0.095,
+    "ecr_GB_month": 0.1,
+    "s3_standard_GB_month": 0.023,
+    "logs_ingest_GB": 0.5,
+    "logs_stored_GB_month": 0.03,
+    "secret_month": 0.4,
+    "secret_request": 5e-06,
+    "standard_alarm_month": 0.1,
+    "internet_egress_GB_gross": 0.09,
+    "NAT_hour": 0.045,
+    "NAT_GB": 0.045
+  },
+  "one_day_with_retained_artifacts": {
+    "EC2": {
+      "items": {
+        "ECR_1GB_7days": 0.023013698630136987,
+        "S3_1GB_backup_7days": 0.005293150684931506,
+        "logs_0.1GB_ingest": 0.05,
+        "logs_0.1GB_retained_7days": 0.0006904109589041096,
+        "one_secret_24h_100_reads": 0.013650684931506852,
+        "internet_2GB_gross": 0.18,
+        "S3_100PUT_100GET": 0.00054,
+        "state_1MB_7days_10PUT_10GET": 5.92931506849315e-05,
+        "EC2_24h": 0.4992,
+        "EBS_40GB_24h": 0.10520547945205481,
+        "IPv4_one_24h": 0.12,
+        "EBS_snapshot_10GB_7days": 0.11506849315068493,
+        "alarms_two_24h": 0.006575342465753426
+      },
+      "total": 1.1192965534246575
+    },
+    "Fargate": {
+      "items": {
+        "ECR_1GB_7days": 0.023013698630136987,
+        "S3_1GB_backup_7days": 0.005293150684931506,
+        "logs_0.1GB_ingest": 0.05,
+        "logs_0.1GB_retained_7days": 0.0006904109589041096,
+        "one_secret_24h_100_reads": 0.013650684931506852,
+        "internet_2GB_gross": 0.18,
+        "S3_100PUT_100GET": 0.00054,
+        "state_1MB_7days_10PUT_10GET": 5.92931506849315e-05,
+        "Fargate_0.5vCPU_1GB_24h": 0.5924400000000001,
+        "RDS_micro_24h": 0.384,
+        "RDS_20GB_24h": 0.07561643835616438,
+        "ALB_24h": 0.54,
+        "ALB_0.1LCU_24h": 0.019200000000000002,
+        "IPv4_three_24h": 0.36,
+        "RDS_backup_10GB_7days": 0.21863013698630135,
+        "alarms_four_24h": 0.013150684931506852,
+        "new_DNS_zone_first_month": 0.5,
+        "DNS_1000_queries": 0.0004
+      },
+      "total": 2.9766844986301373
+    }
+  },
+  "idle_730h_baseline": {
+    "EC2_running": 23.259999999999998,
+    "Fargate_running": 62.335049999999995,
+    "EC2_stopped_compute_released_IP_retained_storage_secret_alarms": 4.426000000000001
+  },
+  "notes": [
+    "Gross prices exclude credits/tax/FX/domain purchase/CPU surplus/overruns.",
+    "Idle table has no request traffic/ingest/DTO.",
+    "No NAT in base Fargate public-task design; private task plus one NAT adds (0.045+0.005-0.005)*hours +0.045*GB.",
+    "Only a proposal; no bill or financial authority."
+  ]
+}

@@ -1,0 +1,4097 @@
+{
+  "cases": [
+    {
+      "case_id": "dev-impossible-duration",
+      "choices": [
+        "Explicitly revise exclusions or choose another supported duration/equipment option."
+      ],
+      "code": "infeasible_duration",
+      "expected_code": "infeasible_duration",
+      "expected_outcome": "clarify",
+      "issues": [],
+      "outcome": "clarify",
+      "passed": true,
+      "plan": null,
+      "split": "development",
+      "task": "plan"
+    },
+    {
+      "case_id": "dev-invalid-id",
+      "choices": [],
+      "code": "invalid_plan",
+      "expected_code": "invalid_plan",
+      "expected_outcome": "error",
+      "issues": [
+        {
+          "block_index": 0,
+          "code": "unknown_exercise",
+          "day_index": 1
+        }
+      ],
+      "outcome": "error",
+      "passed": true,
+      "plan": null,
+      "split": "development",
+      "task": "validate"
+    },
+    {
+      "case_id": "dev-missing-goal",
+      "choices": [
+        "Provide an adult general-wellness profile within the supported matrix."
+      ],
+      "code": "unsupported_profile",
+      "expected_code": "unsupported_profile",
+      "expected_outcome": "clarify",
+      "issues": [],
+      "outcome": "clarify",
+      "passed": true,
+      "plan": null,
+      "split": "development",
+      "task": "plan"
+    },
+    {
+      "case_id": "dev-two-eligible",
+      "choices": [
+        "Explicitly revise exclusions or choose another supported duration/equipment option."
+      ],
+      "code": "insufficient_exercises",
+      "expected_code": "insufficient_exercises",
+      "expected_outcome": "clarify",
+      "issues": [],
+      "outcome": "clarify",
+      "passed": true,
+      "plan": null,
+      "split": "development",
+      "task": "plan"
+    },
+    {
+      "case_id": "dev-unknown-id",
+      "choices": [
+        "Select only known catalog IDs and exclusion tags."
+      ],
+      "code": "unknown_exclusions",
+      "expected_code": "unknown_exclusions",
+      "expected_outcome": "clarify",
+      "issues": [],
+      "outcome": "clarify",
+      "passed": true,
+      "plan": null,
+      "split": "development",
+      "task": "plan"
+    },
+    {
+      "case_id": "dev-unknown-tag",
+      "choices": [
+        "Select only known catalog IDs and exclusion tags."
+      ],
+      "code": "unknown_exclusions",
+      "expected_code": "unknown_exclusions",
+      "expected_outcome": "clarify",
+      "issues": [],
+      "outcome": "clarify",
+      "passed": true,
+      "plan": null,
+      "split": "development",
+      "task": "plan"
+    },
+    {
+      "case_id": "dev-wrong-seconds",
+      "choices": [],
+      "code": "invalid_plan",
+      "expected_code": "invalid_plan",
+      "expected_outcome": "error",
+      "issues": [
+        {
+          "block_index": null,
+          "code": "duration_mismatch",
+          "day_index": 2
+        }
+      ],
+      "outcome": "error",
+      "passed": true,
+      "plan": null,
+      "split": "development",
+      "task": "validate"
+    },
+    {
+      "case_id": "dev-zero-eligible",
+      "choices": [
+        "Explicitly revise exclusions or choose another supported duration/equipment option."
+      ],
+      "code": "insufficient_exercises",
+      "expected_code": "insufficient_exercises",
+      "expected_outcome": "clarify",
+      "issues": [],
+      "outcome": "clarify",
+      "passed": true,
+      "plan": null,
+      "split": "development",
+      "task": "plan"
+    },
+    {
+      "case_id": "holdout-declined-exclusions",
+      "choices": [],
+      "code": "insufficient_exercises",
+      "expected_code": "insufficient_exercises",
+      "expected_outcome": "abstain",
+      "issues": [],
+      "outcome": "abstain",
+      "passed": true,
+      "plan": null,
+      "split": "held_out",
+      "task": "plan"
+    },
+    {
+      "case_id": "holdout-excluded-id",
+      "choices": [],
+      "code": "invalid_plan",
+      "expected_code": "invalid_plan",
+      "expected_outcome": "error",
+      "issues": [
+        {
+          "block_index": 0,
+          "code": "excluded_exercise",
+          "day_index": 1
+        },
+        {
+          "block_index": 0,
+          "code": "excluded_exercise",
+          "day_index": 2
+        }
+      ],
+      "outcome": "error",
+      "passed": true,
+      "plan": null,
+      "split": "held_out",
+      "task": "validate"
+    },
+    {
+      "case_id": "holdout-injection-text",
+      "choices": [
+        "Select supported structured preferences and exclusions explicitly.",
+        "Clinical, injury or rehabilitation requests require qualified professional advice."
+      ],
+      "code": "uninterpreted_request",
+      "expected_code": "uninterpreted_request",
+      "expected_outcome": "clarify",
+      "issues": [],
+      "outcome": "clarify",
+      "passed": true,
+      "plan": null,
+      "split": "held_out",
+      "task": "plan"
+    },
+    {
+      "case_id": "holdout-medical-text",
+      "choices": [
+        "Clinical, injury or rehabilitation requests require qualified professional advice."
+      ],
+      "code": "unsupported_free_text",
+      "expected_code": "unsupported_free_text",
+      "expected_outcome": "abstain",
+      "issues": [],
+      "outcome": "abstain",
+      "passed": true,
+      "plan": null,
+      "split": "held_out",
+      "task": "plan"
+    },
+    {
+      "case_id": "holdout-owner-field",
+      "choices": [
+        "Provide an adult general-wellness profile within the supported matrix."
+      ],
+      "code": "unsupported_profile",
+      "expected_code": "unsupported_profile",
+      "expected_outcome": "clarify",
+      "issues": [],
+      "outcome": "clarify",
+      "passed": true,
+      "plan": null,
+      "split": "held_out",
+      "task": "plan"
+    },
+    {
+      "case_id": "holdout-unsupported-goal",
+      "choices": [
+        "Provide an adult general-wellness profile within the supported matrix."
+      ],
+      "code": "unsupported_profile",
+      "expected_code": "unsupported_profile",
+      "expected_outcome": "clarify",
+      "issues": [],
+      "outcome": "clarify",
+      "passed": true,
+      "plan": null,
+      "split": "held_out",
+      "task": "plan"
+    },
+    {
+      "case_id": "holdout-unsupported-preset",
+      "choices": [
+        "Provide an adult general-wellness profile within the supported matrix."
+      ],
+      "code": "unsupported_profile",
+      "expected_code": "unsupported_profile",
+      "expected_outcome": "clarify",
+      "issues": [],
+      "outcome": "clarify",
+      "passed": true,
+      "plan": null,
+      "split": "held_out",
+      "task": "plan"
+    },
+    {
+      "case_id": "holdout-wrong-equipment",
+      "choices": [],
+      "code": "invalid_plan",
+      "expected_code": "invalid_plan",
+      "expected_outcome": "error",
+      "issues": [
+        {
+          "block_index": 0,
+          "code": "equipment_mismatch",
+          "day_index": 1
+        }
+      ],
+      "outcome": "error",
+      "passed": true,
+      "plan": null,
+      "split": "held_out",
+      "task": "validate"
+    },
+    {
+      "case_id": "matrix-01-20",
+      "choices": [],
+      "code": "validated",
+      "expected_code": "validated",
+      "expected_outcome": "plan",
+      "issues": [],
+      "outcome": "plan",
+      "passed": true,
+      "plan": {
+        "days": [
+          {
+            "blocks": [
+              {
+                "exercise_id": "bw_calf_raise",
+                "mode": "repetitions",
+                "repetitions_per_set": 6,
+                "rest_between_sets_seconds": 45,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_dead_bug",
+                "mode": "repetitions",
+                "repetitions_per_set": 6,
+                "rest_between_sets_seconds": 45,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_glute_bridge",
+                "mode": "repetitions",
+                "repetitions_per_set": 10,
+                "rest_between_sets_seconds": 75,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_hip_hinge",
+                "mode": "repetitions",
+                "repetitions_per_set": 12,
+                "rest_between_sets_seconds": 75,
+                "sets": 2
+              }
+            ],
+            "day_index": 1,
+            "planned_seconds": 1200
+          },
+          {
+            "blocks": [
+              {
+                "exercise_id": "bw_knee_pushup",
+                "mode": "repetitions",
+                "repetitions_per_set": 6,
+                "rest_between_sets_seconds": 45,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_prone_arm_raise",
+                "mode": "repetitions",
+                "repetitions_per_set": 6,
+                "rest_between_sets_seconds": 45,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_side_leg_raise",
+                "mode": "repetitions",
+                "repetitions_per_set": 10,
+                "rest_between_sets_seconds": 75,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_squat",
+                "mode": "repetitions",
+                "repetitions_per_set": 12,
+                "rest_between_sets_seconds": 75,
+                "sets": 2
+              }
+            ],
+            "day_index": 2,
+            "planned_seconds": 1200
+          }
+        ],
+        "profile": {
+          "adult": true,
+          "days_per_week": 2,
+          "equipment": "bodyweight",
+          "excluded_ids": [],
+          "excluded_tags": [],
+          "experience": "beginner",
+          "goal": "general_strength",
+          "session_minutes": 20
+        }
+      },
+      "split": "held_out",
+      "task": "plan"
+    },
+    {
+      "case_id": "matrix-01-30",
+      "choices": [],
+      "code": "validated",
+      "expected_code": "validated",
+      "expected_outcome": "plan",
+      "issues": [],
+      "outcome": "plan",
+      "passed": true,
+      "plan": {
+        "days": [
+          {
+            "blocks": [
+              {
+                "exercise_id": "bw_calf_raise",
+                "mode": "repetitions",
+                "repetitions_per_set": 6,
+                "rest_between_sets_seconds": 45,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_dead_bug",
+                "mode": "repetitions",
+                "repetitions_per_set": 6,
+                "rest_between_sets_seconds": 45,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_glute_bridge",
+                "mode": "repetitions",
+                "repetitions_per_set": 9,
+                "rest_between_sets_seconds": 60,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_hip_hinge",
+                "mode": "repetitions",
+                "repetitions_per_set": 12,
+                "rest_between_sets_seconds": 90,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_knee_pushup",
+                "mode": "repetitions",
+                "repetitions_per_set": 12,
+                "rest_between_sets_seconds": 90,
+                "sets": 3
+              }
+            ],
+            "day_index": 1,
+            "planned_seconds": 1800
+          },
+          {
+            "blocks": [
+              {
+                "exercise_id": "bw_prone_arm_raise",
+                "mode": "repetitions",
+                "repetitions_per_set": 6,
+                "rest_between_sets_seconds": 45,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_side_leg_raise",
+                "mode": "repetitions",
+                "repetitions_per_set": 6,
+                "rest_between_sets_seconds": 45,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_squat",
+                "mode": "repetitions",
+                "repetitions_per_set": 9,
+                "rest_between_sets_seconds": 60,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_calf_raise",
+                "mode": "repetitions",
+                "repetitions_per_set": 12,
+                "rest_between_sets_seconds": 90,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_dead_bug",
+                "mode": "repetitions",
+                "repetitions_per_set": 12,
+                "rest_between_sets_seconds": 90,
+                "sets": 3
+              }
+            ],
+            "day_index": 2,
+            "planned_seconds": 1800
+          },
+          {
+            "blocks": [
+              {
+                "exercise_id": "bw_glute_bridge",
+                "mode": "repetitions",
+                "repetitions_per_set": 6,
+                "rest_between_sets_seconds": 45,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_hip_hinge",
+                "mode": "repetitions",
+                "repetitions_per_set": 6,
+                "rest_between_sets_seconds": 45,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_knee_pushup",
+                "mode": "repetitions",
+                "repetitions_per_set": 9,
+                "rest_between_sets_seconds": 60,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_prone_arm_raise",
+                "mode": "repetitions",
+                "repetitions_per_set": 12,
+                "rest_between_sets_seconds": 90,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_side_leg_raise",
+                "mode": "repetitions",
+                "repetitions_per_set": 12,
+                "rest_between_sets_seconds": 90,
+                "sets": 3
+              }
+            ],
+            "day_index": 3,
+            "planned_seconds": 1800
+          }
+        ],
+        "profile": {
+          "adult": true,
+          "days_per_week": 3,
+          "equipment": "bodyweight",
+          "excluded_ids": [],
+          "excluded_tags": [],
+          "experience": "beginner",
+          "goal": "general_strength",
+          "session_minutes": 30
+        }
+      },
+      "split": "development",
+      "task": "plan"
+    },
+    {
+      "case_id": "matrix-01-45",
+      "choices": [],
+      "code": "validated",
+      "expected_code": "validated",
+      "expected_outcome": "plan",
+      "issues": [],
+      "outcome": "plan",
+      "passed": true,
+      "plan": {
+        "days": [
+          {
+            "blocks": [
+              {
+                "exercise_id": "bw_calf_raise",
+                "mode": "repetitions",
+                "repetitions_per_set": 11,
+                "rest_between_sets_seconds": 90,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_dead_bug",
+                "mode": "repetitions",
+                "repetitions_per_set": 12,
+                "rest_between_sets_seconds": 90,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_glute_bridge",
+                "mode": "repetitions",
+                "repetitions_per_set": 12,
+                "rest_between_sets_seconds": 90,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_hip_hinge",
+                "mode": "repetitions",
+                "repetitions_per_set": 12,
+                "rest_between_sets_seconds": 90,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_knee_pushup",
+                "mode": "repetitions",
+                "repetitions_per_set": 12,
+                "rest_between_sets_seconds": 90,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_prone_arm_raise",
+                "mode": "repetitions",
+                "repetitions_per_set": 12,
+                "rest_between_sets_seconds": 90,
+                "sets": 3
+              }
+            ],
+            "day_index": 1,
+            "planned_seconds": 2697
+          },
+          {
+            "blocks": [
+              {
+                "exercise_id": "bw_side_leg_raise",
+                "mode": "repetitions",
+                "repetitions_per_set": 11,
+                "rest_between_sets_seconds": 90,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_squat",
+                "mode": "repetitions",
+                "repetitions_per_set": 12,
+                "rest_between_sets_seconds": 90,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_calf_raise",
+                "mode": "repetitions",
+                "repetitions_per_set": 12,
+                "rest_between_sets_seconds": 90,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_dead_bug",
+                "mode": "repetitions",
+                "repetitions_per_set": 12,
+                "rest_between_sets_seconds": 90,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_glute_bridge",
+                "mode": "repetitions",
+                "repetitions_per_set": 12,
+                "rest_between_sets_seconds": 90,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_hip_hinge",
+                "mode": "repetitions",
+                "repetitions_per_set": 12,
+                "rest_between_sets_seconds": 90,
+                "sets": 3
+              }
+            ],
+            "day_index": 2,
+            "planned_seconds": 2697
+          },
+          {
+            "blocks": [
+              {
+                "exercise_id": "bw_knee_pushup",
+                "mode": "repetitions",
+                "repetitions_per_set": 11,
+                "rest_between_sets_seconds": 90,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_prone_arm_raise",
+                "mode": "repetitions",
+                "repetitions_per_set": 12,
+                "rest_between_sets_seconds": 90,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_side_leg_raise",
+                "mode": "repetitions",
+                "repetitions_per_set": 12,
+                "rest_between_sets_seconds": 90,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_squat",
+                "mode": "repetitions",
+                "repetitions_per_set": 12,
+                "rest_between_sets_seconds": 90,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_calf_raise",
+                "mode": "repetitions",
+                "repetitions_per_set": 12,
+                "rest_between_sets_seconds": 90,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_dead_bug",
+                "mode": "repetitions",
+                "repetitions_per_set": 12,
+                "rest_between_sets_seconds": 90,
+                "sets": 3
+              }
+            ],
+            "day_index": 3,
+            "planned_seconds": 2697
+          },
+          {
+            "blocks": [
+              {
+                "exercise_id": "bw_glute_bridge",
+                "mode": "repetitions",
+                "repetitions_per_set": 11,
+                "rest_between_sets_seconds": 90,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_hip_hinge",
+                "mode": "repetitions",
+                "repetitions_per_set": 12,
+                "rest_between_sets_seconds": 90,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_knee_pushup",
+                "mode": "repetitions",
+                "repetitions_per_set": 12,
+                "rest_between_sets_seconds": 90,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_prone_arm_raise",
+                "mode": "repetitions",
+                "repetitions_per_set": 12,
+                "rest_between_sets_seconds": 90,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_side_leg_raise",
+                "mode": "repetitions",
+                "repetitions_per_set": 12,
+                "rest_between_sets_seconds": 90,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_squat",
+                "mode": "repetitions",
+                "repetitions_per_set": 12,
+                "rest_between_sets_seconds": 90,
+                "sets": 3
+              }
+            ],
+            "day_index": 4,
+            "planned_seconds": 2697
+          }
+        ],
+        "profile": {
+          "adult": true,
+          "days_per_week": 4,
+          "equipment": "bodyweight",
+          "excluded_ids": [],
+          "excluded_tags": [],
+          "experience": "beginner",
+          "goal": "general_strength",
+          "session_minutes": 45
+        }
+      },
+      "split": "development",
+      "task": "plan"
+    },
+    {
+      "case_id": "matrix-02-20",
+      "choices": [],
+      "code": "validated",
+      "expected_code": "validated",
+      "expected_outcome": "plan",
+      "issues": [],
+      "outcome": "plan",
+      "passed": true,
+      "plan": {
+        "days": [
+          {
+            "blocks": [
+              {
+                "exercise_id": "bw_calf_raise",
+                "mode": "repetitions",
+                "repetitions_per_set": 6,
+                "rest_between_sets_seconds": 30,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_dead_bug",
+                "mode": "repetitions",
+                "repetitions_per_set": 6,
+                "rest_between_sets_seconds": 30,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_glute_bridge",
+                "mode": "repetitions",
+                "repetitions_per_set": 6,
+                "rest_between_sets_seconds": 30,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_hip_hinge",
+                "mode": "repetitions",
+                "repetitions_per_set": 9,
+                "rest_between_sets_seconds": 75,
+                "sets": 4
+              }
+            ],
+            "day_index": 1,
+            "planned_seconds": 1200
+          },
+          {
+            "blocks": [
+              {
+                "exercise_id": "bw_knee_pushup",
+                "mode": "repetitions",
+                "repetitions_per_set": 6,
+                "rest_between_sets_seconds": 30,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_prone_arm_raise",
+                "mode": "repetitions",
+                "repetitions_per_set": 6,
+                "rest_between_sets_seconds": 30,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_side_leg_raise",
+                "mode": "repetitions",
+                "repetitions_per_set": 6,
+                "rest_between_sets_seconds": 30,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_squat",
+                "mode": "repetitions",
+                "repetitions_per_set": 9,
+                "rest_between_sets_seconds": 75,
+                "sets": 4
+              }
+            ],
+            "day_index": 2,
+            "planned_seconds": 1200
+          },
+          {
+            "blocks": [
+              {
+                "exercise_id": "bw_calf_raise",
+                "mode": "repetitions",
+                "repetitions_per_set": 6,
+                "rest_between_sets_seconds": 30,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_dead_bug",
+                "mode": "repetitions",
+                "repetitions_per_set": 6,
+                "rest_between_sets_seconds": 30,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_glute_bridge",
+                "mode": "repetitions",
+                "repetitions_per_set": 6,
+                "rest_between_sets_seconds": 30,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_hip_hinge",
+                "mode": "repetitions",
+                "repetitions_per_set": 9,
+                "rest_between_sets_seconds": 75,
+                "sets": 4
+              }
+            ],
+            "day_index": 3,
+            "planned_seconds": 1200
+          }
+        ],
+        "profile": {
+          "adult": true,
+          "days_per_week": 3,
+          "equipment": "bodyweight",
+          "excluded_ids": [],
+          "excluded_tags": [],
+          "experience": "intermediate",
+          "goal": "general_strength",
+          "session_minutes": 20
+        }
+      },
+      "split": "development",
+      "task": "plan"
+    },
+    {
+      "case_id": "matrix-02-30",
+      "choices": [],
+      "code": "validated",
+      "expected_code": "validated",
+      "expected_outcome": "plan",
+      "issues": [],
+      "outcome": "plan",
+      "passed": true,
+      "plan": {
+        "days": [
+          {
+            "blocks": [
+              {
+                "exercise_id": "bw_calf_raise",
+                "mode": "repetitions",
+                "repetitions_per_set": 6,
+                "rest_between_sets_seconds": 30,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_dead_bug",
+                "mode": "repetitions",
+                "repetitions_per_set": 6,
+                "rest_between_sets_seconds": 30,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_glute_bridge",
+                "mode": "repetitions",
+                "repetitions_per_set": 6,
+                "rest_between_sets_seconds": 30,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_hip_hinge",
+                "mode": "repetitions",
+                "repetitions_per_set": 12,
+                "rest_between_sets_seconds": 75,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_knee_pushup",
+                "mode": "repetitions",
+                "repetitions_per_set": 15,
+                "rest_between_sets_seconds": 90,
+                "sets": 4
+              }
+            ],
+            "day_index": 1,
+            "planned_seconds": 1800
+          },
+          {
+            "blocks": [
+              {
+                "exercise_id": "bw_prone_arm_raise",
+                "mode": "repetitions",
+                "repetitions_per_set": 6,
+                "rest_between_sets_seconds": 30,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_side_leg_raise",
+                "mode": "repetitions",
+                "repetitions_per_set": 6,
+                "rest_between_sets_seconds": 30,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_squat",
+                "mode": "repetitions",
+                "repetitions_per_set": 6,
+                "rest_between_sets_seconds": 30,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_calf_raise",
+                "mode": "repetitions",
+                "repetitions_per_set": 12,
+                "rest_between_sets_seconds": 75,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_dead_bug",
+                "mode": "repetitions",
+                "repetitions_per_set": 15,
+                "rest_between_sets_seconds": 90,
+                "sets": 4
+              }
+            ],
+            "day_index": 2,
+            "planned_seconds": 1800
+          },
+          {
+            "blocks": [
+              {
+                "exercise_id": "bw_glute_bridge",
+                "mode": "repetitions",
+                "repetitions_per_set": 6,
+                "rest_between_sets_seconds": 30,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_hip_hinge",
+                "mode": "repetitions",
+                "repetitions_per_set": 6,
+                "rest_between_sets_seconds": 30,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_knee_pushup",
+                "mode": "repetitions",
+                "repetitions_per_set": 6,
+                "rest_between_sets_seconds": 30,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_prone_arm_raise",
+                "mode": "repetitions",
+                "repetitions_per_set": 12,
+                "rest_between_sets_seconds": 75,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_side_leg_raise",
+                "mode": "repetitions",
+                "repetitions_per_set": 15,
+                "rest_between_sets_seconds": 90,
+                "sets": 4
+              }
+            ],
+            "day_index": 3,
+            "planned_seconds": 1800
+          },
+          {
+            "blocks": [
+              {
+                "exercise_id": "bw_squat",
+                "mode": "repetitions",
+                "repetitions_per_set": 6,
+                "rest_between_sets_seconds": 30,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_calf_raise",
+                "mode": "repetitions",
+                "repetitions_per_set": 6,
+                "rest_between_sets_seconds": 30,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_dead_bug",
+                "mode": "repetitions",
+                "repetitions_per_set": 6,
+                "rest_between_sets_seconds": 30,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_glute_bridge",
+                "mode": "repetitions",
+                "repetitions_per_set": 12,
+                "rest_between_sets_seconds": 75,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_hip_hinge",
+                "mode": "repetitions",
+                "repetitions_per_set": 15,
+                "rest_between_sets_seconds": 90,
+                "sets": 4
+              }
+            ],
+            "day_index": 4,
+            "planned_seconds": 1800
+          }
+        ],
+        "profile": {
+          "adult": true,
+          "days_per_week": 4,
+          "equipment": "bodyweight",
+          "excluded_ids": [],
+          "excluded_tags": [],
+          "experience": "intermediate",
+          "goal": "general_strength",
+          "session_minutes": 30
+        }
+      },
+      "split": "held_out",
+      "task": "plan"
+    },
+    {
+      "case_id": "matrix-02-45",
+      "choices": [],
+      "code": "validated",
+      "expected_code": "validated",
+      "expected_outcome": "plan",
+      "issues": [],
+      "outcome": "plan",
+      "passed": true,
+      "plan": {
+        "days": [
+          {
+            "blocks": [
+              {
+                "exercise_id": "bw_calf_raise",
+                "mode": "repetitions",
+                "repetitions_per_set": 6,
+                "rest_between_sets_seconds": 30,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_dead_bug",
+                "mode": "repetitions",
+                "repetitions_per_set": 6,
+                "rest_between_sets_seconds": 30,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_glute_bridge",
+                "mode": "repetitions",
+                "repetitions_per_set": 8,
+                "rest_between_sets_seconds": 45,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_hip_hinge",
+                "mode": "repetitions",
+                "repetitions_per_set": 15,
+                "rest_between_sets_seconds": 75,
+                "sets": 4
+              },
+              {
+                "exercise_id": "bw_knee_pushup",
+                "mode": "repetitions",
+                "repetitions_per_set": 15,
+                "rest_between_sets_seconds": 90,
+                "sets": 4
+              },
+              {
+                "exercise_id": "bw_prone_arm_raise",
+                "mode": "repetitions",
+                "repetitions_per_set": 15,
+                "rest_between_sets_seconds": 90,
+                "sets": 4
+              }
+            ],
+            "day_index": 1,
+            "planned_seconds": 2700
+          },
+          {
+            "blocks": [
+              {
+                "exercise_id": "bw_side_leg_raise",
+                "mode": "repetitions",
+                "repetitions_per_set": 6,
+                "rest_between_sets_seconds": 30,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_squat",
+                "mode": "repetitions",
+                "repetitions_per_set": 6,
+                "rest_between_sets_seconds": 30,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_calf_raise",
+                "mode": "repetitions",
+                "repetitions_per_set": 8,
+                "rest_between_sets_seconds": 45,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_dead_bug",
+                "mode": "repetitions",
+                "repetitions_per_set": 15,
+                "rest_between_sets_seconds": 75,
+                "sets": 4
+              },
+              {
+                "exercise_id": "bw_glute_bridge",
+                "mode": "repetitions",
+                "repetitions_per_set": 15,
+                "rest_between_sets_seconds": 90,
+                "sets": 4
+              },
+              {
+                "exercise_id": "bw_hip_hinge",
+                "mode": "repetitions",
+                "repetitions_per_set": 15,
+                "rest_between_sets_seconds": 90,
+                "sets": 4
+              }
+            ],
+            "day_index": 2,
+            "planned_seconds": 2700
+          }
+        ],
+        "profile": {
+          "adult": true,
+          "days_per_week": 2,
+          "equipment": "bodyweight",
+          "excluded_ids": [],
+          "excluded_tags": [],
+          "experience": "intermediate",
+          "goal": "general_strength",
+          "session_minutes": 45
+        }
+      },
+      "split": "development",
+      "task": "plan"
+    },
+    {
+      "case_id": "matrix-03-20",
+      "choices": [],
+      "code": "validated",
+      "expected_code": "validated",
+      "expected_outcome": "plan",
+      "issues": [],
+      "outcome": "plan",
+      "passed": true,
+      "plan": {
+        "days": [
+          {
+            "blocks": [
+              {
+                "exercise_id": "db_bent_over_row",
+                "mode": "repetitions",
+                "repetitions_per_set": 6,
+                "rest_between_sets_seconds": 45,
+                "sets": 3
+              },
+              {
+                "exercise_id": "db_floor_press",
+                "mode": "repetitions",
+                "repetitions_per_set": 6,
+                "rest_between_sets_seconds": 45,
+                "sets": 3
+              },
+              {
+                "exercise_id": "db_goblet_squat",
+                "mode": "repetitions",
+                "repetitions_per_set": 10,
+                "rest_between_sets_seconds": 75,
+                "sets": 3
+              },
+              {
+                "exercise_id": "db_hip_hinge",
+                "mode": "repetitions",
+                "repetitions_per_set": 12,
+                "rest_between_sets_seconds": 75,
+                "sets": 2
+              }
+            ],
+            "day_index": 1,
+            "planned_seconds": 1200
+          },
+          {
+            "blocks": [
+              {
+                "exercise_id": "bw_calf_raise",
+                "mode": "repetitions",
+                "repetitions_per_set": 6,
+                "rest_between_sets_seconds": 45,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_dead_bug",
+                "mode": "repetitions",
+                "repetitions_per_set": 6,
+                "rest_between_sets_seconds": 45,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_glute_bridge",
+                "mode": "repetitions",
+                "repetitions_per_set": 10,
+                "rest_between_sets_seconds": 75,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_hip_hinge",
+                "mode": "repetitions",
+                "repetitions_per_set": 12,
+                "rest_between_sets_seconds": 75,
+                "sets": 2
+              }
+            ],
+            "day_index": 2,
+            "planned_seconds": 1200
+          },
+          {
+            "blocks": [
+              {
+                "exercise_id": "bw_knee_pushup",
+                "mode": "repetitions",
+                "repetitions_per_set": 6,
+                "rest_between_sets_seconds": 45,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_prone_arm_raise",
+                "mode": "repetitions",
+                "repetitions_per_set": 6,
+                "rest_between_sets_seconds": 45,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_side_leg_raise",
+                "mode": "repetitions",
+                "repetitions_per_set": 10,
+                "rest_between_sets_seconds": 75,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_squat",
+                "mode": "repetitions",
+                "repetitions_per_set": 12,
+                "rest_between_sets_seconds": 75,
+                "sets": 2
+              }
+            ],
+            "day_index": 3,
+            "planned_seconds": 1200
+          },
+          {
+            "blocks": [
+              {
+                "exercise_id": "db_bent_over_row",
+                "mode": "repetitions",
+                "repetitions_per_set": 6,
+                "rest_between_sets_seconds": 45,
+                "sets": 3
+              },
+              {
+                "exercise_id": "db_floor_press",
+                "mode": "repetitions",
+                "repetitions_per_set": 6,
+                "rest_between_sets_seconds": 45,
+                "sets": 3
+              },
+              {
+                "exercise_id": "db_goblet_squat",
+                "mode": "repetitions",
+                "repetitions_per_set": 10,
+                "rest_between_sets_seconds": 75,
+                "sets": 3
+              },
+              {
+                "exercise_id": "db_hip_hinge",
+                "mode": "repetitions",
+                "repetitions_per_set": 12,
+                "rest_between_sets_seconds": 75,
+                "sets": 2
+              }
+            ],
+            "day_index": 4,
+            "planned_seconds": 1200
+          }
+        ],
+        "profile": {
+          "adult": true,
+          "days_per_week": 4,
+          "equipment": "dumbbells_and_bodyweight",
+          "excluded_ids": [],
+          "excluded_tags": [],
+          "experience": "beginner",
+          "goal": "general_strength",
+          "session_minutes": 20
+        }
+      },
+      "split": "development",
+      "task": "plan"
+    },
+    {
+      "case_id": "matrix-03-30",
+      "choices": [],
+      "code": "validated",
+      "expected_code": "validated",
+      "expected_outcome": "plan",
+      "issues": [],
+      "outcome": "plan",
+      "passed": true,
+      "plan": {
+        "days": [
+          {
+            "blocks": [
+              {
+                "exercise_id": "db_bent_over_row",
+                "mode": "repetitions",
+                "repetitions_per_set": 6,
+                "rest_between_sets_seconds": 45,
+                "sets": 3
+              },
+              {
+                "exercise_id": "db_floor_press",
+                "mode": "repetitions",
+                "repetitions_per_set": 6,
+                "rest_between_sets_seconds": 45,
+                "sets": 3
+              },
+              {
+                "exercise_id": "db_goblet_squat",
+                "mode": "repetitions",
+                "repetitions_per_set": 9,
+                "rest_between_sets_seconds": 60,
+                "sets": 3
+              },
+              {
+                "exercise_id": "db_hip_hinge",
+                "mode": "repetitions",
+                "repetitions_per_set": 12,
+                "rest_between_sets_seconds": 90,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_calf_raise",
+                "mode": "repetitions",
+                "repetitions_per_set": 12,
+                "rest_between_sets_seconds": 90,
+                "sets": 3
+              }
+            ],
+            "day_index": 1,
+            "planned_seconds": 1800
+          },
+          {
+            "blocks": [
+              {
+                "exercise_id": "bw_dead_bug",
+                "mode": "repetitions",
+                "repetitions_per_set": 6,
+                "rest_between_sets_seconds": 45,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_glute_bridge",
+                "mode": "repetitions",
+                "repetitions_per_set": 6,
+                "rest_between_sets_seconds": 45,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_hip_hinge",
+                "mode": "repetitions",
+                "repetitions_per_set": 9,
+                "rest_between_sets_seconds": 60,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_knee_pushup",
+                "mode": "repetitions",
+                "repetitions_per_set": 12,
+                "rest_between_sets_seconds": 90,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_prone_arm_raise",
+                "mode": "repetitions",
+                "repetitions_per_set": 12,
+                "rest_between_sets_seconds": 90,
+                "sets": 3
+              }
+            ],
+            "day_index": 2,
+            "planned_seconds": 1800
+          }
+        ],
+        "profile": {
+          "adult": true,
+          "days_per_week": 2,
+          "equipment": "dumbbells_and_bodyweight",
+          "excluded_ids": [],
+          "excluded_tags": [],
+          "experience": "beginner",
+          "goal": "general_strength",
+          "session_minutes": 30
+        }
+      },
+      "split": "development",
+      "task": "plan"
+    },
+    {
+      "case_id": "matrix-03-45",
+      "choices": [],
+      "code": "validated",
+      "expected_code": "validated",
+      "expected_outcome": "plan",
+      "issues": [],
+      "outcome": "plan",
+      "passed": true,
+      "plan": {
+        "days": [
+          {
+            "blocks": [
+              {
+                "exercise_id": "db_bent_over_row",
+                "mode": "repetitions",
+                "repetitions_per_set": 11,
+                "rest_between_sets_seconds": 90,
+                "sets": 3
+              },
+              {
+                "exercise_id": "db_floor_press",
+                "mode": "repetitions",
+                "repetitions_per_set": 12,
+                "rest_between_sets_seconds": 90,
+                "sets": 3
+              },
+              {
+                "exercise_id": "db_goblet_squat",
+                "mode": "repetitions",
+                "repetitions_per_set": 12,
+                "rest_between_sets_seconds": 90,
+                "sets": 3
+              },
+              {
+                "exercise_id": "db_hip_hinge",
+                "mode": "repetitions",
+                "repetitions_per_set": 12,
+                "rest_between_sets_seconds": 90,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_calf_raise",
+                "mode": "repetitions",
+                "repetitions_per_set": 12,
+                "rest_between_sets_seconds": 90,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_dead_bug",
+                "mode": "repetitions",
+                "repetitions_per_set": 12,
+                "rest_between_sets_seconds": 90,
+                "sets": 3
+              }
+            ],
+            "day_index": 1,
+            "planned_seconds": 2697
+          },
+          {
+            "blocks": [
+              {
+                "exercise_id": "bw_glute_bridge",
+                "mode": "repetitions",
+                "repetitions_per_set": 11,
+                "rest_between_sets_seconds": 90,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_hip_hinge",
+                "mode": "repetitions",
+                "repetitions_per_set": 12,
+                "rest_between_sets_seconds": 90,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_knee_pushup",
+                "mode": "repetitions",
+                "repetitions_per_set": 12,
+                "rest_between_sets_seconds": 90,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_prone_arm_raise",
+                "mode": "repetitions",
+                "repetitions_per_set": 12,
+                "rest_between_sets_seconds": 90,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_side_leg_raise",
+                "mode": "repetitions",
+                "repetitions_per_set": 12,
+                "rest_between_sets_seconds": 90,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_squat",
+                "mode": "repetitions",
+                "repetitions_per_set": 12,
+                "rest_between_sets_seconds": 90,
+                "sets": 3
+              }
+            ],
+            "day_index": 2,
+            "planned_seconds": 2697
+          },
+          {
+            "blocks": [
+              {
+                "exercise_id": "db_bent_over_row",
+                "mode": "repetitions",
+                "repetitions_per_set": 11,
+                "rest_between_sets_seconds": 90,
+                "sets": 3
+              },
+              {
+                "exercise_id": "db_floor_press",
+                "mode": "repetitions",
+                "repetitions_per_set": 12,
+                "rest_between_sets_seconds": 90,
+                "sets": 3
+              },
+              {
+                "exercise_id": "db_goblet_squat",
+                "mode": "repetitions",
+                "repetitions_per_set": 12,
+                "rest_between_sets_seconds": 90,
+                "sets": 3
+              },
+              {
+                "exercise_id": "db_hip_hinge",
+                "mode": "repetitions",
+                "repetitions_per_set": 12,
+                "rest_between_sets_seconds": 90,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_calf_raise",
+                "mode": "repetitions",
+                "repetitions_per_set": 12,
+                "rest_between_sets_seconds": 90,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_dead_bug",
+                "mode": "repetitions",
+                "repetitions_per_set": 12,
+                "rest_between_sets_seconds": 90,
+                "sets": 3
+              }
+            ],
+            "day_index": 3,
+            "planned_seconds": 2697
+          }
+        ],
+        "profile": {
+          "adult": true,
+          "days_per_week": 3,
+          "equipment": "dumbbells_and_bodyweight",
+          "excluded_ids": [],
+          "excluded_tags": [],
+          "experience": "beginner",
+          "goal": "general_strength",
+          "session_minutes": 45
+        }
+      },
+      "split": "held_out",
+      "task": "plan"
+    },
+    {
+      "case_id": "matrix-04-20",
+      "choices": [],
+      "code": "validated",
+      "expected_code": "validated",
+      "expected_outcome": "plan",
+      "issues": [],
+      "outcome": "plan",
+      "passed": true,
+      "plan": {
+        "days": [
+          {
+            "blocks": [
+              {
+                "exercise_id": "db_bent_over_row",
+                "mode": "repetitions",
+                "repetitions_per_set": 6,
+                "rest_between_sets_seconds": 30,
+                "sets": 3
+              },
+              {
+                "exercise_id": "db_floor_press",
+                "mode": "repetitions",
+                "repetitions_per_set": 6,
+                "rest_between_sets_seconds": 30,
+                "sets": 3
+              },
+              {
+                "exercise_id": "db_goblet_squat",
+                "mode": "repetitions",
+                "repetitions_per_set": 6,
+                "rest_between_sets_seconds": 30,
+                "sets": 3
+              },
+              {
+                "exercise_id": "db_hip_hinge",
+                "mode": "repetitions",
+                "repetitions_per_set": 9,
+                "rest_between_sets_seconds": 75,
+                "sets": 4
+              }
+            ],
+            "day_index": 1,
+            "planned_seconds": 1200
+          },
+          {
+            "blocks": [
+              {
+                "exercise_id": "bw_calf_raise",
+                "mode": "repetitions",
+                "repetitions_per_set": 6,
+                "rest_between_sets_seconds": 30,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_dead_bug",
+                "mode": "repetitions",
+                "repetitions_per_set": 6,
+                "rest_between_sets_seconds": 30,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_glute_bridge",
+                "mode": "repetitions",
+                "repetitions_per_set": 6,
+                "rest_between_sets_seconds": 30,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_hip_hinge",
+                "mode": "repetitions",
+                "repetitions_per_set": 9,
+                "rest_between_sets_seconds": 75,
+                "sets": 4
+              }
+            ],
+            "day_index": 2,
+            "planned_seconds": 1200
+          }
+        ],
+        "profile": {
+          "adult": true,
+          "days_per_week": 2,
+          "equipment": "dumbbells_and_bodyweight",
+          "excluded_ids": [],
+          "excluded_tags": [],
+          "experience": "intermediate",
+          "goal": "general_strength",
+          "session_minutes": 20
+        }
+      },
+      "split": "held_out",
+      "task": "plan"
+    },
+    {
+      "case_id": "matrix-04-30",
+      "choices": [],
+      "code": "validated",
+      "expected_code": "validated",
+      "expected_outcome": "plan",
+      "issues": [],
+      "outcome": "plan",
+      "passed": true,
+      "plan": {
+        "days": [
+          {
+            "blocks": [
+              {
+                "exercise_id": "db_bent_over_row",
+                "mode": "repetitions",
+                "repetitions_per_set": 6,
+                "rest_between_sets_seconds": 30,
+                "sets": 3
+              },
+              {
+                "exercise_id": "db_floor_press",
+                "mode": "repetitions",
+                "repetitions_per_set": 6,
+                "rest_between_sets_seconds": 30,
+                "sets": 3
+              },
+              {
+                "exercise_id": "db_goblet_squat",
+                "mode": "repetitions",
+                "repetitions_per_set": 6,
+                "rest_between_sets_seconds": 30,
+                "sets": 3
+              },
+              {
+                "exercise_id": "db_hip_hinge",
+                "mode": "repetitions",
+                "repetitions_per_set": 12,
+                "rest_between_sets_seconds": 75,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_calf_raise",
+                "mode": "repetitions",
+                "repetitions_per_set": 15,
+                "rest_between_sets_seconds": 90,
+                "sets": 4
+              }
+            ],
+            "day_index": 1,
+            "planned_seconds": 1800
+          },
+          {
+            "blocks": [
+              {
+                "exercise_id": "bw_dead_bug",
+                "mode": "repetitions",
+                "repetitions_per_set": 6,
+                "rest_between_sets_seconds": 30,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_glute_bridge",
+                "mode": "repetitions",
+                "repetitions_per_set": 6,
+                "rest_between_sets_seconds": 30,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_hip_hinge",
+                "mode": "repetitions",
+                "repetitions_per_set": 6,
+                "rest_between_sets_seconds": 30,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_knee_pushup",
+                "mode": "repetitions",
+                "repetitions_per_set": 12,
+                "rest_between_sets_seconds": 75,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_prone_arm_raise",
+                "mode": "repetitions",
+                "repetitions_per_set": 15,
+                "rest_between_sets_seconds": 90,
+                "sets": 4
+              }
+            ],
+            "day_index": 2,
+            "planned_seconds": 1800
+          },
+          {
+            "blocks": [
+              {
+                "exercise_id": "bw_side_leg_raise",
+                "mode": "repetitions",
+                "repetitions_per_set": 6,
+                "rest_between_sets_seconds": 30,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_squat",
+                "mode": "repetitions",
+                "repetitions_per_set": 6,
+                "rest_between_sets_seconds": 30,
+                "sets": 3
+              },
+              {
+                "exercise_id": "db_bent_over_row",
+                "mode": "repetitions",
+                "repetitions_per_set": 6,
+                "rest_between_sets_seconds": 30,
+                "sets": 3
+              },
+              {
+                "exercise_id": "db_floor_press",
+                "mode": "repetitions",
+                "repetitions_per_set": 12,
+                "rest_between_sets_seconds": 75,
+                "sets": 3
+              },
+              {
+                "exercise_id": "db_goblet_squat",
+                "mode": "repetitions",
+                "repetitions_per_set": 15,
+                "rest_between_sets_seconds": 90,
+                "sets": 4
+              }
+            ],
+            "day_index": 3,
+            "planned_seconds": 1800
+          }
+        ],
+        "profile": {
+          "adult": true,
+          "days_per_week": 3,
+          "equipment": "dumbbells_and_bodyweight",
+          "excluded_ids": [],
+          "excluded_tags": [],
+          "experience": "intermediate",
+          "goal": "general_strength",
+          "session_minutes": 30
+        }
+      },
+      "split": "development",
+      "task": "plan"
+    },
+    {
+      "case_id": "matrix-04-45",
+      "choices": [],
+      "code": "validated",
+      "expected_code": "validated",
+      "expected_outcome": "plan",
+      "issues": [],
+      "outcome": "plan",
+      "passed": true,
+      "plan": {
+        "days": [
+          {
+            "blocks": [
+              {
+                "exercise_id": "db_bent_over_row",
+                "mode": "repetitions",
+                "repetitions_per_set": 6,
+                "rest_between_sets_seconds": 30,
+                "sets": 3
+              },
+              {
+                "exercise_id": "db_floor_press",
+                "mode": "repetitions",
+                "repetitions_per_set": 6,
+                "rest_between_sets_seconds": 30,
+                "sets": 3
+              },
+              {
+                "exercise_id": "db_goblet_squat",
+                "mode": "repetitions",
+                "repetitions_per_set": 8,
+                "rest_between_sets_seconds": 45,
+                "sets": 3
+              },
+              {
+                "exercise_id": "db_hip_hinge",
+                "mode": "repetitions",
+                "repetitions_per_set": 15,
+                "rest_between_sets_seconds": 75,
+                "sets": 4
+              },
+              {
+                "exercise_id": "bw_calf_raise",
+                "mode": "repetitions",
+                "repetitions_per_set": 15,
+                "rest_between_sets_seconds": 90,
+                "sets": 4
+              },
+              {
+                "exercise_id": "bw_dead_bug",
+                "mode": "repetitions",
+                "repetitions_per_set": 15,
+                "rest_between_sets_seconds": 90,
+                "sets": 4
+              }
+            ],
+            "day_index": 1,
+            "planned_seconds": 2700
+          },
+          {
+            "blocks": [
+              {
+                "exercise_id": "bw_glute_bridge",
+                "mode": "repetitions",
+                "repetitions_per_set": 6,
+                "rest_between_sets_seconds": 30,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_hip_hinge",
+                "mode": "repetitions",
+                "repetitions_per_set": 6,
+                "rest_between_sets_seconds": 30,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_knee_pushup",
+                "mode": "repetitions",
+                "repetitions_per_set": 8,
+                "rest_between_sets_seconds": 45,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_prone_arm_raise",
+                "mode": "repetitions",
+                "repetitions_per_set": 15,
+                "rest_between_sets_seconds": 75,
+                "sets": 4
+              },
+              {
+                "exercise_id": "bw_side_leg_raise",
+                "mode": "repetitions",
+                "repetitions_per_set": 15,
+                "rest_between_sets_seconds": 90,
+                "sets": 4
+              },
+              {
+                "exercise_id": "bw_squat",
+                "mode": "repetitions",
+                "repetitions_per_set": 15,
+                "rest_between_sets_seconds": 90,
+                "sets": 4
+              }
+            ],
+            "day_index": 2,
+            "planned_seconds": 2700
+          },
+          {
+            "blocks": [
+              {
+                "exercise_id": "db_bent_over_row",
+                "mode": "repetitions",
+                "repetitions_per_set": 6,
+                "rest_between_sets_seconds": 30,
+                "sets": 3
+              },
+              {
+                "exercise_id": "db_floor_press",
+                "mode": "repetitions",
+                "repetitions_per_set": 6,
+                "rest_between_sets_seconds": 30,
+                "sets": 3
+              },
+              {
+                "exercise_id": "db_goblet_squat",
+                "mode": "repetitions",
+                "repetitions_per_set": 8,
+                "rest_between_sets_seconds": 45,
+                "sets": 3
+              },
+              {
+                "exercise_id": "db_hip_hinge",
+                "mode": "repetitions",
+                "repetitions_per_set": 15,
+                "rest_between_sets_seconds": 75,
+                "sets": 4
+              },
+              {
+                "exercise_id": "bw_calf_raise",
+                "mode": "repetitions",
+                "repetitions_per_set": 15,
+                "rest_between_sets_seconds": 90,
+                "sets": 4
+              },
+              {
+                "exercise_id": "bw_dead_bug",
+                "mode": "repetitions",
+                "repetitions_per_set": 15,
+                "rest_between_sets_seconds": 90,
+                "sets": 4
+              }
+            ],
+            "day_index": 3,
+            "planned_seconds": 2700
+          },
+          {
+            "blocks": [
+              {
+                "exercise_id": "bw_glute_bridge",
+                "mode": "repetitions",
+                "repetitions_per_set": 6,
+                "rest_between_sets_seconds": 30,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_hip_hinge",
+                "mode": "repetitions",
+                "repetitions_per_set": 6,
+                "rest_between_sets_seconds": 30,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_knee_pushup",
+                "mode": "repetitions",
+                "repetitions_per_set": 8,
+                "rest_between_sets_seconds": 45,
+                "sets": 3
+              },
+              {
+                "exercise_id": "bw_prone_arm_raise",
+                "mode": "repetitions",
+                "repetitions_per_set": 15,
+                "rest_between_sets_seconds": 75,
+                "sets": 4
+              },
+              {
+                "exercise_id": "bw_side_leg_raise",
+                "mode": "repetitions",
+                "repetitions_per_set": 15,
+                "rest_between_sets_seconds": 90,
+                "sets": 4
+              },
+              {
+                "exercise_id": "bw_squat",
+                "mode": "repetitions",
+                "repetitions_per_set": 15,
+                "rest_between_sets_seconds": 90,
+                "sets": 4
+              }
+            ],
+            "day_index": 4,
+            "planned_seconds": 2700
+          }
+        ],
+        "profile": {
+          "adult": true,
+          "days_per_week": 4,
+          "equipment": "dumbbells_and_bodyweight",
+          "excluded_ids": [],
+          "excluded_tags": [],
+          "experience": "intermediate",
+          "goal": "general_strength",
+          "session_minutes": 45
+        }
+      },
+      "split": "development",
+      "task": "plan"
+    },
+    {
+      "case_id": "matrix-05-20",
+      "choices": [],
+      "code": "validated",
+      "expected_code": "validated",
+      "expected_outcome": "plan",
+      "issues": [],
+      "outcome": "plan",
+      "passed": true,
+      "plan": {
+        "days": [
+          {
+            "blocks": [
+              {
+                "exercise_id": "bw_arm_circle",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_hamstring_curl",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_heel_dig",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_knee_lift",
+                "mode": "timed",
+                "rest_between_sets_seconds": 45,
+                "sets": 3,
+                "work_seconds_per_set": 75
+              }
+            ],
+            "day_index": 1,
+            "planned_seconds": 1200
+          },
+          {
+            "blocks": [
+              {
+                "exercise_id": "bw_march",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_side_step",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_standing_punch",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_step_touch",
+                "mode": "timed",
+                "rest_between_sets_seconds": 45,
+                "sets": 3,
+                "work_seconds_per_set": 75
+              }
+            ],
+            "day_index": 2,
+            "planned_seconds": 1200
+          },
+          {
+            "blocks": [
+              {
+                "exercise_id": "bw_arm_circle",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_hamstring_curl",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_heel_dig",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_knee_lift",
+                "mode": "timed",
+                "rest_between_sets_seconds": 45,
+                "sets": 3,
+                "work_seconds_per_set": 75
+              }
+            ],
+            "day_index": 3,
+            "planned_seconds": 1200
+          }
+        ],
+        "profile": {
+          "adult": true,
+          "days_per_week": 3,
+          "equipment": "bodyweight",
+          "excluded_ids": [],
+          "excluded_tags": [],
+          "experience": "beginner",
+          "goal": "general_conditioning",
+          "session_minutes": 20
+        }
+      },
+      "split": "development",
+      "task": "plan"
+    },
+    {
+      "case_id": "matrix-05-30",
+      "choices": [],
+      "code": "validated",
+      "expected_code": "validated",
+      "expected_outcome": "plan",
+      "issues": [],
+      "outcome": "plan",
+      "passed": true,
+      "plan": {
+        "days": [
+          {
+            "blocks": [
+              {
+                "exercise_id": "bw_arm_circle",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_hamstring_curl",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_heel_dig",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_knee_lift",
+                "mode": "timed",
+                "rest_between_sets_seconds": 60,
+                "sets": 3,
+                "work_seconds_per_set": 75
+              },
+              {
+                "exercise_id": "bw_march",
+                "mode": "timed",
+                "rest_between_sets_seconds": 90,
+                "sets": 3,
+                "work_seconds_per_set": 75
+              }
+            ],
+            "day_index": 1,
+            "planned_seconds": 1800
+          },
+          {
+            "blocks": [
+              {
+                "exercise_id": "bw_side_step",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_standing_punch",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_step_touch",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_arm_circle",
+                "mode": "timed",
+                "rest_between_sets_seconds": 60,
+                "sets": 3,
+                "work_seconds_per_set": 75
+              },
+              {
+                "exercise_id": "bw_hamstring_curl",
+                "mode": "timed",
+                "rest_between_sets_seconds": 90,
+                "sets": 3,
+                "work_seconds_per_set": 75
+              }
+            ],
+            "day_index": 2,
+            "planned_seconds": 1800
+          },
+          {
+            "blocks": [
+              {
+                "exercise_id": "bw_heel_dig",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_knee_lift",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_march",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_side_step",
+                "mode": "timed",
+                "rest_between_sets_seconds": 60,
+                "sets": 3,
+                "work_seconds_per_set": 75
+              },
+              {
+                "exercise_id": "bw_standing_punch",
+                "mode": "timed",
+                "rest_between_sets_seconds": 90,
+                "sets": 3,
+                "work_seconds_per_set": 75
+              }
+            ],
+            "day_index": 3,
+            "planned_seconds": 1800
+          },
+          {
+            "blocks": [
+              {
+                "exercise_id": "bw_step_touch",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_arm_circle",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_hamstring_curl",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_heel_dig",
+                "mode": "timed",
+                "rest_between_sets_seconds": 60,
+                "sets": 3,
+                "work_seconds_per_set": 75
+              },
+              {
+                "exercise_id": "bw_knee_lift",
+                "mode": "timed",
+                "rest_between_sets_seconds": 90,
+                "sets": 3,
+                "work_seconds_per_set": 75
+              }
+            ],
+            "day_index": 4,
+            "planned_seconds": 1800
+          }
+        ],
+        "profile": {
+          "adult": true,
+          "days_per_week": 4,
+          "equipment": "bodyweight",
+          "excluded_ids": [],
+          "excluded_tags": [],
+          "experience": "beginner",
+          "goal": "general_conditioning",
+          "session_minutes": 30
+        }
+      },
+      "split": "held_out",
+      "task": "plan"
+    },
+    {
+      "case_id": "matrix-05-45",
+      "choices": [],
+      "code": "validated",
+      "expected_code": "validated",
+      "expected_outcome": "plan",
+      "issues": [],
+      "outcome": "plan",
+      "passed": true,
+      "plan": {
+        "days": [
+          {
+            "blocks": [
+              {
+                "exercise_id": "bw_arm_circle",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_hamstring_curl",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 35
+              },
+              {
+                "exercise_id": "bw_heel_dig",
+                "mode": "timed",
+                "rest_between_sets_seconds": 90,
+                "sets": 3,
+                "work_seconds_per_set": 75
+              },
+              {
+                "exercise_id": "bw_knee_lift",
+                "mode": "timed",
+                "rest_between_sets_seconds": 90,
+                "sets": 3,
+                "work_seconds_per_set": 75
+              },
+              {
+                "exercise_id": "bw_march",
+                "mode": "timed",
+                "rest_between_sets_seconds": 90,
+                "sets": 3,
+                "work_seconds_per_set": 75
+              },
+              {
+                "exercise_id": "bw_side_step",
+                "mode": "timed",
+                "rest_between_sets_seconds": 90,
+                "sets": 3,
+                "work_seconds_per_set": 75
+              }
+            ],
+            "day_index": 1,
+            "planned_seconds": 2700
+          },
+          {
+            "blocks": [
+              {
+                "exercise_id": "bw_standing_punch",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_step_touch",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 35
+              },
+              {
+                "exercise_id": "bw_arm_circle",
+                "mode": "timed",
+                "rest_between_sets_seconds": 90,
+                "sets": 3,
+                "work_seconds_per_set": 75
+              },
+              {
+                "exercise_id": "bw_hamstring_curl",
+                "mode": "timed",
+                "rest_between_sets_seconds": 90,
+                "sets": 3,
+                "work_seconds_per_set": 75
+              },
+              {
+                "exercise_id": "bw_heel_dig",
+                "mode": "timed",
+                "rest_between_sets_seconds": 90,
+                "sets": 3,
+                "work_seconds_per_set": 75
+              },
+              {
+                "exercise_id": "bw_knee_lift",
+                "mode": "timed",
+                "rest_between_sets_seconds": 90,
+                "sets": 3,
+                "work_seconds_per_set": 75
+              }
+            ],
+            "day_index": 2,
+            "planned_seconds": 2700
+          }
+        ],
+        "profile": {
+          "adult": true,
+          "days_per_week": 2,
+          "equipment": "bodyweight",
+          "excluded_ids": [],
+          "excluded_tags": [],
+          "experience": "beginner",
+          "goal": "general_conditioning",
+          "session_minutes": 45
+        }
+      },
+      "split": "development",
+      "task": "plan"
+    },
+    {
+      "case_id": "matrix-06-20",
+      "choices": [],
+      "code": "validated",
+      "expected_code": "validated",
+      "expected_outcome": "plan",
+      "issues": [],
+      "outcome": "plan",
+      "passed": true,
+      "plan": {
+        "days": [
+          {
+            "blocks": [
+              {
+                "exercise_id": "bw_arm_circle",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_hamstring_curl",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_heel_dig",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_knee_lift",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 85
+              }
+            ],
+            "day_index": 1,
+            "planned_seconds": 1200
+          },
+          {
+            "blocks": [
+              {
+                "exercise_id": "bw_march",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_side_step",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_standing_punch",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_step_touch",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 85
+              }
+            ],
+            "day_index": 2,
+            "planned_seconds": 1200
+          },
+          {
+            "blocks": [
+              {
+                "exercise_id": "bw_arm_circle",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_hamstring_curl",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_heel_dig",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_knee_lift",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 85
+              }
+            ],
+            "day_index": 3,
+            "planned_seconds": 1200
+          },
+          {
+            "blocks": [
+              {
+                "exercise_id": "bw_march",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_side_step",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_standing_punch",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_step_touch",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 85
+              }
+            ],
+            "day_index": 4,
+            "planned_seconds": 1200
+          }
+        ],
+        "profile": {
+          "adult": true,
+          "days_per_week": 4,
+          "equipment": "bodyweight",
+          "excluded_ids": [],
+          "excluded_tags": [],
+          "experience": "intermediate",
+          "goal": "general_conditioning",
+          "session_minutes": 20
+        }
+      },
+      "split": "development",
+      "task": "plan"
+    },
+    {
+      "case_id": "matrix-06-30",
+      "choices": [],
+      "code": "validated",
+      "expected_code": "validated",
+      "expected_outcome": "plan",
+      "issues": [],
+      "outcome": "plan",
+      "passed": true,
+      "plan": {
+        "days": [
+          {
+            "blocks": [
+              {
+                "exercise_id": "bw_arm_circle",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_hamstring_curl",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_heel_dig",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_knee_lift",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 32
+              },
+              {
+                "exercise_id": "bw_march",
+                "mode": "timed",
+                "rest_between_sets_seconds": 90,
+                "sets": 4,
+                "work_seconds_per_set": 81
+              }
+            ],
+            "day_index": 1,
+            "planned_seconds": 1800
+          },
+          {
+            "blocks": [
+              {
+                "exercise_id": "bw_side_step",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_standing_punch",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_step_touch",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_arm_circle",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 32
+              },
+              {
+                "exercise_id": "bw_hamstring_curl",
+                "mode": "timed",
+                "rest_between_sets_seconds": 90,
+                "sets": 4,
+                "work_seconds_per_set": 81
+              }
+            ],
+            "day_index": 2,
+            "planned_seconds": 1800
+          }
+        ],
+        "profile": {
+          "adult": true,
+          "days_per_week": 2,
+          "equipment": "bodyweight",
+          "excluded_ids": [],
+          "excluded_tags": [],
+          "experience": "intermediate",
+          "goal": "general_conditioning",
+          "session_minutes": 30
+        }
+      },
+      "split": "development",
+      "task": "plan"
+    },
+    {
+      "case_id": "matrix-06-45",
+      "choices": [],
+      "code": "validated",
+      "expected_code": "validated",
+      "expected_outcome": "plan",
+      "issues": [],
+      "outcome": "plan",
+      "passed": true,
+      "plan": {
+        "days": [
+          {
+            "blocks": [
+              {
+                "exercise_id": "bw_arm_circle",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_hamstring_curl",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_heel_dig",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_knee_lift",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 55
+              },
+              {
+                "exercise_id": "bw_march",
+                "mode": "timed",
+                "rest_between_sets_seconds": 90,
+                "sets": 4,
+                "work_seconds_per_set": 90
+              },
+              {
+                "exercise_id": "bw_side_step",
+                "mode": "timed",
+                "rest_between_sets_seconds": 90,
+                "sets": 4,
+                "work_seconds_per_set": 90
+              }
+            ],
+            "day_index": 1,
+            "planned_seconds": 2700
+          },
+          {
+            "blocks": [
+              {
+                "exercise_id": "bw_standing_punch",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_step_touch",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_arm_circle",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_hamstring_curl",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 55
+              },
+              {
+                "exercise_id": "bw_heel_dig",
+                "mode": "timed",
+                "rest_between_sets_seconds": 90,
+                "sets": 4,
+                "work_seconds_per_set": 90
+              },
+              {
+                "exercise_id": "bw_knee_lift",
+                "mode": "timed",
+                "rest_between_sets_seconds": 90,
+                "sets": 4,
+                "work_seconds_per_set": 90
+              }
+            ],
+            "day_index": 2,
+            "planned_seconds": 2700
+          },
+          {
+            "blocks": [
+              {
+                "exercise_id": "bw_march",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_side_step",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_standing_punch",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_step_touch",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 55
+              },
+              {
+                "exercise_id": "bw_arm_circle",
+                "mode": "timed",
+                "rest_between_sets_seconds": 90,
+                "sets": 4,
+                "work_seconds_per_set": 90
+              },
+              {
+                "exercise_id": "bw_hamstring_curl",
+                "mode": "timed",
+                "rest_between_sets_seconds": 90,
+                "sets": 4,
+                "work_seconds_per_set": 90
+              }
+            ],
+            "day_index": 3,
+            "planned_seconds": 2700
+          }
+        ],
+        "profile": {
+          "adult": true,
+          "days_per_week": 3,
+          "equipment": "bodyweight",
+          "excluded_ids": [],
+          "excluded_tags": [],
+          "experience": "intermediate",
+          "goal": "general_conditioning",
+          "session_minutes": 45
+        }
+      },
+      "split": "held_out",
+      "task": "plan"
+    },
+    {
+      "case_id": "matrix-07-20",
+      "choices": [],
+      "code": "validated",
+      "expected_code": "validated",
+      "expected_outcome": "plan",
+      "issues": [],
+      "outcome": "plan",
+      "passed": true,
+      "plan": {
+        "days": [
+          {
+            "blocks": [
+              {
+                "exercise_id": "bw_arm_circle",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_hamstring_curl",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_heel_dig",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_knee_lift",
+                "mode": "timed",
+                "rest_between_sets_seconds": 45,
+                "sets": 3,
+                "work_seconds_per_set": 75
+              }
+            ],
+            "day_index": 1,
+            "planned_seconds": 1200
+          },
+          {
+            "blocks": [
+              {
+                "exercise_id": "bw_march",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_side_step",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_standing_punch",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_step_touch",
+                "mode": "timed",
+                "rest_between_sets_seconds": 45,
+                "sets": 3,
+                "work_seconds_per_set": 75
+              }
+            ],
+            "day_index": 2,
+            "planned_seconds": 1200
+          }
+        ],
+        "profile": {
+          "adult": true,
+          "days_per_week": 2,
+          "equipment": "dumbbells_and_bodyweight",
+          "excluded_ids": [],
+          "excluded_tags": [],
+          "experience": "beginner",
+          "goal": "general_conditioning",
+          "session_minutes": 20
+        }
+      },
+      "split": "held_out",
+      "task": "plan"
+    },
+    {
+      "case_id": "matrix-07-30",
+      "choices": [],
+      "code": "validated",
+      "expected_code": "validated",
+      "expected_outcome": "plan",
+      "issues": [],
+      "outcome": "plan",
+      "passed": true,
+      "plan": {
+        "days": [
+          {
+            "blocks": [
+              {
+                "exercise_id": "bw_arm_circle",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_hamstring_curl",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_heel_dig",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_knee_lift",
+                "mode": "timed",
+                "rest_between_sets_seconds": 60,
+                "sets": 3,
+                "work_seconds_per_set": 75
+              },
+              {
+                "exercise_id": "bw_march",
+                "mode": "timed",
+                "rest_between_sets_seconds": 90,
+                "sets": 3,
+                "work_seconds_per_set": 75
+              }
+            ],
+            "day_index": 1,
+            "planned_seconds": 1800
+          },
+          {
+            "blocks": [
+              {
+                "exercise_id": "bw_side_step",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_standing_punch",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_step_touch",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_arm_circle",
+                "mode": "timed",
+                "rest_between_sets_seconds": 60,
+                "sets": 3,
+                "work_seconds_per_set": 75
+              },
+              {
+                "exercise_id": "bw_hamstring_curl",
+                "mode": "timed",
+                "rest_between_sets_seconds": 90,
+                "sets": 3,
+                "work_seconds_per_set": 75
+              }
+            ],
+            "day_index": 2,
+            "planned_seconds": 1800
+          },
+          {
+            "blocks": [
+              {
+                "exercise_id": "bw_heel_dig",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_knee_lift",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_march",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_side_step",
+                "mode": "timed",
+                "rest_between_sets_seconds": 60,
+                "sets": 3,
+                "work_seconds_per_set": 75
+              },
+              {
+                "exercise_id": "bw_standing_punch",
+                "mode": "timed",
+                "rest_between_sets_seconds": 90,
+                "sets": 3,
+                "work_seconds_per_set": 75
+              }
+            ],
+            "day_index": 3,
+            "planned_seconds": 1800
+          }
+        ],
+        "profile": {
+          "adult": true,
+          "days_per_week": 3,
+          "equipment": "dumbbells_and_bodyweight",
+          "excluded_ids": [],
+          "excluded_tags": [],
+          "experience": "beginner",
+          "goal": "general_conditioning",
+          "session_minutes": 30
+        }
+      },
+      "split": "development",
+      "task": "plan"
+    },
+    {
+      "case_id": "matrix-07-45",
+      "choices": [],
+      "code": "validated",
+      "expected_code": "validated",
+      "expected_outcome": "plan",
+      "issues": [],
+      "outcome": "plan",
+      "passed": true,
+      "plan": {
+        "days": [
+          {
+            "blocks": [
+              {
+                "exercise_id": "bw_arm_circle",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_hamstring_curl",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 35
+              },
+              {
+                "exercise_id": "bw_heel_dig",
+                "mode": "timed",
+                "rest_between_sets_seconds": 90,
+                "sets": 3,
+                "work_seconds_per_set": 75
+              },
+              {
+                "exercise_id": "bw_knee_lift",
+                "mode": "timed",
+                "rest_between_sets_seconds": 90,
+                "sets": 3,
+                "work_seconds_per_set": 75
+              },
+              {
+                "exercise_id": "bw_march",
+                "mode": "timed",
+                "rest_between_sets_seconds": 90,
+                "sets": 3,
+                "work_seconds_per_set": 75
+              },
+              {
+                "exercise_id": "bw_side_step",
+                "mode": "timed",
+                "rest_between_sets_seconds": 90,
+                "sets": 3,
+                "work_seconds_per_set": 75
+              }
+            ],
+            "day_index": 1,
+            "planned_seconds": 2700
+          },
+          {
+            "blocks": [
+              {
+                "exercise_id": "bw_standing_punch",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_step_touch",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 35
+              },
+              {
+                "exercise_id": "bw_arm_circle",
+                "mode": "timed",
+                "rest_between_sets_seconds": 90,
+                "sets": 3,
+                "work_seconds_per_set": 75
+              },
+              {
+                "exercise_id": "bw_hamstring_curl",
+                "mode": "timed",
+                "rest_between_sets_seconds": 90,
+                "sets": 3,
+                "work_seconds_per_set": 75
+              },
+              {
+                "exercise_id": "bw_heel_dig",
+                "mode": "timed",
+                "rest_between_sets_seconds": 90,
+                "sets": 3,
+                "work_seconds_per_set": 75
+              },
+              {
+                "exercise_id": "bw_knee_lift",
+                "mode": "timed",
+                "rest_between_sets_seconds": 90,
+                "sets": 3,
+                "work_seconds_per_set": 75
+              }
+            ],
+            "day_index": 2,
+            "planned_seconds": 2700
+          },
+          {
+            "blocks": [
+              {
+                "exercise_id": "bw_march",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_side_step",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 35
+              },
+              {
+                "exercise_id": "bw_standing_punch",
+                "mode": "timed",
+                "rest_between_sets_seconds": 90,
+                "sets": 3,
+                "work_seconds_per_set": 75
+              },
+              {
+                "exercise_id": "bw_step_touch",
+                "mode": "timed",
+                "rest_between_sets_seconds": 90,
+                "sets": 3,
+                "work_seconds_per_set": 75
+              },
+              {
+                "exercise_id": "bw_arm_circle",
+                "mode": "timed",
+                "rest_between_sets_seconds": 90,
+                "sets": 3,
+                "work_seconds_per_set": 75
+              },
+              {
+                "exercise_id": "bw_hamstring_curl",
+                "mode": "timed",
+                "rest_between_sets_seconds": 90,
+                "sets": 3,
+                "work_seconds_per_set": 75
+              }
+            ],
+            "day_index": 3,
+            "planned_seconds": 2700
+          },
+          {
+            "blocks": [
+              {
+                "exercise_id": "bw_heel_dig",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_knee_lift",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 35
+              },
+              {
+                "exercise_id": "bw_march",
+                "mode": "timed",
+                "rest_between_sets_seconds": 90,
+                "sets": 3,
+                "work_seconds_per_set": 75
+              },
+              {
+                "exercise_id": "bw_side_step",
+                "mode": "timed",
+                "rest_between_sets_seconds": 90,
+                "sets": 3,
+                "work_seconds_per_set": 75
+              },
+              {
+                "exercise_id": "bw_standing_punch",
+                "mode": "timed",
+                "rest_between_sets_seconds": 90,
+                "sets": 3,
+                "work_seconds_per_set": 75
+              },
+              {
+                "exercise_id": "bw_step_touch",
+                "mode": "timed",
+                "rest_between_sets_seconds": 90,
+                "sets": 3,
+                "work_seconds_per_set": 75
+              }
+            ],
+            "day_index": 4,
+            "planned_seconds": 2700
+          }
+        ],
+        "profile": {
+          "adult": true,
+          "days_per_week": 4,
+          "equipment": "dumbbells_and_bodyweight",
+          "excluded_ids": [],
+          "excluded_tags": [],
+          "experience": "beginner",
+          "goal": "general_conditioning",
+          "session_minutes": 45
+        }
+      },
+      "split": "development",
+      "task": "plan"
+    },
+    {
+      "case_id": "matrix-08-20",
+      "choices": [],
+      "code": "validated",
+      "expected_code": "validated",
+      "expected_outcome": "plan",
+      "issues": [],
+      "outcome": "plan",
+      "passed": true,
+      "plan": {
+        "days": [
+          {
+            "blocks": [
+              {
+                "exercise_id": "bw_arm_circle",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_hamstring_curl",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_heel_dig",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_knee_lift",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 85
+              }
+            ],
+            "day_index": 1,
+            "planned_seconds": 1200
+          },
+          {
+            "blocks": [
+              {
+                "exercise_id": "bw_march",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_side_step",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_standing_punch",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_step_touch",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 85
+              }
+            ],
+            "day_index": 2,
+            "planned_seconds": 1200
+          },
+          {
+            "blocks": [
+              {
+                "exercise_id": "bw_arm_circle",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_hamstring_curl",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_heel_dig",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_knee_lift",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 85
+              }
+            ],
+            "day_index": 3,
+            "planned_seconds": 1200
+          }
+        ],
+        "profile": {
+          "adult": true,
+          "days_per_week": 3,
+          "equipment": "dumbbells_and_bodyweight",
+          "excluded_ids": [],
+          "excluded_tags": [],
+          "experience": "intermediate",
+          "goal": "general_conditioning",
+          "session_minutes": 20
+        }
+      },
+      "split": "development",
+      "task": "plan"
+    },
+    {
+      "case_id": "matrix-08-30",
+      "choices": [],
+      "code": "validated",
+      "expected_code": "validated",
+      "expected_outcome": "plan",
+      "issues": [],
+      "outcome": "plan",
+      "passed": true,
+      "plan": {
+        "days": [
+          {
+            "blocks": [
+              {
+                "exercise_id": "bw_arm_circle",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_hamstring_curl",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_heel_dig",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_knee_lift",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 32
+              },
+              {
+                "exercise_id": "bw_march",
+                "mode": "timed",
+                "rest_between_sets_seconds": 90,
+                "sets": 4,
+                "work_seconds_per_set": 81
+              }
+            ],
+            "day_index": 1,
+            "planned_seconds": 1800
+          },
+          {
+            "blocks": [
+              {
+                "exercise_id": "bw_side_step",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_standing_punch",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_step_touch",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_arm_circle",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 32
+              },
+              {
+                "exercise_id": "bw_hamstring_curl",
+                "mode": "timed",
+                "rest_between_sets_seconds": 90,
+                "sets": 4,
+                "work_seconds_per_set": 81
+              }
+            ],
+            "day_index": 2,
+            "planned_seconds": 1800
+          },
+          {
+            "blocks": [
+              {
+                "exercise_id": "bw_heel_dig",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_knee_lift",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_march",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_side_step",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 32
+              },
+              {
+                "exercise_id": "bw_standing_punch",
+                "mode": "timed",
+                "rest_between_sets_seconds": 90,
+                "sets": 4,
+                "work_seconds_per_set": 81
+              }
+            ],
+            "day_index": 3,
+            "planned_seconds": 1800
+          },
+          {
+            "blocks": [
+              {
+                "exercise_id": "bw_step_touch",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_arm_circle",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_hamstring_curl",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_heel_dig",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 32
+              },
+              {
+                "exercise_id": "bw_knee_lift",
+                "mode": "timed",
+                "rest_between_sets_seconds": 90,
+                "sets": 4,
+                "work_seconds_per_set": 81
+              }
+            ],
+            "day_index": 4,
+            "planned_seconds": 1800
+          }
+        ],
+        "profile": {
+          "adult": true,
+          "days_per_week": 4,
+          "equipment": "dumbbells_and_bodyweight",
+          "excluded_ids": [],
+          "excluded_tags": [],
+          "experience": "intermediate",
+          "goal": "general_conditioning",
+          "session_minutes": 30
+        }
+      },
+      "split": "held_out",
+      "task": "plan"
+    },
+    {
+      "case_id": "matrix-08-45",
+      "choices": [],
+      "code": "validated",
+      "expected_code": "validated",
+      "expected_outcome": "plan",
+      "issues": [],
+      "outcome": "plan",
+      "passed": true,
+      "plan": {
+        "days": [
+          {
+            "blocks": [
+              {
+                "exercise_id": "bw_arm_circle",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_hamstring_curl",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_heel_dig",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_knee_lift",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 55
+              },
+              {
+                "exercise_id": "bw_march",
+                "mode": "timed",
+                "rest_between_sets_seconds": 90,
+                "sets": 4,
+                "work_seconds_per_set": 90
+              },
+              {
+                "exercise_id": "bw_side_step",
+                "mode": "timed",
+                "rest_between_sets_seconds": 90,
+                "sets": 4,
+                "work_seconds_per_set": 90
+              }
+            ],
+            "day_index": 1,
+            "planned_seconds": 2700
+          },
+          {
+            "blocks": [
+              {
+                "exercise_id": "bw_standing_punch",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_step_touch",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_arm_circle",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 30
+              },
+              {
+                "exercise_id": "bw_hamstring_curl",
+                "mode": "timed",
+                "rest_between_sets_seconds": 30,
+                "sets": 3,
+                "work_seconds_per_set": 55
+              },
+              {
+                "exercise_id": "bw_heel_dig",
+                "mode": "timed",
+                "rest_between_sets_seconds": 90,
+                "sets": 4,
+                "work_seconds_per_set": 90
+              },
+              {
+                "exercise_id": "bw_knee_lift",
+                "mode": "timed",
+                "rest_between_sets_seconds": 90,
+                "sets": 4,
+                "work_seconds_per_set": 90
+              }
+            ],
+            "day_index": 2,
+            "planned_seconds": 2700
+          }
+        ],
+        "profile": {
+          "adult": true,
+          "days_per_week": 2,
+          "equipment": "dumbbells_and_bodyweight",
+          "excluded_ids": [],
+          "excluded_tags": [],
+          "experience": "intermediate",
+          "goal": "general_conditioning",
+          "session_minutes": 45
+        }
+      },
+      "split": "development",
+      "task": "plan"
+    }
+  ],
+  "catalog_coverage": [
+    {
+      "eligible_records": 8,
+      "equipment": "bodyweight",
+      "experience": "beginner",
+      "goal": "general_strength",
+      "presets": [
+        {
+          "outcome": "plan",
+          "planned_seconds": 1200,
+          "preset_minutes": 20,
+          "valid": true
+        },
+        {
+          "outcome": "plan",
+          "planned_seconds": 1800,
+          "preset_minutes": 30,
+          "valid": true
+        },
+        {
+          "outcome": "plan",
+          "planned_seconds": 2697,
+          "preset_minutes": 45,
+          "valid": true
+        }
+      ]
+    },
+    {
+      "eligible_records": 8,
+      "equipment": "bodyweight",
+      "experience": "intermediate",
+      "goal": "general_strength",
+      "presets": [
+        {
+          "outcome": "plan",
+          "planned_seconds": 1200,
+          "preset_minutes": 20,
+          "valid": true
+        },
+        {
+          "outcome": "plan",
+          "planned_seconds": 1800,
+          "preset_minutes": 30,
+          "valid": true
+        },
+        {
+          "outcome": "plan",
+          "planned_seconds": 2700,
+          "preset_minutes": 45,
+          "valid": true
+        }
+      ]
+    },
+    {
+      "eligible_records": 12,
+      "equipment": "dumbbells_and_bodyweight",
+      "experience": "beginner",
+      "goal": "general_strength",
+      "presets": [
+        {
+          "outcome": "plan",
+          "planned_seconds": 1200,
+          "preset_minutes": 20,
+          "valid": true
+        },
+        {
+          "outcome": "plan",
+          "planned_seconds": 1800,
+          "preset_minutes": 30,
+          "valid": true
+        },
+        {
+          "outcome": "plan",
+          "planned_seconds": 2697,
+          "preset_minutes": 45,
+          "valid": true
+        }
+      ]
+    },
+    {
+      "eligible_records": 12,
+      "equipment": "dumbbells_and_bodyweight",
+      "experience": "intermediate",
+      "goal": "general_strength",
+      "presets": [
+        {
+          "outcome": "plan",
+          "planned_seconds": 1200,
+          "preset_minutes": 20,
+          "valid": true
+        },
+        {
+          "outcome": "plan",
+          "planned_seconds": 1800,
+          "preset_minutes": 30,
+          "valid": true
+        },
+        {
+          "outcome": "plan",
+          "planned_seconds": 2700,
+          "preset_minutes": 45,
+          "valid": true
+        }
+      ]
+    },
+    {
+      "eligible_records": 8,
+      "equipment": "bodyweight",
+      "experience": "beginner",
+      "goal": "general_conditioning",
+      "presets": [
+        {
+          "outcome": "plan",
+          "planned_seconds": 1200,
+          "preset_minutes": 20,
+          "valid": true
+        },
+        {
+          "outcome": "plan",
+          "planned_seconds": 1800,
+          "preset_minutes": 30,
+          "valid": true
+        },
+        {
+          "outcome": "plan",
+          "planned_seconds": 2700,
+          "preset_minutes": 45,
+          "valid": true
+        }
+      ]
+    },
+    {
+      "eligible_records": 8,
+      "equipment": "bodyweight",
+      "experience": "intermediate",
+      "goal": "general_conditioning",
+      "presets": [
+        {
+          "outcome": "plan",
+          "planned_seconds": 1200,
+          "preset_minutes": 20,
+          "valid": true
+        },
+        {
+          "outcome": "plan",
+          "planned_seconds": 1800,
+          "preset_minutes": 30,
+          "valid": true
+        },
+        {
+          "outcome": "plan",
+          "planned_seconds": 2700,
+          "preset_minutes": 45,
+          "valid": true
+        }
+      ]
+    },
+    {
+      "eligible_records": 8,
+      "equipment": "dumbbells_and_bodyweight",
+      "experience": "beginner",
+      "goal": "general_conditioning",
+      "presets": [
+        {
+          "outcome": "plan",
+          "planned_seconds": 1200,
+          "preset_minutes": 20,
+          "valid": true
+        },
+        {
+          "outcome": "plan",
+          "planned_seconds": 1800,
+          "preset_minutes": 30,
+          "valid": true
+        },
+        {
+          "outcome": "plan",
+          "planned_seconds": 2700,
+          "preset_minutes": 45,
+          "valid": true
+        }
+      ]
+    },
+    {
+      "eligible_records": 8,
+      "equipment": "dumbbells_and_bodyweight",
+      "experience": "intermediate",
+      "goal": "general_conditioning",
+      "presets": [
+        {
+          "outcome": "plan",
+          "planned_seconds": 1200,
+          "preset_minutes": 20,
+          "valid": true
+        },
+        {
+          "outcome": "plan",
+          "planned_seconds": 1800,
+          "preset_minutes": 30,
+          "valid": true
+        },
+        {
+          "outcome": "plan",
+          "planned_seconds": 2700,
+          "preset_minutes": 45,
+          "valid": true
+        }
+      ]
+    }
+  ],
+  "catalog_revision": "catalog-v1",
+  "catalog_sha256": "9f1e38c5e5e55eec28a663c4bd9dd50b031370895702ebaf9cf6283fda4e216a",
+  "dataset_sha256": "c340a3761c3b6e1732f56e36e28bf4a9e985fe11235e67c4aea75855555c7d91",
+  "dataset_version": "synthetic-v1",
+  "dependency_lock_sha256": "a56c144811ce65504791a4a259715950d89e5195089f3dcb441f52ffef47849a",
+  "duration_version": "duration-v1",
+  "external_cost_usd": 0,
+  "failed_cases": [],
+  "limitations": [
+    "Synthetic constraint/outcome checks only; not model quality or fitness safety.",
+    "Held-out is a fixed split label, not a claim of unseen developer data.",
+    "Malformed tool calls, auth and provider faults remain later-unit tests."
+  ],
+  "provider": "none",
+  "run_type": "deterministic_template",
+  "scorer_version": "hard-outcome-scorer-v1",
+  "source_sha256": "1db5d07969583ad6c68ddaa1f33c42d7f80e716ea70e444860ed4efdaf12814a",
+  "summary": {
+    "development": {
+      "outcomes": {
+        "clarify": 6,
+        "error": 2,
+        "plan": 16
+      },
+      "passed": 24,
+      "total": 24
+    },
+    "held_out": {
+      "outcomes": {
+        "abstain": 2,
+        "clarify": 4,
+        "error": 2,
+        "plan": 8
+      },
+      "passed": 16,
+      "total": 16
+    }
+  },
+  "template_version": "template-v1",
+  "validator_version": "validator-v1"
+}

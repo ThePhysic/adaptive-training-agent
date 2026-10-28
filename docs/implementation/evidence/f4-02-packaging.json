@@ -1,0 +1,12 @@
+{
+  "evidence": "local_config_and_existing_image_inspection",
+  "image_unchanged": true,
+  "image_id": "sha256:deb14981a984fc945af2a7f3fe4d328dedd9fdca72a93fcc1e844b8b3701f4ce",
+  "host_network": true,
+  "app_read_only": true,
+  "public_ports": 0,
+  "credential_mounts": 0,
+  "local_synthetic_ack": true,
+  "postgres_loopback": true,
+  "compose_unchanged": true
+}

@@ -1,0 +1,18 @@
+{
+  "project": "fata-ci-cleanup-0ba98042",
+  "synthetic_only": true,
+  "actual_dev_compose": true,
+  "published_binding": {
+    "5432/tcp": [
+      {
+        "HostIp": "127.0.0.1",
+        "HostPort": "55432"
+      }
+    ]
+  },
+  "stop_timeout_seconds": 30,
+  "stopped_service_removed": true,
+  "named_volume_retained": "fata-ci-cleanup-0ba98042_training_pg",
+  "volume_delete_requested": false,
+  "unrelated_container_touched": false
+}

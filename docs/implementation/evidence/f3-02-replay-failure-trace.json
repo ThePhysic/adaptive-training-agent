@@ -1,0 +1,106 @@
+{
+  "version": "f3-02-replay-failure-v1",
+  "source": "replay",
+  "fixture": "synthetic_invalid_exercise_then_failed_repair",
+  "outcome": "error",
+  "diagnostic": "semantic_repair_exhausted",
+  "spans": [
+    {
+      "stage": "provider",
+      "trace_id": "a4182b5a7e2b463f8e24e96fe9917607",
+      "span_id": "68de1480797b43da948e2c0411e902c2",
+      "parent_id": "f767df1358284caabd3314ee730b6034",
+      "duration_ms": 9.946,
+      "attributes": {
+        "outcome": "ok",
+        "attempt": 1
+      }
+    },
+    {
+      "stage": "validation",
+      "trace_id": "a4182b5a7e2b463f8e24e96fe9917607",
+      "span_id": "27d78a5ef97b4edb8580af703b50b2d4",
+      "parent_id": "f767df1358284caabd3314ee730b6034",
+      "duration_ms": 0.307,
+      "attributes": {
+        "outcome": "error",
+        "reason": "invalid_plan"
+      }
+    },
+    {
+      "stage": "provider",
+      "trace_id": "a4182b5a7e2b463f8e24e96fe9917607",
+      "span_id": "c2093f3538cd43368a562ec6943250c7",
+      "parent_id": "f767df1358284caabd3314ee730b6034",
+      "duration_ms": 10.46,
+      "attributes": {
+        "outcome": "ok",
+        "attempt": 2
+      }
+    },
+    {
+      "stage": "validation",
+      "trace_id": "a4182b5a7e2b463f8e24e96fe9917607",
+      "span_id": "7e95cbc2ba8746d09351b25af3c2e9cb",
+      "parent_id": "f767df1358284caabd3314ee730b6034",
+      "duration_ms": 0.47,
+      "attributes": {
+        "outcome": "error",
+        "reason": "invalid_plan"
+      }
+    },
+    {
+      "stage": "agent.execute",
+      "trace_id": "a4182b5a7e2b463f8e24e96fe9917607",
+      "span_id": "f767df1358284caabd3314ee730b6034",
+      "parent_id": "305dd334bd264cea8e30b1d7b8729fda",
+      "duration_ms": 29.11,
+      "attributes": {
+        "outcome": "error",
+        "state": "failed",
+        "reason": "semantic_repair_exhausted",
+        "provider_requests": 2,
+        "tool_dispatches": 0,
+        "transport_retries": 0,
+        "semantic_repairs": 1,
+        "input_tokens": 2000,
+        "output_tokens": 200,
+        "uncertain_attempts": 0,
+        "finish_reason": "stop",
+        "profile_revision": 1,
+        "catalog_revision": "catalog-v1",
+        "validator_revision": "validator-v1",
+        "prompt_version": "real-planner-prompt-v1",
+        "tool_version": "real-read-tools-v1",
+        "output_version": "real-plan-envelope-v1",
+        "model_id": "gpt-6.1-sol-replay",
+        "token_kind": "provider_reported_replay",
+        "cached_tokens": 400,
+        "cache_write_tokens": 600,
+        "reasoning_tokens": 40
+      }
+    },
+    {
+      "stage": "agent.session",
+      "trace_id": "a4182b5a7e2b463f8e24e96fe9917607",
+      "span_id": "305dd334bd264cea8e30b1d7b8729fda",
+      "parent_id": "0c04cb3a6f4549dfae811660b4f03cec",
+      "duration_ms": 29.476,
+      "attributes": {
+        "outcome": "ok"
+      }
+    },
+    {
+      "stage": "http",
+      "trace_id": "a4182b5a7e2b463f8e24e96fe9917607",
+      "span_id": "0c04cb3a6f4549dfae811660b4f03cec",
+      "parent_id": null,
+      "duration_ms": 29.635,
+      "attributes": {
+        "outcome": "ok"
+      }
+    }
+  ],
+  "no_candidate_published": true,
+  "live_provider_requests": 0
+}

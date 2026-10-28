@@ -1,0 +1,63 @@
+{
+  "version": "async-read-experiment-v1",
+  "transport": "in_process_httpx_mock",
+  "httpx_version": "0.28.1",
+  "samples_per_mode": 5,
+  "delay_seconds_per_read": 0.04,
+  "reads_per_trial": 3,
+  "catalog_revision": "catalog-v1",
+  "modes": {
+    "sequential": {
+      "elapsed_ms": [
+        149.681,
+        139.086,
+        139.624,
+        139.605,
+        142.1
+      ],
+      "median_ms": 139.624,
+      "requests_per_trial": [
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "maximum_inflight_per_trial": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "correct_results": 5,
+      "retried_requests": 0
+    },
+    "concurrent": {
+      "elapsed_ms": [
+        47.211,
+        47.282,
+        47.173,
+        46.545,
+        46.787
+      ],
+      "median_ms": 47.173,
+      "requests_per_trial": [
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "maximum_inflight_per_trial": [
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "correct_results": 5,
+      "retried_requests": 0
+    }
+  }
+}
