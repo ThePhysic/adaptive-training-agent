@@ -2,11 +2,12 @@
 // No browser download. All writes stay in this workspace; nonlocal page requests fail.
 import { spawn } from "node:child_process";
 import { mkdir, writeFile } from "node:fs/promises";
-import { resolve, join } from "node:path";
+import { resolve, join, relative } from "node:path";
 import { randomUUID } from "node:crypto";
 import assert from "node:assert/strict";
 import {
   diagnostics,
+  createBrowserEvidence,
   browserBudgets,
   devtoolsFailures,
   routeClass,
@@ -40,10 +41,11 @@ assert(
     "f4-03b-r5a-devtools",
     "f4-03b-r5a-startup",
     "f5-d1",
+    "f5-d5",
   ].includes(evidenceStage),
 );
 const profile = join(root, ".cache", "browser-f107-" + randomUUID());
-const evidence = join(root, "docs", "implementation", "evidence");
+let evidence;
 // The Python owner establishes a process group/Windows Job before releasing us.
 // This prevents Chrome escaping cleanup if Node is killed or crashes.
 if (process.env.FATA_BROWSER_SUPERVISED === "1") {
@@ -93,8 +95,8 @@ const watchdog = setTimeout(() => {
 }, browserBudgets.global);
 try {
   diagnostic.stage("preflight");
+  evidence = await createBrowserEvidence(root, randomUUID());
   await mkdir(profile, { recursive: true });
-  await mkdir(evidence, { recursive: true });
   diagnostic.stage("launch");
   const spawnStarted = Date.now();
   try {
@@ -271,7 +273,10 @@ try {
         scale: 1,
       },
     });
-    await writeFile(join(evidence, name), Buffer.from(data, "base64"));
+    await writeFile(join(evidence, name), Buffer.from(data, "base64"), {
+      flag: "wx",
+      mode: 0o600,
+    });
   }
   const click = (text) =>
     evaluate(
@@ -530,7 +535,9 @@ try {
         `${evidenceStage}-desktop.png`,
         `${evidenceStage}-mobile.png`,
         `${evidenceStage}-mobile-error.png`,
-      ],
+      ].map((name) =>
+        relative(root, join(evidence, name)).replaceAll("\\", "/"),
+      ),
     }),
   );
   // Close through browser-level CDP so its renderer processes exit too.

@@ -3,8 +3,13 @@ import { EventEmitter } from "node:events";
 import { PassThrough } from "node:stream";
 import type { ChildProcess } from "node:child_process";
 import { test } from "node:test";
+import { mkdtemp, mkdir, readFile, symlink, writeFile } from "node:fs/promises";
+import { join, relative } from "node:path";
+import { tmpdir } from "node:os";
+import { randomUUID } from "node:crypto";
 import {
   diagnostics,
+  createBrowserEvidence,
   browserBudgets,
   resourceSnapshot,
   routeClass,
@@ -286,4 +291,69 @@ test("server diagnostics reject nonlocal destinations before fetching", async ()
   } finally {
     globalThis.fetch = original;
   }
+});
+
+// Every directory below is newly test-owned; never touch accepted screenshot evidence.
+test("browser evidence is exclusive, ignored and cannot overwrite historical screenshots", async () => {
+  const root = await mkdtemp(join(tmpdir(), "fata-browser-evidence-"));
+  const historical = join(root, "docs", "implementation", "evidence");
+  await mkdir(historical, { recursive: true });
+  const original = join(historical, "f1-07-desktop.png");
+  await writeFile(original, "accepted-historical-bytes", { flag: "wx" });
+  const id = randomUUID();
+  const first = await createBrowserEvidence(root, id);
+  assert.equal(
+    relative(root, first).replaceAll("\\", "/"),
+    `.cache/browser-evidence/${id}`,
+  );
+  const screenshot = join(first, "f1-07-desktop.png");
+  await writeFile(screenshot, "fresh-evidence", { flag: "wx" });
+  await assert.rejects(
+    createBrowserEvidence(root, id),
+    /browser_evidence_rejected/,
+  );
+  await assert.rejects(writeFile(screenshot, "replacement", { flag: "wx" }), {
+    code: "EEXIST",
+  });
+  assert.equal(await readFile(original, "utf8"), "accepted-historical-bytes");
+  assert.equal(await readFile(screenshot, "utf8"), "fresh-evidence");
+  assert.notEqual(await createBrowserEvidence(root, randomUUID()), first);
+});
+
+for (const value of [
+  "../docs/implementation/evidence",
+  "C:/private",
+  "",
+  "a".repeat(500),
+  "../" + randomUUID(),
+]) {
+  test(
+    "browser evidence rejects unsafe run identity " +
+      JSON.stringify(value.slice(0, 40)),
+    async () => {
+      const root = await mkdtemp(join(tmpdir(), "fata-browser-reject-"));
+      await assert.rejects(
+        createBrowserEvidence(root, value),
+        /^Error: browser_evidence_rejected$/,
+      );
+      await assert.rejects(readFile(join(root, ".cache")), { code: "ENOENT" });
+    },
+  );
+}
+
+test("browser evidence rejects linked cache parents without writing through them", async () => {
+  const root = await mkdtemp(join(tmpdir(), "fata-browser-link-"));
+  const outside = await mkdtemp(join(tmpdir(), "fata-browser-outside-"));
+  await symlink(
+    outside,
+    join(root, ".cache"),
+    process.platform === "win32" ? "junction" : "dir",
+  );
+  await assert.rejects(
+    createBrowserEvidence(root, randomUUID()),
+    /^Error: browser_evidence_rejected$/,
+  );
+  await assert.rejects(readFile(join(outside, "browser-evidence")), {
+    code: "ENOENT",
+  });
 });

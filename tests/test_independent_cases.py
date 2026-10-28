@@ -20,6 +20,28 @@ from future_training.experiments.model_evaluation import load_suite
 from future_training.experiments.model_scoring import Observation, score
 
 
+@pytest.fixture
+def retention_directory():
+    # Test-owned parents and exclusive leaf; never reuse a historical result path.
+    directory = e.ROOT / ".cache/f3-e4" / ("synthetic-test-" + uuid4().hex)
+    directory.mkdir(mode=0o700, parents=True)
+    return directory
+
+
+def test_retention_scratch_setup_is_cold_and_exclusive(tmp_path, monkeypatch):
+    monkeypatch.setattr(e, "ROOT", tmp_path)
+    assert not (tmp_path / ".cache").exists()
+    first = retention_directory.__wrapped__()
+    marker = first / "attempt.claim"
+    marker.write_bytes(b"retained-first-attempt")
+    second = retention_directory.__wrapped__()
+    assert first != second and second.is_dir()
+    assert marker.read_bytes() == b"retained-first-attempt"
+    with pytest.raises(FileExistsError):
+        marker.open("xb")
+    assert not list(second.iterdir())
+
+
 @pytest.fixture(scope="module")
 def public_paths():
     # Tests reuse the validated PUBLIC path inventory, never private case paths.
@@ -497,9 +519,8 @@ def test_legacy_compatibility_is_exact_not_ignore_source_drift(package, monkeypa
         compatible_score_reference()
 
 
-def test_exclusive_first_result_cannot_replace_failure(package, monkeypatch):
-    directory = e.ROOT / ".cache/f3-e4" / ("synthetic-results-" + uuid4().hex)
-    directory.mkdir()
+def test_exclusive_first_result_cannot_replace_failure(package, monkeypatch, retention_directory):
+    directory = retention_directory
     failed = scored(package, evidence("replay", True))
     e.retain_first(directory, 1, "replay", failed)
     with pytest.raises(ValueError, match="record_retained"):
@@ -532,9 +553,8 @@ def test_exclusive_first_result_cannot_replace_failure(package, monkeypatch):
 @pytest.mark.parametrize(
     "fault", ["identity", "variant", "provenance", "fingerprint", "extension", "ordinal_type"]
 )
-def test_retention_does_not_mislabel_a_first_result(package, fault):
-    directory = e.ROOT / ".cache/f3-e4" / ("synthetic-retention-" + uuid4().hex)
-    directory.mkdir()
+def test_retention_does_not_mislabel_a_first_result(package, fault, retention_directory):
+    directory = retention_directory
     result = scored(package, evidence("replay", True))
     if fault == "identity":
         result["case_id"] = "fixture-02"

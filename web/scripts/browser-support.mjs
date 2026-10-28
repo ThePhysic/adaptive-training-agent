@@ -2,6 +2,49 @@
 import { StringDecoder } from "node:string_decoder";
 import { availableParallelism, freemem, totalmem } from "node:os";
 import { readFileSync, statfsSync } from "node:fs";
+import { lstat, mkdir, realpath } from "node:fs/promises";
+import { isAbsolute, join, resolve } from "node:path";
+
+// No environment path override: every run owns one exclusive ignored UUID leaf.
+export async function createBrowserEvidence(root, runId) {
+  if (
+    typeof root !== "string" ||
+    !isAbsolute(root) ||
+    typeof runId !== "string" ||
+    !/^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/.test(
+      runId,
+    )
+  )
+    throw Error("browser_evidence_rejected");
+  try {
+    const check = async (path) => {
+      const stat = await lstat(path);
+      if (
+        !stat.isDirectory() ||
+        stat.isSymbolicLink() ||
+        resolve(await realpath(path)) !== resolve(path)
+      )
+        throw Error("browser_evidence_rejected");
+    };
+    await check(root);
+    let parent = root;
+    for (const name of [".cache", "browser-evidence"]) {
+      parent = join(parent, name);
+      try {
+        await mkdir(parent, { mode: 0o700 });
+      } catch (error) {
+        if (error.code !== "EEXIST") throw error;
+      }
+      await check(parent);
+    }
+    const directory = join(parent, runId);
+    await mkdir(directory, { mode: 0o700 }); // Exclusive: collision never becomes reuse.
+    await check(directory);
+    return directory;
+  } catch {
+    throw Error("browser_evidence_rejected");
+  }
+}
 
 export const browserBudgets = Object.freeze({
   startup: 30000,

@@ -1,0 +1,437 @@
+{
+  "base_revision": "55fe6d0d1f251e95b7cb191f3d3f2ad879b874ed",
+  "cached_image_comparison": {
+    "available": true,
+    "image": "fata-release:f5-d1",
+    "matches_fresh_candidate_build": true,
+    "mismatches": [],
+    "network": "none",
+    "not_a_new_d5_image_build": true,
+    "runtime_files": 75
+  },
+  "checks": {
+    "cold_combined_target_modules": {
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0,
+      "tests": 130
+    },
+    "comparison_dispositions": {
+      "matched": 150,
+      "total": 150
+    },
+    "frontend": {
+      "failures": 0,
+      "passed": 138,
+      "skipped": 0,
+      "tests": 138
+    },
+    "frozen_baseline": {
+      "passed": 40,
+      "total": 40
+    },
+    "native_postgres_including_installed_chrome": {
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0,
+      "tests": 403
+    },
+    "project_python_grammar": {
+      "files": 202,
+      "grammars": [
+        "native 3.14",
+        "3.13"
+      ],
+      "passed": true
+    },
+    "routine_python": {
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0,
+      "tests": 2198
+    }
+  },
+  "cold_confirmation": {
+    "command": [
+      "python",
+      "-B",
+      "-m",
+      "pytest",
+      "-q",
+      "-m",
+      "",
+      "tests/test_independent_cases.py",
+      "tests/test_counted_probe_evidence.py",
+      "--basetemp=<review>\\pytest-cold-confirmation",
+      "--junitxml=<review>\\cold-confirmation.xml"
+    ],
+    "exit_code": 0,
+    "files_identical_to_candidate": true,
+    "scratch_parents_absent_before": true,
+    "seconds": 87.057
+  },
+  "commands": {
+    "cold-native-targets": [
+      {
+        "command": [
+          "python",
+          "-B",
+          "-m",
+          "pytest",
+          "-q",
+          "-m",
+          "integration",
+          "tests/test_counted_probe_evidence.py",
+          "--basetemp=.cache/pytest-d5-cold-native",
+          "--junitxml=<review>\\cold-native-targets.xml"
+        ],
+        "exit_code": 0,
+        "seconds": 62.815
+      }
+    ],
+    "cold-targets-external": [
+      {
+        "command": [
+          "python",
+          "-B",
+          "-m",
+          "pytest",
+          "-q",
+          "tests/test_independent_cases.py",
+          "--basetemp=<review>\\pytest-cold-targets-external",
+          "--junitxml=<review>\\cold-targets-external.xml"
+        ],
+        "exit_code": 0,
+        "seconds": 23.685
+      }
+    ],
+    "frontend": [
+      {
+        "command": [
+          "npm.cmd",
+          "--prefix",
+          "web",
+          "run",
+          "check"
+        ],
+        "exit_code": 0,
+        "seconds": 4.878
+      },
+      {
+        "command": [
+          "npm.cmd",
+          "--prefix",
+          "web",
+          "run",
+          "check:generated"
+        ],
+        "exit_code": 0,
+        "seconds": 1.531
+      },
+      {
+        "command": [
+          "npm.cmd",
+          "--prefix",
+          "web",
+          "run",
+          "format:check"
+        ],
+        "exit_code": 0,
+        "seconds": 1.612
+      },
+      {
+        "command": [
+          "npm.cmd",
+          "--prefix",
+          "web",
+          "run",
+          "test"
+        ],
+        "exit_code": 0,
+        "seconds": 6.039
+      },
+      {
+        "command": [
+          "npm.cmd",
+          "--prefix",
+          "web",
+          "run",
+          "build"
+        ],
+        "exit_code": 0,
+        "seconds": 0.688
+      }
+    ],
+    "native": [
+      {
+        "command": [
+          "python",
+          "-B",
+          "-m",
+          "pytest",
+          "-q",
+          "-s",
+          "-m",
+          "integration",
+          "--basetemp=.cache/pytest-d5-native",
+          "--junitxml=<review>\\native.xml"
+        ],
+        "exit_code": 0,
+        "seconds": 451.052
+      }
+    ],
+    "routine": [
+      {
+        "command": [
+          "python",
+          "-B",
+          "-m",
+          "pytest",
+          "-q",
+          "--basetemp=.cache/pytest-d5-routine",
+          "--junitxml=<review>\\routine.xml"
+        ],
+        "exit_code": 0,
+        "seconds": 1359.055
+      }
+    ],
+    "static": [
+      {
+        "command": [
+          "ruff",
+          "check",
+          "src",
+          "scripts",
+          "tests",
+          "experiments",
+          "infra",
+          "--no-cache"
+        ],
+        "exit_code": 0,
+        "seconds": 0.136
+      },
+      {
+        "command": [
+          "ruff",
+          "format",
+          "--check",
+          "src",
+          "scripts",
+          "tests",
+          "experiments",
+          "infra",
+          "--no-cache"
+        ],
+        "exit_code": 0,
+        "seconds": 0.06
+      },
+      {
+        "command": [
+          "python",
+          "-B",
+          "scripts/export_contracts.py",
+          "--check"
+        ],
+        "exit_code": 0,
+        "seconds": 1.506
+      },
+      {
+        "command": [
+          "python",
+          "-B",
+          "scripts/prepare_responses.py",
+          "--check"
+        ],
+        "exit_code": 0,
+        "seconds": 1.368
+      },
+      {
+        "command": [
+          "python",
+          "-B",
+          "scripts/measure_token_admission.py",
+          "--check"
+        ],
+        "exit_code": 0,
+        "seconds": 1.453
+      },
+      {
+        "command": [
+          "python",
+          "-B",
+          "scripts/prepare_model_evaluation.py",
+          "--check"
+        ],
+        "exit_code": 0,
+        "seconds": 0.573
+      },
+      {
+        "command": [
+          "python",
+          "-B",
+          "scripts/evaluate_models.py",
+          "--check"
+        ],
+        "exit_code": 0,
+        "seconds": 3.482
+      },
+      {
+        "command": [
+          "python",
+          "-B",
+          "scripts/evaluate_baseline.py",
+          "--check"
+        ],
+        "exit_code": 0,
+        "seconds": 0.586
+      },
+      {
+        "command": [
+          "python",
+          "-B",
+          "scripts/review_source.py",
+          "check"
+        ],
+        "exit_code": 0,
+        "seconds": 1.561
+      }
+    ]
+  },
+  "distinct_python_tests": 2601,
+  "documentation": {
+    "local_markdown_links_checked": 637,
+    "missing": [],
+    "network_requests": 0
+  },
+  "focused_tests_overlap_full_suites": true,
+  "format": "f5-d5-offline-validation-v1",
+  "freeze": {
+    "changed_normative_inputs": [
+      "tests/test_counted_probe_evidence.py",
+      "tests/test_independent_cases.py"
+    ],
+    "current_candidate_fingerprint": "1e5c64c50596443e7235779039612fa8cac1615c80a8b3fbc793edf938e6331a",
+    "historical_candidate_fingerprint": "f0cb43f9f2792cecdb63593e3e86607b01753a205fc025e99a835fbcfcb0ca13",
+    "historical_candidate_rewritten": false,
+    "historical_matches_current": false,
+    "live_enabled": false,
+    "monetary_authority": false,
+    "reproduced_twice": true,
+    "source_inputs": 121,
+    "status": "candidate_not_owner_approved",
+    "version": "f5-d5-freeze-verification-v1",
+    "versioned_schema": "evaluation-configuration-freeze-v5"
+  },
+  "frontend_build": {
+    "assets": {
+      "web/dist/assets/app.css": "c2cbeb587dfe74cb1fa50c35b3eaf38c1f63588e08ad3976b86dc0294902c3e5",
+      "web/dist/assets/app.js": "54ecc92552dd017e4e32e3148b7f442cbc455eb5faa4d4f941fbea542bc1a1f7",
+      "web/dist/index.html": "5e8c0834c6a2ef11791cde7152240f053657d2f61af7ebdaa58901b65f22751c"
+    },
+    "format": "f5-d5-fresh-frontend-build-v1",
+    "historical_image_assets_not_used_for_build": true,
+    "independent_clean_worktree_build_identical": true,
+    "inputs": {
+      "web/index.html": "5e8c0834c6a2ef11791cde7152240f053657d2f61af7ebdaa58901b65f22751c",
+      "web/package-lock.json": "cc7282b0a959a2724d73267c22a679005e2d0dde040e58b2c32a9d75185d3ccf",
+      "web/package.json": "7252dfbc9388d3512fd24a73d9c48ab82c3b8d17e4411ea2d5d31e214836cad4",
+      "web/scripts/build.mjs": "548d486cc00e722068aa4ff492319fdc266c3a13e950fd301cefb6f023023a53",
+      "web/src/App.tsx": "2e7ba212ddacda9b7b9b0bc563f045670b46d5f024141834d61cda400d3e92d6",
+      "web/src/CompletionPanel.tsx": "1e3658b5e2b170c392829b020214f249a84932ed8cee5f9e841c53fed75289e2",
+      "web/src/api.generated.ts": "38809e74d9b2064dd06b2efe91ef66c4509243d77ccd0ad6c20db2a4c5e78fad",
+      "web/src/api.ts": "505c6936b5341885c9742ab2b7b5d9ad5fa531ad6b1acaf1ca87c2b1897dbd5c",
+      "web/src/contract-check.ts": "8a9efbc5ab8c179c2bbfd6c698141ce3133d46fdbbde04efca31488df232842d",
+      "web/src/main.tsx": "fb2e13a114438843deef8718d9786e11ce1e3af2fba02234fdc413417961f719",
+      "web/src/sse.ts": "bc932c5417bf3d1e4b790122b603a2e1f5a900c27b672a93ac54ee47f0f67afd",
+      "web/src/styles.css": "990d38a84b11ceca55fe940dea5c157632cfbc08d72d40d39cf6e1b6bdea04d9",
+      "web/src/validators.generated.d.ts": "6fbc607e13397665fb5d9d0f658da4c7126363aeb6d08fbf3cc7d872f6e746cc",
+      "web/src/validators.generated.js": "9a4cc9ddcde56dfba2079e49495dcd4953529225ff2e1feadb6250f8b48ff154"
+    },
+    "lifecycle_scripts_disabled": true,
+    "pinned_install_offline": true
+  },
+  "initial_failures": [
+    {
+      "check": "TypeScript initial check",
+      "resolution": "added matching browser-support.d.mts declaration; final check passes",
+      "result": "missing declaration for new evidence helper"
+    },
+    {
+      "check": "first detached cold-target command",
+      "passed": 76,
+      "reason": "pytest --basetemp under absent .cache parent",
+      "resolution": "retained failed XML/log; reran with external pytest temp parent; second empty-checkout combined run passed all 130",
+      "setup_errors": 2
+    }
+  ],
+  "no_publication_authorization": true,
+  "not_executed": [
+    "hosted CI or new Linux full Python suite",
+    "new container image build",
+    "fresh Python dependency download/install",
+    "separate isolated Langfuse SDK or Terraform suites",
+    "real-provider, monetary, genuine-case or independent-human evaluation"
+  ],
+  "original_preservation": {
+    "git_status_byte_identical": true,
+    "initial_comparison_error": "Used --untracked-files=all against a default-untracked baseline; same-flags comparison matches.",
+    "private_records_inspected": false,
+    "public_files_byte_identical": 593,
+    "status_comparison_flags": "--porcelain=v1 -z"
+  },
+  "publication_safety": {
+    "historical_screenshots_byte_identical": 58,
+    "limitations": "Pattern scan is not complete secret, rights or pixel clearance; no protected records accessed.",
+    "nine_exclusions_absent": true,
+    "pattern_match_files": {
+      "aws_access_key": [],
+      "home_path": [],
+      "private_key": [],
+      "provider_key": []
+    },
+    "png_sensitive_metadata_files": [],
+    "prohibited_tracked_files": [],
+    "tracked_files_checked": 599
+  },
+  "release_drill": {
+    "command": [
+      "python",
+      "-B",
+      "scripts/check_release.py"
+    ],
+    "exit_code": 0,
+    "images": "existing_cached_runtime_source_verified_f5_d1_and_baseline",
+    "new_image_build": false,
+    "seconds": 92.659,
+    "test_volumes_retained": true
+  },
+  "source_changes": {
+    "tests/test_counted_probe_evidence.py": "4f0b8a952fc7642614dae9522744dbd1027338c697435793f237f137e7048e65",
+    "tests/test_independent_cases.py": "e29fa776f79d4c450d82a4afac43ffd6d323b8f91f3521346b01a9d33eabff35",
+    "web/scripts/browser-smoke.mjs": "f88dcdb629d2b04a18559e3e22bd96cc688c2dd5e6b196cddf7ac7b34898a48a",
+    "web/scripts/browser-support.d.mts": "a6e33f8bd82ef5c6cf814586bb77627bf725c88f900c790e99409dc4d5bc664a",
+    "web/scripts/browser-support.mjs": "987666be6e93f66dfcb8bd1a9701b7bd3caa237698c138fde145f2b7c03afcad",
+    "web/tests/browser-support.test.ts": "ad53d0a27b073fb0e32c8c9865d72c4618e7d324179a521375bea06a08a72413"
+  },
+  "toolchain": {
+    "chrome": "156.0.8078.48",
+    "frontend_dependencies": {
+      "@types/jsdom": "30.0.0",
+      "@types/node": "24.19.2",
+      "@types/react": "19.3.0",
+      "@types/react-dom": "19.3.0",
+      "ajv": "8.20.0",
+      "esbuild": "0.28.2",
+      "jsdom": "30.1.3",
+      "openapi-typescript": "7.13.0",
+      "prettier": "3.9.10",
+      "react": "19.3.1",
+      "react-dom": "19.3.1",
+      "typescript": "5.9.3"
+    },
+    "node": "v24.22.1",
+    "npm": "11.19.1",
+    "python": "3.14.9",
+    "ruff": "ruff 0.17.2"
+  }
+}

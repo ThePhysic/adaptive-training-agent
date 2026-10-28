@@ -7,6 +7,10 @@ export const browserBudgets: Readonly<{
   cleanup: number;
   shutdown: number;
 }>;
+export function createBrowserEvidence(
+  root: string,
+  runId: string,
+): Promise<string>;
 export function resourceSnapshot(): object;
 export type Diagnostics = {
   add(

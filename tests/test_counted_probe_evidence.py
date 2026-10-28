@@ -25,6 +25,29 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 @pytest.fixture
+def artifact_directory():
+    from uuid import uuid4
+
+    directory = ROOT / ".cache/f3-e1" / ("synthetic-test-" + uuid4().hex)
+    directory.mkdir(mode=0o700, parents=True)
+    return directory
+
+
+def test_artifact_scratch_setup_is_cold_and_exclusive(tmp_path, monkeypatch):
+    monkeypatch.setitem(globals(), "ROOT", tmp_path)
+    assert not (tmp_path / ".cache").exists()
+    first = artifact_directory.__wrapped__()
+    marker = first / "attempt.claim"
+    marker.write_bytes(b"retained-first-attempt")
+    second = artifact_directory.__wrapped__()
+    assert first != second and second.is_dir()
+    assert marker.read_bytes() == b"retained-first-attempt"
+    with pytest.raises(FileExistsError):
+        marker.open("xb")
+    assert not list(second.iterdir())
+
+
+@pytest.fixture
 def evidence():
     spec = importlib.util.spec_from_file_location(
         "counted_probe_evidence", ROOT / "experiments/counted_probe.py"
@@ -62,7 +85,7 @@ async def execute(evidence, rig, values, *, count=1000):
 @pytest.mark.parametrize("repair", [False, True])
 @pytest.mark.parametrize("tls", [False, True])
 async def test_real_counted_probe_common_score_and_read_only_liabilities(
-    evidence, rig, certs, repair, tls
+    evidence, rig, certs, repair, tls, artifact_directory
 ):
     ledger, ctl, _ = rig
     await ledger.simulate()
@@ -123,9 +146,7 @@ async def test_real_counted_probe_common_score_and_read_only_liabilities(
     if not tls:
         from uuid import uuid4
 
-        path = (
-            ROOT / ".cache/f3-e1" / (("repair-" if repair else "success-") + uuid4().hex + ".json")
-        )
+        path = artifact_directory / (("repair-" if repair else "success-") + uuid4().hex + ".json")
         adapter.persist(path)
 
 
@@ -218,7 +239,9 @@ async def test_failed_accounting_read_is_unknown_not_zero(evidence, rig, monkeyp
     assert "PRIVATE_CANARY" not in json.dumps(packet)
 
 
-async def test_cancelled_probe_drains_and_keeps_uncertain_sent_count(evidence, rig):
+async def test_cancelled_probe_drains_and_keeps_uncertain_sent_count(
+    evidence, rig, artifact_directory
+):
     ledger, _, _ = rig
     await ledger.simulate()
     entered, drained = asyncio.Event(), asyncio.Event()
@@ -249,7 +272,7 @@ async def test_cancelled_probe_drains_and_keeps_uncertain_sent_count(evidence, r
 
     from uuid import uuid4
 
-    adapter.persist(ROOT / ".cache/f3-e1" / ("cancelled-" + uuid4().hex + ".json"))
+    adapter.persist(artifact_directory / ("cancelled-" + uuid4().hex + ".json"))
 
 
 async def test_shared_sinks_never_acquire_private_fixture_bindings_or_native_state(
@@ -294,9 +317,11 @@ async def test_packet_consistency_and_provenance_cannot_be_upgraded(evidence, ri
 
 
 @pytest.mark.parametrize("fault", ["partial", "fsync"])
-async def test_partial_artifact_never_replays_or_overwrites(evidence, rig, monkeypatch, fault):
+async def test_partial_artifact_never_replays_or_overwrites(
+    evidence, rig, monkeypatch, fault, artifact_directory
+):
     adapter, _, backend = await execute(evidence, rig, [fixture("tool"), fixture()])
-    path = ROOT / ".cache/f3-e1/partial-artifact.json"
+    path = artifact_directory / "partial-artifact.json"
     # Unique test artifact; never touch any historical attempt or evidence path.
     from uuid import uuid4
 
