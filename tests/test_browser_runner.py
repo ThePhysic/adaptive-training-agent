@@ -351,24 +351,33 @@ def test_native_python_version_failure_keeps_ownership_and_capture_limits(
     tmp_path, monkeypatch, fault
 ):
     marker = tmp_path / "owned-process.json"
+    executable = sys._base_executable if os.name == "nt" else sys.executable
+    assert executable and Path(executable).is_file()
     program = (
         "import os,time,pathlib; "
         f"pathlib.Path({str(marker)!r}).write_text(str(os.getpid())); "
         + ("print('private-canary'*2000,flush=True)" if fault == "overflow" else "time.sleep(60)")
     )
     if fault == "interruption":
+        assert not marker.exists()
 
         def interrupt(process, input, timeout):
             end = time.monotonic() + 5
-            while not marker.exists() and time.monotonic() < end:
+            while time.monotonic() < end:
+                try:
+                    if marker.read_text(encoding="ascii") == str(process.pid):
+                        break
+                except FileNotFoundError:
+                    pass
                 Event().wait(0.01)
-            assert marker.exists()
+            else:
+                pytest.fail("Owned process did not publish its complete PID before interruption")
             raise KeyboardInterrupt()
 
         monkeypatch.setattr(subprocess.Popen, "communicate", interrupt)
     try:
         result = browser_runner.owned_process(
-            [sys.executable, "-B", "-c", program],
+            [executable, "-B", "-c", program],
             cwd=tmp_path,
             env=dict(os.environ),
             timeout=1 if fault == "timeout" else 5,

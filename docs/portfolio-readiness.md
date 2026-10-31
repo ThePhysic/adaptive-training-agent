@@ -2,8 +2,9 @@
 
 This is the curated, source-only portfolio repository. The original development
 repository, its private records and complete history are preserved separately.
-The current summary incorporates accepted F5-D5/F5-D10 engineering evidence and
-the reviewed F5-D11 assessment; F5-D12 is the bounded documentation update.
+The current summary retains accepted F5-D5/F5-D10 engineering evidence and the
+reviewed F5-D11 assessment, and records completed F5-D12 hosted verification and
+F5-D13 public source publication.
 Earlier [publication findings](implementation/f5-d2-publication-safety.md) and
 `RELEASE-CANDIDATE.md`/`_release/` records describe their dated milestones, not
 unresolved current defects. Historical reports and evidence remain unchanged.
@@ -16,11 +17,11 @@ unresolved current defects. Historical reports and evidence remain unchanged.
 | Validated offline | Cancellation, idempotency/reconciliation, dependency recovery, release and restore | Controlled regressions and F5-D10 actual container drill; single process, synthetic data |
 | Validated synthetic experiment | Counted replay, retained failures/holds, common scorer and dummy review | E9/E10 and native tests; no genuine model/human quality or provider-billing claim |
 | Clean-checkout validation passed | Test-owned scratch setup, pinned dependency installation, fresh frontend build and isolated browser evidence | Accepted F5-D5; F5-D10 independently executed a fresh hosted checkout and all mandatory phases |
-| Curated source prepared and uploaded privately | Fresh curated Git history; preserved original repository; reviewed exclusions retained | F5-D11 reviewed all four commits through a74e10c41fca740770428f4fdcff9b9f83c7c5bf; no confirmed sensitive disclosure identified |
+| Curated source published at F5-D13 | Reviewed five-commit history; original engineering repository and exclusions preserved separately | Public source revision `e6e2710f70a01b794e4073e7a980b43e7026a6bf`; earlier F5-D11 findings remain historical |
 | MIT committed | Project-owned source, copyright 2026 ThePhysic | [LICENSE](../LICENSE) is committed; [third-party notices](../THIRD_PARTY_NOTICES.md) retain their own terms |
-| Owner affirmation recorded | Necessary rights and reviewed nonsecret historical context | Owner affirms no known employer/collaborator/coursework/third-party restriction and accepts reviewed identity/operational/curator context and both existing Actions histories; owner-supplied, not independent legal verification |
-| Hosted CI accepted at F5-D10 | Browser, native integration, frontend, frozen guard, SDK and release/restore | [Exact source/run evidence](engineering-evidence.md#accepted-f5-d10-hosted-verification); all mandatory phases passed, job 6m31s |
-| Separate final decision | Public repository visibility | Owner must approve the exact final source revision and visibility action after review; no public publication occurs through this documentation change |
+| Owner affirmation recorded at F5-D11 | Necessary rights and reviewed nonsecret historical context | Owner affirms no known employer/collaborator/coursework/third-party restriction and accepts reviewed identity/operational/curator context and both existing Actions histories; owner-supplied, not independent legal verification |
+| Hosted CI passed at F5-D12 | All mandatory phases completed for `e6e2710f70a01b794e4073e7a980b43e7026a6bf` | [Run 40774338756](https://github.com/ThePhysic/adaptive-training-agent/actions/runs/40774338756); [F5-D10 counts and timing](engineering-evidence.md#accepted-f5-d10-hosted-verification) remain separate historical evidence |
+| Public visibility completed at F5-D13 | Source-only portfolio release at the reviewed revision | Owner approved the exact five-commit release and its three existing Actions histories; subsequent changes and execution require separate scope |
 | Optional polish | Narrated video, repository description/topics, badge | Existing storyboard and reviewed synthetic screenshots are sufficient; any recording/upload/metadata edit needs its own scope |
 
 The source-only review found no technical requirement to activate a provider,
@@ -86,4 +87,5 @@ ignored per-run outputs, not updates to accepted historical PNGs. Dependencies a
 images require first-time acquisition; no air-gapped installation is claimed.
 Keep test/demo data disposable and retain existing user volumes. No additional
 engineering milestone is needed without a concrete defect or separately chosen
-scope. Public visibility remains the next exact owner decision after review.
+scope. Source-only public publication is complete at the reviewed revision;
+further changes, hosted execution and runtime distribution remain separately gated.
